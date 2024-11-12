@@ -92,16 +92,17 @@ function formatTribe(tribe) {
 async function loadAssets(cardData) {
     const assets = {};
     const promises = [];
+    const basePath = '/chaotic-react';
 
     // Template
     if (cardData.type) {
         let templatePath;
         if (cardData.type === 'creature' && cardData.tribe) {
-            templatePath = `/img/template/${cardData.tribe.toLowerCase()}.png`;
+            templatePath = `${basePath}/img/template/${cardData.tribe.toLowerCase()}.png`;
         } else if (cardData.type === 'mugic' && cardData.tribe) {
-            templatePath = `/img/template/mugic/${cardData.tribe.toLowerCase()}.png`;
+            templatePath = `${basePath}/img/template/mugic/${cardData.tribe.toLowerCase()}.png`;
         } else {
-            templatePath = `/img/template/${cardData.type.toLowerCase()}.png`;
+            templatePath = `${basePath}/img/template/${cardData.type.toLowerCase()}.png`;
         }
         
         promises.push(loadAsset('template', templatePath)
@@ -110,26 +111,26 @@ async function loadAssets(cardData) {
 
     // Set symbol
     if (cardData.set && cardData.rarity) {
-        promises.push(loadAsset('symbol', `/img/set/${cardData.set.toLowerCase()}/${cardData.rarity.toLowerCase()}.png`)
+        promises.push(loadAsset('symbol', `${basePath}/img/set/${cardData.set.toLowerCase()}/${cardData.rarity.toLowerCase()}.png`)
             .then(img => assets.symbol = img));
     }
 
     // Elements for creatures
     if (cardData.type === 'creature') {
         if (cardData.elements?.fire) {
-            promises.push(loadAsset('firecreature', '/img/firecreature.png')
+            promises.push(loadAsset('firecreature', `${basePath}/img/firecreature.png`)
                 .then(img => assets.firecreature = img));
         }
         if (cardData.elements?.air) {
-            promises.push(loadAsset('aircreature', '/img/aircreature.png')
+            promises.push(loadAsset('aircreature', `${basePath}/img/aircreature.png`)
                 .then(img => assets.aircreature = img));
         }
         if (cardData.elements?.earth) {
-            promises.push(loadAsset('earthcreature', '/img/earthcreature.png')
+            promises.push(loadAsset('earthcreature', `${basePath}/img/earthcreature.png`)
                 .then(img => assets.earthcreature = img));
         }
         if (cardData.elements?.water) {
-            promises.push(loadAsset('watercreature', '/img/watercreature.png')
+            promises.push(loadAsset('watercreature', `${basePath}/img/watercreature.png`)
                 .then(img => assets.watercreature = img));
         }
     }
