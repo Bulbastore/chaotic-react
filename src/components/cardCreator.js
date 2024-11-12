@@ -386,7 +386,7 @@ fillText(spacedCode, 54, 332);
 setFont(5, 'Eurostile Cond Heavy Italic');
 ctx.fillStyle = '#FFFFFF';
 ctx.letterSpacing = "0.3px";
-fillText(`${cardData.serialNumber || '--/100'}    ©2024 4Kids and Chaotic USA. Chaotic® Home Focus.`, 47, 340);
+fillText(`${cardData.serialNumber || '--/100'}    ©2024 4Kids and Chaotic USA. Chaotic® Home Focus.`, 50, 350);
 ctx.letterSpacing = "0px";
 
     // Draw artist name
