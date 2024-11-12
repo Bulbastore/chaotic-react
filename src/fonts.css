@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'Eurostile Extd Black';
+    src: local('Eurostile Extd Black'),
+         url('./fonts/Eurostile Extd Black.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Eurostile Cond Heavy Italic';
+    src: local('Eurostile Cond Heavy Italic'),
+         url('./fonts/Eurostile Cond Heavy Italic.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Eurostile Heavy Italic';
+    src: local('Eurostile Heavy Italic'),
+         url('./fonts/Eurostile Heavy Italic.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Eurostile Heavy';
+    src: local('Eurostile Heavy'),
+         url('./fonts/Eurostile Heavy.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Arial Narrow Italic';
+    src: local('Arial Narrow Italic'),
+         url('./fonts/arial-narrow-italic.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Arial Bold';
+    src: local('Arial Bold'),
+         url('./fonts/Arial Bold.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Arial Black';
+    src: local('Arial Black'),
+         url('./fonts/arial_black.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Century Gothic Bold';
+    src: local('Century Gothic Bold'),
+         url('./fonts/century-gothic-bold.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Eurostile Medium';
+    src: local('Eurostile Medium'),
+         url('./fonts/Eurostile%20Medium.ttf') format('truetype');
+    font-display: swap;
+}
