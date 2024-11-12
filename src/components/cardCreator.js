@@ -1,4 +1,5 @@
 // src/utils/cardCreator.js
+import { getAssetPath } from './assetPaths';
 
 const CardCreator = {
     async createCard(cardData) {
@@ -92,17 +93,16 @@ function formatTribe(tribe) {
 async function loadAssets(cardData) {
     const assets = {};
     const promises = [];
-    const basePath = window.location.hostname === 'bulbastore.github.io' ? '/chaotic-react' : '';
 
     // Template
     if (cardData.type) {
         let templatePath;
         if (cardData.type === 'creature' && cardData.tribe) {
-            templatePath = `${basePath}/img/template/${cardData.tribe.toLowerCase()}.png`;
+            templatePath = getAssetPath(`img/template/${cardData.tribe.toLowerCase()}.png`);
         } else if (cardData.type === 'mugic' && cardData.tribe) {
-            templatePath = `${basePath}/img/template/mugic/${cardData.tribe.toLowerCase()}.png`;
+            templatePath = getAssetPath(`img/template/mugic/${cardData.tribe.toLowerCase()}.png`);
         } else {
-            templatePath = `${basePath}/img/template/${cardData.type.toLowerCase()}.png`;
+            templatePath = getAssetPath(`img/template/${cardData.type.toLowerCase()}.png`);
         }
         
         promises.push(loadAsset('template', templatePath)
@@ -111,31 +111,32 @@ async function loadAssets(cardData) {
 
     // Set symbol
     if (cardData.set && cardData.rarity) {
-        promises.push(loadAsset('symbol', `${basePath}/img/set/${cardData.set.toLowerCase()}/${cardData.rarity.toLowerCase()}.png`)
-            .then(img => assets.symbol = img));
+        promises.push(loadAsset('symbol', 
+            getAssetPath(`img/set/${cardData.set.toLowerCase()}/${cardData.rarity.toLowerCase()}.png`)
+        ).then(img => assets.symbol = img));
     }
 
     // Elements for creatures
     if (cardData.type === 'creature') {
         if (cardData.elements?.fire) {
-            promises.push(loadAsset('firecreature', `${basePath}/img/firecreature.png`)
+            promises.push(loadAsset('firecreature', getAssetPath('img/firecreature.png'))
                 .then(img => assets.firecreature = img));
         }
         if (cardData.elements?.air) {
-            promises.push(loadAsset('aircreature', `${basePath}/img/aircreature.png`)
+            promises.push(loadAsset('aircreature', getAssetPath('img/aircreature.png'))
                 .then(img => assets.aircreature = img));
         }
         if (cardData.elements?.earth) {
-            promises.push(loadAsset('earthcreature', `${basePath}/img/earthcreature.png`)
+            promises.push(loadAsset('earthcreature', getAssetPath('img/earthcreature.png'))
                 .then(img => assets.earthcreature = img));
         }
         if (cardData.elements?.water) {
-            promises.push(loadAsset('watercreature', `${basePath}/img/watercreature.png`)
+            promises.push(loadAsset('watercreature', getAssetPath('img/watercreature.png'))
                 .then(img => assets.watercreature = img));
         }
     }
 
-    // Art
+    // Art remains the same since it's uploaded by user
     if (cardData.art) {
         promises.push(
             new Promise((resolve) => {
@@ -153,7 +154,13 @@ async function loadAssets(cardData) {
         );
     }
 
-    await Promise.all(promises);
+    try {
+        await Promise.all(promises);
+    } catch (error) {
+        console.error('Error loading assets:', error);
+        // You might want to show an error message to the user here
+    }
+
     return assets;
 }
 
