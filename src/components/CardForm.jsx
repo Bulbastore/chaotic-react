@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import CardPreview from './CardPreview';
 import { CardCreator } from './cardCreator';
+import { getAssetPath } from './assetPaths';
 
 // Helper function for tick marks
 const generateTicks = (min, max, type) => {
@@ -110,20 +111,20 @@ const SelectField = ({ label, options, ...props }) => (
 );
 const ELEMENT_ICONS = {
     fire: {
-        path: '/img/icon/fire.png',
-        overlay: '/img/firecreature.png'
+        path: getAssetPath('img/icon/fire.png'),
+        overlay: getAssetPath('img/firecreature.png')
     },
     air: {
-        path: '/img/icon/air.png',
-        overlay: '/img/aircreature.png'
+        path: getAssetPath('img/icon/air.png'),
+        overlay: getAssetPath('img/aircreature.png')
     },
     earth: {
-        path: '/img/icon/earth.png',
-        overlay: '/img/earthcreature.png'
+        path: getAssetPath('img/icon/earth.png'),
+        overlay: getAssetPath('img/earthcreature.png')
     },
     water: {
-        path: '/img/icon/water.png',
-        overlay: '/img/watercreature.png'
+        path: getAssetPath('img/icon/water.png'),
+        overlay: getAssetPath('img/watercreature.png')
     }
 };
 

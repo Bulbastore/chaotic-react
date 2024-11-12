@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { CardCreator } from './cardCreator';
+import { getAssetPath } from './assetPaths';
 
 const CardPreview = ({ cardData }) => {
   const containerRef = useRef(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -11,6 +13,9 @@ const CardPreview = ({ cardData }) => {
     let mounted = true;
 
     const updatePreview = async () => {
+      // Reset error state on new update
+      setError(null);
+
       // Don't clear the container immediately - wait until we have new content
       if (!cardData.selectedType) {
         container.innerHTML = '';
@@ -69,16 +74,12 @@ const CardPreview = ({ cardData }) => {
           canvas.style.display = 'block';
           canvas.style.margin = '0 auto';
 
-          // Only update the container if the content is different
-          if (container.innerHTML === '' || !container.firstChild || container.firstChild.id !== 'preview-canvas') {
-            container.innerHTML = '';
-            container.appendChild(canvas);
-          } else {
-            container.replaceChild(canvas, container.firstChild);
-          }
+          container.innerHTML = '';
+          container.appendChild(canvas);
         }
       } catch (error) {
         console.error('Error creating card:', error);
+        setError(`Error loading preview: ${error.message}`);
       }
     };
 
@@ -90,6 +91,16 @@ const CardPreview = ({ cardData }) => {
   }, [cardData]);
 
   const getMessage = () => {
+    if (error) {
+      return (
+        <div className="text-red-400 text-center p-8 border-2 border-dashed border-red-700 rounded-lg">
+          <div className="text-xl mb-2">Error Loading Preview</div>
+          <div className="text-sm">{error}</div>
+          <div className="text-xs mt-2">Check console for more details</div>
+        </div>
+      );
+    }
+
     if (!cardData.selectedType) {
       return (
         <div className="text-gray-400 text-center p-8 border-2 border-dashed border-gray-700 rounded-lg">

@@ -165,10 +165,27 @@ async function loadAssets(cardData) {
 }
 
 async function loadAsset(key, path) {
+    console.log(`Loading asset: ${key} from path: ${path}`);
     return new Promise((resolve, reject) => {
         const img = new Image();
-        img.onload = () => resolve(img);
-        img.onerror = reject;
+        
+        img.onload = () => {
+            console.log(`Successfully loaded: ${key} from ${path}`);
+            resolve(img);
+        };
+        
+        img.onerror = (error) => {
+            console.error(`Failed to load ${key} from ${path}`, error);
+            // Try without the leading slash as a fallback
+            if (path.startsWith('/')) {
+                const altPath = path.substring(1);
+                console.log(`Attempting alternate path: ${altPath}`);
+                img.src = altPath;
+            } else {
+                reject(new Error(`Failed to load ${key} image from ${path}`));
+            }
+        };
+        
         img.src = path;
     });
 }
