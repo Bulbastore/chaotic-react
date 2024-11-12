@@ -92,7 +92,7 @@ function formatTribe(tribe) {
 async function loadAssets(cardData) {
     const assets = {};
     const promises = [];
-    const basePath = '/chaotic-react';
+    const basePath = window.location.hostname === 'bulbastore.github.io' ? '/chaotic-react' : '';
 
     // Template
     if (cardData.type) {
