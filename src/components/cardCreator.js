@@ -1,4 +1,4 @@
-// src/utils/cardCreator.js
+// src/components/cardCreator.js
 import { getAssetPath } from './assetPaths';
 
 const CardCreator = {
@@ -203,7 +203,7 @@ function drawCard(cardData, assets) {
         } else if (cardData.type === 'mugic') {
             drawImage(assets.art, 0, 0, assets.art.width, assets.art.height, 0, 0, width, height);
         } else {
-            drawImage(assets.art, 0, 0, assets.art.width, assets.art.height, 10.26, 25.3, 228.94, 191.9);
+            drawImage(assets.art, 0, 0, assets.art.width, assets.art.height, 9, 22, 235.81, 197.66);
         }
     }
 
@@ -380,13 +380,13 @@ const spacedCode = cardCode.split('').map((char, i) =>
 setFont(8, 'Century Gothic Bold');
 ctx.fillStyle = '#000000';
 ctx.textAlign = 'left';
-fillText(spacedCode, 54, 332);
+fillText(spacedCode, 62, 333);
 
     // Draw copywrite info
 setFont(5, 'Eurostile Cond Heavy Italic');
 ctx.fillStyle = '#FFFFFF';
 ctx.letterSpacing = "0.3px";
-fillText(`${cardData.serialNumber || '--/100'}    ©2024 4Kids and Chaotic USA. Chaotic® Home Focus.`, 50, 350);
+fillText(`${cardData.serialNumber || '--/100'}    ©2024 4Kids and Chaotic USA. Chaotic® Home Focus.`, 49, 344);
 ctx.letterSpacing = "0px";
 
     // Draw artist name
@@ -395,7 +395,7 @@ if (cardData.artist) {
     setFont(5, 'Eurostile Cond Heavy Italic');
     ctx.fillStyle = '#FFFFFF';
     ctx.letterSpacing = "0.3px";
-    ctx.translate(487, 250);
+    ctx.translate(485, 250);
     ctx.rotate(-Math.PI / 2);
     ctx.textAlign = 'center';
     fillText(`Art by ${cardData.artist}`, 0, 0);
@@ -422,7 +422,7 @@ function drawCreature(cardData) {
     ctx.textAlign = 'left';
 
     if (cardData.stats.mugic) {
-        fillText(cardData.stats.mugic.toString(), 18, 334);
+        fillText(cardData.stats.mugic.toString(), 17, 336);
     }
 
     // Energy stat
@@ -430,7 +430,7 @@ function drawCreature(cardData) {
     ctx.textAlign = 'center';
     
     if (cardData.stats.energy) {
-        fillText(cardData.stats.energy.toString(), 216, 336);
+        fillText(cardData.stats.energy.toString(), 219, 335);
     }
 
     setFont(8, 'Arial Bold');
@@ -446,7 +446,7 @@ function drawCreature(cardData) {
 
     stats.forEach(({ key, y }) => {
         if (cardData.stats[key]) {
-            fillText(cardData.stats[key].toString(), 33, y);
+            fillText(cardData.stats[key].toString(), 37, y);
         }
     });
 }

@@ -3,6 +3,68 @@ import CardPreview from './CardPreview';
 import { CardCreator } from './cardCreator';
 import { getAssetPath } from './assetPaths';
 
+const CARD_SYMBOLS = [
+  // Ability elements
+  { code: ':fire:', label: 'Fire', icon: getAssetPath('img/icons/abilityfire.png') },
+  { code: ':air:', label: 'Air', icon: getAssetPath('img/icons/abilityair.png') },
+  { code: ':earth:', label: 'Earth', icon: getAssetPath('img/icons/abilityearth.png') },
+  { code: ':water:', label: 'Water', icon: getAssetPath('img/icons/abilitywater.png') },
+  
+  // Mugic icons - Danian
+  { code: ':danianmugic:', label: 'Danian Mugic', icon: getAssetPath('img/icons/mugic/danian.png') },
+  { code: ':danianmugic0:', label: 'Danian Mugic 0', icon: getAssetPath('img/icons/mugic/danian_0.png') },
+  { code: ':danianmugicX:', label: 'Danian Mugic X', icon: getAssetPath('img/icons/mugic/danian_x.png') },
+  
+  // Mugic icons - Generic
+  { code: ':genericmugic:', label: 'Generic Mugic', icon: getAssetPath('img/icons/mugic/generic.png') },
+  { code: ':genericmugic0:', label: 'Generic Mugic 0', icon: getAssetPath('img/icons/mugic/generic_0.png') },
+  { code: ':genericmugicX:', label: 'Generic Mugic X', icon: getAssetPath('img/icons/mugic/generic_x.png') },
+  
+  // Mugic icons - M'arrillian
+  { code: ':marrillianmugic:', label: "M'arrillian Mugic", icon: getAssetPath('img/icons/mugic/m\'arrillian.png') },
+  { code: ':marrillianmugic0:', label: "M'arrillian Mugic 0", icon: getAssetPath('img/icons/mugic/marrillian.png') },
+  { code: ':marrillianmugicX:', label: "M'arrillian Mugic X", icon: getAssetPath('img/icons/mugic/marrillian_x.png') },
+  
+  // Mugic icons - Mipedian
+  { code: ':mipedianmugic:', label: 'Mipedian Mugic', icon: getAssetPath('img/icons/mugic/mipedian.png') },
+  { code: ':mipedianmugic0:', label: 'Mipedian Mugic 0', icon: getAssetPath('img/icons/mugic/mipedian_0.png') },
+  { code: ':mipedianmugicX:', label: 'Mipedian Mugic X', icon: getAssetPath('img/icons/mugic/mipedian_x.png') },
+  
+  // Mugic icons - OverWorld
+  { code: ':overworldmugic:', label: 'OverWorld Mugic', icon: getAssetPath('img/icons/mugic/overworld.png') },
+  { code: ':overworldmugic0:', label: 'OverWorld Mugic 0', icon: getAssetPath('img/icons/mugic/overworld_0.png') },
+  { code: ':overworldmugicX:', label: 'OverWorld Mugic X', icon: getAssetPath('img/icons/mugic/overworld_x.png') },
+  
+  // Mugic icons - UnderWorld
+  { code: ':underworldmugic:', label: 'UnderWorld Mugic', icon: getAssetPath('img/icons/mugic/underworld.png') },
+  { code: ':underworldmugic0:', label: 'UnderWorld Mugic 0', icon: getAssetPath('img/icons/mugic/underworld_0.png') },
+  { code: ':underworldmugicX:', label: 'UnderWorld Mugic X', icon: getAssetPath('img/icons/mugic/underworld_x.png') }
+];
+
+const SymbolBar = ({ onSymbolSelect }) => {
+  return (
+    <div className="flex flex-wrap gap-2 p-2 bg-gray-900 rounded-t border-b border-gray-700">
+      {CARD_SYMBOLS.map(({ code, label, icon }) => (
+        <button
+          key={code}
+          onClick={() => onSymbolSelect(code)}
+          className="hover:bg-gray-800 rounded p-1 transition-colors group relative"
+          title={`Insert ${label}`}
+        >
+          <img 
+            src={icon} 
+            alt={label}
+            className="h-6 object-contain"
+          />
+          <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            {label}
+          </span>
+        </button>
+      ))}
+    </div>
+  );
+};
+
 // Helper function for tick marks
 const generateTicks = (min, max, type) => {
   switch(type) {
