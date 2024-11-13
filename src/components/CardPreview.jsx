@@ -126,7 +126,7 @@ const CardPreview = ({ cardData }) => {
 
   return (
     <div 
-      className="bg-gradient-to-b from-gray-800 to-black rounded-lg shadow-xl flex items-center justify-center"
+      className="bg-gradient-to-b to-black rounded-lg shadow-xl flex items-center justify-center"
       style={{ 
         position: 'sticky', 
         top: '24px',

@@ -42,31 +42,47 @@ const SYMBOL_MAPPINGS = {
 
 // Add the drawTextWithSymbols function
 async function drawTextWithSymbols(text, x, y, fontSize) {
-    const words = text.split(' ');
-    let currentX = x * scale;
-    const symbolHeight = fontSize * scale;
-    
-    for (const word of words) {
-        const symbolInfo = SYMBOL_MAPPINGS[word];
-        
-        if (symbolInfo) {
-            const img = await loadAsset(word, getAssetPath(symbolInfo.img));
-            const aspectRatio = img.width / img.height;
-            const symbolWidth = symbolHeight * aspectRatio;
-            
-            ctx.drawImage(
-                img,
-                currentX,
-                (y - fontSize/2) * scale,
-                symbolWidth,
-                symbolHeight
-            );
-            currentX += symbolWidth + (ctx.measureText(' ').width * scale);
-        } else {
-            ctx.fillText(word, currentX, y * scale);
-            currentX += ctx.measureText(word + ' ').width * scale;
-        }
+  const words = text.split(' ');
+  let currentX = x * scale;
+  const symbolHeight = fontSize * scale;
+
+  for (const word of words) {
+    const symbolInfo = SYMBOL_MAPPINGS[word];
+
+    if (symbolInfo) {
+      const img = await loadAsset(word, getAssetPath(symbolInfo.img));
+      const aspectRatio = img.width / img.height;
+      const symbolWidth = symbolHeight * aspectRatio;
+
+      // Align bottom of symbol with text baseline
+      const symbolY = (y * scale) - symbolHeight + (fontSize * 0.2 * scale);
+
+      ctx.drawImage(
+        img,
+        currentX,
+        symbolY,
+        symbolWidth,
+        symbolHeight
+      );
+      currentX += symbolWidth + (fontSize * 0.3 * scale); // Add smaller space after symbols
+    } else {
+      // Adjust font size dynamically
+      const maxWidth = 172;
+      const textWidth = ctx.measureText(word + ' ').width;
+      const scaledWidth = textWidth / scale;
+
+      if (scaledWidth > maxWidth) {
+        const newFontSize = (fontSize * maxWidth) / scaledWidth;
+        setFont(newFontSize, 'Eurostile Medium');
+      }
+
+      ctx.fillText(word, currentX, y * scale);
+      currentX += ctx.measureText(word + ' ').width;
+
+      // Reset font size
+      setFont(10.3, 'Eurostile Medium');
     }
+  }
 }
 
 const CardCreator = {
@@ -401,28 +417,26 @@ if (cardData.ability) {
 
 // Draw status indicators with proper spacing
 if (cardData.unique || cardData.legendary || cardData.loyal) {
-    setFont(10.3, 'Eurostile Heavy');
-    ctx.fillStyle = '#000000';
-    ctx.textAlign = 'left';
+  setFont(10.3, 'Eurostile Heavy');
+  ctx.fillStyle = '#000000';
+  ctx.textAlign = 'left';
 
-    let statusText = [];
-    if (cardData.legendary) {
-        statusText.push('Legendary');
-        if (cardData.loyal) statusText.push(', ');
-    } else if (cardData.unique) {
-        statusText.push('Unique');
-        if (cardData.loyal) statusText.push(', ');
+  let statusText = [];
+  if (cardData.legendary) {
+    statusText.push('Legendary');
+  }
+  if (cardData.unique) {
+    statusText.push('Unique');
+  }
+  if (cardData.loyal) {
+    statusText.push('Loyal');
+    if (cardData.loyalRestriction) {
+      statusText.push(` - ${cardData.loyalRestriction}`);
     }
-    
-    if (cardData.loyal) {
-        statusText.push('Loyal');
-        if (cardData.loyalRestriction) {
-            statusText.push(` - ${cardData.loyalRestriction}`);
-        }
-    }
-    
-    fillText(statusText.join(''), 43, abilityBottom);
-    abilityBottom += 16;
+  }
+
+  fillText(statusText.join(', '), 43, abilityBottom);
+  abilityBottom += 16;
 }
 
 // Draw flavor text

@@ -1,11 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import CardPreview from './CardPreview';
 import { CardCreator } from './cardCreator';
 import { getAssetPath } from './assetPaths';
-
-const handleSymbolSelect = (code) => {
-  setAbility(prev => prev + ' ' + code + ' ');
-};
 
 const CARD_SYMBOLS = [
   // Ability elements
@@ -46,25 +42,129 @@ const CARD_SYMBOLS = [
 ];
 
 const SymbolBar = ({ onSymbolSelect }) => {
+  const categories = [
+    {
+      name: "Elements",
+      symbols: CARD_SYMBOLS.slice(0, 4)
+    },
+    {
+      name: "OverWorld",
+      symbols: CARD_SYMBOLS.slice(16, 19)
+    },
+    {
+      name: "UnderWorld",
+      symbols: CARD_SYMBOLS.slice(19, 22)
+    },
+    {
+      name: "Mipedian",
+      symbols: CARD_SYMBOLS.slice(13, 16)
+    },
+    {
+      name: "Danian",
+      symbols: CARD_SYMBOLS.slice(4, 7)
+    },
+    {
+      name: "M'arrillian",
+      symbols: CARD_SYMBOLS.slice(10, 13)
+    },
+    {
+      name: "Generic",
+      symbols: CARD_SYMBOLS.slice(7, 10)
+    }
+  ];
+
   return (
-    <div className="flex flex-wrap gap-2 p-2 bg-gray-900 rounded-t border-b border-gray-700">
-      {CARD_SYMBOLS.map(({ code, label, icon }) => (
-        <button
-          key={code}
-          onClick={() => onSymbolSelect(code)}
-          className="hover:bg-gray-800 rounded p-1 transition-colors group relative"
-          title={`Insert ${label}`}
-        >
-          <img 
-            src={icon} 
-            alt={label}
-            className="h-6 object-contain"
-          />
-          <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-            {label}
-          </span>
-        </button>
-      ))}
+    <div className="bg-black rounded-t border-b border-gray-700">
+      <div className="max-h-[120px] overflow-y-auto custom-scrollbar">
+        <div className="grid grid-cols-4 gap-1 p-1">
+          {categories.map((category) => (
+            <div key={category.name} className="mb-1">
+              <div className="text-center px-1 py-0.5 text-xs text-gray-400 font-medium">
+                {category.name}
+              </div>
+              <div className="flex flex-wrap justify-center">
+                {category.symbols.map(({ code, label, icon }) => (
+                  <button
+                    key={code}
+                    onClick={() => onSymbolSelect(code)}
+                    className="p-0.5 rounded hover:bg-gray-100 transition-colors group relative"
+                  >
+                    <div className="bg-gray-100 rounded p-0.5">
+                      <img 
+                        src={icon} 
+                        alt={label}
+                        className="h-5 w-5 object-contain"
+                      />
+                    </div>
+                    <span className="hidden group-hover:block absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 text-xs bg-black text-white rounded whitespace-nowrap z-10">
+                      {code}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const TextAreaWithSymbols = ({ value, onChange }) => {
+  const textareaRef = useRef(null);
+
+  const insertSymbol = (symbolCode) => {
+    const textarea = textareaRef.current;
+    if (!textarea) return;
+
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    
+    const beforeText = value.substring(0, start);
+    const afterText = value.substring(end);
+
+    const newValue = `${beforeText}${symbolCode}${afterText}`;
+    const newCursorPos = start + symbolCode.length;
+
+    onChange(newValue);
+    
+    setTimeout(() => {
+      textarea.focus();
+      textarea.setSelectionRange(newCursorPos, newCursorPos);
+    }, 0);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === ':') {
+      const start = e.target.selectionStart;
+      const beforeText = value.substring(0, start - 1);
+      const lastColon = beforeText.lastIndexOf(':');
+      
+      if (lastColon !== -1) {
+        const potentialCode = `:${beforeText.substring(lastColon + 1)}:`;
+        const matchingSymbol = CARD_SYMBOLS.find(symbol => symbol.code === potentialCode);
+        
+        if (matchingSymbol) {
+          e.preventDefault();
+          const newValue = value.substring(0, lastColon) + potentialCode + value.substring(start);
+          onChange(newValue);
+        }
+      }
+    }
+  };
+
+  return (
+    <div className="flex flex-col rounded border border-gray-700 bg-black">
+      <textarea 
+        ref={textareaRef}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        onKeyDown={handleKeyDown}
+        className="w-full p-2 bg-black text-white h-32 focus:outline-none rounded-t leading-relaxed border-b border-gray-700" 
+        style={{ letterSpacing: 'normal' }}
+        placeholder="Type : to use symbols (e.g., :fire:)"
+      />
+      <SymbolBar onSymbolSelect={insertSymbol} />
     </div>
   );
 };
@@ -175,26 +275,15 @@ const SelectField = ({ label, options, ...props }) => (
     </select>
   </div>
 );
+
 const ELEMENT_ICONS = {
-    fire: {
-        path: getAssetPath('img/icon/fire.png'),
-        overlay: getAssetPath('img/firecreature.png')
-    },
-    air: {
-        path: getAssetPath('img/icon/air.png'),
-        overlay: getAssetPath('img/aircreature.png')
-    },
-    earth: {
-        path: getAssetPath('img/icon/earth.png'),
-        overlay: getAssetPath('img/earthcreature.png')
-    },
-    water: {
-        path: getAssetPath('img/icon/water.png'),
-        overlay: getAssetPath('img/watercreature.png')
-    }
+    fire: getAssetPath('img/icons/fire.png'),
+    air: getAssetPath('img/icons/air.png'),
+    earth: getAssetPath('img/icons/earth.png'),
+    water: getAssetPath('img/icons/water.png')
 };
 
-const ElementItem = ({ element, value, onChange, iconPath }) => (
+const ElementItem = ({ element, value, onChange }) => (
   <div className="flex items-center gap-2">
     <input
       type="checkbox"
@@ -204,25 +293,12 @@ const ElementItem = ({ element, value, onChange, iconPath }) => (
       className="w-4 h-4 accent-[#9FE240]"
     />
     <label htmlFor={element} className="flex items-center gap-1">
-      <div 
-        className="w-6 h-6 flex items-center justify-center bg-transparent relative"
-        style={{ 
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        <img 
-          src={iconPath}
-          alt={`${element} element`}
-          className="w-5 h-5 object-contain"
-          onError={(e) => {
-            console.error(`Failed to load ${element} icon:`, e);
-            e.target.style.display = 'none';
-          }}
-          style={{ imageRendering: 'pixelated' }}
-        />
-      </div>
+      <img 
+        src={ELEMENT_ICONS[element]}
+        alt={`${element} element`}
+        className="w-5 h-5 object-contain"
+        style={{ imageRendering: 'pixelated' }}
+      />
       <span className="capitalize">{element}</span>
     </label>
   </div>
@@ -247,7 +323,7 @@ const CardForm = () => {
   const [legendary, setLegendary] = useState(false);
   const [loyal, setLoyal] = useState(false);
   const [loyalRestriction, setLoyalRestriction] = useState('');
-const [stats, setStats] = useState({
+  const [stats, setStats] = useState({
     energy: 0,
     courage: 0,
     power: 0,
@@ -255,14 +331,12 @@ const [stats, setStats] = useState({
     speed: 0,
     mugic: 0
   });
-
   const [elements, setElements] = useState({
     fire: 0,
     air: 0,
     earth: 0,
     water: 0
   });
-
   const [loadedIcons, setLoadedIcons] = useState({});
 
   // Add useEffect to preload icons
@@ -461,14 +535,10 @@ return (
 <div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
   <div className="flex flex-col gap-2">
     <label className="font-bold">Ability</label>
-    <div className="border border-gray-700 rounded">
-      <SymbolBar onSymbolSelect={handleSymbolSelect} />
-      <textarea 
-        value={ability}
-        onChange={(e) => setAbility(e.target.value)}
-        className="w-full p-2 bg-black text-white h-32 focus:outline-none rounded-b" 
-      />
-    </div>
+    <TextAreaWithSymbols 
+      value={ability}
+      onChange={setAbility}
+    />
   </div>
 
             {['creature', 'location', 'mugic'].includes(selectedType) && (
@@ -552,26 +622,23 @@ return (
               )}
             </div>
           </div>
-  {selectedType === 'creature' && (
-    <div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
-      <div className="flex justify-between items-center">
-        <div className="flex items-center gap-6">
-          {Object.entries(elements).map(([element, value]) => (
-            <ElementItem
-              key={element}
-              element={element}
-              value={value}
-              onChange={(e) => setElements(prev => ({
-                ...prev,
-                [element]: e.target.checked ? 1 : 0
-              }))}
-              iconPath={ELEMENT_ICONS[element].path}
-            />
-          ))}
-        </div>
-      </div>
+{selectedType === 'creature' && (
+  <div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
+    <div className="flex justify-around items-center w-full">
+      {Object.entries(elements).map(([element, value]) => (
+        <ElementItem
+          key={element}
+          element={element}
+          value={value}
+          onChange={(e) => setElements(prev => ({
+            ...prev,
+            [element]: e.target.checked ? 1 : 0
+          }))}
+        />
+      ))}
     </div>
-  )}
+  </div>
+)}
 
           {/* Stats Sections */}
           {selectedType === 'attack' && (
