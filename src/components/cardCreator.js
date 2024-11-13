@@ -516,18 +516,16 @@ function drawCreature(cardData) {
     setFont(18, 'Eurostile Heavy');
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
-
-    if (cardData.stats.mugic) {
-        fillText(cardData.stats.mugic.toString(), 17, 336);
-    }
+    
+    // Changed to explicit check and conversion
+    fillText(cardData.stats.mugic === 0 ? '0' : cardData.stats.mugic.toString(), 17, 336);
 
     // Energy stat
-    setFont(18, 'Arial Black');  // Increased font size
+    setFont(18, 'Arial Black');
     ctx.textAlign = 'center';
     
-    if (cardData.stats.energy) {
-        fillText(cardData.stats.energy.toString(), 219, 335);
-    }
+    // Changed to explicit check and conversion
+    fillText(cardData.stats.energy === 0 ? '0' : cardData.stats.energy.toString(), 219, 335);
 
     setFont(8, 'Arial Bold');
     ctx.textAlign = 'right';
@@ -541,12 +539,10 @@ function drawCreature(cardData) {
     ];
 
     stats.forEach(({ key, y }) => {
-        if (cardData.stats[key]) {
-            fillText(cardData.stats[key].toString(), 37, y);
-        }
+        // Changed to explicit check and conversion
+        fillText(cardData.stats[key] === 0 ? '0' : cardData.stats[key].toString(), 37, y);
     });
 }
-
 
 function drawAttack(cardData) {
     setFont(18, 'Arial', 'bold');
