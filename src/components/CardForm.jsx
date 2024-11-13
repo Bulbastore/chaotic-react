@@ -3,6 +3,10 @@ import CardPreview from './CardPreview';
 import { CardCreator } from './cardCreator';
 import { getAssetPath } from './assetPaths';
 
+const handleSymbolSelect = (code) => {
+  setAbility(prev => prev + ' ' + code + ' ');
+};
+
 const CARD_SYMBOLS = [
   // Ability elements
   { code: ':fire:', label: 'Fire', icon: getAssetPath('img/icons/abilityfire.png') },
@@ -454,15 +458,18 @@ return (
           </div>
 
 {/* Card Text and Properties */}
-          <div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
-            <div className="flex flex-col gap-2">
-              <label className="font-bold">Ability</label>
-              <textarea 
-  value={ability}
-  onChange={(e) => setAbility(e.target.value)}
-  className="w-full p-2 border border-gray-700 rounded bg-black text-white h-32 focus:border-[#9FE240] focus:outline-none" 
-/>
-            </div>
+<div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
+  <div className="flex flex-col gap-2">
+    <label className="font-bold">Ability</label>
+    <div className="border border-gray-700 rounded">
+      <SymbolBar onSymbolSelect={handleSymbolSelect} />
+      <textarea 
+        value={ability}
+        onChange={(e) => setAbility(e.target.value)}
+        className="w-full p-2 bg-black text-white h-32 focus:outline-none rounded-b" 
+      />
+    </div>
+  </div>
 
             {['creature', 'location', 'mugic'].includes(selectedType) && (
               <div className="flex flex-col gap-2">

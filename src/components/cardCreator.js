@@ -1,6 +1,74 @@
 // src/components/cardCreator.js
 import { getAssetPath } from './assetPaths';
 
+// Add the SYMBOL_MAPPINGS constant
+const SYMBOL_MAPPINGS = {
+    // Ability elements
+    ':fire:': { img: 'img/icons/abilityfire.png' },
+    ':air:': { img: 'img/icons/abilityair.png' },
+    ':earth:': { img: 'img/icons/abilityearth.png' },
+    ':water:': { img: 'img/icons/abilitywater.png' },
+    
+    // Mugic icons - Danian
+    ':danianmugic:': { img: 'img/icons/mugic/danian.png' },
+    ':danianmugic0:': { img: 'img/icons/mugic/danian_0.png' },
+    ':danianmugicX:': { img: 'img/icons/mugic/danian_x.png' },
+    
+    // Mugic icons - Generic
+    ':genericmugic:': { img: 'img/icons/mugic/generic.png' },
+    ':genericmugic0:': { img: 'img/icons/mugic/generic_0.png' },
+    ':genericmugicX:': { img: 'img/icons/mugic/generic_x.png' },
+    
+    // Mugic icons - M'arrillian
+    ':marrillianmugic:': { img: 'img/icons/mugic/m\'arrillian.png' },
+    ':marrillianmugic0:': { img: 'img/icons/mugic/marrillian.png' },
+    ':marrillianmugicX:': { img: 'img/icons/mugic/marrillian_x.png' },
+    
+    // Mugic icons - Mipedian
+    ':mipedianmugic:': { img: 'img/icons/mugic/mipedian.png' },
+    ':mipedianmugic0:': { img: 'img/icons/mugic/mipedian_0.png' },
+    ':mipedianmugicX:': { img: 'img/icons/mugic/mipedian_x.png' },
+    
+    // Mugic icons - OverWorld
+    ':overworldmugic:': { img: 'img/icons/mugic/overworld.png' },
+    ':overworldmugic0:': { img: 'img/icons/mugic/overworld_0.png' },
+    ':overworldmugicX:': { img: 'img/icons/mugic/overworld_x.png' },
+    
+    // Mugic icons - UnderWorld
+    ':underworldmugic:': { img: 'img/icons/mugic/underworld.png' },
+    ':underworldmugic0:': { img: 'img/icons/mugic/underworld_0.png' },
+    ':underworldmugicX:': { img: 'img/icons/mugic/underworld_x.png' }
+};
+
+// Add the drawTextWithSymbols function
+async function drawTextWithSymbols(text, x, y, fontSize) {
+    const words = text.split(' ');
+    let currentX = x * scale;
+    const symbolHeight = fontSize * scale;
+    
+    for (const word of words) {
+        const symbolInfo = SYMBOL_MAPPINGS[word];
+        
+        if (symbolInfo) {
+            const img = await loadAsset(word, getAssetPath(symbolInfo.img));
+            const aspectRatio = img.width / img.height;
+            const symbolWidth = symbolHeight * aspectRatio;
+            
+            ctx.drawImage(
+                img,
+                currentX,
+                (y - fontSize/2) * scale,
+                symbolWidth,
+                symbolHeight
+            );
+            currentX += symbolWidth + (ctx.measureText(' ').width * scale);
+        } else {
+            ctx.fillText(word, currentX, y * scale);
+            currentX += ctx.measureText(word + ' ').width * scale;
+        }
+    }
+}
+
 const CardCreator = {
     async createCard(cardData) {
         const assets = await loadAssets(cardData);
@@ -57,24 +125,38 @@ function wrapText(text, maxWidth) {
     const words = text.split(' ');
     const lines = [];
     let currentLine = '';
+    let currentLineWidth = 0;
 
-    words.forEach(word => {
-        const testLine = currentLine + (currentLine !== '' ? ' ' : '') + word;
-        const metrics = ctx.measureText(testLine);
-        if (metrics.width > maxWidth * scale) {
-            lines.push(currentLine);
-            currentLine = word;
+    for (const word of words) {
+        const symbolInfo = SYMBOL_MAPPINGS[word];
+        let wordWidth;
+        
+        if (symbolInfo) {
+            // Approximate symbol width based on current font size
+            wordWidth = ctx.font.match(/\d+/)[0] * scale;
         } else {
-            currentLine = testLine;
+            wordWidth = ctx.measureText(word + ' ').width;
         }
-    });
-    
-    if (currentLine !== '') {
-        lines.push(currentLine);
+
+        if (currentLineWidth + wordWidth > maxWidth * scale) {
+            if (currentLine !== '') {
+                lines.push(currentLine.trim());
+                currentLine = '';
+                currentLineWidth = 0;
+            }
+        }
+
+        currentLine += word + ' ';
+        currentLineWidth += wordWidth;
     }
-    
+
+    if (currentLine !== '') {
+        lines.push(currentLine.trim());
+    }
+
     return lines;
 }
+
 
 function formatTribe(tribe) {
     if (!tribe) return "";
@@ -190,7 +272,7 @@ async function loadAsset(key, path) {
     });
 }
 
-function drawCard(cardData, assets) {
+async function drawCard(cardData, assets) {
     const isLocation = cardData.type === 'location';
     
     setCanvas(isLocation ? 350 : 250, isLocation ? 250 : 350);
@@ -308,11 +390,11 @@ if (cardData.ability) {
     const maxWidth = 172;
     const lines = wrapText(cardData.ability, maxWidth);
     
-    lines.forEach((line, i) => {
-        ctx.globalAlpha = 0.8; // Add slight transparency
-        fillText(line, 43, abilityBottom + (i * 12));
-        ctx.globalAlpha = 1.0; // Reset transparency
-    });
+    for (let i = 0; i < lines.length; i++) {
+        ctx.globalAlpha = 0.8;
+        await drawTextWithSymbols(lines[i], 43, abilityBottom + (i * 12), 10.3);
+        ctx.globalAlpha = 1.0;
+    }
     
     abilityBottom = abilityBottom + (lines.length * 12) + 4;
 }
