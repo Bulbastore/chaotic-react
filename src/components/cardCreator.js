@@ -1,6 +1,52 @@
 // src/components/cardCreator.js
 import { getAssetPath } from './assetPaths';
 
+const fontLoader = {
+    loaded: false,
+    promises: [],
+    init() {
+        if (this.loaded) return Promise.resolve();
+        
+        const fonts = [
+            new FontFace('Eurostile Medium', 'url(/fonts/EurostileMedium.woff2)'),
+            new FontFace('Eurostile Heavy', 'url(/fonts/EurostileHeavy.woff2)'),
+            new FontFace('Eurostile Extd Black', 'url(/fonts/EurostileExtdBlack.woff2)'),
+            new FontFace('Arial Black', 'url(/fonts/ArialBlack.woff2)'),
+            new FontFace('Arial Bold', 'url(/fonts/ArialBold.woff2)'),
+            new FontFace('Arial Narrow Italic', 'url(/fonts/ArialNarrowItalic.woff2)'),
+            new FontFace('Century Gothic Bold', 'url(/fonts/CenturyGothicBold.woff2)'),
+            new FontFace('Eurostile Heavy Italic', 'url(/fonts/EurostileHeavyItalic.woff2)'),
+            new FontFace('Eurostile Cond Heavy Italic', 'url(/fonts/EurostileCondHeavyItalic.woff2)'),
+            new FontFace('Eurostile-BoldExtendedTwo', 'url(/fonts/EurostileBoldExtendedTwo.woff2)')
+        ];
+
+        this.promises = fonts.map(font => 
+            font.load().then(loadedFont => {
+                document.fonts.add(loadedFont);
+                return loadedFont;
+            })
+        );
+
+        return Promise.all(this.promises).then(() => {
+            this.loaded = true;
+        });
+    }
+};
+
+function calculateFontSize(text, maxWidth, maxHeight, initialSize = 10.3) {
+    let fontSize = initialSize;
+    setFont(fontSize, 'Eurostile Medium');
+    
+    const lines = wrapText(text, maxWidth);
+    const totalHeight = lines.length * (fontSize + 2);
+    
+    if (totalHeight > maxHeight) {
+        fontSize = (maxHeight / lines.length) - 2;
+    }
+    
+    return fontSize;
+}
+
 // Add the SYMBOL_MAPPINGS constant
 const SYMBOL_MAPPINGS = {
     // Ability elements
@@ -42,47 +88,46 @@ const SYMBOL_MAPPINGS = {
 
 // Add the drawTextWithSymbols function
 async function drawTextWithSymbols(text, x, y, fontSize) {
-  const words = text.split(' ');
-  let currentX = x * scale;
-  const symbolHeight = fontSize * scale;
+    const words = text.split(' ');
+    let currentX = x * scale;
+    const symbolHeight = fontSize * scale;
 
-  for (const word of words) {
-    const symbolInfo = SYMBOL_MAPPINGS[word];
+    for (const word of words) {
+        const symbolInfo = SYMBOL_MAPPINGS[word];
 
-    if (symbolInfo) {
-      const img = await loadAsset(word, getAssetPath(symbolInfo.img));
-      const aspectRatio = img.width / img.height;
-      const symbolWidth = symbolHeight * aspectRatio;
+        if (symbolInfo) {
+            const img = await loadAsset(word, getAssetPath(symbolInfo.img));
+            const aspectRatio = img.width / img.height;
+            const symbolWidth = symbolHeight * aspectRatio;
 
-      // Align bottom of symbol with text baseline
-      const symbolY = (y * scale) - symbolHeight + (fontSize * 0.2 * scale);
+            // Align bottom of symbol with text baseline
+            const symbolY = (y * scale) - symbolHeight + (fontSize * 0.2 * scale);
 
-      ctx.drawImage(
-        img,
-        currentX,
-        symbolY,
-        symbolWidth,
-        symbolHeight
-      );
-      currentX += symbolWidth + (fontSize * 0.3 * scale); // Add smaller space after symbols
-    } else {
-      // Adjust font size dynamically
-      const maxWidth = 172;
-      const textWidth = ctx.measureText(word + ' ').width;
-      const scaledWidth = textWidth / scale;
+            ctx.drawImage(
+                img,
+                currentX,
+                symbolY,
+                symbolWidth,
+                symbolHeight
+            );
+            currentX += symbolWidth + (fontSize * 0.3 * scale); // Add smaller space after symbols
+        } else {
+            // Adjust font size dynamically
+            const maxWidth = 172;
+            const textWidth = ctx.measureText(word + ' ').width;
+            const scaledWidth = textWidth / scale;
 
-      if (scaledWidth > maxWidth) {
-        const newFontSize = (fontSize * maxWidth) / scaledWidth;
-        setFont(newFontSize, 'Eurostile Medium');
-      }
+            if (scaledWidth > maxWidth) {
+                const newFontSize = (fontSize * maxWidth) / scaledWidth;
+                setFont(newFontSize, 'Eurostile Medium');
+            } else {
+                setFont(fontSize, 'Eurostile Medium'); // Use the passed fontSize instead of hardcoded 10.3
+            }
 
-      ctx.fillText(word, currentX, y * scale);
-      currentX += ctx.measureText(word + ' ').width;
-
-      // Reset font size
-      setFont(10.3, 'Eurostile Medium');
+            ctx.fillText(word, currentX, y * scale);
+            currentX += ctx.measureText(word + ' ').width;
+        }
     }
-  }
 }
 
 const CardCreator = {
@@ -104,7 +149,7 @@ export { CardCreator };
 // Canvas setup
 const canvas = document.createElement('canvas');
 const ctx = canvas.getContext('2d');
-const scale = 2;
+const scale = 4;
 let height = 0, width = 0;
 
 // Helper drawing functions
@@ -131,10 +176,10 @@ function fillText(text, x, y, maxWidth) {
 function setCanvas(x, y) {
     width = x;
     height = y;
-    canvas.width = width * scale;
-    canvas.height = height * scale;
-    canvas.style.width = width;
-    canvas.style.height = height;
+    canvas.width = width * 4;
+    canvas.height = height * 4;
+    canvas.style.width = 'auto';
+    canvas.style.height = 'auto';
 }
 
 function wrapText(text, maxWidth) {
@@ -142,14 +187,15 @@ function wrapText(text, maxWidth) {
     const lines = [];
     let currentLine = '';
     let currentLineWidth = 0;
+    const symbolWidth = ctx.font.match(/\d+/)[0] * 1.2; // Approximate width of symbol images
 
     for (const word of words) {
         const symbolInfo = SYMBOL_MAPPINGS[word];
         let wordWidth;
         
         if (symbolInfo) {
-            // Approximate symbol width based on current font size
-            wordWidth = ctx.font.match(/\d+/)[0] * scale;
+            // Use a smaller width for symbols since they're visually more compact
+            wordWidth = symbolWidth;
         } else {
             wordWidth = ctx.measureText(word + ' ').width;
         }
@@ -159,6 +205,14 @@ function wrapText(text, maxWidth) {
                 lines.push(currentLine.trim());
                 currentLine = '';
                 currentLineWidth = 0;
+            }
+            
+            // If this is a single word that's too long, force it onto its own line
+            if (wordWidth > maxWidth * scale) {
+                lines.push(word);
+                currentLine = '';
+                currentLineWidth = 0;
+                continue;
             }
         }
 
@@ -396,67 +450,100 @@ if (cardData.subtype || cardData.tribe) {
 
     let abilityBottom = 235;
 
-// Draw ability text
-if (cardData.ability) {
-    setFont(10.3, 'Eurostile Medium');
-    ctx.fillStyle = '#000000';
-    ctx.textAlign = 'left';
-    ctx.lineWidth = 0.3;
-
-    const maxWidth = 172;
-    const lines = wrapText(cardData.ability, maxWidth);
+// First, update the calculateFontSize function to be more accurate:
+function calculateFontSize(text, maxWidth, maxHeight, initialSize = 10.3) {
+    let fontSize = initialSize;
+    setFont(fontSize, 'Eurostile Medium');
     
-    for (let i = 0; i < lines.length; i++) {
-        ctx.globalAlpha = 0.8;
-        await drawTextWithSymbols(lines[i], 43, abilityBottom + (i * 12), 10.3);
-        ctx.globalAlpha = 1.0;
+    // Split text into paragraphs
+    const paragraphs = text.split('\n').filter(Boolean);
+    let totalLines = 0;
+    
+    // Calculate total lines needed at current font size
+    for (const paragraph of paragraphs) {
+        const lines = wrapText(paragraph, maxWidth);
+        totalLines += lines.length;
     }
     
-    abilityBottom = abilityBottom + (lines.length * 12) + 4;
-}
-
-// Draw status indicators with proper spacing
-if (cardData.unique || cardData.legendary || cardData.loyal) {
-  setFont(10.3, 'Eurostile Heavy');
-  ctx.fillStyle = '#000000';
-  ctx.textAlign = 'left';
-
-  let statusText = [];
-  if (cardData.legendary) {
-    statusText.push('Legendary');
-  }
-  if (cardData.unique) {
-    statusText.push('Unique');
-  }
-  if (cardData.loyal) {
-    statusText.push('Loyal');
-    if (cardData.loyalRestriction) {
-      statusText.push(` - ${cardData.loyalRestriction}`);
+    // Calculate total height needed
+    const lineHeight = fontSize * 1.2;
+    const totalHeight = totalLines * lineHeight;
+    
+    // If too tall, reduce font size
+    if (totalHeight > maxHeight) {
+        const ratio = maxHeight / totalHeight;
+        fontSize = Math.max(7, fontSize * ratio); // Don't go smaller than 7pt
     }
-  }
-
-  fillText(statusText.join(', '), 43, abilityBottom);
-  abilityBottom += 16;
+    
+    return fontSize;
 }
 
-// Draw flavor text
-if (cardData.flavorText) {
-    setFont(9, 'Arial Narrow Italic');
-    ctx.fillStyle = '#000000';
-    ctx.textAlign = 'left';
-
-    const maxWidth = 172;
-    const lines = wrapText(cardData.flavorText, maxWidth);
-    const lineHeight = 10;
-    const bottomY = 315;
+// Then replace the ability text drawing section:
+if (cardData.ability || cardData.flavorText || cardData.unique || cardData.legendary || cardData.loyal) {
+    // Combine all text to calculate total space needed
+    const totalText = [
+        cardData.ability,
+        [cardData.unique && 'Unique', cardData.legendary && 'Legendary', cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')].filter(Boolean).join(', '),
+        cardData.flavorText
+    ].filter(Boolean).join('\n');
     
-    // Calculate starting Y position ensuring no overlap
-    const startY = Math.min(abilityBottom + 8, bottomY - (lines.length * lineHeight));
+    // Calculate appropriate font size for all content
+    const fontSize = calculateFontSize(totalText, 172, 85);
+    const lineHeight = fontSize * 1.2;
+    let currentY = 235;
     
-    lines.forEach((line, i) => {
-        fillText(line, 43, startY + (i * lineHeight));
-    });
+    // Draw ability text
+    if (cardData.ability) {
+        setFont(fontSize, 'Eurostile Medium');
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'left';
+        
+        const lines = wrapText(cardData.ability, 172);
+        for (let i = 0; i < lines.length; i++) {
+            ctx.globalAlpha = 0.8;
+            await drawTextWithSymbols(lines[i], 43, currentY + (i * lineHeight), fontSize);
+            ctx.globalAlpha = 1.0;
+        }
+        currentY += lines.length * lineHeight + fontSize/2;
+    }
+    
+    // Draw status indicators
+    if (cardData.unique || cardData.legendary || cardData.loyal) {
+        setFont(fontSize, 'Eurostile Heavy');
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'left';
+        
+        let statusText = [
+            cardData.legendary && 'Legendary',
+            cardData.unique && 'Unique',
+            cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
+        ].filter(Boolean).join(', ');
+        
+        fillText(statusText, 43, currentY);
+        currentY += lineHeight;
+    }
+    
+    // Draw flavor text
+    if (cardData.flavorText) {
+        setFont(fontSize * 0.9, 'Arial Narrow Italic');
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'left';
+        
+        const lines = wrapText(cardData.flavorText, 172);
+        const maxBottom = 315;
+        
+        // If there's too much text, adjust starting position
+        const totalFlavorHeight = lines.length * lineHeight;
+        const idealStart = currentY + lineHeight/2;
+        const maxStart = maxBottom - totalFlavorHeight;
+        currentY = Math.min(idealStart, maxStart);
+        
+        lines.forEach((line, i) => {
+            fillText(line, 43, currentY + (i * lineHeight));
+        });
+    }
 }
+
 // Generate random code
 const generateCode = () => {
     const chars = '0123456789ABCDEF';
@@ -491,7 +578,7 @@ if (cardData.artist) {
     setFont(5, 'Eurostile Cond Heavy Italic');
     ctx.fillStyle = '#FFFFFF';
     ctx.letterSpacing = "0.3px";
-    ctx.translate(485, 250);
+    ctx.translate(970, 480);
     ctx.rotate(-Math.PI / 2);
     ctx.textAlign = 'center';
     fillText(`Art by ${cardData.artist}`, 0, 0);
@@ -527,7 +614,7 @@ function drawCreature(cardData) {
     // Changed to explicit check and conversion
     fillText(cardData.stats.energy === 0 ? '0' : cardData.stats.energy.toString(), 219, 335);
 
-    setFont(8, 'Arial Bold');
+    setFont(9, 'Arial Bold');
     ctx.textAlign = 'right';
     ctx.fillStyle = '#000000';
 

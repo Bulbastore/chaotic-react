@@ -113,7 +113,7 @@ const SymbolBar = ({ onSymbolSelect }) => {
 const TextAreaWithSymbols = ({ value, onChange }) => {
   const textareaRef = useRef(null);
 
-  const insertSymbol = (symbolCode) => {
+const insertSymbol = (symbolCode) => {
     const textarea = textareaRef.current;
     if (!textarea) return;
 
@@ -123,35 +123,38 @@ const TextAreaWithSymbols = ({ value, onChange }) => {
     const beforeText = value.substring(0, start);
     const afterText = value.substring(end);
 
-    const newValue = `${beforeText}${symbolCode}${afterText}`;
-    const newCursorPos = start + symbolCode.length;
+    const spaceAfterSymbol = afterText.startsWith(' ') ? '' : ' '; // Check if there's already a space
+    const newValue = `${beforeText}${symbolCode}${spaceAfterSymbol}${afterText}`;
+    const newCursorPos = start + symbolCode.length + spaceAfterSymbol.length;
 
     onChange(newValue);
     
     setTimeout(() => {
-      textarea.focus();
-      textarea.setSelectionRange(newCursorPos, newCursorPos);
+        textarea.focus();
+        textarea.setSelectionRange(newCursorPos, newCursorPos);
     }, 0);
-  };
+};
 
-  const handleKeyDown = (e) => {
+const handleKeyDown = (e) => {
     if (e.key === ':') {
-      const start = e.target.selectionStart;
-      const beforeText = value.substring(0, start - 1);
-      const lastColon = beforeText.lastIndexOf(':');
-      
-      if (lastColon !== -1) {
-        const potentialCode = `:${beforeText.substring(lastColon + 1)}:`;
-        const matchingSymbol = CARD_SYMBOLS.find(symbol => symbol.code === potentialCode);
+        const start = e.target.selectionStart;
+        const beforeText = value.substring(0, start - 1);
+        const lastColon = beforeText.lastIndexOf(':');
         
-        if (matchingSymbol) {
-          e.preventDefault();
-          const newValue = value.substring(0, lastColon) + potentialCode + value.substring(start);
-          onChange(newValue);
+        if (lastColon !== -1) {
+            const potentialCode = `:${beforeText.substring(lastColon + 1)}:`;
+            const matchingSymbol = CARD_SYMBOLS.find(symbol => symbol.code === potentialCode);
+            
+            if (matchingSymbol) {
+                e.preventDefault();
+                const afterText = value.substring(start);
+                const spaceAfterSymbol = afterText.startsWith(' ') ? '' : ' '; // Check if there's already a space
+                const newValue = value.substring(0, lastColon) + potentialCode + spaceAfterSymbol + afterText;
+                onChange(newValue);
+            }
         }
-      }
     }
-  };
+};
 
   return (
     <div className="flex flex-col rounded border border-gray-700 bg-black hover:border-[#9FE240] focus-within:border-[#9FE240] transition-colors">
@@ -197,18 +200,24 @@ const NumberSlider = ({ value, onChange, min = 0, max = 4, step = 1, label, type
     setInputValue(value.toString());
   }, [value]);
 
-  const handleInputChange = (e) => {
+const handleInputChange = (e) => {
     setInputValue(e.target.value);
-    let newValue = parseInt(e.target.value) || 0;
+    const newValue = parseInt(e.target.value) || 0;
+};
+
+const handleInputBlur = () => {
+    let newValue = parseInt(inputValue) || 0;
     if (newValue > max) newValue = max;
     if (newValue < min) newValue = min;
-    newValue = roundToStep(newValue, step);
+    
+    // Round to nearest step
+    if (type === 'stats' || type === 'elements' || type === 'base') {
+        newValue = Math.round(newValue / 5) * 5;
+    }
+    
+    setInputValue(newValue.toString());
     onChange({ target: { value: newValue } });
-  };
-
-  const handleInputBlur = () => {
-    setInputValue(value.toString());
-  };
+};
 
   return (
     <div className="flex items-center gap-4">
@@ -378,8 +387,8 @@ const handleDownload = () => {
   }
 };
 return (
-  <div className="container mx-auto flex justify-center items-start gap-8 p-6">
-    <div className="w-[600px] space-y-6 bg-black text-white">
+  <div className="container mx-auto flex flex-col lg:flex-row justify-between gap-8 p-6 max-w-[1600px]">
+    <div className="w-full lg:w-[600px] space-y-4 bg-black text-white">
       {/* Card Type Selection */}
       <div className="p-4 border border-gray-700 rounded-lg bg-black">
         <div className="flex justify-center items-center gap-4">
@@ -531,42 +540,59 @@ return (
 />
           </div>
 
-{/* Card Text and Properties */}
-<div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
-  <div className="flex flex-col gap-2">
-    <label className="font-bold">Ability</label>
-    <TextAreaWithSymbols 
-      value={ability}
-      onChange={setAbility}
-    />
-  </div>
+          <div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
+            <div className="space-y-2">
+              <label className="font-bold">Ability</label>
+              <TextAreaWithSymbols 
+                value={ability}
+                onChange={setAbility}
+              />
+            </div>
 
             {['creature', 'location', 'mugic'].includes(selectedType) && (
-              <div className="flex flex-col gap-2">
+              <div className="space-y-2">
                 <label className="font-bold">Flavor Text</label>
                 <textarea 
-                 value={flavorText}
-                 onChange={(e) => setFlavorText(e.target.value)}
-                 className="w-full p-2 border border-gray-700 rounded bg-black text-white h-16 focus:border-[#9FE240] focus:outline-none" 
-              />
+                  value={flavorText}
+                  onChange={(e) => setFlavorText(e.target.value)}
+                  className="w-full p-2 border border-gray-700 rounded bg-black text-white h-16 focus:border-[#9FE240] focus:outline-none" 
+                />
               </div>
             )}
 
-{/* Unique, Legendary, Loyal */}
-<div className="flex items-center justify-center gap-8 pt-4 border-gray-700">
+            {selectedType === 'creature' && (
+              <div className="pt-0 border-gray-700">
+                <div className="flex justify-around items-center w-full">
+                  {Object.entries(elements).map(([element, value]) => (
+                    <ElementItem
+                      key={element}
+                      element={element}
+                      value={value}
+                      onChange={(e) => setElements(prev => ({
+                        ...prev,
+                        [element]: e.target.checked ? 1 : 0
+                      }))}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Card Properties (Unique, Legendary, Loyal) */}
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-0 border-gray-700">
               {selectedType !== 'location' && (
                 <div className="flex items-center gap-2">
                   <label className="font-bold">Unique</label>
                   <input 
-                   type="checkbox" 
-                   checked={unique}
-                   onChange={(e) => setUnique(e.target.checked)}
-                   className="w-4 h-4 accent-[#9FE240]" 
+                    type="checkbox" 
+                    checked={unique}
+                    onChange={(e) => setUnique(e.target.checked)}
+                    className="w-4 h-4 accent-[#9FE240]" 
                   />
                 </div>
               )}
               
-             {['creature', 'battlegear'].includes(selectedType) && (
+              {['creature', 'battlegear'].includes(selectedType) && (
                 <div className="flex items-center gap-2">
                   <label className="font-bold">Legendary</label>
                   <input 
@@ -576,10 +602,8 @@ return (
                     className="w-4 h-4 accent-[#9FE240]" 
                   />
                 </div>
-              )}  
-              <div className="flex items-center">
-
-              </div>
+              )}
+              
               {selectedType === 'creature' && (
                 <div className="flex items-center gap-2">
                   <label className="font-bold">Loyal</label>
@@ -596,53 +620,35 @@ return (
                     className="w-32 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none" 
                     placeholder="Restriction" 
                   />
-                </div>            
+                </div>
               )}
             </div>
 
-{/* Artist and Properties */}
-<div className="flex items-center justify-center gap-8 pt-4 border-t border-gray-700">
-                <div className="flex items-center gap-4">
-                  <label className="font-bold">Artist</label>
-                  <input 
-                    type="text"
-                    value={artist}
-                    onChange={(e) => setArtist(e.target.value)}
-                    placeholder="Artist"
-                    className="w-48 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
-                  />
-                </div>         
-       
-                <div className="flex items-center gap-4 ml-4">
-                  <label className="font-bold">Serial #</label>
-                  <input 
-                    type="text"
-                    value={serialNumber}
-                    onChange={(e) => setSerialNumber(e.target.value)}
-                    placeholder="##/100"
-                    className="w-20 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
-                  />
-                </div>
-              </div>  
+            {/* Artist and Properties */}
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-0 border-gray-700">
+              <div className="flex items-center gap-2">
+                <label className="font-bold">Artist</label>
+                <input 
+                  type="text"
+                  value={artist}
+                  onChange={(e) => setArtist(e.target.value)}
+                  placeholder="Artist"
+                  className="w-48 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
+                />
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <label className="font-bold">Serial #</label>
+                <input 
+                  type="text"
+                  value={serialNumber}
+                  onChange={(e) => setSerialNumber(e.target.value)}
+                  placeholder="##/100"
+                  className="w-20 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
+                />
+              </div>
             </div>
-
-{selectedType === 'creature' && (
-<div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
-    <div className="flex justify-around items-center w-full">
-      {Object.entries(elements).map(([element, value]) => (
-        <ElementItem
-          key={element}
-          element={element}
-          value={value}
-          onChange={(e) => setElements(prev => ({
-            ...prev,
-            [element]: e.target.checked ? 1 : 0
-          }))}
-        />
-      ))}
-    </div>
-  </div>
-)}
+          </div>
 
           {/* Stats Sections */}
           {selectedType === 'attack' && (
@@ -725,7 +731,7 @@ return (
 </div>
 )}
 </div>
-    <div className="w-[500px] sticky top-6">
+    <div className="flex-1">
         <CardPreview 
           cardData={{
             selectedType,

@@ -13,10 +13,8 @@ const CardPreview = ({ cardData }) => {
     let mounted = true;
 
     const updatePreview = async () => {
-      // Reset error state on new update
       setError(null);
 
-      // Don't clear the container immediately - wait until we have new content
       if (!cardData.selectedType) {
         container.innerHTML = '';
         return;
@@ -67,13 +65,17 @@ const CardPreview = ({ cardData }) => {
 
         if (mounted) {
           canvas.id = 'preview-canvas';
-          const scaleFactor = cardData.selectedType === 'location' ? 1.8 : 2;
-          canvas.style.width = `${250 * scaleFactor}px`;
-          canvas.style.height = `${350 * scaleFactor}px`;
-          canvas.style.maxWidth = cardData.selectedType === 'location' ? '600px' : '500px';
+          
+          // Canvas styling
+          canvas.style.width = 'auto';
+          canvas.style.height = 'auto';
+          canvas.style.maxHeight = '100%';
+          canvas.style.objectFit = 'contain';
+          canvas.style.imageRendering = 'auto';
           canvas.style.display = 'block';
           canvas.style.margin = '0 auto';
 
+          // Clear and append the new canvas
           container.innerHTML = '';
           container.appendChild(canvas);
         }
@@ -124,27 +126,20 @@ const CardPreview = ({ cardData }) => {
     return null;
   };
 
-  return (
-    <div 
-      className="bg-gradient-to-b to-black rounded-lg shadow-xl flex items-center justify-center"
-      style={{ 
-        position: 'sticky', 
-        top: '24px',
-        minHeight: cardData.selectedType ? '700px' : '500px',
-        padding: '1rem'
-      }}
-    >
+return (
+  <div className="w-full">
+    <div className="rounded-lg shadow-xl">
       {getMessage()}
       <div 
         ref={containerRef}
-        className="flex items-center justify-center"
+        className="flex items-center justify-center w-full"
         style={{ 
-          width: '100%',
           display: (!cardData.selectedType || ((cardData.selectedType === 'creature' || cardData.selectedType === 'mugic') && !cardData.tribe)) ? 'none' : 'flex'
         }}
       />
     </div>
-  );
+  </div>
+);
 };
 
 export default CardPreview;
