@@ -67,13 +67,13 @@ const CardPreview = ({ cardData }) => {
           canvas.id = 'preview-canvas';
           
           // Canvas styling
-          canvas.style.width = 'auto';
-          canvas.style.height = 'auto';
-          canvas.style.maxHeight = '100%';
-          canvas.style.objectFit = 'contain';
-          canvas.style.imageRendering = 'auto';
-          canvas.style.display = 'block';
-          canvas.style.margin = '0 auto';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.maxWidth = '100%';
+    canvas.style.maxHeight = '100%';
+    canvas.style.objectFit = 'contain';
+    canvas.style.imageRendering = 'auto';
+    canvas.style.display = 'block';
 
           // Clear and append the new canvas
           container.innerHTML = '';
@@ -127,12 +127,12 @@ const CardPreview = ({ cardData }) => {
   };
 
 return (
-  <div className="w-full">
-    <div className="rounded-lg shadow-xl">
+  <div className="w-full h-full flex items-center justify-center">
+    <div className="w-full h-full flex items-center justify-center rounded-lg shadow-xl">
       {getMessage()}
       <div 
         ref={containerRef}
-        className="flex items-center justify-center w-full"
+        className="flex items-center justify-center w-full h-full"
         style={{ 
           display: (!cardData.selectedType || ((cardData.selectedType === 'creature' || cardData.selectedType === 'mugic') && !cardData.tribe)) ? 'none' : 'flex'
         }}
@@ -140,6 +140,7 @@ return (
     </div>
   </div>
 );
+
 };
 
 export default CardPreview;

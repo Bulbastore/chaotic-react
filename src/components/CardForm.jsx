@@ -176,7 +176,7 @@ const handleKeyDown = (e) => {
 const generateTicks = (min, max, type) => {
   switch(type) {
     case 'stats':
-      return [0, 55, 110, 165, 220];
+      return [0, 50, 100, 160, 220];
     case 'elements':
       return [0, 10, 25, 35, 50];
     case 'small':
@@ -200,29 +200,28 @@ const NumberSlider = ({ value, onChange, min = 0, max = 4, step = 1, label, type
     setInputValue(value.toString());
   }, [value]);
 
-const handleInputChange = (e) => {
+  const handleInputChange = (e) => {
     setInputValue(e.target.value);
     const newValue = parseInt(e.target.value) || 0;
-};
+  };
 
-const handleInputBlur = () => {
+  const handleInputBlur = () => {
     let newValue = parseInt(inputValue) || 0;
     if (newValue > max) newValue = max;
     if (newValue < min) newValue = min;
     
-    // Round to nearest step
     if (type === 'stats' || type === 'elements' || type === 'base') {
-        newValue = Math.round(newValue / 5) * 5;
+      newValue = Math.round(newValue / 5) * 5;
     }
     
     setInputValue(newValue.toString());
     onChange({ target: { value: newValue } });
-};
+  };
 
   return (
-    <div className="flex items-center gap-4">
-      <label className="w-24 text-right font-bold">{label}</label>
-      <div className="flex-1">
+    <div className="flex items-center gap-2 w-full px-2">
+      <label className="w-16 text-right font-bold text-white text-sm whitespace-nowrap">{label}</label>
+      <div className="flex-1 mx-2">
         <input
           type="range"
           min={min}
@@ -239,7 +238,7 @@ const handleInputBlur = () => {
           {ticks.map((num) => (
             <div key={num} className="flex flex-col items-center">
               <div className="h-2 w-px bg-gray-700"></div>
-              <span className="text-sm">{num}</span>
+              <span className="text-sm text-white">{num}</span>
             </div>
           ))}
         </div>
@@ -251,7 +250,7 @@ const handleInputBlur = () => {
         onBlur={handleInputBlur}
         min={min}
         max={max}
-        className="w-16 h-14 text-center border-2 border-gray-700 rounded-lg bg-black text-white focus:border-[#9FE240] focus:outline-none text-xl font-bold"
+        className="w-14 h-10 text-center border-2 border-gray-700 rounded-lg bg-black text-white focus:border-[#9FE240] focus:outline-none text-lg font-bold"
       />
     </div>
   );
@@ -347,6 +346,41 @@ const CardForm = () => {
     water: 0
   });
   const [loadedIcons, setLoadedIcons] = useState({});
+const resetForm = () => {
+  setName('');
+  setSubname('');
+  setTribe('');
+  setArt(null);
+  setSet('');
+  setRarity('');
+  setSubtype('');
+  setAbility('');
+  setFlavorText('');
+  setArtist('');
+  setUnique(false);
+  setLegendary(false);
+  setLoyal(false);
+  setLoyalRestriction('');
+  setStats({
+    energy: 0,
+    courage: 0,
+    power: 0,
+    wisdom: 0,
+    speed: 0,
+    mugic: 0
+  });
+  setElements({
+    fire: 0,
+    air: 0,
+    earth: 0,
+    water: 0
+  });
+  setBuildPoints(0);
+  setMugicCost(0);
+  setBase(0);
+  setInitiative(0);
+  setSerialNumber('');
+};
 
   // Add useEffect to preload icons
   useEffect(() => {
@@ -387,8 +421,9 @@ const handleDownload = () => {
   }
 };
 return (
-  <div className="container mx-auto flex flex-col lg:flex-row justify-between gap-8 p-6 max-w-[1600px]">
-    <div className="w-full lg:w-[600px] space-y-4 bg-black text-white">
+<div className="container mx-auto flex flex-col lg:flex-row gap-0 p-2 lg:p-4 h-screen">
+  <div className="w-full lg:w-1/2 bg-black text-white flex flex-col">
+      <div className="flex-1 overflow-y-auto space-y-4">
       {/* Card Type Selection */}
       <div className="p-4 border border-gray-700 rounded-lg bg-black">
         <div className="flex justify-center items-center gap-4">
@@ -399,6 +434,7 @@ return (
   onChange={(e) => {
     const newType = e.target.value;
     setSelectedType(newType);
+    resetForm();
     // Reset related states when changing card type
     setTribe('');
     setElements({
@@ -690,24 +726,6 @@ return (
             </div>
           )}
 
-{selectedType === 'creature' && (
-  <div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
-    {Object.entries(stats).map(([stat, value]) => (
-      <NumberSlider
-        key={stat}
-        label={stat.charAt(0).toUpperCase() + stat.slice(1)}
-        value={value}
-        onChange={(e) => setStats(prev => ({
-          ...prev,
-          [stat]: parseInt(e.target.value)
-        }))}
-        max={stat === 'mugic' ? 5 : 220}
-        step={stat === 'mugic' ? 1 : 5}
-        type={stat === 'mugic' ? 'small' : 'stats'}
-      />
-    ))}
-  </div>
-)}
 {selectedType === 'mugic' && (
   <div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
     <NumberSlider
@@ -719,19 +737,23 @@ return (
     />
   </div>
 )}
+          </div>
+        )}
 {/* Action Buttons */}
-<div className="flex justify-center gap-4">
-  <button 
-    onClick={handleDownload}
-    className="px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
-  >
-    Download
-  </button>
-</div>
-</div>
-)}
-</div>
-    <div className="flex-1">
+      </div>
+      <div className="p-0">
+        <div className="flex justify-center gap-4">
+          <button 
+            onClick={handleDownload}
+            className="px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
+          >
+            Download
+          </button>
+        </div>
+      </div>
+    </div>
+<div className="max-w-[620px] lg:w-1/2 flex flex-col h-full ml-5">
+  <div className="flex items-start justify-start">
         <CardPreview 
           cardData={{
             selectedType,
@@ -757,6 +779,27 @@ return (
             serialNumber
           }} 
         />
+      </div>
+  {selectedType === 'creature' && (
+    <div className="max-w-[620px] w-full bg-black border border-gray-700 rounded-lg mt-5">
+      <div className="grid grid-cols-1 gap-0 p-2">
+            {Object.entries(stats).map(([stat, value]) => (
+              <NumberSlider
+                key={stat}
+                label={stat.charAt(0).toUpperCase() + stat.slice(1)}
+                value={value}
+                onChange={(e) => setStats(prev => ({
+                  ...prev,
+                  [stat]: parseInt(e.target.value)
+                }))}
+                max={stat === 'mugic' ? 5 : 220}
+                step={stat === 'mugic' ? 1 : 5}
+                type={stat === 'mugic' ? 'small' : 'stats'}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   </div>
 );
