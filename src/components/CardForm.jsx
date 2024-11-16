@@ -73,6 +73,31 @@ const SymbolBar = ({ onSymbolSelect }) => {
     }
   ];
 
+  const isMobile = window.innerWidth < 1024;
+
+  if (isMobile) {
+    return (
+      <div className="bg-black rounded-t border-b border-gray-700">
+        <div className="flex flex-wrap justify-start gap-1 p-1">
+          {CARD_SYMBOLS.map(({ code, label, icon }) => (
+            <button
+              key={code}
+              onClick={() => onSymbolSelect(code)}
+              className="p-0.5"
+            >
+              <img 
+                src={icon} 
+                alt={label}
+                className="h-5 w-5 object-contain"
+              />
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  // Original desktop version
   return (
     <div className="bg-black rounded-t border-b border-gray-700">
       <div className="max-h-[120px] overflow-y-auto custom-scrollbar">
@@ -421,7 +446,7 @@ const handleDownload = () => {
   }
 };
 return (
-<div className="container mx-auto flex flex-col lg:flex-row gap-0 p-2 lg:p-4 h-screen">
+<div className="container mx-auto flex flex-col lg:flex-row gap-0 p-2 lg:p-4 min-h-screen">
   <div className="w-full lg:w-1/2 bg-black text-white flex flex-col">
       <div className="flex-1 overflow-y-auto space-y-4">
       {/* Card Type Selection */}
@@ -468,7 +493,33 @@ return (
           </select>
         </div>
       </div>
-
+<div className="lg:hidden">
+  <CardPreview
+    cardData={{
+      selectedType,
+      tribe,
+      art,
+      name,
+      subname,
+      set,
+      rarity,
+      subtype,
+      ability,
+      flavorText,
+      unique,
+      legendary,
+      artist,
+      loyal,
+      loyalRestriction,
+      stats,
+      elements,
+      buildPoints,
+      base,
+      mugicCost,
+      serialNumber
+    }}
+  />
+</div>
       {selectedType && (
         <div className="space-y-6">
           {/* Basic Information */}
@@ -506,7 +557,6 @@ return (
                 ]}
               />
             )}
-
             <InputField 
               label="Art" 
               type="file" 
@@ -752,7 +802,7 @@ return (
         </div>
       </div>
     </div>
-<div className="max-w-[620px] lg:w-1/2 flex flex-col h-full ml-5">
+<div className="hidden lg:flex max-w-[620px] lg:w-1/2 flex flex-col h-full ml-5">
   <div className="flex items-start justify-start">
         <CardPreview 
           cardData={{
@@ -800,6 +850,16 @@ return (
           </div>
         </div>
       )}
+          </div>
+        )}
+        {/* Add the mobile download button RIGHT HERE */}
+        <div className="lg:hidden mt-4 pb-4">
+          <button 
+            onClick={handleDownload}
+            className="w-full px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
+          >
+            Download
+          </button>
     </div>
   </div>
 );

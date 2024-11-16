@@ -2,9 +2,52 @@ import React, { useEffect, useRef, useState } from 'react';
 import { CardCreator } from './cardCreator';
 import { getAssetPath } from './assetPaths';
 
+const loadFonts = async () => {
+  const fontLoader = {
+    loaded: false,
+    promises: [],
+    async init() {
+      if (this.loaded) return Promise.resolve();
+      
+      const fonts = [
+        new FontFace('Eurostile Medium', 'url(/fonts/EurostileMedium.woff2)'),
+        new FontFace('Eurostile Heavy', 'url(/fonts/EurostileHeavy.woff2)'),
+        new FontFace('Eurostile Extd Black', 'url(/fonts/EurostileExtdBlack.woff2)'),
+        new FontFace('Arial Black', 'url(/fonts/ArialBlack.woff2)'),
+        new FontFace('Arial Bold', 'url(/fonts/ArialBold.woff2)'),
+        new FontFace('Arial Narrow Italic', 'url(/fonts/ArialNarrowItalic.woff2)'),
+        new FontFace('Century Gothic Bold', 'url(/fonts/CenturyGothicBold.woff2)'),
+        new FontFace('Eurostile Heavy Italic', 'url(/fonts/EurostileHeavyItalic.woff2)'),
+        new FontFace('Eurostile Cond Heavy Italic', 'url(/fonts/EurostileCondHeavyItalic.woff2)'),
+        new FontFace('Eurostile-BoldExtendedTwo', 'url(/fonts/EurostileBoldExtendedTwo.woff2)')
+      ];
+
+      const loadedFonts = await Promise.all(fonts.map(font => font.load()));
+      loadedFonts.forEach(font => document.fonts.add(font));
+      return true;
+    }
+  };
+  
+  return fontLoader.init();
+};
+
 const CardPreview = ({ cardData }) => {
   const containerRef = useRef(null);
   const [error, setError] = useState(null);
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  //separate useEffect for font loading
+  useEffect(() => {
+    const initFonts = async () => {
+      try {
+        await loadFonts();
+        setFontsLoaded(true);
+      } catch (error) {
+        console.error('Error loading fonts:', error);
+      }
+    };
+    initFonts();
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -26,6 +69,7 @@ const CardPreview = ({ cardData }) => {
       }
 
       try {
+
         const canvas = await CardCreator.createCard({
           type: cardData.selectedType,
           name: cardData.name || '',
