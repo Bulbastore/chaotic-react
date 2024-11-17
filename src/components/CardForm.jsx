@@ -784,54 +784,102 @@ return (
     </div>
 <div className="w-full lg:w-1/2 flex flex-col h-full lg:ml-5">
   <div className="flex items-start justify-start mb-4">
-        <CardPreview 
-          cardData={{
-            selectedType,
-            tribe,
-            art,
-            name,
-            subname,
-            set,
-            rarity,
-            subtype,
-            ability,
-            flavorText,
-            unique,
-            legendary,
-            artist,
-            loyal,
-            loyalRestriction,
-            stats,
-            elements,
-            buildPoints,
-            base,
-            mugicCost,
-            serialNumber
-          }} 
-        />
-      </div>
-  {selectedType === 'creature' && (
-    <div className="max-w-[620px] w-full bg-black border border-gray-700 rounded-lg mt-5">
-      <div className="grid grid-cols-1 gap-0 p-2">
-            {Object.entries(stats).map(([stat, value]) => (
-              <NumberSlider
-                key={stat}
-                label={stat.charAt(0).toUpperCase() + stat.slice(1)}
-                value={value}
-                onChange={(e) => setStats(prev => ({
-                  ...prev,
-                  [stat]: parseInt(e.target.value)
-                }))}
-                max={stat === 'mugic' ? 5 : 220}
-                step={stat === 'mugic' ? 1 : 5}
-                type={stat === 'mugic' ? 'small' : 'stats'}
-              />
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
+    <CardPreview 
+      cardData={{
+        selectedType,
+        tribe,
+        art,
+        name,
+        subname,
+        set,
+        rarity,
+        subtype,
+        ability,
+        flavorText,
+        unique,
+        legendary,
+        artist,
+        loyal,
+        loyalRestriction,
+        stats,
+        elements,
+        buildPoints,
+        base,
+        mugicCost,
+        serialNumber
+      }} 
+    />
   </div>
+
+  {/* Stats Section - Mobile Only */}
+  <div className="lg:hidden">
+    {selectedType === 'creature' && (
+      <div className="w-full bg-black border border-gray-700 rounded-lg mb-4">
+        <div className="grid grid-cols-1 gap-0 p-2">
+          {Object.entries(stats).map(([stat, value]) => (
+            <NumberSlider
+              key={stat}
+              label={stat.charAt(0).toUpperCase() + stat.slice(1)}
+              value={value}
+              onChange={(e) => setStats(prev => ({
+                ...prev,
+                [stat]: parseInt(e.target.value)
+              }))}
+              max={stat === 'mugic' ? 5 : 220}
+              step={stat === 'mugic' ? 1 : 5}
+              type={stat === 'mugic' ? 'small' : 'stats'}
+            />
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+
+  {/* Stats Section - Desktop Only */}
+  <div className="hidden lg:block">
+    {selectedType === 'creature' && (
+      <div className="max-w-[620px] w-full bg-black border border-gray-700 rounded-lg mt-5">
+        <div className="grid grid-cols-1 gap-0 p-2">
+          {Object.entries(stats).map(([stat, value]) => (
+            <NumberSlider
+              key={stat}
+              label={stat.charAt(0).toUpperCase() + stat.slice(1)}
+              value={value}
+              onChange={(e) => setStats(prev => ({
+                ...prev,
+                [stat]: parseInt(e.target.value)
+              }))}
+              max={stat === 'mugic' ? 5 : 220}
+              step={stat === 'mugic' ? 1 : 5}
+              type={stat === 'mugic' ? 'small' : 'stats'}
+            />
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+
+  {/* Download Button - Mobile Only */}
+  <div className="lg:hidden sticky bottom-0 w-full bg-black p-4 border-t border-gray-700">
+    <button 
+      onClick={handleDownload}
+      className="w-full px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
+    >
+      Download
+    </button>
+  </div>
+
+  {/* Download Button - Desktop Only */}
+  <div className="hidden lg:flex justify-center gap-4 mt-4">
+    <button 
+      onClick={handleDownload}
+      className="px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
+    >
+      Download
+    </button>
+  </div>
+</div>
+</div>
 );
 };
 
