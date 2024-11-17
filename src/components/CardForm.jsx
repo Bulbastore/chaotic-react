@@ -78,11 +78,12 @@ const SymbolBar = ({ onSymbolSelect }) => {
   if (isMobile) {
     return (
       <div className="bg-black rounded-t border-b border-gray-700">
-        <div className="flex flex-wrap justify-start gap-1 p-1 bg-white rounded">
+        <div className="flex flex-wrap justify-start gap-1 p-1">
           {CARD_SYMBOLS.map(({ code, label, icon }) => (
             <button
               key={code}
               onClick={() => onSymbolSelect(code)}
+              className="flex items-center justify-center w-8 h-8 bg-white rounded"
               className="p-0.5"
             >
               <img 
@@ -772,7 +773,7 @@ return (
 {/* Action Buttons */}
       </div>
       <div className="p-0">
-        <div className="flex justify-center gap-4">
+        <div className="hidden lg:flex justify-center gap-4">
           <button 
             onClick={handleDownload}
             className="px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
@@ -858,27 +859,18 @@ return (
       </div>
     )}
   </div>
-
-  {/* Download Button - Mobile Only */}
-  <div className="lg:hidden sticky bottom-0 w-full bg-black p-4 border-t border-gray-700">
-    <button 
-      onClick={handleDownload}
-      className="w-full px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
-    >
-      Download
-    </button>
-  </div>
-
-  {/* Download Button - Desktop Only */}
-  <div className="hidden lg:flex justify-center gap-4 mt-4">
-    <button 
-      onClick={handleDownload}
-      className="px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
-    >
-      Download
-    </button>
-  </div>
 </div>
+
+{/* Download Button - Mobile Only */}
+<div className="lg:hidden sticky bottom-0 w-full bg-black p-4 border-t border-gray-700">
+  <button
+    onClick={handleDownload}
+    className="w-full px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
+  >
+    Mobile Download
+  </button>
+</div>
+
 </div>
 );
 };
