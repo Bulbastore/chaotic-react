@@ -446,7 +446,7 @@ const handleDownload = () => {
   }
 };
 return (
-<div className="container mx-auto flex flex-col lg:flex-row gap-0 p-2 lg:p-4 h-screen">
+<div className="container mx-auto flex flex-col lg:flex-row gap-0 p-2 lg:p-4 min-h-screen">
   <div className="w-full lg:w-1/2 bg-black text-white flex flex-col">
       <div className="flex-1 overflow-y-auto space-y-4">
       {/* Card Type Selection */}
@@ -532,12 +532,17 @@ return (
               />
             )}
 
-            <InputField 
-              label="Art" 
-              type="file" 
-              accept="image/*" 
-              onChange={(e) => setArt(e.target.files[0])}
-            />
+<div className="flex items-center gap-4">
+  <label className="w-24 text-right font-bold">Art</label>
+  <div className="flex-1 overflow-hidden">
+    <input 
+      type="file" 
+      accept="image/*" 
+      onChange={(e) => setArt(e.target.files[0])}
+      className="w-full max-w-[calc(100vw-8rem)] lg:max-w-none"
+    />
+  </div>
+</div>
             <InputField 
   label="Name" 
   value={name}
@@ -777,8 +782,8 @@ return (
         </div>
       </div>
     </div>
-<div className="max-w-[620px] lg:w-1/2 flex flex-col h-full ml-5">
-  <div className="flex items-start justify-start">
+<div className="w-full lg:w-1/2 flex flex-col h-full lg:ml-5">
+  <div className="flex items-start justify-start mb-4">
         <CardPreview 
           cardData={{
             selectedType,
