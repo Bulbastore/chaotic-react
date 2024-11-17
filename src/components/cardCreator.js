@@ -146,7 +146,7 @@ const CardCreator = {
 
 export { CardCreator };
 
-// Canvas setup
+// Canvas 
 const canvas = document.createElement('canvas');
 const ctx = canvas.getContext('2d');
 const scale = 4;
@@ -250,7 +250,14 @@ async function loadAssets(cardData) {
     if (cardData.type) {
         let templatePath;
         if (cardData.type === 'creature' && cardData.tribe) {
-            templatePath = getAssetPath(`img/template/${cardData.tribe.toLowerCase()}.png`);
+            // Check for brainwashed state
+            if (cardData.brainwashed) {
+                templatePath = getAssetPath(`img/template/${cardData.tribe.toLowerCase()}bw.png`);
+                console.log('Loading brainwashed template:', templatePath);
+            } else {
+                templatePath = getAssetPath(`img/template/${cardData.tribe.toLowerCase()}.png`);
+                console.log('Loading normal template:', templatePath);
+            }
         } else if (cardData.type === 'mugic' && cardData.tribe) {
             templatePath = getAssetPath(`img/template/mugic/${cardData.tribe.toLowerCase()}.png`);
         } else {
@@ -259,6 +266,17 @@ async function loadAssets(cardData) {
         
         promises.push(loadAsset('template', templatePath)
             .then(img => assets.template = img));
+    }
+
+    // If brainwashed, load the brainwashed bar
+    if (cardData.type === 'creature' && cardData.brainwashed) {
+        console.log('Loading brainwashed bar');
+        promises.push(loadAsset('brainwashedBar', 
+            getAssetPath('img/brainwashed_bar.png')
+        ).then(img => {
+            console.log('Brainwashed bar loaded successfully');
+            assets.brainwashedBar = img;
+        }));
     }
 
     // Set symbol
@@ -288,7 +306,7 @@ async function loadAssets(cardData) {
         }
     }
 
-    // Art remains the same since it's uploaded by user
+    // Art
     if (cardData.art) {
         promises.push(
             new Promise((resolve) => {
@@ -308,9 +326,9 @@ async function loadAssets(cardData) {
 
     try {
         await Promise.all(promises);
+        console.log('All assets loaded successfully:', assets);
     } catch (error) {
         console.error('Error loading assets:', error);
-        // You might want to show an error message to the user here
     }
 
     return assets;
@@ -376,6 +394,22 @@ async function drawCard(cardData, assets) {
         if (assets.watercreature) {
             drawImage(assets.watercreature, 0, 0, assets.watercreature.width, assets.watercreature.height, 0, 0, width, height);
         }
+            // Draw brainwashed bar if applicable
+    if (cardData.type === 'creature' && cardData.brainwashed && assets.brainwashedBar) {
+        console.log('Drawing brainwashed bar');
+        // Position it after the ability text
+        const abilityHeight = (cardData.ability || '').split('\n').length * 15; // Approximate line height
+        const barY = 250 + abilityHeight;
+        
+        drawImage(
+            assets.brainwashedBar,
+            0, 0,
+            assets.brainwashedBar.width,
+            assets.brainwashedBar.height,
+            43, barY,
+            173, 13
+        );
+    }
     }
 
     // Draw set symbol
