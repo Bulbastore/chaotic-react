@@ -83,7 +83,7 @@ const SymbolBar = ({ onSymbolSelect }) => {
             <button
               key={code}
               onClick={() => onSymbolSelect(code)}
-              className="flex items-center justify-center w-8 h-8 bg-white rounded"
+            className="p-1 bg-white rounded hover:bg-gray-100 transition-colors"
               className="p-0.5"
             >
               <img 
@@ -284,11 +284,11 @@ const NumberSlider = ({ value, onChange, min = 0, max = 4, step = 1, label, type
 
 // Input Field Component
 const InputField = ({ label, type = "text", ...props }) => (
-  <div className="flex items-center gap-4">
-    <label className="w-24 text-right font-bold">{label}</label>
+  <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4">
+    <label className="font-bold lg:w-24 lg:text-right text-left">{label}</label>
     <input 
       type={type} 
-      className="flex-1 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
+      className="w-full p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
       {...props}
     />
   </div>
@@ -296,10 +296,10 @@ const InputField = ({ label, type = "text", ...props }) => (
 
 // Select Field Component
 const SelectField = ({ label, options, ...props }) => (
-  <div className="flex items-center gap-4">
-    <label className="w-24 text-right font-bold">{label}</label>
+  <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4">
+    <label className="font-bold lg:w-24 lg:text-right text-left">{label}</label>
     <select 
-      className="flex-1 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
+      className="w-full p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
       {...props}
     >
       <option value="" className="text-gray-500">Select {label}</option>
@@ -784,7 +784,7 @@ return (
       </div>
     </div>
 <div className="w-full lg:w-1/2 flex flex-col h-full lg:ml-5">
-  <div className="flex items-start justify-start mb-4">
+  <div className="flex items-start justify-start">
     <CardPreview 
       cardData={{
         selectedType,
@@ -813,7 +813,7 @@ return (
   </div>
 
   {/* Stats Section - Mobile Only */}
-  <div className="lg:hidden">
+  <div className="lg:hidden flex flex-col mb-20">
     {selectedType === 'creature' && (
       <div className="w-full bg-black border border-gray-700 rounded-lg mb-4">
         <div className="grid grid-cols-1 gap-0 p-2">
