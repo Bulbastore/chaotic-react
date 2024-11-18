@@ -54,21 +54,7 @@ const SYMBOL_MAPPINGS = {
     ':air:': { img: 'img/icons/abilityair.png' },
     ':earth:': { img: 'img/icons/abilityearth.png' },
     ':water:': { img: 'img/icons/abilitywater.png' },
-
-     // Discipline elements
-    ':courage:': { img: 'img/icons/courage.png' },
-    ':power:': { img: 'img/icons/power.png' },
-    ':wisdom:': { img: 'img/icons/wisdom.png' },
-    ':speed:': { img: 'img/icons/speed.png' },   
-
-     // Tribe elements
-    ':overworld:': { img: 'img/icons/overworld.png' },
-    ':underworld:': { img: 'img/icons/underworld.png' },
-    ':mipedian:': { img: 'img/icons/mipedian.png' },
-    ':danian:': { img: 'img/icons/danian.png' }, 
-    ':marrillian:': { img: 'img/icons/marrillian.png' },
-    ':tribeless:': { img: 'img/icons/tribeless.png' }, 
-
+    
     // Mugic icons - Danian
     ':danianmugic:': { img: 'img/icons/mugic/danian.png' },
     ':danianmugic0:': { img: 'img/icons/mugic/danian_0.png' },
@@ -548,7 +534,7 @@ if (cardData.ability || cardData.flavorText || cardData.unique || cardData.legen
         
         const lines = wrapText(cardData.ability, 172);
         for (let i = 0; i < lines.length; i++) {
-            ctx.globalAlpha = 1.0;
+            ctx.globalAlpha = 0.8;
             await drawTextWithSymbols(lines[i], 43, currentY + (i * lineHeight), fontSize);
             ctx.globalAlpha = 1.0;
         }
