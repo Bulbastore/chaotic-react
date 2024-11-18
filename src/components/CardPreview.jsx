@@ -36,6 +36,8 @@ const CardPreview = ({ cardData }) => {
           rarity: cardData.rarity || '',
           subtype: cardData.subtype || '',
           ability: cardData.ability || '',
+          brainwashed: cardData.brainwashed || false,
+          brainwashedText: cardData.brainwashedText || '',
           flavorText: cardData.flavorText || '',
           unique: cardData.unique || false,
           legendary: cardData.legendary || false,
