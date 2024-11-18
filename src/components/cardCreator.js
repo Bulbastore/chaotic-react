@@ -320,6 +320,26 @@ async function loadAssets(cardData) {
         }
     }
 
+// Load elements for attacks
+if (cardData.type === 'attack') {
+    if (cardData.elements?.fire) {
+        promises.push(loadAsset('fireattack', getAssetPath('img/fireattack.png'))
+            .then(img => assets.fireattack = img));
+    }
+    if (cardData.elements?.air) {
+        promises.push(loadAsset('airattack', getAssetPath('img/airattack.png'))
+            .then(img => assets.airattack = img));
+    }
+    if (cardData.elements?.earth) {
+        promises.push(loadAsset('earthattack', getAssetPath('img/earthattack.png'))
+            .then(img => assets.earthattack = img));
+    }
+    if (cardData.elements?.water) {
+        promises.push(loadAsset('waterattack', getAssetPath('img/waterattack.png'))
+            .then(img => assets.waterattack = img));
+    }
+}
+
     // Art
     if (cardData.art) {
         promises.push(
@@ -408,23 +428,23 @@ async function drawCard(cardData, assets) {
         if (assets.watercreature) {
             drawImage(assets.watercreature, 0, 0, assets.watercreature.width, assets.watercreature.height, 0, 0, width, height);
         }
-            // Draw brainwashed bar if applicable
-    if (cardData.type === 'creature' && cardData.brainwashed && assets.brainwashedBar) {
-        console.log('Drawing brainwashed bar');
-        // Position it after the ability text
-        const abilityHeight = (cardData.ability || '').split('\n').length * 15; // Approximate line height
-        const barY = 250 + abilityHeight;
-        
-        drawImage(
-            assets.brainwashedBar,
-            0, 0,
-            assets.brainwashedBar.width,
-            assets.brainwashedBar.height,
-            43, barY,
-            173, 13
-        );
     }
+
+// Draw elements for attacks
+if (cardData.type === 'attack') {
+    if (assets.fireattack) {
+        drawImage(assets.fireattack, 0, 0, assets.fireattack.width, assets.fireattack.height, 0, 0, width, height);
     }
+    if (assets.airattack) {
+        drawImage(assets.airattack, 0, 0, assets.airattack.width, assets.airattack.height, 0, 0, width, height);
+    }
+    if (assets.earthattack) {
+        drawImage(assets.earthattack, 0, 0, assets.earthattack.width, assets.earthattack.height, 0, 0, width, height);
+    }
+    if (assets.waterattack) {
+        drawImage(assets.waterattack, 0, 0, assets.waterattack.width, assets.waterattack.height, 0, 0, width, height);
+    }
+}
 
     // Draw set symbol
     if (assets.symbol) {
@@ -473,6 +493,18 @@ if (cardData.name) {
 
 
 // Draw subtype and tribe
+if (cardData.type === 'attack') {
+    // Special handling for attack cards - always show "Attack"
+    setFont(7, 'Eurostile Heavy Italic');
+    ctx.fillStyle = '#ffffff';
+    ctx.textAlign = 'left';
+    ctx.shadowBlur = 0.1;
+    ctx.shadowOffsetX = 0.5;
+    ctx.shadowOffsetY = 0.5;
+    ctx.shadowColor = "#696969";
+    fillText("Attack", 18, 218.5);
+
+} 
 if (cardData.subtype || cardData.tribe) {
     setFont(7.5, 'Eurostile Heavy Italic');
     ctx.fillStyle = '#ffffff';
@@ -484,13 +516,12 @@ if (cardData.subtype || cardData.tribe) {
 
     let typeText = cardData.type.charAt(0).toUpperCase() + cardData.type.slice(1);
     if (cardData.tribe) {
-        typeText += ` - ${formatTribe(cardData.tribe)}`;
+        typeText += ` - ${cardData.past ? 'Past ' : ''}${formatTribe(cardData.tribe)}`;
         if (cardData.subtype) {
             typeText += ` ${cardData.subtype}`;
         }
     } else if (cardData.subtype) {
-        typeText += ` - `;
-        typeText += cardData.subtype;
+        typeText += ` - ${cardData.subtype}`;
     }
 
     fillText(typeText, 43, 220);
@@ -526,13 +557,14 @@ function calculateFontSize(text, maxWidth, maxHeight, initialSize = 10.3) {
     return fontSize;
 }
 
-// Then replace the ability text drawing section:
-if (cardData.ability || cardData.flavorText || cardData.unique || cardData.legendary || cardData.loyal) {
+if (cardData.ability || cardData.flavorText || cardData.unique || cardData.legendary || cardData.loyal || cardData.brainwashedText) {
     // Combine all text to calculate total space needed
     const totalText = [
         cardData.ability,
-        [cardData.unique && 'Unique', cardData.legendary && 'Legendary', cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')].filter(Boolean).join(', '),
-        cardData.flavorText
+        cardData.brainwashed ? '\n'.repeat(2) + cardData.brainwashedText : [
+            [cardData.unique && 'Unique', cardData.legendary && 'Legendary', cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')].filter(Boolean).join(', '),
+            cardData.flavorText
+        ].filter(Boolean).join('\n')
     ].filter(Boolean).join('\n');
     
     // Calculate appropriate font size for all content
@@ -540,12 +572,30 @@ if (cardData.ability || cardData.flavorText || cardData.unique || cardData.legen
     const lineHeight = fontSize * 1.2;
     let currentY = 235;
     
-    // Draw ability text
-    if (cardData.ability) {
-        setFont(fontSize, 'Eurostile Medium');
-        ctx.fillStyle = '#000000';
-        ctx.textAlign = 'left';
+// Draw ability text
+if (cardData.ability) {
+    setFont(fontSize, 'Eurostile Medium');
+    ctx.fillStyle = '#000000';
+    ctx.textAlign = 'left';
+    
+    // Special handling for attack cards
+    if (cardData.type === 'attack') {
+        const topBoundary = 255;
+        const bottomBoundary = 320;
+        const availableHeight = bottomBoundary - topBoundary;
         
+        const lines = wrapText(cardData.ability, 215);
+        const totalTextHeight = lines.length * lineHeight;
+        const startY = topBoundary + ((availableHeight - totalTextHeight) / 2);
+        
+        for (let i = 0; i < lines.length; i++) {
+            const yPos = startY + (i * lineHeight);
+            if (yPos + lineHeight <= bottomBoundary) {
+                await drawTextWithSymbols(lines[i], 18, yPos, fontSize);
+            }
+        }
+    } else {
+        // Original code for non-attack cards
         const lines = wrapText(cardData.ability, 172);
         for (let i = 0; i < lines.length; i++) {
             ctx.globalAlpha = 1.0;
@@ -554,41 +604,88 @@ if (cardData.ability || cardData.flavorText || cardData.unique || cardData.legen
         }
         currentY += lines.length * lineHeight + fontSize/2;
     }
-    
-    // Draw status indicators
-    if (cardData.unique || cardData.legendary || cardData.loyal) {
-        setFont(fontSize, 'Eurostile Heavy');
+}
+
+// Draw brainwashed text if applicable
+    if (cardData.brainwashed && cardData.brainwashedText) {
+        // Calculate space needed for brainwashed text
+        const brainwashedLines = wrapText(cardData.brainwashedText, 172);
+        const totalBrainwashedHeight = brainwashedLines.length * lineHeight;
+        
+        // Calculate optimal bar position based on available space
+        let barY;
+        if (cardData.ability) {
+            // If there's ability text, position relative to ability text height
+            const abilityLines = wrapText(cardData.ability, 172);
+            const abilityHeight = abilityLines.length * lineHeight;
+            
+            // Position bar after ability text while ensuring enough space for brainwashed text
+            barY = Math.min(
+                currentY, // Current Y position after ability text
+                315 - totalBrainwashedHeight - 25 // Leave space for brainwashed text
+            );
+        } else {
+            // If no ability text, start from default position
+            barY = Math.min(250, 315 - totalBrainwashedHeight - 25);
+        }
+
+        // Draw the brainwashed bar
+        if (assets.brainwashedBar) {
+            drawImage(
+                assets.brainwashedBar,
+                0, 0,
+                assets.brainwashedBar.width,
+                assets.brainwashedBar.height,
+                43, barY,
+                173, 13
+            );
+        }
+
+        // Draw brainwashed text with proper spacing
+        const brainwashedTextY = barY + 23; // Increased spacing after bar
+        setFont(fontSize, 'Eurostile Medium');
         ctx.fillStyle = '#000000';
         ctx.textAlign = 'left';
         
-        let statusText = [
-            cardData.legendary && 'Legendary',
-            cardData.unique && 'Unique',
-            cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
-        ].filter(Boolean).join(', ');
+        for (let i = 0; i < brainwashedLines.length; i++) {
+            const yPos = brainwashedTextY + (i * lineHeight);
+            if (yPos + lineHeight <= 315) { // Check if text fits within card boundary
+                ctx.globalAlpha = 1.0;
+                await drawTextWithSymbols(brainwashedLines[i], 45, yPos, fontSize);
+                ctx.globalAlpha = 1.0;
+            }
+        }
+
+    } else if (!cardData.brainwashed) {
+        // Draw non-brainwashed elements (unique, legendary, loyal, flavor text)
+        if (cardData.unique || cardData.legendary || cardData.loyal) {
+            setFont(fontSize, 'Eurostile Heavy');
+            ctx.fillStyle = '#000000';
+            ctx.textAlign = 'left';
+            
+            let statusText = [
+                cardData.legendary && 'Legendary',
+                cardData.unique && 'Unique',
+                cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
+            ].filter(Boolean).join(', ');
+            
+            fillText(statusText, 43, currentY);
+            currentY += lineHeight;
+        }
         
-        fillText(statusText, 43, currentY);
-        currentY += lineHeight;
-    }
-    
-    // Draw flavor text
-    if (cardData.flavorText) {
-        setFont(fontSize * 0.9, 'Arial Narrow Italic');
-        ctx.fillStyle = '#000000';
-        ctx.textAlign = 'left';
-        
-        const lines = wrapText(cardData.flavorText, 172);
-        const maxBottom = 315;
-        
-        // If there's too much text, adjust starting position
-        const totalFlavorHeight = lines.length * lineHeight;
-        const idealStart = currentY + lineHeight/2;
-        const maxStart = maxBottom - totalFlavorHeight;
-        currentY = Math.min(idealStart, maxStart);
-        
-        lines.forEach((line, i) => {
-            fillText(line, 43, currentY + (i * lineHeight));
-        });
+        if (cardData.flavorText) {
+            setFont(fontSize * 0.9, 'Arial Narrow Italic');
+            ctx.fillStyle = '#000000';
+            ctx.textAlign = 'left';
+            
+            const lines = wrapText(cardData.flavorText, 172);
+            lines.forEach((line, i) => {
+                const yPos = currentY + (i * lineHeight);
+                if (yPos <= 315) {
+                    fillText(line, 43, yPos);
+                }
+            });
+        }
     }
 }
 
@@ -604,7 +701,7 @@ const generateCode = () => {
 };
 
 const cardCode = generateCode();
-const spacingAmount = 2; // Adjust this number for different spacing
+const spacingAmount = 2;
 const spacedCode = cardCode.split('').map((char, i) => 
     i === cardCode.length - 1 ? char : char + ' '.repeat(spacingAmount)
 ).join('');
@@ -613,23 +710,55 @@ ctx.fillStyle = '#000000';
 ctx.textAlign = 'left';
 fillText(spacedCode, 62, 333);
 
-    // Draw copywrite info
-setFont(5, 'Eurostile Cond Heavy Italic');
-ctx.fillStyle = '#FFFFFF';
-ctx.letterSpacing = "0.3px";
-fillText(`${cardData.serialNumber || '--/100'}    ©2024 4Kids and Chaotic USA. Chaotic® Home Focus.`, 49, 344);
+// Draw copywrite info
+if (cardData.type === 'attack') {
+    setFont(5, 'Eurostile Cond Heavy Italic');
+    ctx.fillStyle = '#a7b1c3';
+    ctx.strokeStyle = '#262730';
+    ctx.lineWidth = 0.25;
+    ctx.textAlign = 'left';
+    ctx.letterSpacing = "0.3px";
+    
+    const copyrightText = `${cardData.serialNumber || '--/100'}    ©2024 4Kids and Chaotic USA. Chaotic® Home Focus.`;
+    
+    // Draw stroke first
+    ctx.strokeText(copyrightText, 63 * scale, 344 * scale);
+    // Then fill
+    fillText(copyrightText, 63, 344);
+} else {
+    setFont(5, 'Eurostile Cond Heavy Italic');
+    ctx.fillStyle = '#FFFFFF';
+    ctx.textAlign = 'left';
+    ctx.letterSpacing = "0.3px";
+    fillText(`${cardData.serialNumber || '--/100'}    ©2024 4Kids and Chaotic USA. Chaotic® Home Focus.`, 49, 344);
+}
+
 ctx.letterSpacing = "0px";
 
-    // Draw artist name
+// Draw artist name with special styling for attack cards
 if (cardData.artist) {
     ctx.save();
     setFont(5, 'Eurostile Cond Heavy Italic');
-    ctx.fillStyle = '#FFFFFF';
+    if (cardData.type === 'attack') {
+        ctx.fillStyle = '#a7b1c3';
+        ctx.strokeStyle = '#262730';
+        ctx.lineWidth = 0.25;
+    } else {
+        ctx.fillStyle = '#FFFFFF';
+    }
     ctx.letterSpacing = "0.3px";
-    ctx.translate(970, 480);
+    ctx.translate(975, 480);
     ctx.rotate(-Math.PI / 2);
     ctx.textAlign = 'center';
-    fillText(`Art by ${cardData.artist}`, 0, 0);
+    
+    const artistText = `Art by ${cardData.artist}`;
+    if (cardData.type === 'attack') {
+        // Draw stroke first
+        ctx.strokeText(artistText, 0, 0);
+    }
+    // Then fill
+    fillText(artistText, 0, 0);
+    
     ctx.letterSpacing = "0px";
     ctx.restore();
 }
@@ -680,32 +809,31 @@ function drawCreature(cardData) {
 }
 
 function drawAttack(cardData) {
-    setFont(18, 'Arial', 'bold');
+    setFont(14, 'Eurostile Black');
     ctx.textAlign = 'center';
     ctx.fillStyle = '#000000';
 
-    if (cardData.buildPoints) {
-        fillText(cardData.buildPoints.toString(), 20, 25);    
+    if (cardData.buildPoints !== undefined) {
+        fillText(cardData.buildPoints === 0 ? '0' : cardData.buildPoints.toString(), 21, 23.5);    
     }
 
-    setFont(22, 'Eurostile-BoldExtendedTwo', 'bold');
-    if (cardData.base) {
-        fillText(cardData.base.toString(), 39, 247);
+    setFont(22, 'Eurostile Extd Black');
+    if (cardData.base !== undefined) {
+        fillText(cardData.base === 0 ? '0' : cardData.base.toString(), 40, 244);
     }
 
-    setFont(10, 'Eurostile-BoldExtendedTwo', 'bold');
+    setFont(12, 'Arial Black');
     ctx.textAlign = 'center';
-
     const elementPositions = [
-        { key: 'fire', x: 96 },
-        { key: 'air', x: 139 },
-        { key: 'earth', x: 181 },
-        { key: 'water', x: 224 }
+        { key: 'fire', x: 98, y: 241 },
+        { key: 'air', x: 140, y: 241 },
+        { key: 'earth', x: 183, y: 241 },
+        { key: 'water', x: 224.5, y: 241 }
     ];
 
-    elementPositions.forEach(({ key, x }) => {
+    elementPositions.forEach(({ key, x, y }) => {
         if (cardData.elements[key]) {
-            fillText(cardData.elements[key].toString(), x, 242);
+            fillText(cardData.elements[key].toString(), x, y);
         }
     });
 }

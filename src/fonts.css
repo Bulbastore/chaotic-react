@@ -60,3 +60,10 @@
          url('./fonts/Eurostile%20Medium.ttf') format('truetype');
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Eurostile Black';
+    src: local('Eurostile Black'),
+         url('./fonts/Eurostile Black.ttf') format('truetype');
+    font-display: swap;
+}

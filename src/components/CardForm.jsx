@@ -310,25 +310,38 @@ const SelectField = ({ label, options, ...props }) => (
 );
 
 const ELEMENT_ICONS = {
-    fire: getAssetPath('img/icons/fire.png'),
-    air: getAssetPath('img/icons/air.png'),
-    earth: getAssetPath('img/icons/earth.png'),
-    water: getAssetPath('img/icons/water.png')
+    fire: {
+        creature: getAssetPath('img/icons/fire.png'),
+        attack: getAssetPath('img/icons/fire.png')
+    },
+    air: {
+        creature: getAssetPath('img/icons/air.png'),
+        attack: getAssetPath('img/icons/air.png')
+    },
+    earth: {
+        creature: getAssetPath('img/icons/earth.png'),
+        attack: getAssetPath('img/icons/earth.png')
+    },
+    water: {
+        creature: getAssetPath('img/icons/water.png'),
+        attack: getAssetPath('img/icons/water.png')
+    }
 };
 
-const ElementItem = ({ element, value, onChange }) => (
+
+const ElementItem = ({ element, value, onChange, type = 'creature' }) => (
   <div className="flex items-center gap-2">
     <input
       type="checkbox"
-      id={element}
+      id={`${type}-${element}`}
       checked={value > 0}
       onChange={onChange}
       className="w-4 h-4 accent-[#9FE240]"
     />
-    <label htmlFor={element} className="flex items-center gap-1">
+    <label htmlFor={`${type}-${element}`} className="flex items-center gap-1">
       <img 
-        src={ELEMENT_ICONS[element]}
-        alt={`${element} element`}
+        src={ELEMENT_ICONS[element][type]}
+        alt={element}  // Simplified alt text
         className="w-5 h-5 object-contain"
         style={{ imageRendering: 'pixelated' }}
       />
@@ -420,7 +433,6 @@ const resetForm = () => {
   setBuildPoints(0);
   setMugicCost(0);
   setBase(0);
-  setInitiative(0);
   setSerialNumber('');
   setBrainwashedText('');
 };
@@ -451,7 +463,6 @@ const resetForm = () => {
   const [buildPoints, setBuildPoints] = useState(0);
   const [mugicCost, setMugicCost] = useState(0);
   const [base, setBase] = useState(0);
-  const [initiative, setInitiative] = useState(0);
 
 const handleDownload = () => {
   const previewCanvas = document.querySelector('#preview-canvas');
@@ -464,7 +475,7 @@ const handleDownload = () => {
   }
 };
 return (
-<div className="container mx-auto flex flex-col lg:flex-row gap-0 p-2 lg:p-4 min-h-screen">
+<div className="container mx-auto flex flex-col lg:flex-row gap-0 p-2 lg:p-4 min-h-screen w-full max-w-none">
   <div className="w-full lg:w-1/2 bg-black text-white flex flex-col">
       <div className="flex-1 overflow-y-auto space-y-4">
       {/* Card Type Selection */}
@@ -498,7 +509,6 @@ return (
     setBuildPoints(0);
     setMugicCost(0);
     setBase(0);
-    setInitiative(0);
   }}
   className="w-48 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
 >
@@ -536,47 +546,47 @@ return (
     </div>
   </div>
 )}
-            {/* Tribe for Mugic */}
-            {selectedType === 'mugic' && (
-              <SelectField
-                label="Tribe"
-                value={tribe}
-                onChange={(e) => setTribe(e.target.value)}
-                options={[
-                  { value: 'overworld', label: 'OverWorld' },
-                  { value: 'underworld', label: 'UnderWorld' },
-                  { value: 'mipedian', label: 'Mipedian' },
-                  { value: 'danian', label: 'Danian' },
-                  { value: "m'arrillian", label: "M'arrillian" },
-                  { value: 'generic', label: 'Generic' }
-                ]}
-              />
-            )}
+    {/* Tribe for Mugic */}
+    {selectedType === 'mugic' && (
+      <SelectField
+        label="Tribe"
+        value={tribe}
+        onChange={(e) => setTribe(e.target.value)}
+        options={[
+          { value: 'overworld', label: 'OverWorld' },
+          { value: 'underworld', label: 'UnderWorld' },
+          { value: 'mipedian', label: 'Mipedian' },
+          { value: 'danian', label: 'Danian' },
+          { value: "m'arrillian", label: "M'arrillian" },
+          { value: 'generic', label: 'Generic' }
+        ]}
+      />
+    )}
 
-<div className="flex items-center gap-4">
-  <label className="w-24 text-right font-bold">Art</label>
-  <div className="flex-1 overflow-hidden">
-    <input 
-      type="file" 
-      accept="image/*" 
-      onChange={(e) => setArt(e.target.files[0])}
-      className="w-full max-w-[calc(100vw-8rem)] lg:max-w-none"
-    />
-  </div>
-</div>
+        <div className="flex items-center gap-4">
+          <label className="w-24 text-right font-bold">Art</label>
+          <div className="flex-1 overflow-hidden">
+            <input 
+              type="file" 
+              accept="image/*" 
+              onChange={(e) => setArt(e.target.files[0])}
+              className="w-full max-w-[calc(100vw-8rem)] lg:max-w-none"
+            />
+          </div>
+        </div>
             <InputField 
-  label="Name" 
-  value={name}
-  onChange={(e) => setName(e.target.value)}
-/>
+              label="Name" 
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
             
             {['creature', 'mugic', 'location'].includes(selectedType) && (
-  <InputField 
-    label="Subname" 
-    value={subname}
-    onChange={(e) => setSubname(e.target.value)}
-  />
-)}
+            <InputField 
+              label="Subname" 
+              value={subname}
+              onChange={(e) => setSubname(e.target.value)}
+            />
+          )}
 
             <SelectField
               label="Set"
@@ -771,69 +781,71 @@ return (
           </div>
 
           {/* Stats Sections */}
-          {selectedType === 'attack' && (
-            <div className="space-y-6">
-              <div className="border border-gray-700 rounded-lg p-4 bg-black">
-                <NumberSlider
-                  label="Build Points"
-                  value={buildPoints}
-                  onChange={(e) => setBuildPoints(parseInt(e.target.value))}
-                  max={5}
-                  type="small"
-                />
-              </div>
+{selectedType === 'attack' && (
+  <div className="space-y-6">
+    <div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
+      {/* Element icons for Attack */}
+      <div className="flex justify-around items-center w-full">
+        {Object.entries(elements).map(([element, value]) => (
+          <ElementItem
+            key={element}
+            element={element}
+            value={value}
+            onChange={(e) => setElements(prev => ({
+              ...prev,
+              [element]: e.target.checked ? 5 : 0
+            }))}
+            type="attack"
+          />
+        ))}
+      </div>
 
-              <div className="border border-gray-700 rounded-lg p-4 bg-black space-y-4">
-                <NumberSlider
-                  label="Base"
-                  value={base}
-                  onChange={(e) => setBase(parseInt(e.target.value))}
-                  max={50}
-                  step={5}
-                  type="base"
-                />
-                {Object.entries(elements).map(([element, value]) => (
-                  <NumberSlider
-                    key={element}
-                    label={element.charAt(0).toUpperCase() + element.slice(1)}
-                    value={value}
-                    onChange={(e) => setElements(prev => ({
-                      ...prev,
-                      [element]: parseInt(e.target.value)
-                    }))}
-                    max={50}
-                    step={5}
-                    type="elements"
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-
-{selectedType === 'mugic' && (
-  <div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
-    <NumberSlider
-      label="Cost"
-      value={mugicCost}
-      onChange={(e) => setMugicCost(parseInt(e.target.value))}
-      max={5}
-      type="small"
-    />
+      {/* Stats sliders for Attack */}
+      <div className="space-y-4">
+        <NumberSlider
+          label="Base"
+          value={base !== undefined ? base : 0}
+          onChange={(e) => setBase(parseInt(e.target.value) || 0)}
+          min={0}
+          max={50}
+          step={5}
+          type="base"
+        />
+        {Object.entries(elements).map(([element, value]) => (
+          value > 0 && (
+            <NumberSlider
+              key={element}
+              label={element.charAt(0).toUpperCase() + element.slice(1)}
+              value={value}
+              onChange={(e) => setElements(prev => ({
+                ...prev,
+                [element]: parseInt(e.target.value)
+              }))}
+              max={50}
+              step={5}
+              type="elements"
+            />
+          )
+        ))}
+      </div>
+    </div>
   </div>
 )}
           </div>
         )}
-{/* Action Buttons */}
-      </div>
-      <div className="p-0">
-        <div className="hidden lg:flex justify-center gap-4">
-          <button 
-            onClick={handleDownload}
-            className="px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
-          >
-            Download
-          </button>
-        </div>
+
+
+{/* Download Button for Non-Attack Cards */}
+{selectedType && selectedType !== 'attack' && (
+  <div className="flex justify-center mt-5">
+    <button 
+      onClick={handleDownload}
+      className="px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
+    >
+      Download
+    </button>
+  </div>
+)}
       </div>
     </div>
 <div className="w-full lg:w-1/2 flex flex-col h-full lg:ml-5">
@@ -867,53 +879,78 @@ return (
     />
   </div>
 
-  {/* Stats Section - Mobile Only */}
-  <div className="lg:hidden flex flex-col mb-20">
-    {selectedType === 'creature' && (
-      <div className="w-full bg-black border border-gray-700 rounded-lg mb-4">
-        <div className="grid grid-cols-1 gap-0 p-2">
-          {Object.entries(stats).map(([stat, value]) => (
-            <NumberSlider
-              key={stat}
-              label={stat.charAt(0).toUpperCase() + stat.slice(1)}
-              value={value}
-              onChange={(e) => setStats(prev => ({
-                ...prev,
-                [stat]: parseInt(e.target.value)
-              }))}
-              max={stat === 'mugic' ? 5 : 220}
-              step={stat === 'mugic' ? 1 : 5}
-              type={stat === 'mugic' ? 'small' : 'stats'}
-            />
-          ))}
-        </div>
-      </div>
-    )}
+{/* Build Points section with Download Button */}
+{selectedType === 'attack' && (
+  <div className="max-w-[620px] w-full space-y-4 mt-5">
+    <div className="bg-black border border-gray-700 rounded-lg p-4">
+      <NumberSlider
+        label="Build Points"
+        value={buildPoints}
+        onChange={(e) => setBuildPoints(parseInt(e.target.value))}
+        max={5}
+        type="small"
+      />
+    </div>
+    <div className="flex justify-center">
+      <button 
+        onClick={handleDownload}
+        className="px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
+      >
+        Download
+      </button>
+    </div>
   </div>
+)}
 
-  {/* Stats Section - Desktop Only */}
-  <div className="hidden lg:block">
-    {selectedType === 'creature' && (
-      <div className="max-w-[620px] w-full bg-black border border-gray-700 rounded-lg mt-5">
-        <div className="grid grid-cols-1 gap-0 p-2">
-          {Object.entries(stats).map(([stat, value]) => (
-            <NumberSlider
-              key={stat}
-              label={stat.charAt(0).toUpperCase() + stat.slice(1)}
-              value={value}
-              onChange={(e) => setStats(prev => ({
-                ...prev,
-                [stat]: parseInt(e.target.value)
-              }))}
-              max={stat === 'mugic' ? 5 : 220}
-              step={stat === 'mugic' ? 1 : 5}
-              type={stat === 'mugic' ? 'small' : 'stats'}
-            />
-          ))}
-        </div>
+{/* Stats Section - Mobile Only */}
+<div className="lg:hidden flex flex-col mb-20">
+  {selectedType === 'creature' && (
+    <div className="w-full bg-black border border-gray-700 rounded-lg mb-4">
+      <div className="grid grid-cols-1 gap-0 p-2">
+        {Object.entries(stats).map(([stat, value]) => (
+          <NumberSlider
+            key={stat}
+            label={stat.charAt(0).toUpperCase() + stat.slice(1)}
+            value={value}
+            onChange={(e) => setStats(prev => ({
+              ...prev,
+              [stat]: parseInt(e.target.value)
+            }))}
+            max={stat === 'mugic' ? 5 : 220}
+            step={stat === 'mugic' ? 1 : 5}
+            type={stat === 'mugic' ? 'small' : 'stats'}
+          />
+        ))}
       </div>
-    )}
-  </div>
+    </div>
+  )}
+
+</div>
+
+{/* Stats Section - Desktop Only */}
+<div className="hidden lg:block">
+  {selectedType === 'creature' && (
+    <div className="max-w-[620px] w-full bg-black border border-gray-700 rounded-lg mt-5">
+      <div className="grid grid-cols-1 gap-0 p-2">
+        {Object.entries(stats).map(([stat, value]) => (
+          <NumberSlider
+            key={stat}
+            label={stat.charAt(0).toUpperCase() + stat.slice(1)}
+            value={value}
+            onChange={(e) => setStats(prev => ({
+              ...prev,
+              [stat]: parseInt(e.target.value)
+            }))}
+            max={stat === 'mugic' ? 5 : 220}
+            step={stat === 'mugic' ? 1 : 5}
+            type={stat === 'mugic' ? 'small' : 'stats'}
+          />
+        ))}
+      </div>
+    </div>
+  )}
+
+</div>
 </div>
 
 {/* Download Button - Mobile Only */}

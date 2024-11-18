@@ -44,6 +44,7 @@ const CardPreview = ({ cardData }) => {
           artist: cardData.artist || '',
           loyal: cardData.loyal || false,
           loyalRestriction: cardData.loyalRestriction || '',
+          past: cardData.past || false,
           stats: cardData.stats || {
             energy: 0,
             courage: 0,
@@ -129,7 +130,7 @@ const CardPreview = ({ cardData }) => {
   };
 
 return (
-  <div className="w-full h-full flex items-center justify-center">
+  <div className="w-full h-full flex items-center justify-center px-2 lg:px-0">
     <div className="w-full h-full flex items-center justify-center rounded-lg shadow-xl">
       {getMessage()}
       <div 
