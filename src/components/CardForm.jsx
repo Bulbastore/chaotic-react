@@ -10,12 +10,26 @@ const CARD_SYMBOLS = [
   { code: ':earth:', label: 'Earth', icon: getAssetPath('img/icons/abilityearth.png') },
   { code: ':water:', label: 'Water', icon: getAssetPath('img/icons/abilitywater.png') },
 
-   // Mugic icons - OverWorld
+  // Discipline elements
+  { code: ':courage:', label: 'Courage', icon: getAssetPath('img/icons/courage.png') },
+  { code: ':power:', label: 'Power', icon: getAssetPath('img/icons/power.png') },
+  { code: ':wisdom:', label: 'Wisdom', icon: getAssetPath('img/icons/wisdom.png') },
+  { code: ':speed:', label: 'Speed', icon: getAssetPath('img/icons/speed.png') },  
+
+  // Tribe elements
+  { code: ':overworld:', label: 'OverWorld', icon: getAssetPath('img/icons/overworld.png') },
+  { code: ':underworld:', label: 'UnderWorld', icon: getAssetPath('img/icons/underworld.png') },
+  { code: ':mipedian:', label: 'Mipedian', icon: getAssetPath('img/icons/mipedian.png') },
+  { code: ':danian:', label: 'Danian', icon: getAssetPath('img/icons/danian.png') },
+  { code: ':marrillian:', label: 'Marrillian', icon: getAssetPath('img/icons/marrillian.png') },
+  { code: ':tribeless:', label: 'Tribeless', icon: getAssetPath('img/icons/tribeless.png') },
+
+  // Mugic icons - OverWorld
   { code: ':overworldmugic:', label: 'OverWorld Mugic', icon: getAssetPath('img/icons/mugic/overworld.png') },
   { code: ':overworldmugic0:', label: 'OverWorld Mugic 0', icon: getAssetPath('img/icons/mugic/overworld_0.png') },
   { code: ':overworldmugicX:', label: 'OverWorld Mugic X', icon: getAssetPath('img/icons/mugic/overworld_x.png') }, 
 
-   // Mugic icons - UnderWorld
+  // Mugic icons - UnderWorld
   { code: ':underworldmugic:', label: 'UnderWorld Mugic', icon: getAssetPath('img/icons/mugic/underworld.png') },
   { code: ':underworldmugic0:', label: 'UnderWorld Mugic 0', icon: getAssetPath('img/icons/mugic/underworld_0.png') },
   { code: ':underworldmugicX:', label: 'UnderWorld Mugic X', icon: getAssetPath('img/icons/mugic/underworld_x.png') },
@@ -84,8 +98,7 @@ const SymbolBar = ({ onSymbolSelect }) => {
             <button
               key={code}
               onClick={() => onSymbolSelect(code)}
-            className="p-1 bg-white rounded hover:bg-gray-100 transition-colors"
-              className="p-0.5"
+            className="p-1 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
             >
               <img 
                 src={icon} 
@@ -102,7 +115,7 @@ const SymbolBar = ({ onSymbolSelect }) => {
   // Original desktop version
   return (
     <div className="bg-black rounded-t border-b border-gray-700">
-      <div className="flex flex-wrap justify-start gap-2 p-1">
+      <div className="flex flex-wrap justify-center gap-1 p-1">
         {CARD_SYMBOLS.map(({ code, label, icon }) => (
           <button
             key={code}
