@@ -60,10 +60,7 @@ const CardPreview = ({ cardData }) => {
           base: cardData.base || 0,
           mugicCost: cardData.mugicCost || 0,
           initiative: cardData.initiative || 0,
-          serialNumber: cardData.serialNumber || '',
-          brainwashed: cardData.brainwashed || false,
-          brainwashedText: cardData.brainwashedText || '',
-          isPast: cardData.isPast || false
+          serialNumber: cardData.serialNumber || ''
         });
 
         if (mounted) {
