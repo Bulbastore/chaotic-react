@@ -141,17 +141,14 @@ const TextAreaWithSymbols = ({ value, onChange }) => {
 const insertSymbol = (symbolCode) => {
     const textarea = textareaRef.current;
     if (!textarea) return;
-
     const start = textarea.selectionStart;
     const end = textarea.selectionEnd;
     
     const beforeText = value.substring(0, start);
     const afterText = value.substring(end);
-
     const spaceAfterSymbol = afterText.startsWith(' ') ? '' : ' '; // Check if there's already a space
     const newValue = `${beforeText}${symbolCode}${spaceAfterSymbol}${afterText}`;
     const newCursorPos = start + symbolCode.length + spaceAfterSymbol.length;
-
     onChange(newValue);
     
     setTimeout(() => {
@@ -188,7 +185,7 @@ const handleKeyDown = (e) => {
   value={value}
   onChange={(e) => onChange(e.target.value)}
   onKeyDown={handleKeyDown}
-  className="w-full p-2 bg-black text-white h-32 focus:outline-none rounded-t leading-relaxed border-b border-gray-700 focus-within:border-[#9FE240]" 
+  className="w-full p-2 bg-black text-white h-20 focus:outline-none rounded-t leading-relaxed border-b border-gray-700 focus-within:border-[#9FE240]" 
   style={{ letterSpacing: 'normal' }}
   placeholder="Type : to use symbols (e.g., :fire:) or click icons below to insert"
 />
@@ -437,6 +434,11 @@ const resetForm = () => {
   setBrainwashedText('');
 };
 
+  // Function to determine if card type can have legendary/loyal properties
+  const canHaveSpecialProperties = (type) => {
+    return type === 'creature' || type === 'battlegear';
+  };
+
   // Add useEffect to preload icons
   useEffect(() => {
     const preloadIcons = async () => {
@@ -580,7 +582,7 @@ return (
               onChange={(e) => setName(e.target.value)}
             />
             
-            {['creature', 'mugic', 'location'].includes(selectedType) && (
+            {['creature'].includes(selectedType) && (
             <InputField 
               label="Subname" 
               value={subname}
@@ -625,7 +627,7 @@ return (
     placeholder={getFormattedSubtype(selectedType, tribe, '', isPast) + ' [your input]'}
   />
 )}
-    {tribe && (
+    {selectedType === 'creature' && tribe && (
       <div className="flex justify-center items-center gap-8">
         <div className="flex items-center gap-2">
           <input
@@ -659,7 +661,7 @@ return (
       </div>
     )}
 
-<div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
+<div className="space-y-4 rounded-lg bg-black">
   {/* Ability Section */}
   <div className="space-y-2">
     <label className="font-bold">Ability</label>
@@ -676,12 +678,13 @@ return (
       <TextAreaWithSymbols 
         value={brainwashedText}
         onChange={setBrainwashedText}
+        height="h-20"
       />
     </div>
   )}
 
   {/* Flavor Text - Only show if NOT brainwashed */}
-  {!brainwashed && ['creature', 'location', 'mugic'].includes(selectedType) && (
+  {!brainwashed && ['creature', 'location', 'mugic', 'battlegear'].includes(selectedType) && (
     <div className="space-y-2">
       <label className="font-bold">Flavor Text</label>
       <textarea 
@@ -711,8 +714,8 @@ return (
     </div>
   )}
 
-        {/* Card Properties (Only show if not brainwashed) */}
-{!brainwashed && (
+{/* Card Properties (Only show if not brainwashed and is creature/battlegear) */}
+{!brainwashed && ['creature', 'battlegear'].includes(selectedType) && (
     <div className="flex flex-wrap items-center justify-center gap-4 pt-0 border-gray-700">
         <div className="flex items-center gap-2">
             <label className="font-bold">Unique</label>
@@ -749,35 +752,46 @@ return (
                 className="w-32 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none" 
                 placeholder="Restriction" 
             />
-          </div>
         </div>
-      )}
+    </div>
+)}
 </div>
 
-            {/* Artist and Properties */}
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-0 border-gray-700">
-              <div className="flex items-center gap-2">
-                <label className="font-bold">Artist</label>
-                <input 
-                  type="text"
-                  value={artist}
-                  onChange={(e) => setArtist(e.target.value)}
-                  placeholder="Artist"
-                  className="w-48 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
-                />
-              </div>
-              
-              <div className="flex items-center gap-2">
-                <label className="font-bold">Serial #</label>
-                <input 
-                  type="text"
-                  value={serialNumber}
-                  onChange={(e) => setSerialNumber(e.target.value)}
-                  placeholder="##/100"
-                  className="w-20 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
-                />
-              </div>
-            </div>
+<div className="flex flex-wrap items-center justify-center gap-10 pt-0 border-gray-700">
+    {['attack', 'mugic', 'location'].includes(selectedType) && (
+        <div className="flex items-center gap-2">
+            <label className="font-bold">Unique</label>
+            <input 
+                type="checkbox" 
+                checked={unique}
+                onChange={(e) => setUnique(e.target.checked)}
+                className="w-4 h-4 accent-[#9FE240]" 
+            />
+        </div>
+    )}
+    
+    <div className="flex items-center gap-2">
+        <label className="font-bold">Artist</label>
+        <input 
+            type="text"
+            value={artist}
+            onChange={(e) => setArtist(e.target.value)}
+            placeholder="Artist"
+            className="w-48 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
+        />
+    </div>
+    
+    <div className="flex items-center gap-2">
+        <label className="font-bold">Serial #</label>
+        <input 
+            type="text"
+            value={serialNumber}
+            onChange={(e) => setSerialNumber(e.target.value)}
+            placeholder="##/100"
+            className="w-20 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
+        />
+    </div>
+</div>
           </div>
 
           {/* Stats Sections */}
@@ -874,7 +888,8 @@ return (
         mugicCost,
         serialNumber,
         brainwashed,
-        brainwashedText
+        brainwashedText,
+        past: isPast
       }} 
     />
   </div>

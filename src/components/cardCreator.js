@@ -415,6 +415,27 @@ async function drawCard(cardData, assets) {
     if (assets.template) {
         drawImage(assets.template, 0, 0, assets.template.width, assets.template.height, 0, 0, width, height);
     }
+
+if (cardData.type === 'creature' && cardData.brainwashed) {
+    if (assets.brainwashedBar) {
+        const barWidth = 172; // Match the text box width
+        const aspectRatio = assets.brainwashedBar.height / assets.brainwashedBar.width;
+        const barHeight = barWidth * aspectRatio;
+        
+        drawImage(
+            assets.brainwashedBar,
+            0,
+            0,
+            assets.brainwashedBar.width,
+            assets.brainwashedBar.height,
+            43,  // Match the text x-position
+            265, // Match the text y-position
+            barWidth,
+            14  // Fixed small height
+        );
+    }
+}
+
     if (cardData.type === 'creature') {
         if (assets.firecreature) {
             drawImage(assets.firecreature, 0, 0, assets.firecreature.width, assets.firecreature.height, 0, 0, width, height);
@@ -494,7 +515,6 @@ if (cardData.name) {
 
 // Draw subtype and tribe
 if (cardData.type === 'attack') {
-    // Special handling for attack cards - always show "Attack"
     setFont(7, 'Eurostile Heavy Italic');
     ctx.fillStyle = '#ffffff';
     ctx.textAlign = 'left';
@@ -502,10 +522,19 @@ if (cardData.type === 'attack') {
     ctx.shadowOffsetX = 0.5;
     ctx.shadowOffsetY = 0.5;
     ctx.shadowColor = "#696969";
-    fillText("Attack", 18, 218.5);
+    fillText("Attack", 17, 218.5);
 
-} 
-if (cardData.subtype || cardData.tribe) {
+} else if (cardData.type === 'battlegear') {
+    setFont(7.5, 'Eurostile Heavy Italic');
+    ctx.fillStyle = '#ffffff';
+    ctx.textAlign = 'left';
+    ctx.shadowBlur = 0.1;
+    ctx.shadowOffsetX = 0.5;
+    ctx.shadowOffsetY = 0.5;
+    ctx.shadowColor = "#696969"; 
+    fillText("Battlegear", 17, 218);    
+    
+} else if (cardData.subtype || cardData.tribe) {
     setFont(7.5, 'Eurostile Heavy Italic');
     ctx.fillStyle = '#ffffff';
     ctx.textAlign = 'left';
@@ -558,7 +587,6 @@ function calculateFontSize(text, maxWidth, maxHeight, initialSize = 10.3) {
 }
 
 if (cardData.ability || cardData.flavorText || cardData.unique || cardData.legendary || cardData.loyal || cardData.brainwashedText) {
-    // Combine all text to calculate total space needed
     const totalText = [
         cardData.ability,
         cardData.brainwashed ? '\n'.repeat(2) + cardData.brainwashedText : [
@@ -566,24 +594,20 @@ if (cardData.ability || cardData.flavorText || cardData.unique || cardData.legen
             cardData.flavorText
         ].filter(Boolean).join('\n')
     ].filter(Boolean).join('\n');
-    
-    // Calculate appropriate font size for all content
+
     const fontSize = calculateFontSize(totalText, 172, 85);
     const lineHeight = fontSize * 1.2;
     let currentY = 235;
-    
-// Draw ability text
-if (cardData.ability) {
-    setFont(fontSize, 'Eurostile Medium');
-    ctx.fillStyle = '#000000';
-    ctx.textAlign = 'left';
-    
-    // Special handling for attack cards
-    if (cardData.type === 'attack') {
-        const topBoundary = 255;
-        const bottomBoundary = 320;
-        const availableHeight = bottomBoundary - topBoundary;
-        
+
+if (cardData.type === 'attack') {
+    const topBoundary = 255;
+    const bottomBoundary = 310;
+    const availableHeight = bottomBoundary - topBoundary;
+
+    if (cardData.ability) {
+        setFont(fontSize, 'Eurostile Medium');
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'left';
         const lines = wrapText(cardData.ability, 215);
         const totalTextHeight = lines.length * lineHeight;
         const startY = topBoundary + ((availableHeight - totalTextHeight) / 2);
@@ -594,97 +618,202 @@ if (cardData.ability) {
                 await drawTextWithSymbols(lines[i], 18, yPos, fontSize);
             }
         }
-    } else {
-        // Original code for non-attack cards
-        const lines = wrapText(cardData.ability, 172);
-        for (let i = 0; i < lines.length; i++) {
-            ctx.globalAlpha = 1.0;
-            await drawTextWithSymbols(lines[i], 43, currentY + (i * lineHeight), fontSize);
-            ctx.globalAlpha = 1.0;
-        }
-        currentY += lines.length * lineHeight + fontSize/2;
-    }
-}
+        currentY = startY + totalTextHeight + 4;
 
-// Draw brainwashed text if applicable
-    if (cardData.brainwashed && cardData.brainwashedText) {
-        // Calculate space needed for brainwashed text
-        const brainwashedLines = wrapText(cardData.brainwashedText, 172);
-        const totalBrainwashedHeight = brainwashedLines.length * lineHeight;
-        
-        // Calculate optimal bar position based on available space
-        let barY;
-        if (cardData.ability) {
-            // If there's ability text, position relative to ability text height
-            const abilityLines = wrapText(cardData.ability, 172);
-            const abilityHeight = abilityLines.length * lineHeight;
-            
-            // Position bar after ability text while ensuring enough space for brainwashed text
-            barY = Math.min(
-                currentY, // Current Y position after ability text
-                315 - totalBrainwashedHeight - 25 // Leave space for brainwashed text
-            );
-        } else {
-            // If no ability text, start from default position
-            barY = Math.min(250, 315 - totalBrainwashedHeight - 25);
-        }
-
-        // Draw the brainwashed bar
-        if (assets.brainwashedBar) {
-            drawImage(
-                assets.brainwashedBar,
-                0, 0,
-                assets.brainwashedBar.width,
-                assets.brainwashedBar.height,
-                43, barY,
-                173, 13
-            );
-        }
-
-        // Draw brainwashed text with proper spacing
-        const brainwashedTextY = barY + 23; // Increased spacing after bar
-        setFont(fontSize, 'Eurostile Medium');
-        ctx.fillStyle = '#000000';
-        ctx.textAlign = 'left';
-        
-        for (let i = 0; i < brainwashedLines.length; i++) {
-            const yPos = brainwashedTextY + (i * lineHeight);
-            if (yPos + lineHeight <= 315) { // Check if text fits within card boundary
-                ctx.globalAlpha = 1.0;
-                await drawTextWithSymbols(brainwashedLines[i], 45, yPos, fontSize);
-                ctx.globalAlpha = 1.0;
-            }
-        }
-
-    } else if (!cardData.brainwashed) {
-        // Draw non-brainwashed elements (unique, legendary, loyal, flavor text)
-        if (cardData.unique || cardData.legendary || cardData.loyal) {
+        if (!cardData.brainwashed && (cardData.unique || cardData.legendary || cardData.loyal)) {
             setFont(fontSize, 'Eurostile Heavy');
             ctx.fillStyle = '#000000';
             ctx.textAlign = 'left';
-            
+
             let statusText = [
                 cardData.legendary && 'Legendary',
                 cardData.unique && 'Unique',
                 cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
             ].filter(Boolean).join(', ');
-            
-            fillText(statusText, 43, currentY);
+
+            fillText(statusText, 18, currentY);
             currentY += lineHeight;
         }
-        
-        if (cardData.flavorText) {
-            setFont(fontSize * 0.9, 'Arial Narrow Italic');
+    } else if (!cardData.brainwashed && (cardData.unique || cardData.legendary || cardData.loyal)) {
+        setFont(fontSize, 'Eurostile Heavy');
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'left';
+
+        let statusText = [
+            cardData.legendary && 'Legendary',
+            cardData.unique && 'Unique',
+            cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
+        ].filter(Boolean).join(', ');
+
+        const textY = topBoundary + (availableHeight / 2);
+        fillText(statusText, 18, textY);
+        currentY = textY + lineHeight;
+    }
+
+} else if (cardData.type === 'battlegear') {
+    const topBoundary = 235;
+    const bottomBoundary = 315;
+    const textBoxMiddle = (topBoundary + bottomBoundary) / 2;
+    
+    // Calculate flavor text height first
+    let flavorHeight = 0;
+    if (!cardData.brainwashed && cardData.flavorText) {
+        setFont(fontSize * 0.9, 'Arial Narrow Italic');
+        const flavorLines = wrapText(cardData.flavorText, 172);
+        flavorHeight = flavorLines.length * lineHeight;
+    }
+
+    if (cardData.ability) {
+        setFont(fontSize, 'Eurostile Medium');
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'left';
+
+        const lines = wrapText(cardData.ability, 172);
+        for (let i = 0; i < lines.length; i++) {
+            const yPos = topBoundary + (i * lineHeight);
+            if (yPos + lineHeight <= bottomBoundary - flavorHeight) {
+                await drawTextWithSymbols(lines[i], 18, yPos, fontSize);
+            }
+        }
+        currentY = topBoundary + (lines.length * lineHeight) + 4;
+
+        if (!cardData.brainwashed && (cardData.unique || cardData.legendary || cardData.loyal)) {
+            setFont(fontSize, 'Eurostile Heavy');
             ctx.fillStyle = '#000000';
             ctx.textAlign = 'left';
-            
-            const lines = wrapText(cardData.flavorText, 172);
-            lines.forEach((line, i) => {
-                const yPos = currentY + (i * lineHeight);
-                if (yPos <= 315) {
-                    fillText(line, 43, yPos);
+
+            let statusText = [
+                cardData.legendary && 'Legendary',
+                cardData.unique && 'Unique',
+                cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
+            ].filter(Boolean).join(', ');
+
+            fillText(statusText, 18, currentY);
+            currentY += lineHeight;
+        }
+    } else if (!cardData.brainwashed && (cardData.unique || cardData.legendary || cardData.loyal)) {
+        setFont(fontSize, 'Eurostile Heavy');
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'left'; // Changed from 'center' to 'left'
+
+        let statusText = [
+            cardData.legendary && 'Legendary',
+            cardData.unique && 'Unique',
+            cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
+        ].filter(Boolean).join(', ');
+
+        const lines = wrapText(statusText, 172);
+        const statusHeight = lines.length * lineHeight;
+        currentY = textBoxMiddle - (statusHeight / 2);
+
+        fillText(statusText, 18, currentY); // Changed x-coordinate to 18
+        currentY += lineHeight;
+    }
+
+    if (!cardData.brainwashed && cardData.flavorText) {
+        setFont(fontSize * 0.9, 'Arial Narrow Italic');
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'left';
+
+        const lines = wrapText(cardData.flavorText, 172);
+        const flavorStartY = bottomBoundary - (lines.length * lineHeight);
+
+        lines.forEach((line, i) => {
+            const yPos = flavorStartY + (i * lineHeight);
+            if (yPos <= bottomBoundary) {
+                fillText(line, 18, yPos);
+            }
+        });
+    }
+    } else {
+        const textBoxTop = 233.5;
+        const textBoxBottom = 315;
+        const absoluteBottom = 320;
+        const textBoxMiddle = (textBoxTop + textBoxBottom) / 2;
+
+        if (cardData.ability) {
+            setFont(fontSize, 'Eurostile Medium');
+            ctx.fillStyle = '#000000';
+            ctx.textAlign = 'left';
+
+            const lines = wrapText(cardData.ability, 172);
+            for (let i = 0; i < lines.length; i++) {
+                ctx.globalAlpha = 1.0;
+                await drawTextWithSymbols(lines[i], 43, textBoxTop + (i * lineHeight), fontSize);
+                ctx.globalAlpha = 1.0;
+            }
+            currentY = textBoxTop + lines.length * lineHeight + fontSize / 2;
+        }
+
+        if (!cardData.brainwashed) {
+            if (cardData.unique || cardData.legendary || cardData.loyal) {
+                setFont(fontSize, 'Eurostile Heavy');
+                ctx.fillStyle = '#000000';
+                ctx.textAlign = 'left';
+
+                let statusText = [
+                    cardData.legendary && 'Legendary',
+                    cardData.unique && 'Unique',
+                    cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
+                ].filter(Boolean).join(', ');
+
+                if (!cardData.ability) {
+                    const statusLines = wrapText(statusText, 172);
+                    const statusHeight = statusLines.length * lineHeight;
+                    currentY = textBoxMiddle - (statusHeight / 2);
                 }
-            });
+
+                fillText(statusText, 43, currentY);
+                currentY += lineHeight;
+            }
+
+            if (cardData.flavorText) {
+                setFont(fontSize * 0.9, 'Arial Narrow Italic');
+                ctx.fillStyle = '#000000';
+                ctx.textAlign = 'left';
+
+                const flavorLines = wrapText(cardData.flavorText, 172);
+                const flavorHeight = flavorLines.length * lineHeight;
+                let flavorStartY = absoluteBottom - flavorHeight;
+
+                if (cardData.ability || cardData.unique || cardData.legendary || cardData.loyal) {
+                    if (flavorStartY < currentY + 4) {
+                        flavorStartY = currentY + 4;
+                    }
+                }
+
+                flavorLines.forEach((line, i) => {
+                    const yPos = flavorStartY + (i * lineHeight);
+                    fillText(line, 43, yPos);
+                });
+            }
+        }
+
+        if (cardData.brainwashed && cardData.brainwashedText) {
+            setFont(fontSize, 'Eurostile Medium');
+            ctx.fillStyle = '#000000';
+            ctx.textAlign = 'left';
+
+            const brainwashedLines = wrapText(cardData.brainwashedText, 172);
+            const brainwashedTextHeight = brainwashedLines.length * lineHeight;
+
+            const topOfBrainwashedBar = Math.max(
+                currentY + 2,
+                textBoxTop
+            );
+
+            const brainwashedBarHeight = lineHeight / 2;
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(43, topOfBrainwashedBar, 172, brainwashedBarHeight);
+
+            const startYBrainwashedText = topOfBrainwashedBar + brainwashedBarHeight + 5;
+
+            for (let i = 0; i < brainwashedLines.length; i++) {
+                const yPos = startYBrainwashedText + (i * lineHeight);
+                if (yPos + lineHeight <= textBoxBottom) {
+                    await drawTextWithSymbols(brainwashedLines[i], 45, yPos, fontSize);
+                }
+            }
         }
     }
 }
@@ -725,6 +854,13 @@ if (cardData.type === 'attack') {
     ctx.strokeText(copyrightText, 63 * scale, 344 * scale);
     // Then fill
     fillText(copyrightText, 63, 344);
+} else if (cardData.type === 'battlegear') {
+    setFont(5, 'Eurostile Cond Heavy Italic');
+    ctx.fillStyle = '#3d4360';
+    ctx.textAlign = 'left';
+    ctx.letterSpacing = "0.3px";
+    fillText(`${cardData.serialNumber || '--/100'}    ©2024 4Kids and Chaotic USA. Chaotic® Home Focus.`, 63, 344);
+
 } else {
     setFont(5, 'Eurostile Cond Heavy Italic');
     ctx.fillStyle = '#FFFFFF';
@@ -737,30 +873,32 @@ ctx.letterSpacing = "0px";
 
 // Draw artist name with special styling for attack cards
 if (cardData.artist) {
-    ctx.save();
-    setFont(5, 'Eurostile Cond Heavy Italic');
-    if (cardData.type === 'attack') {
-        ctx.fillStyle = '#a7b1c3';
-        ctx.strokeStyle = '#262730';
-        ctx.lineWidth = 0.25;
-    } else {
-        ctx.fillStyle = '#FFFFFF';
-    }
-    ctx.letterSpacing = "0.3px";
-    ctx.translate(975, 480);
-    ctx.rotate(-Math.PI / 2);
-    ctx.textAlign = 'center';
-    
-    const artistText = `Art by ${cardData.artist}`;
-    if (cardData.type === 'attack') {
-        // Draw stroke first
-        ctx.strokeText(artistText, 0, 0);
-    }
-    // Then fill
-    fillText(artistText, 0, 0);
-    
-    ctx.letterSpacing = "0px";
-    ctx.restore();
+   ctx.save();
+   setFont(5, 'Eurostile Cond Heavy Italic');
+   if (cardData.type === 'attack') {
+       ctx.fillStyle = '#a7b1c3';
+       ctx.strokeStyle = '#262730';
+       ctx.lineWidth = 0.25;
+   } else if (cardData.type === 'battlegear') {
+       ctx.fillStyle = '#3d4360';
+   } else {
+       ctx.fillStyle = '#FFFFFF';
+   }
+   ctx.letterSpacing = "0.3px";
+   ctx.translate(975, 480);
+   ctx.rotate(-Math.PI / 2);
+   ctx.textAlign = 'center';
+   
+   const artistText = `Art by ${cardData.artist}`;
+   if (cardData.type === 'attack') {
+       // Draw stroke first
+       ctx.strokeText(artistText, 0, 0);
+   }
+   // Then fill
+   fillText(artistText, 0, 0);
+   
+   ctx.letterSpacing = "0px";
+   ctx.restore();
 }
 
     // Draw type-specific elements
@@ -769,7 +907,6 @@ if (cardData.artist) {
         case 'creature': drawCreature(cardData); break;
         case 'mugic': drawMugic(cardData); break;
         case 'location': drawLocation(cardData); break;
-        case 'battlegear': drawBattlegear(cardData); break;
     }
 
     return canvas;
