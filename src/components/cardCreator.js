@@ -968,11 +968,11 @@ function drawAttack(cardData) {
         { key: 'water', x: 224.5, y: 241 }
     ];
 
-    elementPositions.forEach(({ key, x, y }) => {
+elementPositions.forEach(({ key, x, y }) => {
         if (cardData.elements[key]) {
             fillText(cardData.elements[key].toString(), x, y);
         }
-    });
+});
 }
 
 function drawMugic(cardData) {

@@ -392,10 +392,10 @@ const CardForm = () => {
     mugic: 0
   });
   const [elements, setElements] = useState({
-    fire: 0,
-    air: 0,
-    earth: 0,
-    water: 0
+    fire: null,
+    air: null,
+    earth: null,
+    water: null
   });
   const [loadedIcons, setLoadedIcons] = useState({});
 const resetForm = () => {
@@ -422,10 +422,10 @@ const resetForm = () => {
     mugic: 0
   });
   setElements({
-    fire: 0,
-    air: 0,
-    earth: 0,
-    water: 0
+    fire: null,
+    air: null,
+    earth: null,
+    water: null
   });
   setBuildPoints(0);
   setMugicCost(0);
@@ -826,20 +826,20 @@ return (
           type="base"
         />
         {Object.entries(elements).map(([element, value]) => (
-          value > 0 && (
+          <div key={element} style={{ display: value > 0 ? 'block' : 'none' }}>
             <NumberSlider
-              key={element}
               label={element.charAt(0).toUpperCase() + element.slice(1)}
               value={value}
               onChange={(e) => setElements(prev => ({
                 ...prev,
                 [element]: parseInt(e.target.value)
               }))}
+              min={0}
               max={50}
               step={5}
               type="elements"
             />
-          )
+          </div>
         ))}
       </div>
     </div>
