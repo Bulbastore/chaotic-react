@@ -22,7 +22,7 @@ const CARD_SYMBOLS = [
   { code: ':mipedian:', label: 'Mipedian', icon: getAssetPath('img/icons/mipedian.png') },
   { code: ':danian:', label: 'Danian', icon: getAssetPath('img/icons/danian.png') },
   { code: ':marrillian:', label: 'Marrillian', icon: getAssetPath('img/icons/marrillian.png') },
-  { code: ':tribeless:', label: 'Tribeless', icon: getAssetPath('img/icons/tribeless.png') },
+  { code: ':past:', label: 'Past', icon: getAssetPath('img/icons/tribeless.png') },
 
   // Mugic icons - OverWorld
   { code: ':overworldmugic:', label: 'OverWorld Mugic', icon: getAssetPath('img/icons/mugic/overworld.png') },
@@ -378,7 +378,7 @@ const CardForm = () => {
       'mipedian': 'Mipedian',
       'danian': 'Danian',
       "m'arrillian": "M'arrillian",
-      'tribeless': 'Tribeless'
+      'tribeless': 'Past'
     }[tribe.toLowerCase()];
 
    return `${type.charAt(0).toUpperCase() + type.slice(1)} - ${isPast ? 'Past ' : ''}${formattedTribe}${subtype ? ` ${subtype}` : ''}`;
@@ -627,58 +627,77 @@ return (
     placeholder={getFormattedSubtype(selectedType, tribe, '', isPast) + ' [your input]'}
   />
 )}
-    {selectedType === 'creature' && tribe && (
-      <div className="flex justify-center items-center gap-8">
-        <div className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            id="brainwashed"
-            checked={brainwashed}
-            onChange={(e) => {
-              setBrainwashed(e.target.checked);
-              if (e.target.checked) {
-                setUnique(false);
-                setLegendary(false);
-                setLoyal(false);
-                setFlavorText('');
-              }
-            }}
-            className="w-4 h-4 accent-[#9FE240]"
-          />
-          <label htmlFor="brainwashed" className="text-white">Brainwashed</label>
-        </div>
-        
-        <div className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            id="past"
-            checked={isPast}
-            onChange={(e) => setIsPast(e.target.checked)}
-            className="w-4 h-4 accent-[#9FE240]"
-          />
-          <label htmlFor="past" className="text-white">Past</label>
-        </div>
+{selectedType === 'creature' && tribe && (
+  <div className="flex justify-center items-center gap-8">
+    <div className="flex items-center gap-2">
+      <input
+        type="checkbox"
+        id="brainwashed"
+        checked={brainwashed}
+        onChange={(e) => {
+          setBrainwashed(e.target.checked);
+          if (e.target.checked) {
+            setUnique(false);
+            setLegendary(false);
+            setLoyal(false);
+            setFlavorText('');
+          }
+        }}
+        className="w-4 h-4 accent-[#9FE240]"
+      />
+      <label htmlFor="brainwashed" className="text-white">Brainwashed</label>
+    </div>
+    
+    {tribe.toLowerCase() !== 'tribeless' && (
+      <div className="flex items-center gap-2">
+        <input
+          type="checkbox"
+          id="past"
+          checked={isPast}
+          onChange={(e) => setIsPast(e.target.checked)}
+          className="w-4 h-4 accent-[#9FE240]"
+        />
+        <label htmlFor="past" className="text-white">Past</label>
       </div>
     )}
+  </div>
+)}
 
 <div className="space-y-4 rounded-lg bg-black">
   {/* Ability Section */}
   <div className="space-y-2">
-    <label className="font-bold">Ability</label>
+    <div className="flex justify-between items-center">
+      <label className="font-bold">Ability</label>
+      <span className={`text-sm ${ability.length > 350 ? 'text-red-500' : 'text-gray-400'}`}>
+        {350 - ability.length} characters remaining
+      </span>
+    </div>
     <TextAreaWithSymbols 
       value={ability}
-      onChange={setAbility}
+      onChange={(newValue) => {
+        if (newValue.length <= 350) {
+          setAbility(newValue);
+        }
+      }}
     />
   </div>
 
   {/* Brainwashed Text - Only show if brainwashed is checked */}
   {brainwashed && selectedType === 'creature' && (
     <div className="space-y-2">
-      <label className="font-bold">Brainwashed</label>
+      <div className="flex justify-between items-center">
+        <label className="font-bold">Brainwashed</label>
+        <span className={`text-sm ${brainwashedText.length > 350 ? 'text-red-500' : 'text-gray-400'}`}>
+          {350 - brainwashedText.length} characters remaining
+        </span>
+      </div>
       <TextAreaWithSymbols 
         value={brainwashedText}
-        onChange={setBrainwashedText}
-        height="h-20"
+        onChange={(newValue) => {
+          if (newValue.length <= 350) {
+            setBrainwashedText(newValue);
+          }
+        }}
       />
     </div>
   )}
@@ -686,10 +705,19 @@ return (
   {/* Flavor Text - Only show if NOT brainwashed */}
   {!brainwashed && ['creature', 'location', 'mugic', 'battlegear'].includes(selectedType) && (
     <div className="space-y-2">
-      <label className="font-bold">Flavor Text</label>
+      <div className="flex justify-between items-center">
+        <label className="font-bold">Flavor Text</label>
+        <span className={`text-sm ${flavorText.length > 200 ? 'text-red-500' : 'text-gray-400'}`}>
+          {200 - flavorText.length} characters remaining
+        </span>
+      </div>
       <textarea 
         value={flavorText}
-        onChange={(e) => setFlavorText(e.target.value)}
+        onChange={(e) => {
+          if (e.target.value.length <= 200) {
+            setFlavorText(e.target.value);
+          }
+        }}
         className="w-full p-2 border border-gray-700 rounded bg-black text-white h-16 focus:border-[#9FE240] focus:outline-none" 
       />
     </div>

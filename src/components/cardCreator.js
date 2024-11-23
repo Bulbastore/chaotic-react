@@ -250,7 +250,7 @@ function formatTribe(tribe) {
         case "mipedian": return "Mipedian";
         case "underworld": return "UnderWorld";
         case "m'arrillian": return "M'arrillian";
-        case "tribeless": return "Tribeless";
+        case "tribeless": return "Past";
         case "generic": return "Generic";
         default: return tribe;
     }
@@ -416,26 +416,6 @@ async function drawCard(cardData, assets) {
         drawImage(assets.template, 0, 0, assets.template.width, assets.template.height, 0, 0, width, height);
     }
 
-if (cardData.type === 'creature' && cardData.brainwashed) {
-    if (assets.brainwashedBar) {
-        const barWidth = 172; // Match the text box width
-        const aspectRatio = assets.brainwashedBar.height / assets.brainwashedBar.width;
-        const barHeight = barWidth * aspectRatio;
-        
-        drawImage(
-            assets.brainwashedBar,
-            0,
-            0,
-            assets.brainwashedBar.width,
-            assets.brainwashedBar.height,
-            43,  // Match the text x-position
-            265, // Match the text y-position
-            barWidth,
-            14  // Fixed small height
-        );
-    }
-}
-
     if (cardData.type === 'creature') {
         if (assets.firecreature) {
             drawImage(assets.firecreature, 0, 0, assets.firecreature.width, assets.firecreature.height, 0, 0, width, height);
@@ -559,7 +539,7 @@ if (cardData.type === 'attack') {
     let abilityBottom = 235;
 
 // First, update the calculateFontSize function to be more accurate:
-function calculateFontSize(text, maxWidth, maxHeight, initialSize = 10.3) {
+function calculateFontSize(text, maxWidth, maxHeight, initialSize = 10) {
     let fontSize = initialSize;
     setFont(fontSize, 'Eurostile Medium');
     
@@ -596,7 +576,7 @@ if (cardData.ability || cardData.flavorText || cardData.unique || cardData.legen
     ].filter(Boolean).join('\n');
 
     const fontSize = calculateFontSize(totalText, 172, 85);
-    const lineHeight = fontSize * 1.2;
+    const lineHeight = fontSize * 1.1;
     let currentY = 235;
 
 if (cardData.type === 'attack') {
@@ -725,97 +705,173 @@ if (cardData.type === 'attack') {
             }
         });
     }
-    } else {
-        const textBoxTop = 233.5;
-        const textBoxBottom = 315;
-        const absoluteBottom = 320;
-        const textBoxMiddle = (textBoxTop + textBoxBottom) / 2;
+} else {
+   const textBoxTop = 233.5;
+   const textBoxBottom = 315;
+   const absoluteBottom = 320;
+   const textBoxHeight = textBoxBottom - textBoxTop;
+   const textBoxMiddle = (textBoxTop + textBoxBottom) / 2;
 
-        if (cardData.ability) {
-            setFont(fontSize, 'Eurostile Medium');
-            ctx.fillStyle = '#000000';
-            ctx.textAlign = 'left';
+   if (cardData.brainwashed && (cardData.ability || cardData.brainwashedText)) {
+       let fontSize = 12; // Starting font size
+       let lineHeight = fontSize * 1.2;
+       const barHeight = 4;
+       let abilityLines = [];
+       let brainwashedLines = [];
+       let abilityHeight, brainwashedHeight, totalHeight;
 
-            const lines = wrapText(cardData.ability, 172);
-            for (let i = 0; i < lines.length; i++) {
-                ctx.globalAlpha = 1.0;
-                await drawTextWithSymbols(lines[i], 43, textBoxTop + (i * lineHeight), fontSize);
-                ctx.globalAlpha = 1.0;
-            }
-            currentY = textBoxTop + lines.length * lineHeight + fontSize / 2;
-        }
+       // Adjust font size to fit text within the defined area
+       while (fontSize > 5) { // Minimum font size of 5
+           setFont(fontSize, 'Eurostile Medium');
+           lineHeight = fontSize * 1.2;
 
-        if (!cardData.brainwashed) {
-            if (cardData.unique || cardData.legendary || cardData.loyal) {
-                setFont(fontSize, 'Eurostile Heavy');
-                ctx.fillStyle = '#000000';
-                ctx.textAlign = 'left';
+           // Wrap and calculate text heights
+           abilityLines = cardData.ability ? wrapText(cardData.ability, 172) : [];
+           brainwashedLines = cardData.brainwashedText ? wrapText(cardData.brainwashedText, 172) : [];
+           abilityHeight = abilityLines.length * lineHeight;
+           brainwashedHeight = brainwashedLines.length * lineHeight;
+           totalHeight = abilityHeight + barHeight + lineHeight + brainwashedHeight;
 
-                let statusText = [
-                    cardData.legendary && 'Legendary',
-                    cardData.unique && 'Unique',
-                    cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
-                ].filter(Boolean).join(', ');
+           if (totalHeight <= textBoxHeight) {
+               break; // Text fits within the allowed space
+           }
 
-                if (!cardData.ability) {
-                    const statusLines = wrapText(statusText, 172);
-                    const statusHeight = statusLines.length * lineHeight;
-                    currentY = textBoxMiddle - (statusHeight / 2);
-                }
+           fontSize -= 0.5; // Reduce font size and retry
+       }
 
-                fillText(statusText, 43, currentY);
-                currentY += lineHeight;
-            }
+       // Calculate positions
+       const abilityStartY = textBoxTop;
+       const barY = abilityStartY + abilityHeight;
+       const brainwashedStartY = barY + barHeight + lineHeight +10;
 
-            if (cardData.flavorText) {
-                setFont(fontSize * 0.9, 'Arial Narrow Italic');
-                ctx.fillStyle = '#000000';
-                ctx.textAlign = 'left';
+       // Draw ability text
+       if (cardData.ability) {
+           ctx.fillStyle = '#000000';
+           for (let i = 0; i < abilityLines.length; i++) {
+               await drawTextWithSymbols(abilityLines[i], 45, abilityStartY + (i * lineHeight), fontSize);
+           }
+       }
 
-                const flavorLines = wrapText(cardData.flavorText, 172);
-                const flavorHeight = flavorLines.length * lineHeight;
-                let flavorStartY = absoluteBottom - flavorHeight;
+       // Draw brainwashed bar
+       if (assets.brainwashedBar) {
+           const barWidth = 172;
+           drawImage(
+               assets.brainwashedBar,
+               0,
+               0,
+               assets.brainwashedBar.width,
+               assets.brainwashedBar.height,
+               43,
+               barY,
+               barWidth,
+               14
+           );
+       }
 
-                if (cardData.ability || cardData.unique || cardData.legendary || cardData.loyal) {
-                    if (flavorStartY < currentY + 4) {
-                        flavorStartY = currentY + 4;
-                    }
-                }
+       // Draw brainwashed text
+       if (cardData.brainwashedText) {
+           ctx.fillStyle = '#000000';
+           for (let i = 0; i < brainwashedLines.length; i++) {
+               await drawTextWithSymbols(brainwashedLines[i], 45, brainwashedStartY + (i * lineHeight), fontSize);
+           }
+       }
+   } else {
 
-                flavorLines.forEach((line, i) => {
-                    const yPos = flavorStartY + (i * lineHeight);
-                    fillText(line, 43, yPos);
-                });
-            }
-        }
 
-        if (cardData.brainwashed && cardData.brainwashedText) {
-            setFont(fontSize, 'Eurostile Medium');
-            ctx.fillStyle = '#000000';
-            ctx.textAlign = 'left';
+   // Calculate flavor text height and font size first
+   let flavorFontSize = fontSize * 0.9;
+   let flavorLineHeight = flavorFontSize * 1.1;
+   let flavorLines = [];
+   let flavorTextHeight = 0;
 
-            const brainwashedLines = wrapText(cardData.brainwashedText, 172);
-            const brainwashedTextHeight = brainwashedLines.length * lineHeight;
+   if (!cardData.brainwashed && cardData.flavorText) {
+       // Keep reducing font size until flavor text fits
+       while (flavorFontSize > 5) {  // Minimum font size of 5
+           setFont(flavorFontSize, 'Arial Narrow Italic');
+           flavorLines = wrapText(cardData.flavorText, 172);
+           flavorTextHeight = flavorLines.length * flavorLineHeight;
+           
+           // Check if text fits vertically
+           if (flavorTextHeight <= 50) { // Maximum height for flavor text
+               break;
+           }
+           
+           flavorFontSize -= 0.5;
+           flavorLineHeight = flavorFontSize * 1.1;
+       }
+   }
 
-            const topOfBrainwashedBar = Math.max(
-                currentY + 2,
-                textBoxTop
-            );
+   if (cardData.ability) {
+       setFont(fontSize, 'Eurostile Medium');
+       ctx.fillStyle = '#000000';
+       ctx.textAlign = 'left';
+       const lines = wrapText(cardData.ability, 172);
+       const totalHeight = lines.length * lineHeight;
+       const hasStatusLine = !cardData.brainwashed && (cardData.unique || cardData.legendary || cardData.loyal);
+       const hasFlavorText = !cardData.brainwashed && cardData.flavorText;
+       
+       let startY = textBoxTop;
+       let availableHeight = textBoxHeight - (hasFlavorText ? flavorTextHeight + 5 : 0);
 
-            const brainwashedBarHeight = lineHeight / 2;
-            ctx.fillStyle = '#000000';
-            ctx.fillRect(43, topOfBrainwashedBar, 172, brainwashedBarHeight);
+       if (hasStatusLine) {
+           startY = textBoxTop + (availableHeight - (totalHeight + lineHeight)) / 2;
+       } else {
+           startY = textBoxTop + (availableHeight - totalHeight) / 2;
+       }
 
-            const startYBrainwashedText = topOfBrainwashedBar + brainwashedBarHeight + 5;
+       for (let i = 0; i < lines.length; i++) {
+           ctx.globalAlpha = 1.0;
+           await drawTextWithSymbols(lines[i], 45, startY + (i * lineHeight), fontSize);
+           ctx.globalAlpha = 1.0;
+       }
+       currentY = startY + totalHeight + fontSize / 2;
 
-            for (let i = 0; i < brainwashedLines.length; i++) {
-                const yPos = startYBrainwashedText + (i * lineHeight);
-                if (yPos + lineHeight <= textBoxBottom) {
-                    await drawTextWithSymbols(brainwashedLines[i], 45, yPos, fontSize);
-                }
-            }
-        }
-    }
+       if (hasStatusLine) {
+           setFont(fontSize, 'Eurostile Heavy');
+           ctx.fillStyle = '#000000';
+           ctx.textAlign = 'left';
+
+           let statusText = [
+               cardData.legendary && 'Legendary',
+               cardData.unique && 'Unique',
+               cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
+           ].filter(Boolean).join(', ');
+
+           fillText(statusText, 45, currentY);
+       }
+   } else {
+       // Handle case when there's no ability text
+       const hasStatusLine = !cardData.brainwashed && (cardData.unique || cardData.legendary || cardData.loyal);
+       
+       if (hasStatusLine) {
+           setFont(fontSize, 'Eurostile Heavy');
+           ctx.fillStyle = '#000000';
+           ctx.textAlign = 'left';
+
+           let statusText = [
+               cardData.legendary && 'Legendary',
+               cardData.unique && 'Unique',
+               cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
+           ].filter(Boolean).join(', ');
+
+           fillText(statusText, 45, textBoxMiddle);
+       }
+   }
+
+   // Always draw flavor text at the bottom if it exists
+   if (!cardData.brainwashed && cardData.flavorText) {
+       setFont(flavorFontSize, 'Arial Narrow Italic');
+       ctx.fillStyle = '#000000';
+       ctx.textAlign = 'left';
+
+       const flavorStartY = absoluteBottom - flavorTextHeight - 5;
+       flavorLines.forEach((line, i) => {
+           fillText(line, 45, flavorStartY + (i * flavorLineHeight));
+       });
+   }
+
+}
+}
 }
 
 // Generate random code
