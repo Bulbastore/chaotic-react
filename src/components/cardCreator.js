@@ -1,6 +1,17 @@
 // src/components/cardCreator.js
 import { getAssetPath } from './assetPaths';
 
+//high-quality image scaling
+const createHighQualityCanvas = (width, height) => {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = width;
+    canvas.height = height;
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    return { canvas, ctx };
+};
+
 const fontLoader = {
     loaded: false,
     promises: [],
@@ -166,13 +177,46 @@ const ctx = canvas.getContext('2d');
 const scale = 4;
 let height = 0, width = 0;
 
+//drawScaledImage function
+const drawScaledImage = (ctx, img, x, y, width, height, scale) => {
+    // Create a temporary canvas for high-quality scaling
+    const scalingFactor = 4;
+    const { canvas: tempCanvas, ctx: tempCtx } = createHighQualityCanvas(
+        width * scalingFactor,
+        height * scalingFactor
+    );
+    
+    // Draw at larger size first
+    tempCtx.drawImage(img, 0, 0, tempCanvas.width, tempCanvas.height);
+    
+    // Enable high-quality scaling on main context
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    
+    // Draw scaled version to main canvas
+    ctx.drawImage(
+        tempCanvas,
+        0, 0, tempCanvas.width, tempCanvas.height,  // Source
+        x * scale, y * scale, width * scale, height * scale  // Destination
+    );
+    
+    // Reset smoothing for other elements
+    ctx.imageSmoothingEnabled = false;
+};
+
 // Helper drawing functions
 function drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh) {
-    ctx.drawImage(image, 
-        sx, sy, sw, sh,
-        dx * scale, dy * scale, 
-        dw * scale, dh * scale
-    );
+    if (image.dataset?.isSymbol) {
+        // Use high-quality scaling for symbols
+        drawScaledImage(ctx, image, dx, dy, dw, dh, scale);
+    } else {
+        // Use normal drawing for other images
+        ctx.drawImage(image, 
+            sx, sy, sw, sh,
+            dx * scale, dy * scale, 
+            dw * scale, dh * scale
+        );
+    }
 }
 
 function setFont(size, style, weight) {
@@ -297,7 +341,10 @@ async function loadAssets(cardData) {
     if (cardData.set && cardData.rarity) {
         promises.push(loadAsset('symbol', 
             getAssetPath(`img/set/${cardData.set.toLowerCase()}/${cardData.rarity.toLowerCase()}.png`)
-        ).then(img => assets.symbol = img));
+        ).then(img => {
+            img.dataset.isSymbol = 'true';
+            assets.symbol = img;
+        }));
     }
 
     // Elements for creatures
@@ -370,17 +417,34 @@ if (cardData.type === 'attack') {
 
 async function loadAsset(key, path) {
     console.log(`Loading asset: ${key} from path: ${path}`);
+    
     return new Promise((resolve, reject) => {
         const img = new Image();
+        img.crossOrigin = 'anonymous';
         
         img.onload = () => {
             console.log(`Successfully loaded: ${key} from ${path}`);
-            resolve(img);
+            console.log(`Original dimensions: ${img.width}x${img.height}`);
+            
+            // For set symbols, pre-process the image for better quality
+            if (key === 'symbol') {
+                const { canvas, ctx } = createHighQualityCanvas(img.width, img.height);
+                ctx.drawImage(img, 0, 0, img.width, img.height);
+                
+                // Create a new image from the high-quality canvas
+                const processedImg = new Image();
+                processedImg.onload = () => {
+                    console.log(`Processed ${key} for high-quality scaling`);
+                    resolve(processedImg);
+                };
+                processedImg.src = canvas.toDataURL('image/png');
+            } else {
+                resolve(img);
+            }
         };
         
         img.onerror = (error) => {
             console.error(`Failed to load ${key} from ${path}`, error);
-            // Try without the leading slash as a fallback
             if (path.startsWith('/')) {
                 const altPath = path.substring(1);
                 console.log(`Attempting alternate path: ${altPath}`);
@@ -393,6 +457,7 @@ async function loadAsset(key, path) {
         img.src = path;
     });
 }
+
 
 async function drawCard(cardData, assets) {
     const isLocation = cardData.type === 'location';
@@ -449,7 +514,12 @@ if (cardData.type === 'attack') {
 
     // Draw set symbol
     if (assets.symbol) {
-        drawImage(assets.symbol, 0, 0, assets.symbol.width, assets.symbol.height, width - 34, 10, 20, 20);
+        assets.symbol.dataset.isSymbol = 'true'; // Mark as symbol for special handling
+        drawImage(
+            assets.symbol,
+            0, 0, assets.symbol.width, assets.symbol.height,
+            width - 37, 7, 24, 24
+        );
     }
 
 // Draw name and subname with effects
@@ -776,7 +846,6 @@ if (cardData.type === 'attack') {
            }
        }
    } else {
-
 
    // Calculate flavor text height and font size first
    let flavorFontSize = fontSize * 0.9;

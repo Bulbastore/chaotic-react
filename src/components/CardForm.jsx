@@ -597,12 +597,14 @@ return (
               options={[
                 { value: 'dop', label: 'Dawn Of Perim' },
                 { value: 'zoth', label: 'Zenith of the Hive' },
-                { value: 'btd', label: "M'arrillian Invasion" },
+                { value: 'ss', label: 'Silent Sands' },
+                { value: 'btd', label: "Beyond the Doors" },
                 { value: 'roto', label: 'Rise of the Oligarch' },
                 { value: 'tott', label: 'Turn of the Tide' },
                 { value: 'fun', label: 'Forged Unity' },
                 { value: 'au', label: 'Alliances Unraveled' },
-                { value: 'fas', label: 'Fire and Stone' }
+                { value: 'fas', label: 'Fire and Stone' },
+                { value: 'op', label: 'Organized Play' }
               ]}
             />
 
@@ -614,6 +616,7 @@ return (
                 { value: 'promo', label: 'Promo' },
                 { value: 'ultra rare', label: 'Ultra Rare' },
                 { value: 'super rare', label: 'Super Rare' },
+                { value: 'rare', label: 'Rare' },
                 { value: 'uncommon', label: 'Uncommon' },
                 { value: 'common', label: 'Common' }
               ]}
