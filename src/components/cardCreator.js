@@ -1024,65 +1024,89 @@ ctx.textAlign = 'left';
 fillText(spacedCode, 62, 333);
 
 // Draw copywrite info
-if (cardData.type === 'attack') {
+if (cardData.type === 'creature') {
     setFont(5, 'Eurostile Cond Heavy Italic');
-    ctx.fillStyle = '#a7b1c3';
-    ctx.strokeStyle = '#262730';
-    ctx.lineWidth = 0.25;
-    ctx.textAlign = 'left';
     ctx.letterSpacing = "0.3px";
+    ctx.textAlign = 'left';
     
     const copyrightText = `${cardData.serialNumber || '--/100'}    ©2024 4Kids and Chaotic USA. Chaotic® Home Focus.`;
     
-    // Draw stroke first
-    ctx.strokeText(copyrightText, 63 * scale, 344 * scale);
-    // Then fill
-    fillText(copyrightText, 63, 344);
-} else if (cardData.type === 'battlegear') {
-    setFont(5, 'Eurostile Cond Heavy Italic');
-    ctx.fillStyle = '#3d4360';
-    ctx.textAlign = 'left';
-    ctx.letterSpacing = "0.3px";
-    fillText(`${cardData.serialNumber || '--/100'}    ©2024 4Kids and Chaotic USA. Chaotic® Home Focus.`, 63, 344);
-
-} else {
-    setFont(5, 'Eurostile Cond Heavy Italic');
-    ctx.fillStyle = '#FFFFFF';
-    ctx.textAlign = 'left';
-    ctx.letterSpacing = "0.3px";
-    fillText(`${cardData.serialNumber || '--/100'}    ©2024 4Kids and Chaotic USA. Chaotic® Home Focus.`, 49, 344);
+    switch(cardData.tribe?.toLowerCase()) {
+        case 'overworld':
+            ctx.fillStyle = '#c7e4ef';
+            break;
+        case 'underworld':
+            ctx.fillStyle = '#e1b0b3';
+            break;
+        case 'mipedian':
+            ctx.fillStyle = '#b1a277';
+            ctx.strokeStyle = '#6a5d35';
+            ctx.lineWidth = 2;
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+            break;
+        case 'danian':
+            ctx.fillStyle = '#c5ad95';
+            break;
+        case "m'arrillian":
+            ctx.fillStyle = '#cac8ba';
+            break;
+        case 'tribeless':
+            ctx.fillStyle = '#000000';
+            ctx.strokeStyle = '#cad1d9';
+            ctx.lineWidth = 4;
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+            break;
+    }
+    
+    fillText(copyrightText, 49, 344);
 }
-
-ctx.letterSpacing = "0px";
 
 // Draw artist name with special styling for attack cards
 if (cardData.artist) {
-   ctx.save();
-   setFont(5, 'Eurostile Cond Heavy Italic');
-   if (cardData.type === 'attack') {
-       ctx.fillStyle = '#a7b1c3';
-       ctx.strokeStyle = '#262730';
-       ctx.lineWidth = 0.25;
-   } else if (cardData.type === 'battlegear') {
-       ctx.fillStyle = '#3d4360';
-   } else {
-       ctx.fillStyle = '#FFFFFF';
-   }
-   ctx.letterSpacing = "0.3px";
-   ctx.translate(971, 480);
-   ctx.rotate(-Math.PI / 2);
-   ctx.textAlign = 'center';
-   
-   const artistText = `Art by ${cardData.artist}`;
-   if (cardData.type === 'attack') {
-       // Draw stroke first
-       ctx.strokeText(artistText, 0, 0);
-   }
-   // Then fill
-   fillText(artistText, 0, 0);
-   
-   ctx.letterSpacing = "0px";
-   ctx.restore();
+    ctx.save();
+    setFont(5, 'Eurostile Cond Heavy Italic');
+    ctx.letterSpacing = "0.3px";
+    ctx.translate(971, 480);
+    ctx.rotate(-Math.PI / 2);
+    ctx.textAlign = 'center';
+    
+    const artistText = `Art by ${cardData.artist}`;
+    
+    if (cardData.type === 'creature') {
+        switch(cardData.tribe?.toLowerCase()) {
+            case 'overworld':
+                ctx.strokeStyle = '#5272bc';
+                ctx.lineWidth = 2;
+                ctx.strokeText(artistText, 0, 0);
+                ctx.fillStyle = '#c7e4ef';
+                break;
+            case 'underworld':
+                ctx.strokeStyle = '#b23727';
+                ctx.lineWidth = 2;
+                ctx.strokeText(artistText, 0, 0);
+                ctx.fillStyle = '#e1b0b3';
+                break;
+            case 'mipedian':
+                ctx.fillStyle = '#6d5630';
+                break;
+            case 'danian':
+                ctx.strokeStyle = '#87664f';
+                ctx.lineWidth = 2;
+                ctx.strokeText(artistText, 0, 0);
+                ctx.fillStyle = '#c5ad95';
+                break;
+            case "m'arrillian":
+                ctx.fillStyle = '#cac8ba';
+                break;
+            case 'tribeless':
+                ctx.fillStyle = '#000000';
+                break;
+        }
+    }
+    
+    fillText(artistText, 0, 0);
+    ctx.letterSpacing = "0px";
+    ctx.restore();
 }
 
     // Draw type-specific elements
