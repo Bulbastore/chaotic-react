@@ -518,7 +518,7 @@ if (cardData.type === 'attack') {
         drawImage(
             assets.symbol,
             0, 0, assets.symbol.width, assets.symbol.height,
-            width - 37, 7, 24, 24
+            width - 37, 6.5, 24, 24
         );
     }
 
@@ -822,30 +822,89 @@ if (cardData.type === 'attack') {
            }
        }
 
+// Draw light grey background for brainwashed text
+       if (cardData.brainwashedText) {
+           const paddingSides = 5 * scale;
+           const paddingTop = 10 * scale;    
+           const paddingBottom = 5 * scale;  // Added bottom padding
+           const backgroundWidth = 160 * scale;
+           const maxBackgroundHeight = (textBoxBottom - brainwashedStartY - 10) * scale; // Limit height
+           const backgroundHeight = Math.min((brainwashedHeight + 5) * scale, maxBackgroundHeight);
+           const backgroundX = 50 * scale;
+           const backgroundY = (brainwashedStartY - 2) * scale;
+
+           // Reset any existing shadows/effects
+           ctx.shadowColor = 'transparent';
+           ctx.shadowBlur = 0;
+           ctx.shadowOffsetX = 0;
+           ctx.shadowOffsetY = 0;
+           ctx.strokeStyle = 'transparent';
+           ctx.lineWidth = 0;
+
+           ctx.fillStyle = 'rgb(220, 220, 220)';
+           ctx.beginPath();
+           ctx.roundRect(
+               backgroundX - paddingSides,
+               backgroundY - paddingTop,
+               backgroundWidth + (paddingSides * 2),
+               backgroundHeight + paddingTop + paddingBottom,
+               [0, 0, 5 * scale, 5 * scale]
+           );
+           ctx.fill();
+
+           // Ensure no stroke is drawn
+           ctx.strokeStyle = 'transparent';
+           ctx.stroke();
+       }
+
        // Draw brainwashed bar
        if (assets.brainwashedBar) {
-           const barWidth = 172;
+           const barWidth = 170;
+           const barStartX = 45;
            drawImage(
                assets.brainwashedBar,
                0,
                0,
                assets.brainwashedBar.width,
                assets.brainwashedBar.height,
-               43,
+               45,
                barY,
                barWidth,
-               14
+               18
            );
        }
+        
+// Draw brainwashed text
+// Draw brainwashed text
+if (cardData.brainwashedText) {
+    const brainwashedMaxWidth = 164;
+    const maxTextBottom = textBoxBottom - 3;
+    
+    // Use same exact font settings as ability text
+    setFont(fontSize, 'Eurostile Medium');
+    ctx.fillStyle = '#000000';
+    
+    brainwashedLines = wrapText(cardData.brainwashedText, brainwashedMaxWidth);
+    
+    // Calculate total height needed and adjust font size if necessary
+    let adjustedFontSize = fontSize;
+    let adjustedLineHeight = lineHeight;
+    while ((brainwashedStartY + (brainwashedLines.length * adjustedLineHeight)) > maxTextBottom && adjustedFontSize > 5) {
+        adjustedFontSize -= 0.5;
+        adjustedLineHeight = adjustedFontSize * 1.2;
+        setFont(adjustedFontSize, 'Eurostile Medium');
+        brainwashedLines = wrapText(cardData.brainwashedText, brainwashedMaxWidth);
+    }
 
-       // Draw brainwashed text
-       if (cardData.brainwashedText) {
-           ctx.fillStyle = '#000000';
-           for (let i = 0; i < brainwashedLines.length; i++) {
-               await drawTextWithSymbols(brainwashedLines[i], 45, brainwashedStartY + (i * lineHeight), fontSize);
-           }
-       }
-   } else {
+    // Draw text with exact same settings as ability text
+    for (let i = 0; i < brainwashedLines.length; i++) {
+        const yPos = brainwashedStartY + (i * adjustedLineHeight);
+        if (yPos + adjustedLineHeight <= maxTextBottom) {
+            await drawTextWithSymbols(brainwashedLines[i], 50, yPos, adjustedFontSize);
+        }
+    }
+}
+} else {
 
    // Calculate flavor text height and font size first
    let flavorFontSize = fontSize * 0.9;
@@ -1066,7 +1125,7 @@ function drawCreature(cardData) {
 
     stats.forEach(({ key, y }) => {
         // Changed to explicit check and conversion
-        fillText(cardData.stats[key] === 0 ? '0' : cardData.stats[key].toString(), 37, y);
+        fillText(cardData.stats[key] === 0 ? '0' : cardData.stats[key].toString(), 38, y);
     });
 }
 
