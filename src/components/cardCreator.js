@@ -1069,7 +1069,7 @@ if (cardData.artist) {
        ctx.fillStyle = '#FFFFFF';
    }
    ctx.letterSpacing = "0.3px";
-   ctx.translate(975, 480);
+   ctx.translate(971, 480);
    ctx.rotate(-Math.PI / 2);
    ctx.textAlign = 'center';
    
