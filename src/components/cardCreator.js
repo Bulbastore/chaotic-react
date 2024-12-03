@@ -158,64 +158,75 @@ const SYMBOL_MAPPINGS = {
 
 // Updated drawTextWithSymbols function to work with formatted text
 async function drawTextWithSymbols(text, x, y, fontSize) {
-    // Keep track of formatting state between segments
-    let currentFormatting = { isBold: false, isItalic: false };
-    let currentX = x * scale;
+    // Split text into lines first
+    const lines = text.split('\n');
+    let currentY = y;
+    const lineHeight = fontSize * 1.1; // Reduced from 1.2 to tighten spacing
 
-    // Split text into parts including symbols and formatting tags
-    const parts = text.split(/(:[\w']+:|<\/?[bi]>)/);
-    
-    for (const part of parts) {
-        // Handle symbols
-        if (SYMBOL_MAPPINGS[part]) {
-            const symbolInfo = SYMBOL_MAPPINGS[part];
-            const img = await loadAsset(part, getAssetPath(symbolInfo.img));
-            const aspectRatio = img.width / img.height;
-            const symbolHeight = fontSize * scale;
-            const symbolWidth = symbolHeight * aspectRatio;
-            const symbolY = y * scale - symbolHeight + (fontSize * 0.2 * scale);
-            
-            ctx.drawImage(img, currentX, symbolY, symbolWidth, symbolHeight);
-            currentX += symbolWidth + (fontSize * 0.3 * scale);
-            continue;
+    // Process each line separately
+    for (const line of lines) {
+        // Keep track of formatting state
+        let currentFormatting = { isBold: false, isItalic: false };
+        let currentX = x * scale;
+
+        // Split line into parts including symbols and formatting tags
+        const parts = line.split(/(:[\w']+:|<\/?[bi]>)/);
+        
+        for (const part of parts) {
+            // Handle symbols
+            if (SYMBOL_MAPPINGS[part]) {
+                const symbolInfo = SYMBOL_MAPPINGS[part];
+                const img = await loadAsset(part, getAssetPath(symbolInfo.img));
+                const aspectRatio = img.width / img.height;
+                const symbolHeight = fontSize * scale;
+                const symbolWidth = symbolHeight * aspectRatio;
+                const symbolY = currentY * scale - symbolHeight + (fontSize * 0.2 * scale);
+                
+                ctx.drawImage(img, currentX, symbolY, symbolWidth, symbolHeight);
+                currentX += symbolWidth + (fontSize * 0.3 * scale);
+                continue;
+            }
+
+            // Handle formatting tags
+            if (part === '<b>') {
+                currentFormatting.isBold = true;
+                continue;
+            }
+            if (part === '</b>') {
+                currentFormatting.isBold = false;
+                continue;
+            }
+            if (part === '<i>') {
+                currentFormatting.isItalic = true;
+                continue;
+            }
+            if (part === '</i>') {
+                currentFormatting.isItalic = false;
+                continue;
+            }
+
+            // Skip empty parts
+            if (!part) continue;
+
+            // Apply current formatting
+            let fontStyle = 'Eurostile Medium';
+            if (currentFormatting.isBold && currentFormatting.isItalic) {
+                fontStyle = 'Eurostile Heavy Italic';
+            } else if (currentFormatting.isBold) {
+                fontStyle = 'Eurostile Heavy';
+            } else if (currentFormatting.isItalic) {
+                fontStyle = 'Eurostile Medium Italic';
+            }
+
+            // Draw text
+            ctx.font = `${fontSize * scale}px "${fontStyle}"`;
+            ctx.fillStyle = '#000000';
+            ctx.fillText(part, currentX, currentY * scale);
+            currentX += ctx.measureText(part).width;
         }
 
-        // Handle formatting tags
-        if (part === '<b>') {
-            currentFormatting.isBold = true;
-            continue;
-        }
-        if (part === '</b>') {
-            currentFormatting.isBold = false;
-            continue;
-        }
-        if (part === '<i>') {
-            currentFormatting.isItalic = true;
-            continue;
-        }
-        if (part === '</i>') {
-            currentFormatting.isItalic = false;
-            continue;
-        }
-
-        // Skip empty parts
-        if (!part) continue;
-
-        // Apply current formatting
-        let fontStyle = 'Eurostile Medium';
-        if (currentFormatting.isBold && currentFormatting.isItalic) {
-            fontStyle = 'Eurostile Heavy Italic';
-        } else if (currentFormatting.isBold) {
-            fontStyle = 'Eurostile Heavy';
-        } else if (currentFormatting.isItalic) {
-            fontStyle = 'Eurostile Medium Italic';
-        }
-
-        // Draw text
-        ctx.font = `${fontSize * scale}px "${fontStyle}"`;
-        ctx.fillStyle = '#000000';
-        ctx.fillText(part, currentX, y * scale);
-        currentX += ctx.measureText(part).width;
+        // Move to next line with consistent spacing
+        currentY += line.trim() === '' ? lineHeight * 0.5 : lineHeight; // Use half spacing for empty lines
     }
 }
 
@@ -305,66 +316,77 @@ function setCanvas(x, y) {
 }
 
 function wrapText(text, maxWidth) {
-    const lines = [];
-    let currentLine = '';
-    let currentLineWidth = 0;
-    let isInBold = false;
-    let isInItalic = false;
-
-    // Split by spaces but don't break formatting tags
-    const words = text.split(' ');
-    const symbolWidth = ctx.font.match(/\d+/)[0] * 1.2;
-
-    for (const word of words) {
-        // Track formatting state without removing tags
-        if (word.includes('<b>')) isInBold = true;
-        if (word.includes('</b>')) isInBold = false;
-        if (word.includes('<i>')) isInItalic = true;
-        if (word.includes('</i>')) isInItalic = false;
-
-        const symbolInfo = SYMBOL_MAPPINGS[word];
-        let wordWidth;
-        
-        if (symbolInfo) {
-            wordWidth = symbolWidth;
-        } else {
-            // Measure without formatting tags
-            const cleanWord = word.replace(/<\/?[bi]>/g, '');
-            wordWidth = ctx.measureText(cleanWord + ' ').width;
+    // Split text into paragraphs
+    const paragraphs = text.split('\n');
+    const allLines = [];
+    
+    for (const paragraph of paragraphs) {
+        if (paragraph.trim() === '') {
+            // For empty paragraphs (just a newline), add a single line
+            allLines.push(currentLine);
+            continue;
         }
 
-        if (currentLineWidth + wordWidth > maxWidth * scale) {
-            if (currentLine !== '') {
-                // Close any open formatting tags
-                if (isInBold) currentLine += '</b>';
-                if (isInItalic) currentLine += '</i>';
-                
-                // Add the current line to lines array
-                lines.push(currentLine.trim());
-                
-                // Start new line with active formatting
-                currentLine = '';
-                currentLineWidth = 0;
-                
-                // Reapply active formatting to new line
-                if (isInBold) currentLine += '<b>';
-                if (isInItalic) currentLine += '<i>';
+        let currentLine = '';
+        let currentLineWidth = 0;
+        let isInBold = false;
+        let isInItalic = false;
+
+        // Split by spaces but don't break formatting tags
+        const words = paragraph.split(' ');
+        const symbolWidth = ctx.font.match(/\d+/)[0] * 1.2;
+
+        for (const word of words) {
+            // Track formatting state without removing tags
+            if (word.includes('<b>')) isInBold = true;
+            if (word.includes('</b>')) isInBold = false;
+            if (word.includes('<i>')) isInItalic = true;
+            if (word.includes('</i>')) isInItalic = false;
+
+            const symbolInfo = SYMBOL_MAPPINGS[word];
+            let wordWidth;
+            
+            if (symbolInfo) {
+                wordWidth = symbolWidth;
+            } else {
+                // Measure without formatting tags
+                const cleanWord = word.replace(/<\/?[bi]>/g, '');
+                wordWidth = ctx.measureText(cleanWord + ' ').width;
             }
+
+            if (currentLineWidth + wordWidth > maxWidth * scale) {
+                if (currentLine !== '') {
+                    // Close any open formatting tags
+                    if (isInBold) currentLine += '</b>';
+                    if (isInItalic) currentLine += '</i>';
+                    
+                    // Add the current line to lines array
+                    allLines.push(currentLine.trim());
+                    
+                    // Start new line with active formatting
+                    currentLine = '';
+                    currentLineWidth = 0;
+                    
+                    // Reapply active formatting to new line
+                    if (isInBold) currentLine += '<b>';
+                    if (isInItalic) currentLine += '<i>';
+                }
+            }
+
+            currentLine += word + ' ';
+            currentLineWidth += wordWidth;
         }
 
-        currentLine += word + ' ';
-        currentLineWidth += wordWidth;
+        // Handle the final line of this paragraph
+        if (currentLine !== '') {
+            // Close any open formatting tags
+            if (isInBold) currentLine += '</b>';
+            if (isInItalic) currentLine += '</i>';
+            allLines.push(currentLine.trim());
+        }
     }
 
-    // Handle the final line
-    if (currentLine !== '') {
-        // Close any open formatting tags
-        if (isInBold) currentLine += '</b>';
-        if (isInItalic) currentLine += '</i>';
-        lines.push(currentLine.trim());
-    }
-
-    return lines;
+    return allLines;
 }
 
 function formatTribe(tribe) {
