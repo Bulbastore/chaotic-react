@@ -67,3 +67,10 @@
          url('./fonts/Eurostile Black.ttf') format('truetype');
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Eurostile Medium Italic';
+    src: local('Eurostile Medium Italic'),
+         url('./fonts/Eurostile Medium Italic.ttf') format('truetype');
+    font-display: swap;
+}

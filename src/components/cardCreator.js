@@ -28,7 +28,8 @@ const fontLoader = {
             new FontFace('Century Gothic Bold', 'url(/fonts/CenturyGothicBold.woff2)'),
             new FontFace('Eurostile Heavy Italic', 'url(/fonts/EurostileHeavyItalic.woff2)'),
             new FontFace('Eurostile Cond Heavy Italic', 'url(/fonts/EurostileCondHeavyItalic.woff2)'),
-            new FontFace('Eurostile-BoldExtendedTwo', 'url(/fonts/EurostileBoldExtendedTwo.woff2)')
+            new FontFace('Eurostile-BoldExtendedTwo', 'url(/fonts/EurostileBoldExtendedTwo.woff2)'),
+            new FontFace('Eurostile Medium Italic', 'url(/fonts/EurostileMediumItalic.woff2)')
         ];
 
         this.promises = fonts.map(font => 
@@ -44,18 +45,62 @@ const fontLoader = {
     }
 };
 
-function calculateFontSize(text, maxWidth, maxHeight, initialSize = 10.3) {
-    let fontSize = initialSize;
-    setFont(fontSize, 'Eurostile Medium');
-    
-    const lines = wrapText(text, maxWidth);
-    const totalHeight = lines.length * (fontSize + 2);
-    
-    if (totalHeight > maxHeight) {
-        fontSize = (maxHeight / lines.length) - 2;
+// Helper function to measure text width with current font settings
+function measureTextWidth(text, ctx) {
+    return ctx.measureText(text).width / scale;
+}
+
+// Process text with bold and italic formatting
+function processFormattedText(text, ctx, x, y, fontSize) {
+    // Split text keeping the tags
+    const parts = text.split(/(<\/?[bi]>)/);
+    let currentX = x * scale;
+    let isBold = false;
+    let isItalic = false;
+
+    // Process each part
+    for (const part of parts) {
+        // Handle formatting tags
+        if (part === '<b>') {
+            isBold = true;
+            continue;
+        } else if (part === '</b>') {
+            isBold = false;
+            continue;
+        } else if (part === '<i>') {
+            isItalic = true;
+            continue;
+        } else if (part === '</i>') {
+            isItalic = false;
+            continue;
+        }
+
+        // Skip empty parts
+        if (!part) continue;
+
+        // Set appropriate font based on formatting
+        let fontStyle;
+        if (isBold && isItalic) {
+            fontStyle = 'Eurostile Heavy Italic';
+        } else if (isBold) {
+            fontStyle = 'Eurostile Heavy';
+        } else if (isItalic) {
+            fontStyle = 'Eurostile Medium Italic';
+        } else {
+            fontStyle = 'Eurostile Medium';
+        }
+
+        // Set font and draw text
+        ctx.font = `${fontSize * scale}px "${fontStyle}"`;
+        ctx.fillStyle = '#000000';
+        ctx.fillText(part, currentX, y * scale);
+        
+        // Move cursor for next piece of text
+        currentX += ctx.measureText(part).width;
     }
-    
-    return fontSize;
+
+    // Return total width of rendered text
+    return (currentX - (x * scale)) / scale;
 }
 
 // Add the SYMBOL_MAPPINGS constant
@@ -111,47 +156,66 @@ const SYMBOL_MAPPINGS = {
     ':underworldmugicX:': { img: 'img/icons/mugic/underworld_x.png' }
 };
 
-// Add the drawTextWithSymbols function
+// Updated drawTextWithSymbols function to work with formatted text
 async function drawTextWithSymbols(text, x, y, fontSize) {
-    const words = text.split(' ');
+    // Keep track of formatting state between segments
+    let currentFormatting = { isBold: false, isItalic: false };
     let currentX = x * scale;
-    const symbolHeight = fontSize * scale;
 
-    for (const word of words) {
-        const symbolInfo = SYMBOL_MAPPINGS[word];
-
-        if (symbolInfo) {
-            const img = await loadAsset(word, getAssetPath(symbolInfo.img));
+    // Split text into parts including symbols and formatting tags
+    const parts = text.split(/(:[\w']+:|<\/?[bi]>)/);
+    
+    for (const part of parts) {
+        // Handle symbols
+        if (SYMBOL_MAPPINGS[part]) {
+            const symbolInfo = SYMBOL_MAPPINGS[part];
+            const img = await loadAsset(part, getAssetPath(symbolInfo.img));
             const aspectRatio = img.width / img.height;
+            const symbolHeight = fontSize * scale;
             const symbolWidth = symbolHeight * aspectRatio;
-
-            // Align bottom of symbol with text baseline
-            const symbolY = (y * scale) - symbolHeight + (fontSize * 0.2 * scale);
-
-            ctx.drawImage(
-                img,
-                currentX,
-                symbolY,
-                symbolWidth,
-                symbolHeight
-            );
-            currentX += symbolWidth + (fontSize * 0.3 * scale); // Add smaller space after symbols
-        } else {
-            // Adjust font size dynamically
-            const maxWidth = 172;
-            const textWidth = ctx.measureText(word + ' ').width;
-            const scaledWidth = textWidth / scale;
-
-            if (scaledWidth > maxWidth) {
-                const newFontSize = (fontSize * maxWidth) / scaledWidth;
-                setFont(newFontSize, 'Eurostile Medium');
-            } else {
-                setFont(fontSize, 'Eurostile Medium'); // Use the passed fontSize instead of hardcoded 10.3
-            }
-
-            ctx.fillText(word, currentX, y * scale);
-            currentX += ctx.measureText(word + ' ').width;
+            const symbolY = y * scale - symbolHeight + (fontSize * 0.2 * scale);
+            
+            ctx.drawImage(img, currentX, symbolY, symbolWidth, symbolHeight);
+            currentX += symbolWidth + (fontSize * 0.3 * scale);
+            continue;
         }
+
+        // Handle formatting tags
+        if (part === '<b>') {
+            currentFormatting.isBold = true;
+            continue;
+        }
+        if (part === '</b>') {
+            currentFormatting.isBold = false;
+            continue;
+        }
+        if (part === '<i>') {
+            currentFormatting.isItalic = true;
+            continue;
+        }
+        if (part === '</i>') {
+            currentFormatting.isItalic = false;
+            continue;
+        }
+
+        // Skip empty parts
+        if (!part) continue;
+
+        // Apply current formatting
+        let fontStyle = 'Eurostile Medium';
+        if (currentFormatting.isBold && currentFormatting.isItalic) {
+            fontStyle = 'Eurostile Heavy Italic';
+        } else if (currentFormatting.isBold) {
+            fontStyle = 'Eurostile Heavy';
+        } else if (currentFormatting.isItalic) {
+            fontStyle = 'Eurostile Medium Italic';
+        }
+
+        // Draw text
+        ctx.font = `${fontSize * scale}px "${fontStyle}"`;
+        ctx.fillStyle = '#000000';
+        ctx.fillText(part, currentX, y * scale);
+        currentX += ctx.measureText(part).width;
     }
 }
 
@@ -241,36 +305,50 @@ function setCanvas(x, y) {
 }
 
 function wrapText(text, maxWidth) {
-    const words = text.split(' ');
     const lines = [];
     let currentLine = '';
     let currentLineWidth = 0;
-    const symbolWidth = ctx.font.match(/\d+/)[0] * 1.2; // Approximate width of symbol images
+    let isInBold = false;
+    let isInItalic = false;
+
+    // Split by spaces but don't break formatting tags
+    const words = text.split(' ');
+    const symbolWidth = ctx.font.match(/\d+/)[0] * 1.2;
 
     for (const word of words) {
+        // Track formatting state without removing tags
+        if (word.includes('<b>')) isInBold = true;
+        if (word.includes('</b>')) isInBold = false;
+        if (word.includes('<i>')) isInItalic = true;
+        if (word.includes('</i>')) isInItalic = false;
+
         const symbolInfo = SYMBOL_MAPPINGS[word];
         let wordWidth;
         
         if (symbolInfo) {
-            // Use a smaller width for symbols since they're visually more compact
             wordWidth = symbolWidth;
         } else {
-            wordWidth = ctx.measureText(word + ' ').width;
+            // Measure without formatting tags
+            const cleanWord = word.replace(/<\/?[bi]>/g, '');
+            wordWidth = ctx.measureText(cleanWord + ' ').width;
         }
 
         if (currentLineWidth + wordWidth > maxWidth * scale) {
             if (currentLine !== '') {
+                // Close any open formatting tags
+                if (isInBold) currentLine += '</b>';
+                if (isInItalic) currentLine += '</i>';
+                
+                // Add the current line to lines array
                 lines.push(currentLine.trim());
+                
+                // Start new line with active formatting
                 currentLine = '';
                 currentLineWidth = 0;
-            }
-            
-            // If this is a single word that's too long, force it onto its own line
-            if (wordWidth > maxWidth * scale) {
-                lines.push(word);
-                currentLine = '';
-                currentLineWidth = 0;
-                continue;
+                
+                // Reapply active formatting to new line
+                if (isInBold) currentLine += '<b>';
+                if (isInItalic) currentLine += '<i>';
             }
         }
 
@@ -278,13 +356,16 @@ function wrapText(text, maxWidth) {
         currentLineWidth += wordWidth;
     }
 
+    // Handle the final line
     if (currentLine !== '') {
+        // Close any open formatting tags
+        if (isInBold) currentLine += '</b>';
+        if (isInItalic) currentLine += '</i>';
         lines.push(currentLine.trim());
     }
 
     return lines;
 }
-
 
 function formatTribe(tribe) {
     if (!tribe) return "";
@@ -782,45 +863,62 @@ if (cardData.type === 'attack') {
    const textBoxHeight = textBoxBottom - textBoxTop;
    const textBoxMiddle = (textBoxTop + textBoxBottom) / 2;
 
-   if (cardData.brainwashed && (cardData.ability || cardData.brainwashedText)) {
-       let fontSize = 12; // Starting font size
-       let lineHeight = fontSize * 1.2;
-       const barHeight = 4;
-       let abilityLines = [];
-       let brainwashedLines = [];
-       let abilityHeight, brainwashedHeight, totalHeight;
+if (cardData.brainwashed && (cardData.ability || cardData.brainwashedText)) {
+    let fontSize = 12; // Starting font size
+    let lineHeight = fontSize * 1.2;
+    const barHeight = 4;
+    let abilityLines = [];
+    let brainwashedLines = [];
+    let abilityHeight, brainwashedHeight, totalHeight;
 
-       // Adjust font size to fit text within the defined area
-       while (fontSize > 5) { // Minimum font size of 5
-           setFont(fontSize, 'Eurostile Medium');
-           lineHeight = fontSize * 1.2;
+    // Adjust font size to fit text within the defined area
+    while (fontSize > 5) {
+        setFont(fontSize, 'Eurostile Medium');
+        lineHeight = fontSize * 1.2;
 
-           // Wrap and calculate text heights
-           abilityLines = cardData.ability ? wrapText(cardData.ability, 172) : [];
-           brainwashedLines = cardData.brainwashedText ? wrapText(cardData.brainwashedText, 172) : [];
-           abilityHeight = abilityLines.length * lineHeight;
-           brainwashedHeight = brainwashedLines.length * lineHeight;
-           totalHeight = abilityHeight + barHeight + lineHeight + brainwashedHeight;
+        // Keep formatting tags when wrapping text
+        abilityLines = cardData.ability ? wrapText(cardData.ability, 172) : [];
+        brainwashedLines = cardData.brainwashedText ? wrapText(cardData.brainwashedText, 172) : [];
+        abilityHeight = abilityLines.length * lineHeight;
+        brainwashedHeight = brainwashedLines.length * lineHeight;
+        totalHeight = abilityHeight + barHeight + lineHeight + brainwashedHeight;
 
-           if (totalHeight <= textBoxHeight) {
-               break; // Text fits within the allowed space
-           }
+        if (totalHeight <= textBoxHeight) {
+            break;
+        }
 
-           fontSize -= 0.5; // Reduce font size and retry
-       }
+        fontSize -= 0.5;
+    }
 
-       // Calculate positions
-       const abilityStartY = textBoxTop;
-       const barY = abilityStartY + abilityHeight;
-       const brainwashedStartY = barY + barHeight + lineHeight +10;
+    // Calculate positions
+    const abilityStartY = textBoxTop;
+    const barY = abilityStartY + abilityHeight;
+    const brainwashedStartY = barY + barHeight + lineHeight + 10;
 
-       // Draw ability text
-       if (cardData.ability) {
-           ctx.fillStyle = '#000000';
-           for (let i = 0; i < abilityLines.length; i++) {
-               await drawTextWithSymbols(abilityLines[i], 45, abilityStartY + (i * lineHeight), fontSize);
-           }
-       }
+    // Draw ability text with preserved formatting
+    if (cardData.ability) {
+        ctx.fillStyle = '#000000';
+        let currentFormatting = { isBold: false, isItalic: false };
+        
+        for (let i = 0; i < abilityLines.length; i++) {
+            const line = abilityLines[i];
+            // Preserve formatting state from previous line
+            const formattingPrefix = (currentFormatting.isBold ? '<b>' : '') + 
+                                   (currentFormatting.isItalic ? '<i>' : '');
+            await drawTextWithSymbols(
+                formattingPrefix + line, 
+                45, 
+                abilityStartY + (i * lineHeight), 
+                fontSize
+            );
+            
+            // Update formatting state for next line
+            currentFormatting.isBold = (line.includes('<b>') && !line.includes('</b>')) || 
+                                     (currentFormatting.isBold && !line.includes('</b>'));
+            currentFormatting.isItalic = (line.includes('<i>') && !line.includes('</i>')) || 
+                                       (currentFormatting.isItalic && !line.includes('</i>'));
+        }
+    }
 
 // Draw light grey background for brainwashed text
        if (cardData.brainwashedText) {

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import CardPreview from './CardPreview';
 import { CardCreator } from './cardCreator';
 import { getAssetPath } from './assetPaths';
+import FormattingToolbar from './FormattingToolbar';
 
 const CARD_SYMBOLS = [
   // Ability elements
@@ -134,11 +135,73 @@ const SymbolBar = ({ onSymbolSelect }) => {
   );
 };
 
-
-const TextAreaWithSymbols = ({ value, onChange }) => {
+const TextAreaWithSymbols = ({ value, onChange, allowFormatting = true }) => {
   const textareaRef = useRef(null);
+  const [forceUpdate, setForceUpdate] = useState({});
 
-const insertSymbol = (symbolCode) => {
+  const toggleFormatting = (tag) => {
+    const textarea = textareaRef.current;
+    if (!textarea) return;
+
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = value.substring(start, end);
+
+    // Helper function to unwrap a specific tag
+    const unwrapTag = (text, tagToRemove) => {
+      const regex = new RegExp(`<${tagToRemove}>(.*?)</${tagToRemove}>`, 'gs');
+      return text.replace(regex, (match, content) => content);
+    };
+
+    // Helper function to check if text has a specific tag
+    const hasTag = (text, tagToCheck) => {
+      const regex = new RegExp(`<${tagToCheck}>(.*?)</${tagToCheck}>`, 's');
+      return regex.test(text);
+    };
+
+    // Check if the current selection has the tag we're toggling
+    if (hasTag(selectedText, tag)) {
+      // Remove only this specific tag while preserving other formatting
+      const newText = unwrapTag(selectedText, tag);
+      const updatedText = `${value.substring(0, start)}${newText}${value.substring(end)}`;
+      onChange(updatedText);
+
+      // Restore selection
+      setTimeout(() => {
+        textarea.focus();
+        textarea.setSelectionRange(start, start + newText.length);
+      }, 0);
+    } else {
+      // Add new tag while preserving existing formatting
+      const formattedText = `<${tag}>${selectedText}</${tag}>`;
+      const newText = `${value.substring(0, start)}${formattedText}${value.substring(end)}`;
+      onChange(newText);
+
+      // Restore selection
+      setTimeout(() => {
+        textarea.focus();
+        textarea.setSelectionRange(start, start + formattedText.length);
+      }, 0);
+    }
+  };
+
+  const handleBold = () => toggleFormatting('b');
+  const handleItalic = () => toggleFormatting('i');
+
+  // Modified to check for specific tag regardless of nesting
+  const checkFormatting = (tag) => {
+    const textarea = textareaRef.current;
+    if (!textarea) return false;
+    
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = value.substring(start, end);
+    
+    const regex = new RegExp(`<${tag}>(.*?)</${tag}>`, 's');
+    return regex.test(selectedText);
+  };
+
+  const insertSymbol = (symbolCode) => {
     const textarea = textareaRef.current;
     if (!textarea) return;
     const start = textarea.selectionStart;
@@ -146,49 +209,58 @@ const insertSymbol = (symbolCode) => {
     
     const beforeText = value.substring(0, start);
     const afterText = value.substring(end);
-    const spaceAfterSymbol = afterText.startsWith(' ') ? '' : ' '; // Check if there's already a space
+    const spaceAfterSymbol = afterText.startsWith(' ') ? '' : ' ';
     const newValue = `${beforeText}${symbolCode}${spaceAfterSymbol}${afterText}`;
     const newCursorPos = start + symbolCode.length + spaceAfterSymbol.length;
     onChange(newValue);
     
     setTimeout(() => {
-        textarea.focus();
-        textarea.setSelectionRange(newCursorPos, newCursorPos);
+      textarea.focus();
+      textarea.setSelectionRange(newCursorPos, newCursorPos);
     }, 0);
-};
+  };
 
-const handleKeyDown = (e) => {
+  const handleKeyDown = (e) => {
     if (e.key === ':') {
-        const start = e.target.selectionStart;
-        const beforeText = value.substring(0, start - 1);
-        const lastColon = beforeText.lastIndexOf(':');
+      const start = e.target.selectionStart;
+      const beforeText = value.substring(0, start - 1);
+      const lastColon = beforeText.lastIndexOf(':');
+      
+      if (lastColon !== -1) {
+        const potentialCode = `:${beforeText.substring(lastColon + 1)}:`;
+        const matchingSymbol = CARD_SYMBOLS.find(symbol => symbol.code === potentialCode);
         
-        if (lastColon !== -1) {
-            const potentialCode = `:${beforeText.substring(lastColon + 1)}:`;
-            const matchingSymbol = CARD_SYMBOLS.find(symbol => symbol.code === potentialCode);
-            
-            if (matchingSymbol) {
-                e.preventDefault();
-                const afterText = value.substring(start);
-                const spaceAfterSymbol = afterText.startsWith(' ') ? '' : ' '; // Check if there's already a space
-                const newValue = value.substring(0, lastColon) + potentialCode + spaceAfterSymbol + afterText;
-                onChange(newValue);
-            }
+        if (matchingSymbol) {
+          e.preventDefault();
+          const afterText = value.substring(start);
+          const spaceAfterSymbol = afterText.startsWith(' ') ? '' : ' ';
+          const newValue = value.substring(0, lastColon) + potentialCode + spaceAfterSymbol + afterText;
+          onChange(newValue);
         }
+      }
     }
-};
+  };
 
   return (
     <div className="flex flex-col rounded border border-gray-700 bg-black hover:border-[#9FE240] focus-within:border-[#9FE240] transition-colors">
-<textarea 
-  ref={textareaRef}
-  value={value}
-  onChange={(e) => onChange(e.target.value)}
-  onKeyDown={handleKeyDown}
-  className="w-full p-2 bg-black text-white h-20 focus:outline-none rounded-t leading-relaxed border-b border-gray-700 focus-within:border-[#9FE240]" 
-  style={{ letterSpacing: 'normal' }}
-  placeholder="Type : to use symbols (e.g., :fire:) or click icons below to insert"
-/>
+      {allowFormatting && (
+        <FormattingToolbar 
+          onBold={handleBold} 
+          onItalic={handleItalic}
+          isBold={checkFormatting('b')}
+          isItalic={checkFormatting('i')}
+        />
+      )}
+      <textarea 
+        ref={textareaRef}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        onKeyDown={handleKeyDown}
+        onSelect={() => setForceUpdate({})}
+        className="w-full p-2 bg-black text-white h-20 focus:outline-none rounded-t leading-relaxed"
+        style={{ letterSpacing: 'normal' }}
+        placeholder="Type : to use symbols (e.g., :fire:) or click icons below to insert"
+      />
       <SymbolBar onSymbolSelect={insertSymbol} />
     </div>
   );
@@ -701,6 +773,7 @@ return (
             setBrainwashedText(newValue);
           }
         }}
+        allowFormatting={false}  // Disable formatting for brainwashed text
       />
     </div>
   )}
