@@ -319,15 +319,16 @@ function wrapText(text, maxWidth) {
     // Split text into paragraphs
     const paragraphs = text.split('\n');
     const allLines = [];
+    let currentLine = ''; // Initialize currentLine here at the top
     
     for (const paragraph of paragraphs) {
         if (paragraph.trim() === '') {
-            // For empty paragraphs (just a newline), add a single line
-            allLines.push(currentLine);
+            // For empty paragraphs (just a newline), add an empty line
+            allLines.push('');
             continue;
         }
 
-        let currentLine = '';
+        currentLine = ''; // Reset currentLine for each new paragraph
         let currentLineWidth = 0;
         let isInBold = false;
         let isInItalic = false;
