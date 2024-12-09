@@ -139,6 +139,7 @@ const SYMBOL_MAPPINGS = {
     ':marrillianmugic:': { img: 'img/icons/mugic/m\'arrillian.png' },
     ':marrillianmugic0:': { img: 'img/icons/mugic/marrillian.png' },
     ':marrillianmugicX:': { img: 'img/icons/mugic/marrillian_x.png' },
+    ':marrillianmugic10:': { img: 'img/icons/mugic/marrillian10.png' },
     
     // Mugic icons - Mipedian
     ':mipedianmugic:': { img: 'img/icons/mugic/mipedian.png' },
@@ -161,8 +162,7 @@ async function drawTextWithSymbols(text, x, y, fontSize) {
     // Split text into lines first
     const lines = text.split('\n');
     let currentY = y;
-    const lineHeight = fontSize * 1.1; // Reduced from 1.2 to tighten spacing
-
+    const lineHeight = fontSize * 1.2
     // Process each line separately
     for (const line of lines) {
         // Keep track of formatting state
@@ -319,66 +319,72 @@ function wrapText(text, maxWidth) {
     // Split text into paragraphs
     const paragraphs = text.split('\n');
     const allLines = [];
-    let currentLine = ''; // Initialize currentLine here at the top
+    let currentLine = '';
+    
+    // Get the emoji width based on font size
+    const emojiWidth = ctx.font.match(/\d+/)[0] * 1.2; // Use consistent width for all emojis
     
     for (const paragraph of paragraphs) {
         if (paragraph.trim() === '') {
-            // For empty paragraphs (just a newline), add an empty line
             allLines.push('');
             continue;
         }
 
-        currentLine = ''; // Reset currentLine for each new paragraph
+        currentLine = '';
         let currentLineWidth = 0;
         let isInBold = false;
         let isInItalic = false;
 
-        // Split by spaces but don't break formatting tags
-        const words = paragraph.split(' ');
-        const symbolWidth = ctx.font.match(/\d+/)[0] * 1.2;
-
-        for (const word of words) {
-            // Track formatting state without removing tags
-            if (word.includes('<b>')) isInBold = true;
-            if (word.includes('</b>')) isInBold = false;
-            if (word.includes('<i>')) isInItalic = true;
-            if (word.includes('</i>')) isInItalic = false;
-
-            const symbolInfo = SYMBOL_MAPPINGS[word];
-            let wordWidth;
+        // Split the text to preserve emoji codes as whole units
+        // This regex will match emoji codes like :fire: or formatting tags
+        const parts = paragraph.split(/(:[\w']+:|<\/?[bi]>|\s+)/);
+        
+        for (const part of parts) {
+            if (!part) continue; // Skip empty parts
             
-            if (symbolInfo) {
-                wordWidth = symbolWidth;
+            // Handle formatting tags
+            if (part === '<b>') isInBold = true;
+            else if (part === '</b>') isInBold = false;
+            else if (part === '<i>') isInItalic = true;
+            else if (part === '</i>') isInItalic = false;
+            
+            // Calculate width based on content type
+            let partWidth;
+            if (SYMBOL_MAPPINGS[part]) {
+                // Use consistent width for all emoji codes
+                partWidth = emojiWidth;
+            } else if (part.match(/^<\/?[bi]>$/)) {
+                // Formatting tags don't take up visible space
+                partWidth = 0;
+            } else if (part.trim() === '') {
+                // Space character
+                partWidth = ctx.measureText(' ').width;
             } else {
-                // Measure without formatting tags
-                const cleanWord = word.replace(/<\/?[bi]>/g, '');
-                wordWidth = ctx.measureText(cleanWord + ' ').width;
+                // Normal text
+                partWidth = ctx.measureText(part).width;
             }
 
-            if (currentLineWidth + wordWidth > maxWidth * scale) {
+            if (currentLineWidth + partWidth > maxWidth * scale) {
                 if (currentLine !== '') {
                     // Close any open formatting tags
                     if (isInBold) currentLine += '</b>';
                     if (isInItalic) currentLine += '</i>';
                     
-                    // Add the current line to lines array
                     allLines.push(currentLine.trim());
                     
                     // Start new line with active formatting
                     currentLine = '';
-                    currentLineWidth = 0;
-                    
-                    // Reapply active formatting to new line
                     if (isInBold) currentLine += '<b>';
                     if (isInItalic) currentLine += '<i>';
+                    currentLineWidth = 0;
                 }
             }
 
-            currentLine += word + ' ';
-            currentLineWidth += wordWidth;
+            currentLine += part;
+            currentLineWidth += partWidth;
         }
 
-        // Handle the final line of this paragraph
+        // Handle the last line of the paragraph
         if (currentLine !== '') {
             // Close any open formatting tags
             if (isInBold) currentLine += '</b>';
@@ -633,10 +639,10 @@ if (cardData.name) {
     const maxWidth = isLocation ? 272 : 170;
 
     // Add text effects
-    ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
-    ctx.shadowBlur = 4;
-    ctx.shadowOffsetX = 2;
-    ctx.shadowOffsetY = 2;
+    ctx.shadowColor = "rgba(0, 0, 0, 5)";
+    ctx.shadowBlur = 6;
+    ctx.shadowOffsetX = 2.5;
+    ctx.shadowOffsetY = 2.5;
 
     ctx.fillStyle = "#fff";
     ctx.textAlign = 'center';
@@ -750,7 +756,7 @@ if (cardData.ability || cardData.flavorText || cardData.unique || cardData.legen
     ].filter(Boolean).join('\n');
 
     const fontSize = calculateFontSize(totalText, 172, 85);
-    const lineHeight = fontSize * 1.1;
+    const lineHeight = fontSize * 1.2;
     let currentY = 235;
 
 if (cardData.type === 'attack') {
@@ -1037,6 +1043,8 @@ if (cardData.brainwashedText) {
        // Keep reducing font size until flavor text fits
        while (flavorFontSize > 5) {  // Minimum font size of 5
            setFont(flavorFontSize, 'Arial Narrow Italic');
+           ctx.letterSpacing = "1px";
+
            flavorLines = wrapText(cardData.flavorText, 172);
            flavorTextHeight = flavorLines.length * flavorLineHeight;
            
@@ -1048,6 +1056,7 @@ if (cardData.brainwashedText) {
            flavorFontSize -= 0.5;
            flavorLineHeight = flavorFontSize * 1.1;
        }
+       ctx.letterSpacing = "0px";
    }
 
    if (cardData.ability) {
@@ -1113,10 +1122,16 @@ if (cardData.brainwashedText) {
        ctx.fillStyle = '#000000';
        ctx.textAlign = 'left';
 
+       // Add a slight letter spacing
+       ctx.letterSpacing = "1px";  // Very subtle spacing
+
        const flavorStartY = absoluteBottom - flavorTextHeight - 5;
        flavorLines.forEach((line, i) => {
            fillText(line, 45, flavorStartY + (i * flavorLineHeight));
        });
+
+       // Reset letter spacing after drawing flavor text
+       ctx.letterSpacing = "0px";
    }
 
 }

@@ -49,6 +49,7 @@ const CARD_SYMBOLS = [
   { code: ':marrillianmugic:', label: "M'arrillian Mugic", icon: getAssetPath('img/icons/mugic/m\'arrillian.png') },
   { code: ':marrillianmugic0:', label: "M'arrillian Mugic 0", icon: getAssetPath('img/icons/mugic/marrillian.png') },
   { code: ':marrillianmugicX:', label: "M'arrillian Mugic X", icon: getAssetPath('img/icons/mugic/marrillian_x.png') },
+  { code: ':marrillianmugic10:', label: "M'arrillian Mugic 10", icon: getAssetPath('img/icons/mugic/marrillian10.png') },
   
   // Mugic icons - Generic
   { code: ':genericmugic:', label: 'Generic Mugic', icon: getAssetPath('img/icons/mugic/generic.png') },
@@ -204,14 +205,22 @@ const TextAreaWithSymbols = ({ value, onChange, allowFormatting = true }) => {
   const insertSymbol = (symbolCode) => {
     const textarea = textareaRef.current;
     if (!textarea) return;
+    
     const start = textarea.selectionStart;
     const end = textarea.selectionEnd;
     
     const beforeText = value.substring(0, start);
     const afterText = value.substring(end);
-    const spaceAfterSymbol = afterText.startsWith(' ') ? '' : ' ';
-    const newValue = `${beforeText}${symbolCode}${spaceAfterSymbol}${afterText}`;
-    const newCursorPos = start + symbolCode.length + spaceAfterSymbol.length;
+    
+    // Only add a space if we're not at the end of a word/line
+    // and the next character isn't already a space or newline
+    const needsSpace = afterText.length > 0 && 
+                      !afterText.startsWith(' ') && 
+                      !afterText.startsWith('\n');
+    
+    const newValue = `${beforeText}${symbolCode}${needsSpace ? ' ' : ''}${afterText}`;
+    const newCursorPos = start + symbolCode.length + (needsSpace ? 1 : 0);
+    
     onChange(newValue);
     
     setTimeout(() => {
@@ -779,25 +788,51 @@ return (
   )}
 
   {/* Flavor Text - Only show if NOT brainwashed */}
-  {!brainwashed && ['creature', 'location', 'mugic', 'battlegear'].includes(selectedType) && (
-    <div className="space-y-2">
-      <div className="flex justify-between items-center">
-        <label className="font-bold">Flavor Text</label>
-        <span className={`text-sm ${flavorText.length > 200 ? 'text-red-500' : 'text-gray-400'}`}>
-          {200 - flavorText.length} characters remaining
-        </span>
+{!brainwashed && ['creature', 'location', 'mugic', 'battlegear'].includes(selectedType) && (
+  <div className="space-y-2">
+    <div className="flex justify-between items-center">
+      <label className="font-bold">Flavor Text</label>
+      <span className={`text-sm ${flavorText.length > 200 ? 'text-red-500' : 'text-gray-400'}`}>
+        {200 - flavorText.length} characters remaining
+      </span>
+    </div>
+    <div className="border border-gray-700 rounded bg-black hover:border-[#9FE240] focus-within:border-[#9FE240] transition-colors">
+      <div className="flex gap-2 p-2 border-b border-gray-700">
+    <button
+      onClick={() => {
+        const textarea = document.querySelector('textarea[name="flavorText"]');
+        if (textarea) {
+          const start = textarea.selectionStart;
+          const end = textarea.selectionEnd;
+          const newValue = flavorText.slice(0, start) + '–' + flavorText.slice(end);
+          if (newValue.length <= 200) {
+            setFlavorText(newValue);
+            setTimeout(() => {
+              textarea.focus();
+              textarea.selectionStart = textarea.selectionEnd = start + 1;
+            }, 0);
+          }
+        }
+      }}
+      className="px-3 py-1 rounded transition-colors bg-gray-800 hover:bg-gray-700 text-white relative top-[1px]"
+      title="En Dash"
+    >
+      –
+    </button>
       </div>
       <textarea 
+        name="flavorText"
         value={flavorText}
         onChange={(e) => {
           if (e.target.value.length <= 200) {
             setFlavorText(e.target.value);
           }
         }}
-        className="w-full p-2 border border-gray-700 rounded bg-black text-white h-16 focus:border-[#9FE240] focus:outline-none" 
+        className="w-full p-2 bg-black text-white h-16 focus:outline-none rounded-b" 
       />
     </div>
-  )}
+  </div>
+)}
 
   {/* Elements Section */}
   {selectedType === 'creature' && (
