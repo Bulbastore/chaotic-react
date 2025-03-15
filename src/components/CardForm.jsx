@@ -260,16 +260,16 @@ const TextAreaWithSymbols = ({ value, onChange, allowFormatting = true }) => {
           isItalic={checkFormatting('i')}
         />
       )}
-      <textarea 
-        ref={textareaRef}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        onKeyDown={handleKeyDown}
-        onSelect={() => setForceUpdate({})}
-        className="w-full p-2 bg-black text-white h-20 focus:outline-none rounded-t leading-relaxed"
-        style={{ letterSpacing: 'normal' }}
-        placeholder="Type : to use symbols (e.g., :fire:) or click icons below to insert"
-      />
+    <textarea 
+      ref={textareaRef}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      onKeyDown={handleKeyDown}
+      onSelect={() => setForceUpdate({})}
+      className="w-full p-2 bg-black text-white h-20 focus:outline-none rounded-t leading-relaxed"
+      style={{ letterSpacing: 'normal', whiteSpace: 'pre-wrap' }}
+      placeholder="Type : to use symbols (e.g., :fire:) or click icons below to insert"
+    />
       <SymbolBar onSymbolSelect={insertSymbol} />
     </div>
   );
@@ -801,29 +801,29 @@ return (
       </span>
     </div>
     <div className="border border-gray-700 rounded bg-black hover:border-[#9FE240] focus-within:border-[#9FE240] transition-colors">
-      <div className="flex gap-2 p-2 border-b border-gray-700">
-    <button
-      onClick={() => {
-        const textarea = document.querySelector('textarea[name="flavorText"]');
-        if (textarea) {
-          const start = textarea.selectionStart;
-          const end = textarea.selectionEnd;
-          const newValue = flavorText.slice(0, start) + '–' + flavorText.slice(end);
-          if (newValue.length <= 200) {
-            setFlavorText(newValue);
-            setTimeout(() => {
-              textarea.focus();
-              textarea.selectionStart = textarea.selectionEnd = start + 1;
-            }, 0);
+    <div className="flex gap-2 p-2 border-b border-gray-700">
+      <button
+        onClick={() => {
+          const textarea = document.querySelector('textarea[name="flavorText"]');
+          if (textarea) {
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            const newValue = flavorText.slice(0, start) + '—' + flavorText.slice(end);
+            if (newValue.length <= 200) {
+              setFlavorText(newValue);
+              setTimeout(() => {
+                textarea.focus();
+                textarea.selectionStart = textarea.selectionEnd = start + 1;
+              }, 0);
+            }
           }
-        }
-      }}
-      className="px-3 py-1 rounded transition-colors bg-gray-800 hover:bg-gray-700 text-white relative top-[1px]"
-      title="En Dash"
-    >
-      –
-    </button>
-      </div>
+        }}
+        className="px-3 py-1 rounded transition-colors bg-gray-800 hover:bg-gray-700 text-white relative top-[1px]"
+        title="Em Dash"
+      >
+        —
+      </button>
+    </div>
       <textarea 
         name="flavorText"
         value={flavorText}
@@ -833,6 +833,7 @@ return (
           }
         }}
         className="w-full p-2 bg-black text-white h-16 focus:outline-none rounded-b" 
+        style={{ whiteSpace: 'pre-wrap' }}
       />
     </div>
   </div>
@@ -1014,7 +1015,6 @@ return (
 )}
           </div>
         )}
-
 
 {/* Download Button for Non-Attack Cards */}
 {selectedType && selectedType !== 'attack' && (

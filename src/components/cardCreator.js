@@ -162,17 +162,22 @@ async function drawTextWithSymbols(text, x, y, fontSize) {
     // Split text into lines first
     const lines = text.split('\n');
     let currentY = y;
-    const lineHeight = fontSize * 1.2
+    const lineHeight = fontSize * 1.2;
+    const spaceWidth = ctx.measureText(' ').width * 0.5; // 70% of standard space width
+    
     // Process each line separately
     for (const line of lines) {
         // Keep track of formatting state
         let currentFormatting = { isBold: false, isItalic: false };
         let currentX = x * scale;
 
-        // Split line into parts including symbols and formatting tags
-        const parts = line.split(/(:[\w']+:|<\/?[bi]>)/);
+        // Split line into parts including symbols, formatting tags, and spaces
+        const parts = line.split(/(:[\w']+:|<\/?[bi]>|( +))/);
         
-        for (const part of parts) {
+        for (let i = 0; i < parts.length; i++) {
+            const part = parts[i];
+            if (!part) continue; // Skip empty parts
+            
             // Handle symbols
             if (SYMBOL_MAPPINGS[part]) {
                 const symbolInfo = SYMBOL_MAPPINGS[part];
@@ -205,9 +210,6 @@ async function drawTextWithSymbols(text, x, y, fontSize) {
                 continue;
             }
 
-            // Skip empty parts
-            if (!part) continue;
-
             // Apply current formatting
             let fontStyle = 'Eurostile Medium';
             if (currentFormatting.isBold && currentFormatting.isItalic) {
@@ -218,15 +220,23 @@ async function drawTextWithSymbols(text, x, y, fontSize) {
                 fontStyle = 'Eurostile Medium Italic';
             }
 
-            // Draw text
+            // Draw text with adjusted spaces
             ctx.font = `${fontSize * scale}px "${fontStyle}"`;
             ctx.fillStyle = '#000000';
-            ctx.fillText(part, currentX, currentY * scale);
-            currentX += ctx.measureText(part).width;
+            
+            if (part.match(/^ +$/)) {
+                // For consecutive spaces, use reduced width
+                const numSpaces = part.length;
+                currentX += spaceWidth * numSpaces;
+            } else {
+                // For normal text
+                ctx.fillText(part, currentX, currentY * scale);
+                currentX += ctx.measureText(part).width;
+            }
         }
 
         // Move to next line with consistent spacing
-        currentY += line.trim() === '' ? lineHeight * 0.5 : lineHeight; // Use half spacing for empty lines
+        currentY += line === '' ? lineHeight * 0.5 : lineHeight;
     }
 }
 
@@ -316,80 +326,86 @@ function setCanvas(x, y) {
 }
 
 function wrapText(text, maxWidth) {
+    // Double all spaces in the original text to make them wider
+    const textWithWiderSpaces = text.replace(/ /g, '   ');
+
     // Split text into paragraphs
     const paragraphs = text.split('\n');
     const allLines = [];
-    let currentLine = '';
-    
-    // Get the emoji width based on font size
-    const emojiWidth = ctx.font.match(/\d+/)[0] * 1.2; // Use consistent width for all emojis
     
     for (const paragraph of paragraphs) {
-        if (paragraph.trim() === '') {
+        if (paragraph === '') {
             allLines.push('');
             continue;
         }
 
-        currentLine = '';
-        let currentLineWidth = 0;
+        const words = paragraph.split(/(\s+|:[\w']+:|<\/?[bi]>)/);
+        let currentLine = '';
+        let testLine = '';
+        let currentWidth = 0;
         let isInBold = false;
         let isInItalic = false;
-
-        // Split the text to preserve emoji codes as whole units
-        // This regex will match emoji codes like :fire: or formatting tags
-        const parts = paragraph.split(/(:[\w']+:|<\/?[bi]>|\s+)/);
         
-        for (const part of parts) {
-            if (!part) continue; // Skip empty parts
+        for (let i = 0; i < words.length; i++) {
+            const word = words[i];
+            if (!word) continue;
             
             // Handle formatting tags
-            if (part === '<b>') isInBold = true;
-            else if (part === '</b>') isInBold = false;
-            else if (part === '<i>') isInItalic = true;
-            else if (part === '</i>') isInItalic = false;
+            if (word === '<b>') {
+                isInBold = true;
+                testLine += word;
+                continue;
+            } else if (word === '</b>') {
+                isInBold = false;
+                testLine += word;
+                continue;
+            } else if (word === '<i>') {
+                isInItalic = true;
+                testLine += word;
+                continue;
+            } else if (word === '</i>') {
+                isInItalic = false;
+                testLine += word;
+                continue;
+            }
             
-            // Calculate width based on content type
-            let partWidth;
-            if (SYMBOL_MAPPINGS[part]) {
-                // Use consistent width for all emoji codes
-                partWidth = emojiWidth;
-            } else if (part.match(/^<\/?[bi]>$/)) {
-                // Formatting tags don't take up visible space
-                partWidth = 0;
-            } else if (part.trim() === '') {
-                // Space character
-                partWidth = ctx.measureText(' ').width;
+            testLine += word;
+            
+            // Skip measuring for tags
+            if (word.match(/^<\/?[bi]>$/)) continue;
+            
+            const metrics = ctx.measureText(testLine);
+            currentWidth = metrics.width;
+            
+            if (currentWidth > maxWidth * scale && i > 0) {
+                // Complete any open tags before breaking the line
+                let endLine = currentLine;
+                if (isInBold) endLine += '</b>';
+                if (isInItalic) endLine += '</i>';
+                
+                allLines.push(endLine);
+                
+                // Start a new line with any active formatting
+                currentLine = '';
+                if (isInBold) currentLine += '<b>';
+                if (isInItalic) currentLine += '<i>';
+                
+                // Add the current word (but don't add leading spaces to a new line)
+                currentLine += word.trimStart();
+                
+                // Reset test line
+                testLine = currentLine;
             } else {
-                // Normal text
-                partWidth = ctx.measureText(part).width;
+                currentLine = testLine;
             }
-
-            if (currentLineWidth + partWidth > maxWidth * scale) {
-                if (currentLine !== '') {
-                    // Close any open formatting tags
-                    if (isInBold) currentLine += '</b>';
-                    if (isInItalic) currentLine += '</i>';
-                    
-                    allLines.push(currentLine.trim());
-                    
-                    // Start new line with active formatting
-                    currentLine = '';
-                    if (isInBold) currentLine += '<b>';
-                    if (isInItalic) currentLine += '<i>';
-                    currentLineWidth = 0;
-                }
-            }
-
-            currentLine += part;
-            currentLineWidth += partWidth;
         }
-
-        // Handle the last line of the paragraph
-        if (currentLine !== '') {
-            // Close any open formatting tags
+        
+        // Add the last line
+        if (currentLine) {
+            // Close any open tags
             if (isInBold) currentLine += '</b>';
             if (isInItalic) currentLine += '</i>';
-            allLines.push(currentLine.trim());
+            allLines.push(currentLine);
         }
     }
 
