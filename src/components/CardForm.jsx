@@ -1056,7 +1056,9 @@ return (
         serialNumber,
         brainwashed,
         brainwashedText,
-        past: isPast
+        past: isPast,
+        showCopyright,
+        showArtist
       }} 
     />
   </div>

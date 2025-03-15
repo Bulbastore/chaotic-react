@@ -63,7 +63,9 @@ const CardPreview = ({ cardData }) => {
           base: cardData.base || 0,
           mugicCost: cardData.mugicCost || 0,
           initiative: cardData.initiative || 0,
-          serialNumber: cardData.serialNumber || ''
+          serialNumber: cardData.serialNumber || '',
+          showCopyright: cardData.showCopyright !== undefined ? cardData.showCopyright : true,
+          showArtist: cardData.showArtist !== undefined ? cardData.showArtist : true,     
         });
 
         if (mounted) {

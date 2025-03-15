@@ -1160,7 +1160,7 @@ ctx.textAlign = 'left';
 fillText(spacedCode, 62, 333);
 
 // Draw copywrite info
-if (cardData.type === 'creature') {
+if (cardData.type === 'creature' && cardData.showCopyright !== false) {
     setFont(5, 'Eurostile Cond Heavy Italic');
     ctx.letterSpacing = "0.3px";
     ctx.textAlign = 'left';
@@ -1198,7 +1198,7 @@ if (cardData.type === 'creature') {
 }
 
 // Draw artist name with special styling for attack cards
-if (cardData.artist) {
+if (cardData.artist && cardData.showArtist !== false) {
     ctx.save();
     setFont(5, 'Eurostile Cond Heavy Italic');
     ctx.letterSpacing = "0.3px";
