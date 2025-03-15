@@ -432,8 +432,10 @@ const ElementItem = ({ element, value, onChange, type = 'creature' }) => (
 const CardForm = () => {
   const [brainwashed, setBrainwashed] = useState(false);
   const [isPast, setIsPast] = useState(false);
-  const [brainwashedText, setBrainwashedText] = useState(''); // Add this line here
+  const [brainwashedText, setBrainwashedText] = useState('');
   const [serialNumber, setSerialNumber] = useState('');
+  const [showCopyright, setShowCopyright] = useState(true);
+  const [showArtist, setShowArtist] = useState(true);
   const [selectedType, setSelectedType] = useState('');
   const [canvasRef, setCanvasRef] = useState(null);
   const [name, setName] = useState('');
@@ -512,6 +514,8 @@ const resetForm = () => {
   setMugicCost(0);
   setBase(0);
   setSerialNumber('');
+  setShowCopyright(true);
+setShowArtist(true);
   setBrainwashedText('');
 };
 
@@ -909,6 +913,7 @@ return (
         </div>
     )}
     
+<div className="flex flex-col gap-1">
     <div className="flex items-center gap-2">
         <label className="font-bold">Artist</label>
         <input 
@@ -919,7 +924,19 @@ return (
             className="w-48 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
         />
     </div>
-    
+    <div className="flex items-center gap-2 ml-2">
+        <input 
+            type="checkbox" 
+            id="show-artist"
+            checked={showArtist}
+            onChange={(e) => setShowArtist(e.target.checked)}
+            className="w-4 h-4 accent-[#9FE240]" 
+        />
+        <label htmlFor="show-artist" className="text-sm text-gray-300">Show artist line</label>
+    </div>
+</div>
+
+<div className="flex flex-col gap-1">
     <div className="flex items-center gap-2">
         <label className="font-bold">Serial #</label>
         <input 
@@ -930,6 +947,17 @@ return (
             className="w-20 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
         />
     </div>
+    <div className="flex items-center gap-2 ml-2">
+        <input 
+            type="checkbox" 
+            id="show-copyright"
+            checked={showCopyright}
+            onChange={(e) => setShowCopyright(e.target.checked)}
+            className="w-4 h-4 accent-[#9FE240]" 
+        />
+        <label htmlFor="show-copyright" className="text-sm text-gray-300">Show copyright line</label>
+    </div>
+</div>
 </div>
           </div>
 
