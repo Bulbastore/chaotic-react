@@ -3,6 +3,8 @@ import CardPreview from './CardPreview';
 import { CardCreator } from './cardCreator';
 import { getAssetPath } from './assetPaths';
 import FormattingToolbar from './FormattingToolbar';
+import CreatureSelector from './CreatureSelector';
+import { getCreatureById } from './CreatureDatabase';
 
 const CARD_SYMBOLS = [
   // Ability elements
@@ -524,6 +526,37 @@ setShowArtist(true);
     return type === 'creature' || type === 'battlegear';
   };
 
+  // Add the loadImageFromUrl function right here
+  const loadImageFromUrl = async (url) => {
+    if (!url) return null;
+    
+    try {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => {
+          // Convert image to File object
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+          
+          canvas.toBlob((blob) => {
+            const fileName = url.split('/').pop() || 'card-image.jpg';
+            const file = new File([blob], fileName, { type: 'image/jpeg' });
+            resolve(file);
+          }, 'image/jpeg');
+        };
+        img.onerror = () => reject(new Error('Failed to load image'));
+        img.src = url;
+      });
+    } catch (err) {
+      console.error('Error loading image:', err);
+      return null;
+    }
+  };
+  
   // Add useEffect to preload icons
   useEffect(() => {
     const preloadIcons = async () => {
@@ -565,40 +598,41 @@ return (
 <div className="container mx-auto flex flex-col lg:flex-row gap-0 p-2 lg:p-4 min-h-screen w-full max-w-none">
   <div className="w-full lg:w-1/2 bg-black text-white flex flex-col">
       <div className="flex-1 overflow-y-auto space-y-4">
+
       {/* Card Type Selection */}
       <div className="p-4 border border-gray-700 rounded-lg bg-black">
         <div className="flex justify-center items-center gap-4">
           <label htmlFor="type" className="font-bold">Card Type</label>
           <select
-  id="type"
-  value={selectedType}
-  onChange={(e) => {
-    const newType = e.target.value;
-    setSelectedType(newType);
-    resetForm();
-    // Reset related states when changing card type
-    setTribe('');
-    setElements({
-      fire: 0,
-      air: 0,
-      earth: 0,
-      water: 0
-    });
-    // Reset other relevant states
-    setStats({
-      energy: 0,
-      courage: 0,
-      power: 0,
-      wisdom: 0,
-      speed: 0,
-      mugic: 0
-    });
-    setBuildPoints(0);
-    setMugicCost(0);
-    setBase(0);
-  }}
-  className="w-48 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
->
+            id="type"
+            value={selectedType}
+            onChange={(e) => {
+              const newType = e.target.value;
+              setSelectedType(newType);
+              resetForm();
+              // Reset related states when changing card type
+              setTribe('');
+              setElements({
+                fire: 0,
+                air: 0,
+                earth: 0,
+                water: 0
+              });
+              // Reset other relevant states
+              setStats({
+                energy: 0,
+                courage: 0,
+                power: 0,
+                wisdom: 0,
+                speed: 0,
+                mugic: 0
+              });
+              setBuildPoints(0);
+              setMugicCost(0);
+              setBase(0);
+            }}
+            className="w-48 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
+          >
             <option value="" className="text-gray-500">Select Card Type</option>
             <option value="creature">Creature</option>
             <option value="attack">Attack</option>
@@ -608,6 +642,74 @@ return (
           </select>
         </div>
       </div>
+
+      {/* Add the Creature Selector for preloaded creature data */}
+      {selectedType === 'creature' && (
+        <div className="p-4 border border-gray-700 rounded-lg bg-black">
+          <CreatureSelector
+            onSelectCreature={(creatureId) => {
+              const cardData = getCreatureById(creatureId);
+              if (!cardData) return;
+              
+              // Set basic card information
+              setName(cardData.name || '');
+              setSubname(cardData.subname || '');
+              setTribe(cardData.tribe?.toLowerCase() || '');
+              setSet(cardData.set?.toLowerCase() || '');
+              setRarity(cardData.rarity || '');
+              setSubtype(cardData.subtype || '');
+              setAbility(cardData.ability || '');
+              setFlavorText(cardData.flavorText || '');
+              setBrainwashedText(cardData.brainwashedText || '');
+              setBrainwashed(cardData.brainwashed || false);
+              setUnique(cardData.unique || false);
+              setLegendary(cardData.legendary || false);
+              setLoyal(cardData.loyal || false);
+              setLoyalRestriction(cardData.loyalRestriction || '');
+              setArtist(cardData.artist || '');
+              setSerialNumber(cardData.serialNumber || '');
+              
+              // Set stats
+              setStats({
+                energy: cardData.stats.energy || 0,
+                courage: cardData.stats.courage || 0,
+                power: cardData.stats.power || 0,
+                wisdom: cardData.stats.wisdom || 0,
+                speed: cardData.stats.speed || 0,
+                mugic: cardData.stats.mugic || 0
+              });
+              
+              // Set elements
+              setElements({
+                fire: cardData.elements.fire || 0,
+                air: cardData.elements.air || 0,
+                earth: cardData.elements.earth || 0,
+                water: cardData.elements.water || 0
+              });
+              
+              // Load image if available
+              if (cardData.imageUrl) {
+                loadImageFromUrl(cardData.imageUrl)
+                  .then(imageFile => {
+                    if (imageFile) {
+                      setArt(imageFile);
+                    }
+                  })
+                  .catch(err => {
+                    console.error('Failed to load image:', err);
+                  });
+              }
+              
+              // Check for other properties like isPast, etc.
+              if (cardData.tribe?.toLowerCase() === 'tribeless' || cardData.isPast) {
+                setIsPast(true);
+              } else {
+                setIsPast(false);
+              }
+            }}
+          />
+        </div>
+      )}
 
       {selectedType && (
         <div className="space-y-6">
