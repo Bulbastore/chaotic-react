@@ -456,7 +456,7 @@ const CardForm = () => {
   const [loyalRestriction, setLoyalRestriction] = useState('');
   const getFormattedSubtype = (type, tribe, subtype, isPast) => {
     if (!tribe) return '';
-  
+
     const formattedTribe = {
       'overworld': 'OverWorld',
       'underworld': 'UnderWorld',
@@ -466,7 +466,9 @@ const CardForm = () => {
       'tribeless': 'Past'
     }[tribe.toLowerCase()];
 
-   return `${type.charAt(0).toUpperCase() + type.slice(1)} - ${isPast ? 'Past ' : ''}${formattedTribe}${subtype ? ` ${subtype}` : ''}`;
+    // Only add 'Past ' prefix if the tribe is not already tribeless/Past
+    const pastPrefix = (isPast && tribe.toLowerCase() !== 'tribeless') ? 'Past ' : '';
+    return `${type.charAt(0).toUpperCase() + type.slice(1)} - ${pastPrefix}${formattedTribe}${subtype ? ` ${subtype}` : ''}`;
   };
   const [stats, setStats] = useState({
     energy: 0,
@@ -643,73 +645,79 @@ return (
         </div>
       </div>
 
-      {/* Add the Creature Selector for preloaded creature data */}
-      {selectedType === 'creature' && (
-        <div className="p-4 border border-gray-700 rounded-lg bg-black">
-          <CreatureSelector
-            onSelectCreature={(creatureId) => {
-              const cardData = getCreatureById(creatureId);
-              if (!cardData) return;
-              
-              // Set basic card information
-              setName(cardData.name || '');
-              setSubname(cardData.subname || '');
-              setTribe(cardData.tribe?.toLowerCase() || '');
-              setSet(cardData.set?.toLowerCase() || '');
-              setRarity(cardData.rarity || '');
-              setSubtype(cardData.subtype || '');
-              setAbility(cardData.ability || '');
-              setFlavorText(cardData.flavorText || '');
-              setBrainwashedText(cardData.brainwashedText || '');
-              setBrainwashed(cardData.brainwashed || false);
-              setUnique(cardData.unique || false);
-              setLegendary(cardData.legendary || false);
-              setLoyal(cardData.loyal || false);
-              setLoyalRestriction(cardData.loyalRestriction || '');
-              setArtist(cardData.artist || '');
-              setSerialNumber(cardData.serialNumber || '');
-              
-              // Set stats
-              setStats({
-                energy: cardData.stats.energy || 0,
-                courage: cardData.stats.courage || 0,
-                power: cardData.stats.power || 0,
-                wisdom: cardData.stats.wisdom || 0,
-                speed: cardData.stats.speed || 0,
-                mugic: cardData.stats.mugic || 0
-              });
-              
-              // Set elements
-              setElements({
-                fire: cardData.elements.fire || 0,
-                air: cardData.elements.air || 0,
-                earth: cardData.elements.earth || 0,
-                water: cardData.elements.water || 0
-              });
-              
-              // Load image if available
-              if (cardData.imageUrl) {
-                loadImageFromUrl(cardData.imageUrl)
-                  .then(imageFile => {
-                    if (imageFile) {
-                      setArt(imageFile);
-                    }
-                  })
-                  .catch(err => {
-                    console.error('Failed to load image:', err);
-                  });
+{selectedType === 'creature' && (
+  <div className="p-4 border border-gray-700 rounded-lg bg-black">
+    <CreatureSelector
+      onSelectCreature={(creatureId, loyalRestriction) => {
+        const cardData = getCreatureById(creatureId);
+        if (!cardData) return;
+        
+        // Set basic card information
+        setName(cardData.name || '');
+        setSubname(cardData.subname || '');
+        setTribe(cardData.tribe?.toLowerCase() || '');
+        setSet(cardData.set?.toLowerCase() || '');
+        setRarity(cardData.rarity || '');
+        setSubtype(cardData.subtype || '');
+        setAbility(cardData.ability || '');
+        setFlavorText(cardData.flavorText || '');
+        setBrainwashedText(cardData.brainwashedText || '');
+        setBrainwashed(cardData.brainwashed || false);
+        setUnique(cardData.unique || false);
+        setLegendary(cardData.legendary || false);
+        setLoyal(cardData.loyal || false);
+        
+        // Use the provided loyalRestriction if the creature is loyal
+        if (cardData.loyal) {
+          setLoyalRestriction(cardData.loyalRestriction || loyalRestriction || '');
+        } else {
+          setLoyalRestriction('');
+        }
+        
+        setArtist(cardData.artist || '');
+        setSerialNumber(cardData.serialNumber || '');
+        
+        // Set stats
+        setStats({
+          energy: cardData.stats.energy || 0,
+          courage: cardData.stats.courage || 0,
+          power: cardData.stats.power || 0,
+          wisdom: cardData.stats.wisdom || 0,
+          speed: cardData.stats.speed || 0,
+          mugic: cardData.stats.mugic || 0
+        });
+        
+        // Set elements
+        setElements({
+          fire: cardData.elements.fire || 0,
+          air: cardData.elements.air || 0,
+          earth: cardData.elements.earth || 0,
+          water: cardData.elements.water || 0
+        });
+        
+        // Load image if available
+        if (cardData.imageUrl) {
+          loadImageFromUrl(cardData.imageUrl)
+            .then(imageFile => {
+              if (imageFile) {
+                setArt(imageFile);
               }
-              
-              // Check for other properties like isPast, etc.
-              if (cardData.tribe?.toLowerCase() === 'tribeless' || cardData.isPast) {
-                setIsPast(true);
-              } else {
-                setIsPast(false);
-              }
-            }}
-          />
-        </div>
-      )}
+            })
+            .catch(err => {
+              console.error('Failed to load image:', err);
+            });
+        }
+        
+        // Check for other properties like isPast, etc.
+        if (cardData.tribe?.toLowerCase() === 'tribeless' || cardData.isPast) {
+          setIsPast(true);
+        } else {
+          setIsPast(false);
+        }
+      }}
+    />
+  </div>
+)}
 
       {selectedType && (
         <div className="space-y-6">

@@ -45,6 +45,24 @@ const CreatureSelector = ({ onSelectCreature }) => {
     return acc;
   }, {});
 
+  // Alphabetize creatures within each tribe
+  Object.keys(creaturesByTribe).forEach(tribe => {
+    creaturesByTribe[tribe].sort((a, b) => 
+      a.displayName.localeCompare(b.displayName)
+    );
+  });
+
+  // Define the tribe display order
+  const tribeDisplayOrder = [
+    'overworld', 
+    'underworld', 
+    'mipedian', 
+    'danian', 
+    'm\'arrillian', 
+    'tribeless',
+    'unknown' // Keep unknown at the end
+  ];
+
   // Format tribe name for display
   const formatTribe = (tribe) => {
     switch (tribe.toLowerCase()) {
@@ -56,6 +74,22 @@ const CreatureSelector = ({ onSelectCreature }) => {
       case 'tribeless': return 'Tribeless';
       default: return tribe;
     }
+  };
+
+  // Handle creature selection with loyalty checking
+  const handleCreatureSelection = (creature) => {
+  // Process loyalty restrictions based on tribe
+  let loyalRestriction = '';
+
+  // Only set a loyalty restriction for M'arrillians
+  if (creature.tribe && creature.tribe.toLowerCase() === 'm\'arrillian') {
+    loyalRestriction = 'M\'arrillians or Minions';
+  }
+
+    // Pass the id and the suggested loyalty restriction
+    onSelectCreature(creature.id, loyalRestriction);
+    setIsDropdownOpen(false);
+    setSearchTerm('');
   };
 
   return (
@@ -88,26 +122,25 @@ const CreatureSelector = ({ onSelectCreature }) => {
               {Object.keys(creaturesByTribe).length === 0 ? (
                 <div className="p-3 text-gray-400 text-center">No creatures found</div>
               ) : (
-                Object.entries(creaturesByTribe).map(([tribe, creatures]) => (
-                  <div key={tribe} className="border-b border-gray-700 last:border-0">
-                    <div className="p-2 bg-gray-800 text-gray-300 text-xs font-bold uppercase tracking-wider">
-                      {formatTribe(tribe)}
-                    </div>
-                    {creatures.map(creature => (
-                      <div
-                        key={creature.id}
-                        className="p-2 hover:bg-gray-800 cursor-pointer border-t border-gray-700 first:border-0"
-                        onClick={() => {
-                          onSelectCreature(creature.id);
-                          setIsDropdownOpen(false);
-                          setSearchTerm('');
-                        }}
-                      >
-                        <div className="text-white">{creature.displayName}</div>
+                // Sort tribes according to the defined order
+                tribeDisplayOrder
+                  .filter(tribe => creaturesByTribe[tribe]) // Only include tribes that have creatures
+                  .map(tribe => (
+                    <div key={tribe} className="border-b border-gray-700 last:border-0">
+                      <div className="p-2 bg-gray-800 text-gray-300 text-xs font-bold uppercase tracking-wider">
+                        {formatTribe(tribe)}
                       </div>
-                    ))}
-                  </div>
-                ))
+                      {creaturesByTribe[tribe].map(creature => (
+                        <div
+                          key={creature.id}
+                          className="p-2 hover:bg-gray-800 cursor-pointer border-t border-gray-700 first:border-0"
+                          onClick={() => handleCreatureSelection(creature)}
+                        >
+                          <div className="text-white">{creature.displayName}</div>
+                        </div>
+                      ))}
+                    </div>
+                  ))
               )}
             </div>
           )}

@@ -188,7 +188,7 @@ async function drawTextWithSymbols(text, x, y, fontSize) {
                 const symbolY = currentY * scale - symbolHeight + (fontSize * 0.2 * scale);
                 
                 ctx.drawImage(img, currentX, symbolY, symbolWidth, symbolHeight);
-                currentX += symbolWidth + (fontSize * 0.3 * scale);
+                currentX += symbolWidth + (fontSize * 0.1 * scale);
                 continue;
             }
 
@@ -420,7 +420,7 @@ function formatTribe(tribe) {
         case "mipedian": return "Mipedian";
         case "underworld": return "UnderWorld";
         case "m'arrillian": return "M'arrillian";
-        case "tribeless": return "Past";
+        case "tribeless": return "";
         case "generic": return "Generic";
         default: return tribe;
     }
@@ -688,7 +688,6 @@ if (cardData.name) {
     ctx.shadowOffsetY = 0;
 }
 
-
 // Draw subtype and tribe
 if (cardData.type === 'attack') {
     setFont(7, 'Eurostile Heavy Italic');
@@ -719,15 +718,26 @@ if (cardData.type === 'attack') {
     ctx.shadowOffsetY = 0.5;
     ctx.shadowColor = "#696969";
 
-    let typeText = cardData.type.charAt(0).toUpperCase() + cardData.type.slice(1);
-    if (cardData.tribe) {
-        typeText += ` - ${cardData.past ? 'Past ' : ''}${formatTribe(cardData.tribe)}`;
-        if (cardData.subtype) {
-            typeText += ` ${cardData.subtype}`;
-        }
-    } else if (cardData.subtype) {
-        typeText += ` - ${cardData.subtype}`;
+let typeText = cardData.type.charAt(0).toUpperCase() + cardData.type.slice(1);
+if (cardData.tribe) {
+    typeText += ` - `;
+    if (cardData.past) {
+        typeText += 'Past ';
     }
+    const formattedTribe = formatTribe(cardData.tribe);
+    if (formattedTribe) {
+        typeText += formattedTribe;
+    }
+    if (cardData.subtype) {
+        if (formattedTribe) {
+            typeText += ` ${cardData.subtype}`;
+        } else {
+            typeText += cardData.subtype;
+        }
+    }
+} else if (cardData.subtype) {
+    typeText += ` - ${cardData.subtype}`;
+}
 
     fillText(typeText, 43, 220);
 }
