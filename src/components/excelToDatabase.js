@@ -46,6 +46,10 @@ function convertExcelToDatabase(excelFilePath, outputFilePath) {
     const loyal = card.Loyal === 'Y' || card.Loyal === 1 || card.Loyal === true;
     const isPast = card.isPast === 'Y' || card.isPast === 1 || card.isPast === true;
     
+    // FIXED: Handle the case where there's a single "Brainwashed" column containing text
+    const brainwashedText = card["Brainwashed"] || '';
+    const brainwashed = brainwashedText.trim().length > 0;
+    
     // Generate ID
     const id = `${card.Set}-${card["Serial #"] || Math.random().toString(36).substring(2, 10)}`;
     
@@ -60,8 +64,8 @@ function convertExcelToDatabase(excelFilePath, outputFilePath) {
       subtype: card.Subtype || '',
       ability: card["Ability Text"] || '',
       flavorText: card["Flavor Text"] || '',
-      brainwashedText: card["Brainwashed Text"] || '',
-      brainwashed: !!card["Brainwashed Text"],
+      brainwashedText,
+      brainwashed,
       unique,
       legendary,
       loyal,

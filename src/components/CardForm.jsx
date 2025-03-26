@@ -601,7 +601,7 @@ const handleDownload = () => {
   }
 };
 
-//Bleed download function
+// handleBleedDownload function with fix for brainwashed templates
 const handleBleedDownload = async () => {
   const previewCanvas = document.querySelector('#preview-canvas');
   if (!previewCanvas) return;
@@ -615,17 +615,28 @@ const handleBleedDownload = async () => {
     const bleedCanvas = document.createElement('canvas');
     const bleedCtx = bleedCanvas.getContext('2d');
     
-    // Determine which border frame to use based on tribe
+    // Determine which border frame to use based on tribe and brainwashed status
     let borderPath;
     if (selectedType === 'creature' && tribe) {
-      // Use tribe-specific border for creatures
-      borderPath = getAssetPath(`img/template/bleed/${tribe.toLowerCase()}.png`);
+      // Check if this is a brainwashed creature
+      if (brainwashed) {
+        // Use brainwashed-specific border for creatures
+        borderPath = getAssetPath(`img/template/bleed/${tribe.toLowerCase()}bw.png`);
+        console.log('Loading brainwashed bleed border from:', borderPath);
+      } else {
+        // Use tribe-specific border for normal creatures
+        borderPath = getAssetPath(`img/template/bleed/${tribe.toLowerCase()}.png`);
+        console.log('Loading normal creature bleed border from:', borderPath);
+      }
+    } else if (selectedType === 'mugic' && tribe) {
+      // For mugic cards, we need to maintain the mugic subdirectory
+      borderPath = getAssetPath(`img/template/bleed/mugic/${tribe.toLowerCase()}.png`);
+      console.log('Loading mugic bleed border from:', borderPath);
     } else {
       // Use a type-specific border for non-creatures (attack, battlegear, etc.)
       borderPath = getAssetPath(`img/template/bleed/${selectedType.toLowerCase()}.png`);
+      console.log('Loading type-specific bleed border from:', borderPath);
     }
-    
-    console.log('Loading bleed border from:', borderPath);
     
     // Load the border frame image
     const borderImg = new Image();
@@ -781,6 +792,9 @@ return (
         const cardData = getCreatureById(creatureId);
         if (!cardData) return;
         
+        // Get brainwashed text
+        const hasBrainwashedText = cardData.brainwashedText && cardData.brainwashedText.trim().length > 0;
+        
         // Set basic card information
         setName(cardData.name || '');
         setSubname(cardData.subname || '');
@@ -791,10 +805,22 @@ return (
         setAbility(cardData.ability || '');
         setFlavorText(cardData.flavorText || '');
         setBrainwashedText(cardData.brainwashedText || '');
-        setBrainwashed(cardData.brainwashed || false);
-        setUnique(cardData.unique || false);
-        setLegendary(cardData.legendary || false);
-        setLoyal(cardData.loyal || false);
+        
+        // Infer brainwashed state from either explicit flag or presence of brainwashed text
+        setBrainwashed(cardData.brainwashed || hasBrainwashedText);
+        
+        // If inferred as brainwashed, make sure to hide incompatible properties
+        if (cardData.brainwashed || hasBrainwashedText) {
+          setUnique(false);
+          setLegendary(false);
+          setLoyal(false);
+          // Optionally clear flavor text as well since it's not shown for brainwashed creatures
+          setFlavorText('');
+        } else {
+          setUnique(cardData.unique || false);
+          setLegendary(cardData.legendary || false);
+          setLoyal(cardData.loyal || false);
+        }
         
         // Use the provided loyalRestriction if the creature is loyal
         if (cardData.loyal) {
