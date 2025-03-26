@@ -840,11 +840,14 @@ return (
         // Set Past flag based on isPast property only
         setIsPast(!!cardData.isPast);
 
-        // ADD THIS CODE - Force a re-render after a short delay
+        // Then, create a sequence of re-renders with increasing delays
         setTimeout(() => {
-          // Trigger a small state change to force re-render
-          // You'll need to add this state at the top of your component
           setForceUpdate(prev => !prev);
+          
+          // Second re-render after a longer delay
+          setTimeout(() => {
+            setForceUpdate(prev => !prev);
+          }, 300);
         }, 100);
       }}
     />

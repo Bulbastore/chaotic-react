@@ -72,13 +72,13 @@ const CardPreview = ({ cardData }) => {
           canvas.id = 'preview-canvas';
           
           // Canvas styling
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
-    canvas.style.maxWidth = '100%';
-    canvas.style.maxHeight = '100%';
-    canvas.style.objectFit = 'contain';
-    canvas.style.imageRendering = 'auto';
-    canvas.style.display = 'block';
+          canvas.style.width = '100%';
+          canvas.style.height = '100%';
+          canvas.style.maxWidth = '100%';
+          canvas.style.maxHeight = '100%';
+          canvas.style.objectFit = 'contain';
+          canvas.style.imageRendering = 'auto';
+          canvas.style.display = 'block';
     
 
           // Clear and append the new canvas
