@@ -78,13 +78,13 @@ const CreatureSelector = ({ onSelectCreature }) => {
 
   // Handle creature selection with loyalty checking
   const handleCreatureSelection = (creature) => {
-  // Process loyalty restrictions based on tribe
-  let loyalRestriction = '';
+    // Process loyalty restrictions based on tribe
+    let loyalRestriction = '';
 
-  // Only set a loyalty restriction for M'arrillians
-  if (creature.tribe && creature.tribe.toLowerCase() === 'm\'arrillian') {
-    loyalRestriction = 'M\'arrillians or Minions';
-  }
+    // Only set a loyalty restriction for M'arrillians
+    if (creature.tribe && creature.tribe.toLowerCase() === 'm\'arrillian') {
+      loyalRestriction = 'M\'arrillians or Minions';
+    }
 
     // Pass the id and the suggested loyalty restriction
     onSelectCreature(creature.id, loyalRestriction);
@@ -137,6 +137,9 @@ const CreatureSelector = ({ onSelectCreature }) => {
                           onClick={() => handleCreatureSelection(creature)}
                         >
                           <div className="text-white">{creature.displayName}</div>
+                          {creature.isPast && (
+                            <div className="text-xs text-gray-400">Past</div>
+                          )}
                         </div>
                       ))}
                     </div>

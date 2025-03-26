@@ -22,12 +22,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "57/232",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 60,
-      "wisdom": 30,
-      "speed": 40,
-      "energy": 45,
+      "courage": 50,
+      "power": 70,
+      "wisdom": 40,
+      "speed": 50,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -57,12 +58,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
     "serialNumber": "58/232",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 40,
-      "wisdom": 35,
-      "speed": 40,
-      "energy": 40,
+      "courage": 70,
+      "power": 50,
+      "wisdom": 45,
+      "speed": 50,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -92,12 +94,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "59/232",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 70,
-      "wisdom": 40,
-      "speed": 65,
-      "energy": 50,
+      "courage": 75,
+      "power": 80,
+      "wisdom": 50,
+      "speed": 75,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -127,12 +130,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Kanilla Tripp",
     "serialNumber": "60/232",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 55,
-      "wisdom": 35,
-      "speed": 30,
-      "energy": 30,
+      "courage": 50,
+      "power": 65,
+      "wisdom": 45,
+      "speed": 40,
+      "energy": 35,
       "mugic": 2
     },
     "elements": {
@@ -162,12 +166,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "61/232",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 60,
-      "wisdom": 65,
-      "speed": 30,
-      "energy": 50,
+      "courage": 55,
+      "power": 70,
+      "wisdom": 75,
+      "speed": 40,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -197,12 +202,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "62/232",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 55,
-      "wisdom": 50,
-      "speed": 40,
-      "energy": 50,
+      "courage": 45,
+      "power": 65,
+      "wisdom": 60,
+      "speed": 50,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -232,12 +238,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "63/232",
+    "isPast": false,
     "stats": {
-      "courage": 25,
-      "power": 20,
-      "wisdom": 70,
-      "speed": 25,
-      "energy": 40,
+      "courage": 35,
+      "power": 30,
+      "wisdom": 80,
+      "speed": 35,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -267,12 +274,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
     "serialNumber": "64/232",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 30,
-      "wisdom": 55,
-      "speed": 35,
-      "energy": 45,
+      "courage": 75,
+      "power": 40,
+      "wisdom": 65,
+      "speed": 45,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -302,12 +310,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "65/232",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 65,
-      "wisdom": 70,
-      "speed": 25,
-      "energy": 40,
+      "courage": 75,
+      "power": 75,
+      "wisdom": 80,
+      "speed": 35,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -337,12 +346,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "66/232",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 35,
-      "wisdom": 70,
-      "speed": 30,
-      "energy": 25,
+      "courage": 40,
+      "power": 45,
+      "wisdom": 80,
+      "speed": 40,
+      "energy": 30,
       "mugic": 3
     },
     "elements": {
@@ -372,12 +382,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, John Rauch",
     "serialNumber": "67/232",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 25,
-      "wisdom": 45,
-      "speed": 35,
-      "energy": 30,
+      "courage": 40,
+      "power": 35,
+      "wisdom": 55,
+      "speed": 45,
+      "energy": 35,
       "mugic": 2
     },
     "elements": {
@@ -407,12 +418,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "68/232",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 60,
-      "wisdom": 50,
-      "speed": 40,
-      "energy": 35,
+      "courage": 65,
+      "power": 70,
+      "wisdom": 60,
+      "speed": 50,
+      "energy": 40,
       "mugic": 1
     },
     "elements": {
@@ -442,12 +454,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Jose Velasco, Edwin Nebres, Jimmy Tran",
     "serialNumber": "69/232",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 45,
-      "wisdom": 40,
-      "speed": 55,
-      "energy": 40,
+      "courage": 65,
+      "power": 55,
+      "wisdom": 50,
+      "speed": 65,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -477,12 +490,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "70/232",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 50,
-      "wisdom": 15,
-      "speed": 25,
-      "energy": 50,
+      "courage": 60,
+      "power": 60,
+      "wisdom": 25,
+      "speed": 35,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -512,12 +526,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, John Rauch",
     "serialNumber": "71/232",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 55,
-      "wisdom": 30,
-      "speed": 25,
-      "energy": 50,
+      "courage": 50,
+      "power": 65,
+      "wisdom": 40,
+      "speed": 35,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -547,12 +562,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Edwin Nebres, Imaginary Friends Studios",
     "serialNumber": "16/100",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 35,
-      "wisdom": 50,
-      "speed": 25,
-      "energy": 55,
+      "courage": 75,
+      "power": 45,
+      "wisdom": 60,
+      "speed": 35,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -582,12 +598,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
     "serialNumber": "17/100",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 50,
-      "wisdom": 50,
-      "speed": 40,
-      "energy": 40,
+      "courage": 75,
+      "power": 60,
+      "wisdom": 60,
+      "speed": 50,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -617,12 +634,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "18/100",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 50,
-      "wisdom": 35,
-      "speed": 70,
-      "energy": 45,
+      "courage": 80,
+      "power": 60,
+      "wisdom": 45,
+      "speed": 80,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -652,12 +670,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Emilio Lopez",
     "serialNumber": "19/100",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 35,
-      "wisdom": 65,
-      "speed": 25,
-      "energy": 40,
+      "courage": 45,
+      "power": 45,
+      "wisdom": 75,
+      "speed": 35,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -687,12 +706,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "20/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 35,
-      "wisdom": 50,
-      "speed": 25,
-      "energy": 30,
+      "courage": 60,
+      "power": 45,
+      "wisdom": 60,
+      "speed": 35,
+      "energy": 35,
       "mugic": 2
     },
     "elements": {
@@ -722,12 +742,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "21/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 65,
-      "wisdom": 35,
-      "speed": 55,
-      "energy": 50,
+      "courage": 60,
+      "power": 75,
+      "wisdom": 45,
+      "speed": 65,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -757,12 +778,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph,  David Curiel",
     "serialNumber": "22/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 65,
-      "wisdom": 65,
-      "speed": 25,
-      "energy": 55,
+      "courage": 60,
+      "power": 75,
+      "wisdom": 75,
+      "speed": 35,
+      "energy": 60,
       "mugic": 2
     },
     "elements": {
@@ -792,12 +814,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
     "serialNumber": "23/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 35,
-      "wisdom": 65,
-      "speed": 30,
-      "energy": 50,
+      "courage": 55,
+      "power": 45,
+      "wisdom": 75,
+      "speed": 40,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -827,12 +850,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Edwin Nebres, Khary Randolph, Etienne St.Laurent",
     "serialNumber": "24/100",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 50,
-      "wisdom": 35,
-      "speed": 55,
-      "energy": 40,
+      "courage": 45,
+      "power": 60,
+      "wisdom": 45,
+      "speed": 65,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -862,12 +886,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Etienne St.Laurent",
     "serialNumber": "25/100",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 50,
-      "wisdom": 35,
-      "speed": 25,
-      "energy": 30,
+      "courage": 45,
+      "power": 60,
+      "wisdom": 45,
+      "speed": 35,
+      "energy": 35,
       "mugic": 2
     },
     "elements": {
@@ -897,12 +922,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
     "serialNumber": "26/100",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 50,
-      "wisdom": 65,
-      "speed": 25,
-      "energy": 40,
+      "courage": 75,
+      "power": 60,
+      "wisdom": 75,
+      "speed": 35,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -932,12 +958,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Steve Ellis",
     "serialNumber": "27/100",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 60,
-      "wisdom": 65,
-      "speed": 25,
-      "energy": 40,
+      "courage": 45,
+      "power": 70,
+      "wisdom": 75,
+      "speed": 35,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -967,12 +994,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, David Curiel",
     "serialNumber": "28/100",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 65,
-      "wisdom": 50,
-      "speed": 25,
-      "energy": 50,
+      "courage": 45,
+      "power": 75,
+      "wisdom": 60,
+      "speed": 35,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -1002,12 +1030,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "29/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 45,
-      "wisdom": 55,
-      "speed": 50,
-      "energy": 40,
+      "courage": 70,
+      "power": 55,
+      "wisdom": 65,
+      "speed": 60,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -1037,12 +1066,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gustavo, David Curiel",
     "serialNumber": "30/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 35,
-      "wisdom": 65,
-      "speed": 20,
-      "energy": 30,
+      "courage": 60,
+      "power": 45,
+      "wisdom": 75,
+      "speed": 30,
+      "energy": 35,
       "mugic": 1
     },
     "elements": {
@@ -1072,12 +1102,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent, Anthony Washington",
     "serialNumber": "16/100",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 40,
-      "wisdom": 55,
-      "speed": 55,
-      "energy": 55,
+      "courage": 80,
+      "power": 50,
+      "wisdom": 65,
+      "speed": 65,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -1107,12 +1138,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "17/100",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 70,
-      "wisdom": 30,
-      "speed": 60,
-      "energy": 60,
+      "courage": 85,
+      "power": 80,
+      "wisdom": 40,
+      "speed": 70,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -1142,12 +1174,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Dan Norton, Etienne St.Laurent",
     "serialNumber": "18/100",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 30,
-      "wisdom": 55,
-      "speed": 35,
-      "energy": 35,
+      "courage": 45,
+      "power": 40,
+      "wisdom": 65,
+      "speed": 45,
+      "energy": 40,
       "mugic": 3
     },
     "elements": {
@@ -1177,12 +1210,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Dan Norton, Emilio Lopez, Anthony Washington",
     "serialNumber": "19/100",
+    "isPast": false,
     "stats": {
-      "courage": 20,
-      "power": 30,
-      "wisdom": 50,
-      "speed": 25,
-      "energy": 35,
+      "courage": 30,
+      "power": 40,
+      "wisdom": 60,
+      "speed": 35,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -1212,12 +1246,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez, Anthony Washington",
     "serialNumber": "20/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 20,
-      "wisdom": 75,
-      "speed": 30,
-      "energy": 50,
+      "courage": 60,
+      "power": 30,
+      "wisdom": 85,
+      "speed": 40,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -1247,12 +1282,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Ryan Bemjamin, Imaginary Friends Studios",
     "serialNumber": "29/222",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 40,
-      "wisdom": 50,
-      "speed": 35,
-      "energy": 45,
+      "courage": 80,
+      "power": 50,
+      "wisdom": 60,
+      "speed": 45,
+      "energy": 50,
       "mugic": 2
     },
     "elements": {
@@ -1282,12 +1318,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tim Kane, David Curiel",
     "serialNumber": "30/222",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 60,
-      "wisdom": 35,
-      "speed": 20,
-      "energy": 60,
+      "courage": 90,
+      "power": 70,
+      "wisdom": 45,
+      "speed": 30,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -1317,12 +1354,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Ryan Benjamin, John Rauch",
     "serialNumber": "31/222",
+    "isPast": false,
     "stats": {
-      "courage": 85,
-      "power": 50,
-      "wisdom": 45,
-      "speed": 30,
-      "energy": 50,
+      "courage": 95,
+      "power": 60,
+      "wisdom": 55,
+      "speed": 40,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -1352,12 +1390,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "32/222",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 35,
-      "wisdom": 50,
-      "speed": 60,
-      "energy": 55,
+      "courage": 85,
+      "power": 45,
+      "wisdom": 60,
+      "speed": 70,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -1387,12 +1426,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Anthony Washington",
     "serialNumber": "33/222",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 35,
-      "wisdom": 55,
-      "speed": 40,
-      "energy": 40,
+      "courage": 60,
+      "power": 45,
+      "wisdom": 65,
+      "speed": 50,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -1422,12 +1462,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "34/222",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 30,
-      "wisdom": 45,
-      "speed": 35,
-      "energy": 45,
+      "courage": 60,
+      "power": 40,
+      "wisdom": 55,
+      "speed": 45,
+      "energy": 50,
       "mugic": 2
     },
     "elements": {
@@ -1457,12 +1498,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tim Kane, Reggie Bulter",
     "serialNumber": "35/222",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 40,
-      "wisdom": 60,
-      "speed": 40,
-      "energy": 55,
+      "courage": 90,
+      "power": 50,
+      "wisdom": 70,
+      "speed": 50,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -1492,12 +1534,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tim Kane, Anthony Washington",
     "serialNumber": "36/222",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 30,
-      "wisdom": 45,
-      "speed": 40,
-      "energy": 40,
+      "courage": 75,
+      "power": 40,
+      "wisdom": 55,
+      "speed": 50,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -1527,12 +1570,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "37/222",
+    "isPast": false,
     "stats": {
-      "courage": 100,
-      "power": 25,
-      "wisdom": 70,
-      "speed": 35,
-      "energy": 35,
+      "courage": 110,
+      "power": 35,
+      "wisdom": 80,
+      "speed": 45,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -1562,12 +1606,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gustavo, John Rauch",
     "serialNumber": "38/222",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 45,
-      "wisdom": 35,
-      "speed": 50,
-      "energy": 50,
+      "courage": 85,
+      "power": 55,
+      "wisdom": 45,
+      "speed": 60,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -1597,12 +1642,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, David Curiel",
     "serialNumber": "39/222",
+    "isPast": false,
     "stats": {
-      "courage": 95,
-      "power": 20,
-      "wisdom": 65,
-      "speed": 40,
-      "energy": 30,
+      "courage": 105,
+      "power": 30,
+      "wisdom": 75,
+      "speed": 50,
+      "energy": 35,
       "mugic": 3
     },
     "elements": {
@@ -1632,12 +1678,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tim Kane, Anthony Washington",
     "serialNumber": "40/222",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 30,
-      "wisdom": 40,
-      "speed": 60,
-      "energy": 40,
+      "courage": 75,
+      "power": 40,
+      "wisdom": 50,
+      "speed": 70,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -1667,12 +1714,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gustavo, Anthony Washington",
     "serialNumber": "41/222",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 50,
-      "wisdom": 40,
-      "speed": 55,
-      "energy": 55,
+      "courage": 80,
+      "power": 60,
+      "wisdom": 50,
+      "speed": 65,
+      "energy": 60,
       "mugic": 2
     },
     "elements": {
@@ -1702,12 +1750,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Dan Norton, Anthony Washington",
     "serialNumber": "42/222",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 50,
-      "wisdom": 40,
-      "speed": 60,
-      "energy": 55,
+      "courage": 85,
+      "power": 60,
+      "wisdom": 50,
+      "speed": 70,
+      "energy": 60,
       "mugic": 2
     },
     "elements": {
@@ -1737,12 +1786,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "15/100",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 50,
-      "wisdom": 40,
-      "speed": 55,
-      "energy": 55,
+      "courage": 90,
+      "power": 60,
+      "wisdom": 50,
+      "speed": 65,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -1772,12 +1822,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, David Curiel",
     "serialNumber": "16/100",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 50,
-      "wisdom": 40,
-      "speed": 55,
-      "energy": 55,
+      "courage": 90,
+      "power": 60,
+      "wisdom": 50,
+      "speed": 65,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -1807,12 +1858,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Etienne St.Laurent",
     "serialNumber": "17/100",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 45,
-      "wisdom": 60,
-      "speed": 30,
-      "energy": 40,
+      "courage": 75,
+      "power": 55,
+      "wisdom": 70,
+      "speed": 40,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -1842,12 +1894,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "18/100",
+    "isPast": false,
     "stats": {
-      "courage": 85,
-      "power": 45,
-      "wisdom": 75,
-      "speed": 35,
-      "energy": 60,
+      "courage": 95,
+      "power": 55,
+      "wisdom": 85,
+      "speed": 45,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -1877,12 +1930,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Anthony Washington",
     "serialNumber": "19/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 55,
-      "wisdom": 50,
-      "speed": 85,
-      "energy": 55,
+      "courage": 55,
+      "power": 65,
+      "wisdom": 60,
+      "speed": 95,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -1912,12 +1966,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, David Curiel",
     "serialNumber": "20/100",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 35,
-      "wisdom": 45,
-      "speed": 40,
-      "energy": 50,
+      "courage": 85,
+      "power": 45,
+      "wisdom": 55,
+      "speed": 50,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -1947,12 +2002,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "21/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 45,
-      "wisdom": 65,
-      "speed": 35,
-      "energy": 50,
+      "courage": 65,
+      "power": 55,
+      "wisdom": 75,
+      "speed": 45,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -1982,12 +2038,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "22/100",
+    "isPast": false,
     "stats": {
-      "courage": 100,
-      "power": 50,
-      "wisdom": 75,
-      "speed": 80,
-      "energy": 50,
+      "courage": 110,
+      "power": 60,
+      "wisdom": 85,
+      "speed": 90,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -2017,12 +2074,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "23/100",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 35,
-      "wisdom": 55,
-      "speed": 40,
-      "energy": 55,
+      "courage": 80,
+      "power": 45,
+      "wisdom": 65,
+      "speed": 50,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -2052,12 +2110,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tim Kane, Axer",
     "serialNumber": "24/100",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 50,
-      "wisdom": 65,
-      "speed": 75,
-      "energy": 60,
+      "courage": 90,
+      "power": 60,
+      "wisdom": 75,
+      "speed": 85,
+      "energy": 65,
       "mugic": 2
     },
     "elements": {
@@ -2087,12 +2146,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "25/100",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 90,
-      "wisdom": 50,
-      "speed": 75,
-      "energy": 65,
+      "courage": 85,
+      "power": 100,
+      "wisdom": 60,
+      "speed": 85,
+      "energy": 70,
       "mugic": 0
     },
     "elements": {
@@ -2122,12 +2182,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Axer",
     "serialNumber": "26/100",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 40,
-      "wisdom": 90,
-      "speed": 35,
-      "energy": 65,
+      "courage": 85,
+      "power": 50,
+      "wisdom": 100,
+      "speed": 45,
+      "energy": 70,
       "mugic": 1
     },
     "elements": {
@@ -2157,12 +2218,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Axer",
     "serialNumber": "14/100",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 45,
-      "wisdom": 45,
-      "speed": 30,
-      "energy": 45,
+      "courage": 80,
+      "power": 55,
+      "wisdom": 55,
+      "speed": 40,
+      "energy": 50,
       "mugic": 2
     },
     "elements": {
@@ -2192,12 +2254,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Sanford Greene, Axer",
     "serialNumber": "35/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 35,
-      "wisdom": 70,
-      "speed": 40,
-      "energy": 35,
+      "courage": 55,
+      "power": 45,
+      "wisdom": 80,
+      "speed": 50,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -2227,12 +2290,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Etienne St.Laurent",
     "serialNumber": "17/100",
+    "isPast": false,
     "stats": {
-      "courage": 85,
-      "power": 55,
-      "wisdom": 45,
-      "speed": 45,
-      "energy": 65,
+      "courage": 95,
+      "power": 65,
+      "wisdom": 55,
+      "speed": 55,
+      "energy": 70,
       "mugic": 1
     },
     "elements": {
@@ -2262,12 +2326,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
     "serialNumber": "18/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 25,
-      "wisdom": 60,
-      "speed": 40,
-      "energy": 35,
+      "courage": 60,
+      "power": 35,
+      "wisdom": 70,
+      "speed": 50,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -2297,12 +2362,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Bob Rivard",
     "serialNumber": "19/100",
+    "isPast": false,
     "stats": {
-      "courage": 85,
-      "power": 50,
-      "wisdom": 75,
-      "speed": 35,
-      "energy": 30,
+      "courage": 95,
+      "power": 60,
+      "wisdom": 85,
+      "speed": 45,
+      "energy": 35,
       "mugic": 0
     },
     "elements": {
@@ -2332,12 +2398,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Reggie Butler",
     "serialNumber": "20/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 40,
-      "wisdom": 40,
-      "speed": 40,
-      "energy": 40,
+      "courage": 50,
+      "power": 50,
+      "wisdom": 50,
+      "speed": 50,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -2367,12 +2434,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
     "serialNumber": "21/100",
+    "isPast": false,
     "stats": {
-      "courage": 90,
-      "power": 60,
-      "wisdom": 60,
-      "speed": 40,
-      "energy": 50,
+      "courage": 100,
+      "power": 70,
+      "wisdom": 70,
+      "speed": 50,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -2402,12 +2470,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "22/100",
+    "isPast": false,
     "stats": {
-      "courage": 100,
-      "power": 40,
-      "wisdom": 60,
-      "speed": 30,
-      "energy": 55,
+      "courage": 110,
+      "power": 50,
+      "wisdom": 70,
+      "speed": 40,
+      "energy": 60,
       "mugic": 3
     },
     "elements": {
@@ -2437,12 +2506,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Etienne St.Laurent",
     "serialNumber": "23/100",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 45,
-      "wisdom": 55,
-      "speed": 30,
-      "energy": 50,
+      "courage": 80,
+      "power": 55,
+      "wisdom": 65,
+      "speed": 40,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -2472,12 +2542,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Jimmy Tran",
     "serialNumber": "24/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 45,
-      "wisdom": 80,
-      "speed": 25,
-      "energy": 40,
+      "courage": 55,
+      "power": 55,
+      "wisdom": 90,
+      "speed": 35,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -2507,12 +2578,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Reggie Butler",
     "serialNumber": "45/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 40,
-      "wisdom": 80,
-      "speed": 40,
-      "energy": 40,
+      "courage": 70,
+      "power": 50,
+      "wisdom": 90,
+      "speed": 50,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -2542,12 +2614,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Anthony Washington",
     "serialNumber": "46/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 50,
-      "wisdom": 70,
-      "speed": 30,
-      "energy": 40,
+      "courage": 80,
+      "power": 60,
+      "wisdom": 80,
+      "speed": 40,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -2577,12 +2650,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
     "serialNumber": "47/200",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 40,
-      "wisdom": 40,
-      "speed": 80,
-      "energy": 50,
+      "courage": 90,
+      "power": 50,
+      "wisdom": 50,
+      "speed": 90,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -2612,12 +2686,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
     "serialNumber": "48/200",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 60,
-      "wisdom": 50,
-      "speed": 30,
-      "energy": 50,
+      "courage": 85,
+      "power": 70,
+      "wisdom": 60,
+      "speed": 40,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -2647,12 +2722,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Reggie Butler",
     "serialNumber": "49/200",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 60,
-      "wisdom": 80,
-      "speed": 55,
-      "energy": 50,
+      "courage": 90,
+      "power": 70,
+      "wisdom": 90,
+      "speed": 65,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -2682,12 +2758,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios,  Etienne St.Laurent, Reggie Butler",
     "serialNumber": "36/200",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 30,
-      "wisdom": 90,
-      "speed": 30,
-      "energy": 35,
+      "courage": 90,
+      "power": 40,
+      "wisdom": 100,
+      "speed": 40,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -2717,12 +2794,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
     "serialNumber": "S13/26",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 25,
-      "wisdom": 35,
-      "speed": 70,
-      "energy": 50,
+      "courage": 75,
+      "power": 35,
+      "wisdom": 45,
+      "speed": 80,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -2752,12 +2830,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Bob Rivard",
     "serialNumber": "39/200",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 60,
-      "wisdom": 40,
-      "speed": 30,
-      "energy": 50,
+      "courage": 90,
+      "power": 70,
+      "wisdom": 50,
+      "speed": 40,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -2787,12 +2866,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
     "serialNumber": "40/200",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 50,
-      "wisdom": 70,
-      "speed": 30,
-      "energy": 60,
+      "courage": 90,
+      "power": 60,
+      "wisdom": 80,
+      "speed": 40,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -2822,12 +2902,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
     "serialNumber": "41/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 30,
-      "wisdom": 60,
-      "speed": 30,
-      "energy": 45,
+      "courage": 80,
+      "power": 40,
+      "wisdom": 70,
+      "speed": 40,
+      "energy": 50,
       "mugic": 2
     },
     "elements": {
@@ -2857,12 +2938,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph,  Etienne St.Laurent",
     "serialNumber": "42/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 60,
-      "wisdom": 70,
-      "speed": 40,
-      "energy": 35,
+      "courage": 80,
+      "power": 70,
+      "wisdom": 80,
+      "speed": 50,
+      "energy": 40,
       "mugic": 0
     },
     "elements": {
@@ -2892,12 +2974,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Chris FIsher",
     "serialNumber": "51/200",
+    "isPast": false,
     "stats": {
-      "courage": 90,
-      "power": 50,
-      "wisdom": 30,
-      "speed": 30,
-      "energy": 55,
+      "courage": 100,
+      "power": 60,
+      "wisdom": 40,
+      "speed": 40,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -2927,12 +3010,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
     "serialNumber": "52/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 35,
-      "wisdom": 60,
-      "speed": 25,
-      "energy": 40,
+      "courage": 70,
+      "power": 45,
+      "wisdom": 70,
+      "speed": 35,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -2962,12 +3046,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Robert Dizon, Stone Perales",
     "serialNumber": "53/200",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 40,
-      "wisdom": 35,
-      "speed": 40,
-      "energy": 45,
+      "courage": 85,
+      "power": 50,
+      "wisdom": 45,
+      "speed": 50,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -2997,12 +3082,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
     "serialNumber": "54/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 30,
-      "wisdom": 80,
-      "speed": 30,
-      "energy": 50,
+      "courage": 80,
+      "power": 40,
+      "wisdom": 90,
+      "speed": 40,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -3032,12 +3118,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
     "serialNumber": "55/200",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 40,
-      "wisdom": 65,
-      "speed": 40,
-      "energy": 55,
+      "courage": 85,
+      "power": 50,
+      "wisdom": 75,
+      "speed": 50,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -3067,12 +3154,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
     "serialNumber": "56/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 35,
-      "wisdom": 65,
-      "speed": 30,
-      "energy": 50,
+      "courage": 70,
+      "power": 45,
+      "wisdom": 75,
+      "speed": 40,
+      "energy": 55,
       "mugic": 2
     },
     "elements": {
@@ -3102,12 +3190,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Stone Perales",
     "serialNumber": "26/100",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 30,
-      "wisdom": 85,
-      "speed": 35,
-      "energy": 60,
+      "courage": 90,
+      "power": 40,
+      "wisdom": 95,
+      "speed": 45,
+      "energy": 65,
       "mugic": 2
     },
     "elements": {
@@ -3137,12 +3226,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Jimmy Tran",
     "serialNumber": "13/100",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 40,
-      "wisdom": 65,
-      "speed": 35,
-      "energy": 50,
+      "courage": 75,
+      "power": 50,
+      "wisdom": 75,
+      "speed": 45,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -3172,12 +3262,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Axer",
     "serialNumber": "24/100",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 40,
-      "wisdom": 70,
-      "speed": 40,
-      "energy": 30,
+      "courage": 75,
+      "power": 50,
+      "wisdom": 80,
+      "speed": 50,
+      "energy": 35,
       "mugic": 0
     },
     "elements": {
@@ -3207,12 +3298,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Bob Rivard",
     "serialNumber": "20/100",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 65,
-      "wisdom": 40,
-      "speed": 25,
-      "energy": 50,
+      "courage": 80,
+      "power": 75,
+      "wisdom": 50,
+      "speed": 35,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -3242,12 +3334,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent ",
     "serialNumber": "OP1-7/20",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 50,
-      "wisdom": 20,
-      "speed": 30,
-      "energy": 35,
+      "courage": 85,
+      "power": 60,
+      "wisdom": 30,
+      "speed": 40,
+      "energy": 40,
       "mugic": 0
     },
     "elements": {
@@ -3277,12 +3370,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "OP1-8/20",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 50,
-      "wisdom": 30,
-      "speed": 55,
-      "energy": 30,
+      "courage": 65,
+      "power": 60,
+      "wisdom": 40,
+      "speed": 65,
+      "energy": 35,
       "mugic": 1
     },
     "elements": {
@@ -3312,12 +3406,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, David Curiel",
     "serialNumber": "LR05/10",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 45,
-      "wisdom": 60,
-      "speed": 35,
-      "energy": 50,
+      "courage": 80,
+      "power": 55,
+      "wisdom": 70,
+      "speed": 45,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -3347,12 +3442,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, David Curiel",
     "serialNumber": "LR06/10",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 35,
-      "wisdom": 45,
-      "speed": 45,
-      "energy": 45,
+      "courage": 80,
+      "power": 45,
+      "wisdom": 55,
+      "speed": 55,
+      "energy": 50,
       "mugic": 2
     },
     "elements": {
@@ -3364,7 +3460,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/CMjkc2T.png"
   },
   {
-    "id": "OP-87l1pxn3",
+    "id": "OP-ae4ty4wg",
     "displayName": "Tarteme",
     "name": "Tarteme",
     "subname": "",
@@ -3382,12 +3478,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
     "serialNumber": "",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 65,
-      "wisdom": 35,
-      "speed": 40,
-      "energy": 40,
+      "courage": 60,
+      "power": 75,
+      "wisdom": 45,
+      "speed": 50,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -3417,12 +3514,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Etienne St.Laurent",
     "serialNumber": "P-018",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 75,
-      "wisdom": 40,
-      "speed": 30,
-      "energy": 35,
+      "courage": 70,
+      "power": 85,
+      "wisdom": 50,
+      "speed": 40,
+      "energy": 40,
       "mugic": 1
     },
     "elements": {
@@ -3452,12 +3550,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Edwin Nebres. Emilio Lopez",
     "serialNumber": "S01/26",
+    "isPast": false,
     "stats": {
-      "courage": 90,
-      "power": 60,
-      "wisdom": 20,
-      "speed": 50,
-      "energy": 70,
+      "courage": 100,
+      "power": 70,
+      "wisdom": 30,
+      "speed": 60,
+      "energy": 75,
       "mugic": 0
     },
     "elements": {
@@ -3487,12 +3586,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
     "serialNumber": "S02/26",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 65,
-      "wisdom": 25,
-      "speed": 85,
-      "energy": 65,
+      "courage": 60,
+      "power": 75,
+      "wisdom": 35,
+      "speed": 95,
+      "energy": 70,
       "mugic": 0
     },
     "elements": {
@@ -3522,12 +3622,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Emilio Lopez",
     "serialNumber": "S03/26",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 90,
-      "wisdom": 35,
-      "speed": 60,
-      "energy": 60,
+      "courage": 70,
+      "power": 100,
+      "wisdom": 45,
+      "speed": 70,
+      "energy": 65,
       "mugic": 2
     },
     "elements": {
@@ -3557,12 +3658,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Edwin Nebres, Emilio Lopez",
     "serialNumber": "S04/26",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 85,
-      "wisdom": 45,
-      "speed": 45,
-      "energy": 80,
+      "courage": 70,
+      "power": 95,
+      "wisdom": 55,
+      "speed": 55,
+      "energy": 85,
       "mugic": 3
     },
     "elements": {
@@ -3592,12 +3694,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Reggie Butler",
     "serialNumber": "57/222",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 50,
-      "wisdom": 50,
-      "speed": 50,
-      "energy": 50,
+      "courage": 60,
+      "power": 60,
+      "wisdom": 60,
+      "speed": 60,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -3627,12 +3730,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Hotshots VFX",
     "serialNumber": "58/222",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 55,
-      "wisdom": 85,
-      "speed": 25,
-      "energy": 45,
+      "courage": 50,
+      "power": 65,
+      "wisdom": 95,
+      "speed": 35,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -3662,12 +3766,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Hotshots VFX",
     "serialNumber": "59/222",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 50,
-      "wisdom": 50,
-      "speed": 50,
-      "energy": 50,
+      "courage": 60,
+      "power": 60,
+      "wisdom": 60,
+      "speed": 60,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -3697,12 +3802,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
     "serialNumber": "60/222",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 60,
-      "wisdom": 40,
-      "speed": 85,
-      "energy": 45,
+      "courage": 65,
+      "power": 70,
+      "wisdom": 50,
+      "speed": 95,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -3732,12 +3838,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Hotshots VFX",
     "serialNumber": "61/222",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 40,
-      "wisdom": 55,
-      "speed": 80,
-      "energy": 40,
+      "courage": 40,
+      "power": 50,
+      "wisdom": 65,
+      "speed": 90,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -3767,12 +3874,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Hotshots VFX",
     "serialNumber": "62/222",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 85,
-      "wisdom": 65,
-      "speed": 30,
-      "energy": 55,
+      "courage": 45,
+      "power": 95,
+      "wisdom": 75,
+      "speed": 40,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -3802,12 +3910,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, David Curiel",
     "serialNumber": "63/222",
+    "isPast": false,
     "stats": {
-      "courage": 85,
-      "power": 55,
-      "wisdom": 45,
-      "speed": 65,
-      "energy": 55,
+      "courage": 95,
+      "power": 65,
+      "wisdom": 55,
+      "speed": 75,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -3837,12 +3946,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Hotshots VFX",
     "serialNumber": "64/222",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 20,
-      "wisdom": 100,
-      "speed": 40,
-      "energy": 40,
+      "courage": 70,
+      "power": 30,
+      "wisdom": 110,
+      "speed": 50,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -3872,12 +3982,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Hotshots VFX",
     "serialNumber": "65/222",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 50,
-      "wisdom": 50,
-      "speed": 50,
-      "energy": 50,
+      "courage": 60,
+      "power": 60,
+      "wisdom": 60,
+      "speed": 60,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -3907,12 +4018,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Hotshots VFX",
     "serialNumber": "66/222",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 50,
-      "wisdom": 70,
-      "speed": 50,
-      "energy": 45,
+      "courage": 70,
+      "power": 60,
+      "wisdom": 80,
+      "speed": 60,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -3942,12 +4054,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Liz Artinian",
     "serialNumber": "29/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 50,
-      "wisdom": 50,
-      "speed": 50,
-      "energy": 50,
+      "courage": 60,
+      "power": 60,
+      "wisdom": 60,
+      "speed": 60,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -3977,12 +4090,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Chris Fisher",
     "serialNumber": "29/100",
+    "isPast": false,
     "stats": {
-      "courage": 200,
-      "power": 200,
-      "wisdom": 200,
-      "speed": 200,
-      "energy": 100,
+      "courage": 210,
+      "power": 210,
+      "wisdom": 210,
+      "speed": 210,
+      "energy": 105,
       "mugic": 0
     },
     "elements": {
@@ -4012,12 +4126,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gustavo, Etienne St.Laurent",
     "serialNumber": "30/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 60,
-      "wisdom": 50,
-      "speed": 65,
-      "energy": 55,
+      "courage": 55,
+      "power": 70,
+      "wisdom": 60,
+      "speed": 75,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -4047,12 +4162,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Robert Dizon",
     "serialNumber": "31/100",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 55,
-      "wisdom": 65,
-      "speed": 35,
-      "energy": 40,
+      "courage": 45,
+      "power": 65,
+      "wisdom": 75,
+      "speed": 45,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -4082,12 +4198,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "32/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 75,
-      "wisdom": 60,
-      "speed": 50,
-      "energy": 40,
+      "courage": 70,
+      "power": 85,
+      "wisdom": 70,
+      "speed": 60,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -4117,12 +4234,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Robert Dizon",
     "serialNumber": "33/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 50,
-      "wisdom": 30,
-      "speed": 20,
-      "energy": 50,
+      "courage": 50,
+      "power": 60,
+      "wisdom": 40,
+      "speed": 30,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -4152,12 +4270,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Etienne St.Laurent",
     "serialNumber": "34/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 55,
-      "wisdom": 90,
-      "speed": 60,
-      "energy": 50,
+      "courage": 50,
+      "power": 65,
+      "wisdom": 100,
+      "speed": 70,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -4187,12 +4306,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, David Curiel",
     "serialNumber": "35/100",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 25,
-      "wisdom": 45,
-      "speed": 55,
-      "energy": 50,
+      "courage": 75,
+      "power": 35,
+      "wisdom": 55,
+      "speed": 65,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -4222,12 +4342,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, David Curiel",
     "serialNumber": "36/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 40,
-      "wisdom": 90,
-      "speed": 50,
-      "energy": 45,
+      "courage": 50,
+      "power": 50,
+      "wisdom": 100,
+      "speed": 60,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -4257,12 +4378,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Axer",
     "serialNumber": "37/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 25,
-      "wisdom": 90,
-      "speed": 95,
-      "energy": 50,
+      "courage": 55,
+      "power": 35,
+      "wisdom": 100,
+      "speed": 105,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -4292,12 +4414,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gustavo, Etienne St.Laurent",
     "serialNumber": "38/100",
+    "isPast": false,
     "stats": {
-      "courage": 25,
-      "power": 50,
-      "wisdom": 55,
-      "speed": 25,
-      "energy": 60,
+      "courage": 35,
+      "power": 60,
+      "wisdom": 65,
+      "speed": 35,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -4327,12 +4450,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, David Curiel",
     "serialNumber": "39/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 90,
-      "wisdom": 50,
-      "speed": 40,
-      "energy": 45,
+      "courage": 50,
+      "power": 100,
+      "wisdom": 60,
+      "speed": 50,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -4362,12 +4486,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "40/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 40,
-      "wisdom": 50,
-      "speed": 35,
-      "energy": 35,
+      "courage": 55,
+      "power": 50,
+      "wisdom": 60,
+      "speed": 45,
+      "energy": 40,
       "mugic": 0
     },
     "elements": {
@@ -4397,12 +4522,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Dan Norton, David Curiel",
     "serialNumber": "41/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 70,
-      "wisdom": 70,
-      "speed": 45,
-      "energy": 60,
+      "courage": 60,
+      "power": 80,
+      "wisdom": 80,
+      "speed": 55,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -4432,12 +4558,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "42/100",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 40,
-      "wisdom": 60,
-      "speed": 55,
-      "energy": 40,
+      "courage": 45,
+      "power": 50,
+      "wisdom": 70,
+      "speed": 65,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -4467,12 +4594,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "43/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 60,
-      "wisdom": 45,
-      "speed": 40,
-      "energy": 40,
+      "courage": 60,
+      "power": 70,
+      "wisdom": 55,
+      "speed": 50,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -4502,12 +4630,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Robert Dizon",
     "serialNumber": "44/100",
+    "isPast": false,
     "stats": {
-      "courage": 90,
-      "power": 50,
-      "wisdom": 40,
-      "speed": 40,
-      "energy": 45,
+      "courage": 100,
+      "power": 60,
+      "wisdom": 50,
+      "speed": 50,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -4537,12 +4666,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Chris Fisher",
     "serialNumber": "45/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 20,
-      "wisdom": 75,
-      "speed": 20,
-      "energy": 25,
+      "courage": 55,
+      "power": 30,
+      "wisdom": 85,
+      "speed": 30,
+      "energy": 30,
       "mugic": 0
     },
     "elements": {
@@ -4572,12 +4702,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "46/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 40,
-      "wisdom": 40,
-      "speed": 90,
-      "energy": 45,
+      "courage": 60,
+      "power": 50,
+      "wisdom": 50,
+      "speed": 100,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -4607,12 +4738,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent, Chris Fisher",
     "serialNumber": "29/100",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 70,
-      "wisdom": 40,
-      "speed": 65,
-      "energy": 50,
+      "courage": 45,
+      "power": 80,
+      "wisdom": 50,
+      "speed": 75,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -4642,12 +4774,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "30/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 65,
-      "wisdom": 25,
-      "speed": 35,
-      "energy": 55,
+      "courage": 65,
+      "power": 75,
+      "wisdom": 35,
+      "speed": 45,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -4677,12 +4810,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "31/100",
+    "isPast": false,
     "stats": {
-      "courage": 85,
-      "power": 70,
-      "wisdom": 30,
-      "speed": 45,
-      "energy": 50,
+      "courage": 95,
+      "power": 80,
+      "wisdom": 40,
+      "speed": 55,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -4712,12 +4846,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Robert Dizon, Imaginary Friends Studios",
     "serialNumber": "32/100",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 85,
-      "wisdom": 35,
-      "speed": 40,
-      "energy": 50,
+      "courage": 75,
+      "power": 95,
+      "wisdom": 45,
+      "speed": 50,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -4747,12 +4882,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Robert Dizon, Imaginary Friends Studios",
     "serialNumber": "33/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 30,
-      "wisdom": 50,
-      "speed": 40,
-      "energy": 50,
+      "courage": 70,
+      "power": 40,
+      "wisdom": 60,
+      "speed": 50,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -4782,12 +4918,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "6/100",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 35,
-      "wisdom": 80,
-      "speed": 40,
-      "energy": 45,
+      "courage": 40,
+      "power": 45,
+      "wisdom": 90,
+      "speed": 50,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -4817,12 +4954,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "7/100",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 40,
-      "wisdom": 65,
-      "speed": 35,
-      "energy": 35,
+      "courage": 45,
+      "power": 50,
+      "wisdom": 75,
+      "speed": 45,
+      "energy": 40,
       "mugic": 0
     },
     "elements": {
@@ -4852,12 +4990,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
     "serialNumber": "33/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 50,
-      "wisdom": 85,
-      "speed": 40,
-      "energy": 45,
+      "courage": 65,
+      "power": 60,
+      "wisdom": 95,
+      "speed": 50,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -4887,12 +5026,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "34/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 25,
-      "wisdom": 70,
-      "speed": 50,
-      "energy": 40,
+      "courage": 70,
+      "power": 35,
+      "wisdom": 80,
+      "speed": 60,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -4922,12 +5062,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Reggie Butler",
     "serialNumber": "35/100",
+    "isPast": false,
     "stats": {
-      "courage": 90,
-      "power": 90,
-      "wisdom": 50,
-      "speed": 15,
-      "energy": 45,
+      "courage": 100,
+      "power": 100,
+      "wisdom": 60,
+      "speed": 25,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -4957,12 +5098,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "36/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 35,
-      "wisdom": 65,
-      "speed": 75,
-      "energy": 60,
+      "courage": 50,
+      "power": 45,
+      "wisdom": 75,
+      "speed": 85,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -4992,12 +5134,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "15/100",
+    "isPast": false,
     "stats": {
-      "courage": 25,
-      "power": 40,
-      "wisdom": 85,
-      "speed": 35,
-      "energy": 45,
+      "courage": 35,
+      "power": 50,
+      "wisdom": 95,
+      "speed": 45,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -5027,12 +5170,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Etienne St.Laurent",
     "serialNumber": "38/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 65,
-      "wisdom": 70,
-      "speed": 45,
-      "energy": 50,
+      "courage": 50,
+      "power": 75,
+      "wisdom": 80,
+      "speed": 55,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -5062,12 +5206,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Axer",
     "serialNumber": "75/200",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 45,
-      "wisdom": 70,
-      "speed": 50,
-      "energy": 40,
+      "courage": 60,
+      "power": 55,
+      "wisdom": 80,
+      "speed": 60,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -5097,12 +5242,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Axer",
     "serialNumber": "76/200",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 40,
-      "wisdom": 90,
-      "speed": 30,
-      "energy": 55,
+      "courage": 45,
+      "power": 50,
+      "wisdom": 100,
+      "speed": 40,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -5132,12 +5278,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "77/200",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 45,
-      "wisdom": 75,
-      "speed": 80,
-      "energy": 60,
+      "courage": 55,
+      "power": 55,
+      "wisdom": 85,
+      "speed": 90,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -5167,12 +5314,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Anthony Washington",
     "serialNumber": "78/200",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 80,
-      "wisdom": 70,
-      "speed": 50,
-      "energy": 40,
+      "courage": 60,
+      "power": 90,
+      "wisdom": 80,
+      "speed": 60,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -5202,12 +5350,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "79/200",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 50,
-      "wisdom": 80,
-      "speed": 60,
-      "energy": 50,
+      "courage": 60,
+      "power": 60,
+      "wisdom": 90,
+      "speed": 70,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -5237,12 +5386,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw Bob rivard",
     "serialNumber": "80/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 65,
-      "wisdom": 50,
-      "speed": 50,
-      "energy": 35,
+      "courage": 70,
+      "power": 75,
+      "wisdom": 60,
+      "speed": 60,
+      "energy": 40,
       "mugic": 0
     },
     "elements": {
@@ -5272,12 +5422,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Anthony Washington",
     "serialNumber": "81/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 20,
-      "wisdom": 90,
-      "speed": 25,
-      "energy": 40,
+      "courage": 80,
+      "power": 30,
+      "wisdom": 100,
+      "speed": 35,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -5307,12 +5458,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
     "serialNumber": "82/200",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 45,
-      "wisdom": 60,
-      "speed": 70,
-      "energy": 50,
+      "courage": 60,
+      "power": 55,
+      "wisdom": 70,
+      "speed": 80,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -5342,12 +5494,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Jimmy Tran",
     "serialNumber": "83/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 80,
-      "wisdom": 60,
-      "speed": 30,
-      "energy": 55,
+      "courage": 80,
+      "power": 90,
+      "wisdom": 70,
+      "speed": 40,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -5377,12 +5530,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Axer, Jimmy Tran",
     "serialNumber": "19/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 75,
-      "wisdom": 70,
-      "speed": 30,
-      "energy": 45,
+      "courage": 60,
+      "power": 85,
+      "wisdom": 80,
+      "speed": 40,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -5412,12 +5566,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "LR09/10",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 65,
-      "wisdom": 55,
-      "speed": 70,
-      "energy": 45,
+      "courage": 70,
+      "power": 75,
+      "wisdom": 65,
+      "speed": 80,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -5447,12 +5602,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "LR10/10",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 35,
-      "wisdom": 60,
-      "speed": 60,
-      "energy": 50,
+      "courage": 55,
+      "power": 45,
+      "wisdom": 70,
+      "speed": 70,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -5482,12 +5638,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "72/232",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 55,
-      "wisdom": 25,
-      "speed": 55,
-      "energy": 40,
+      "courage": 60,
+      "power": 65,
+      "wisdom": 35,
+      "speed": 65,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -5517,12 +5674,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Anthony Washington",
     "serialNumber": "73/232",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 40,
-      "wisdom": 30,
-      "speed": 35,
-      "energy": 40,
+      "courage": 55,
+      "power": 50,
+      "wisdom": 40,
+      "speed": 45,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -5552,12 +5710,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, David Curiel",
     "serialNumber": "74/232",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 45,
-      "wisdom": 65,
-      "speed": 55,
-      "energy": 55,
+      "courage": 65,
+      "power": 55,
+      "wisdom": 75,
+      "speed": 65,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -5587,12 +5746,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "75/232",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 75,
-      "wisdom": 40,
-      "speed": 55,
-      "energy": 50,
+      "courage": 60,
+      "power": 85,
+      "wisdom": 50,
+      "speed": 65,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -5622,12 +5782,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "76/232",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 40,
-      "wisdom": 65,
-      "speed": 40,
-      "energy": 40,
+      "courage": 55,
+      "power": 50,
+      "wisdom": 75,
+      "speed": 50,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -5657,12 +5818,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "77/232",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 35,
-      "wisdom": 70,
-      "speed": 30,
-      "energy": 45,
+      "courage": 65,
+      "power": 45,
+      "wisdom": 80,
+      "speed": 40,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -5692,12 +5854,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "78/232",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 40,
-      "wisdom": 55,
-      "speed": 90,
-      "energy": 35,
+      "courage": 65,
+      "power": 50,
+      "wisdom": 65,
+      "speed": 100,
+      "energy": 40,
       "mugic": 0
     },
     "elements": {
@@ -5727,12 +5890,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, John Rauch",
     "serialNumber": "79/232",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 50,
-      "wisdom": 30,
-      "speed": 70,
-      "energy": 45,
+      "courage": 70,
+      "power": 60,
+      "wisdom": 40,
+      "speed": 80,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -5762,12 +5926,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "80/232",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 45,
-      "wisdom": 60,
-      "speed": 55,
-      "energy": 30,
+      "courage": 70,
+      "power": 55,
+      "wisdom": 70,
+      "speed": 65,
+      "energy": 35,
       "mugic": 1
     },
     "elements": {
@@ -5797,12 +5962,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keith Conroy, Edwin Nebres, Anthony Washington",
     "serialNumber": "81/232",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 25,
-      "wisdom": 65,
-      "speed": 40,
-      "energy": 30,
+      "courage": 50,
+      "power": 35,
+      "wisdom": 75,
+      "speed": 50,
+      "energy": 35,
       "mugic": 1
     },
     "elements": {
@@ -5832,12 +5998,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
     "serialNumber": "82/232",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 40,
-      "wisdom": 50,
-      "speed": 20,
-      "energy": 40,
+      "courage": 75,
+      "power": 50,
+      "wisdom": 60,
+      "speed": 30,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -5867,12 +6034,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Etienne St.Laurent",
     "serialNumber": "83/232",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 45,
-      "wisdom": 60,
-      "speed": 60,
-      "energy": 35,
+      "courage": 45,
+      "power": 55,
+      "wisdom": 70,
+      "speed": 70,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -5902,12 +6070,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "84/232",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 60,
-      "wisdom": 40,
-      "speed": 60,
-      "energy": 45,
+      "courage": 70,
+      "power": 70,
+      "wisdom": 50,
+      "speed": 70,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -5937,12 +6106,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "85/232",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 60,
-      "wisdom": 35,
-      "speed": 40,
-      "energy": 35,
+      "courage": 50,
+      "power": 70,
+      "wisdom": 45,
+      "speed": 50,
+      "energy": 40,
       "mugic": 1
     },
     "elements": {
@@ -5972,12 +6142,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "86/232",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 60,
-      "wisdom": 40,
-      "speed": 60,
-      "energy": 30,
+      "courage": 75,
+      "power": 70,
+      "wisdom": 50,
+      "speed": 70,
+      "energy": 35,
       "mugic": 1
     },
     "elements": {
@@ -6007,12 +6178,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keith Conroy, Anthony Washington",
     "serialNumber": "31/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 35,
-      "wisdom": 70,
-      "speed": 55,
-      "energy": 40,
+      "courage": 65,
+      "power": 45,
+      "wisdom": 80,
+      "speed": 65,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -6042,12 +6214,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keith Conroy, Anthony Washington",
     "serialNumber": "32/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 35,
-      "wisdom": 70,
-      "speed": 55,
-      "energy": 30,
+      "courage": 65,
+      "power": 45,
+      "wisdom": 80,
+      "speed": 65,
+      "energy": 35,
       "mugic": 2
     },
     "elements": {
@@ -6077,12 +6250,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keith Conroy, Emilio Lopez",
     "serialNumber": "33/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 55,
-      "wisdom": 50,
-      "speed": 40,
-      "energy": 65,
+      "courage": 70,
+      "power": 65,
+      "wisdom": 60,
+      "speed": 50,
+      "energy": 70,
       "mugic": 0
     },
     "elements": {
@@ -6112,12 +6286,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keith Conroy, Emilio Lopez",
     "serialNumber": "34/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 50,
-      "wisdom": 50,
-      "speed": 70,
-      "energy": 35,
+      "courage": 50,
+      "power": 60,
+      "wisdom": 60,
+      "speed": 80,
+      "energy": 40,
       "mugic": 0
     },
     "elements": {
@@ -6147,12 +6322,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, John Rauch",
     "serialNumber": "35/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 50,
-      "wisdom": 40,
-      "speed": 45,
-      "energy": 40,
+      "courage": 55,
+      "power": 60,
+      "wisdom": 50,
+      "speed": 55,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -6182,12 +6358,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "21/100",
+    "isPast": false,
     "stats": {
-      "courage": 150,
-      "power": 75,
-      "wisdom": 50,
-      "speed": 150,
-      "energy": 70,
+      "courage": 160,
+      "power": 85,
+      "wisdom": 60,
+      "speed": 160,
+      "energy": 75,
       "mugic": 0
     },
     "elements": {
@@ -6217,12 +6394,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez, Etienne St.Laurent",
     "serialNumber": "22/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 15,
-      "wisdom": 50,
-      "speed": 30,
-      "energy": 35,
+      "courage": 60,
+      "power": 25,
+      "wisdom": 60,
+      "speed": 40,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -6252,12 +6430,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez, Etienne St.Laurent",
     "serialNumber": "23/100",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 30,
-      "wisdom": 60,
-      "speed": 40,
-      "energy": 45,
+      "courage": 40,
+      "power": 40,
+      "wisdom": 70,
+      "speed": 50,
+      "energy": 50,
       "mugic": 2
     },
     "elements": {
@@ -6287,12 +6466,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez, Etienne St.Laurent",
     "serialNumber": "24/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 20,
-      "wisdom": 80,
-      "speed": 50,
-      "energy": 50,
+      "courage": 60,
+      "power": 30,
+      "wisdom": 90,
+      "speed": 60,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -6322,12 +6502,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "25/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 75,
-      "wisdom": 20,
-      "speed": 100,
-      "energy": 50,
+      "courage": 60,
+      "power": 85,
+      "wisdom": 30,
+      "speed": 110,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -6357,12 +6538,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "26/100",
+    "isPast": false,
     "stats": {
-      "courage": 15,
-      "power": 15,
-      "wisdom": 15,
-      "speed": 15,
-      "energy": 15,
+      "courage": 25,
+      "power": 25,
+      "wisdom": 25,
+      "speed": 25,
+      "energy": 20,
       "mugic": 2
     },
     "elements": {
@@ -6392,12 +6574,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "27/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 30,
-      "wisdom": 30,
-      "speed": 65,
-      "energy": 45,
+      "courage": 60,
+      "power": 40,
+      "wisdom": 40,
+      "speed": 75,
+      "energy": 50,
       "mugic": 2
     },
     "elements": {
@@ -6427,12 +6610,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Dan Norton, David Curiel",
     "serialNumber": "28/100",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 50,
-      "wisdom": 90,
-      "speed": 30,
-      "energy": 30,
+      "courage": 85,
+      "power": 60,
+      "wisdom": 100,
+      "speed": 40,
+      "energy": 35,
       "mugic": 1
     },
     "elements": {
@@ -6462,12 +6646,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "29/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 30,
-      "wisdom": 20,
-      "speed": 65,
-      "energy": 40,
+      "courage": 70,
+      "power": 40,
+      "wisdom": 30,
+      "speed": 75,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -6497,12 +6682,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Dan Norton, Anthony Washington",
     "serialNumber": "30/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 20,
-      "wisdom": 50,
-      "speed": 50,
-      "energy": 45,
+      "courage": 70,
+      "power": 30,
+      "wisdom": 60,
+      "speed": 60,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -6532,12 +6718,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "31/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 25,
-      "wisdom": 55,
-      "speed": 45,
-      "energy": 35,
+      "courage": 55,
+      "power": 35,
+      "wisdom": 65,
+      "speed": 55,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -6567,12 +6754,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Ryan Benjamin, Etienne St.Laurent",
     "serialNumber": "32/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 30,
-      "wisdom": 50,
-      "speed": 75,
-      "energy": 50,
+      "courage": 60,
+      "power": 40,
+      "wisdom": 60,
+      "speed": 85,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -6602,12 +6790,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, John Rauch",
     "serialNumber": "33/100",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 50,
-      "wisdom": 20,
-      "speed": 75,
-      "energy": 60,
+      "courage": 85,
+      "power": 60,
+      "wisdom": 30,
+      "speed": 85,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -6637,12 +6826,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez, Etienne St.Laurent",
     "serialNumber": "34/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 75,
-      "wisdom": 20,
-      "speed": 75,
-      "energy": 50,
+      "courage": 60,
+      "power": 85,
+      "wisdom": 30,
+      "speed": 85,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -6672,12 +6862,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "35/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 40,
-      "wisdom": 35,
-      "speed": 80,
-      "energy": 40,
+      "courage": 60,
+      "power": 50,
+      "wisdom": 45,
+      "speed": 90,
+      "energy": 45,
       "mugic": 3
     },
     "elements": {
@@ -6707,12 +6898,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Dan Norton, John Rauch",
     "serialNumber": "43/222",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 35,
-      "wisdom": 65,
-      "speed": 20,
-      "energy": 40,
+      "courage": 65,
+      "power": 45,
+      "wisdom": 75,
+      "speed": 30,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -6742,12 +6934,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, John Rauch",
     "serialNumber": "44/222",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 50,
-      "wisdom": 40,
-      "speed": 70,
-      "energy": 50,
+      "courage": 75,
+      "power": 60,
+      "wisdom": 50,
+      "speed": 80,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -6777,12 +6970,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "45/222",
+    "isPast": false,
     "stats": {
-      "courage": 25,
-      "power": 20,
-      "wisdom": 55,
-      "speed": 45,
-      "energy": 30,
+      "courage": 35,
+      "power": 30,
+      "wisdom": 65,
+      "speed": 55,
+      "energy": 35,
       "mugic": 2
     },
     "elements": {
@@ -6812,12 +7006,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gustavo, David Curiel",
     "serialNumber": "46/222",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 40,
-      "wisdom": 45,
-      "speed": 70,
-      "energy": 35,
+      "courage": 60,
+      "power": 50,
+      "wisdom": 55,
+      "speed": 80,
+      "energy": 40,
       "mugic": 1
     },
     "elements": {
@@ -6847,12 +7042,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "47/222",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 45,
-      "wisdom": 50,
-      "speed": 30,
-      "energy": 55,
+      "courage": 45,
+      "power": 55,
+      "wisdom": 60,
+      "speed": 40,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -6882,12 +7078,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tim Kane, Anthony Washington",
     "serialNumber": "48/222",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 25,
-      "wisdom": 60,
-      "speed": 75,
-      "energy": 50,
+      "courage": 40,
+      "power": 35,
+      "wisdom": 70,
+      "speed": 85,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -6917,12 +7114,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "49/222",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 70,
-      "wisdom": 30,
-      "speed": 70,
-      "energy": 50,
+      "courage": 50,
+      "power": 80,
+      "wisdom": 40,
+      "speed": 80,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -6952,12 +7150,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "50/222",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 40,
-      "wisdom": 35,
-      "speed": 100,
-      "energy": 55,
+      "courage": 60,
+      "power": 50,
+      "wisdom": 45,
+      "speed": 110,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -6987,12 +7186,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "51/222",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 45,
-      "wisdom": 40,
-      "speed": 65,
-      "energy": 45,
+      "courage": 65,
+      "power": 55,
+      "wisdom": 50,
+      "speed": 75,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -7022,12 +7222,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Anthony Washington",
     "serialNumber": "52/222",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 50,
-      "wisdom": 45,
-      "speed": 85,
-      "energy": 60,
+      "courage": 50,
+      "power": 60,
+      "wisdom": 55,
+      "speed": 95,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -7057,12 +7258,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gustavo, Etienne St.Laurent",
     "serialNumber": "53/222",
+    "isPast": false,
     "stats": {
-      "courage": 25,
-      "power": 30,
-      "wisdom": 55,
-      "speed": 60,
-      "energy": 40,
+      "courage": 35,
+      "power": 40,
+      "wisdom": 65,
+      "speed": 70,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -7092,12 +7294,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gustavo, Etienne St.Laurent",
     "serialNumber": "54/222",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 50,
-      "wisdom": 35,
-      "speed": 80,
-      "energy": 50,
+      "courage": 60,
+      "power": 60,
+      "wisdom": 45,
+      "speed": 90,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -7127,12 +7330,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tim Kane, Etienne St.Laurent",
     "serialNumber": "55/222",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 60,
-      "wisdom": 20,
-      "speed": 60,
-      "energy": 45,
+      "courage": 50,
+      "power": 70,
+      "wisdom": 30,
+      "speed": 70,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -7162,12 +7366,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Anthony Washington",
     "serialNumber": "56/222",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 45,
-      "wisdom": 45,
-      "speed": 50,
-      "energy": 40,
+      "courage": 40,
+      "power": 55,
+      "wisdom": 55,
+      "speed": 60,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -7197,12 +7402,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kizer Grey, David Curiel",
     "serialNumber": "22/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 45,
-      "wisdom": 60,
-      "speed": 35,
-      "energy": 40,
+      "courage": 60,
+      "power": 55,
+      "wisdom": 70,
+      "speed": 45,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -7232,12 +7438,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kizer Grey, Etienne St.Laurent",
     "serialNumber": "23/100",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 30,
-      "wisdom": 45,
-      "speed": 95,
-      "energy": 60,
+      "courage": 80,
+      "power": 40,
+      "wisdom": 55,
+      "speed": 105,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -7267,12 +7474,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kizer Grey, Reggie Butler",
     "serialNumber": "24/100",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 50,
-      "wisdom": 30,
-      "speed": 75,
-      "energy": 45,
+      "courage": 85,
+      "power": 60,
+      "wisdom": 40,
+      "speed": 85,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -7302,12 +7510,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "25/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 75,
-      "wisdom": 45,
-      "speed": 100,
-      "energy": 65,
+      "courage": 65,
+      "power": 85,
+      "wisdom": 55,
+      "speed": 110,
+      "energy": 70,
       "mugic": 0
     },
     "elements": {
@@ -7337,12 +7546,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kizer Grey, Etienne St.Laurent",
     "serialNumber": "26/100",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 40,
-      "wisdom": 55,
-      "speed": 65,
-      "energy": 55,
+      "courage": 45,
+      "power": 50,
+      "wisdom": 65,
+      "speed": 75,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -7372,12 +7582,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "27/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 55,
-      "wisdom": 50,
-      "speed": 85,
-      "energy": 55,
+      "courage": 55,
+      "power": 65,
+      "wisdom": 60,
+      "speed": 95,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -7407,12 +7618,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "28/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 50,
-      "wisdom": 60,
-      "speed": 65,
-      "energy": 45,
+      "courage": 70,
+      "power": 60,
+      "wisdom": 70,
+      "speed": 75,
+      "energy": 50,
       "mugic": 2
     },
     "elements": {
@@ -7442,12 +7654,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, David Curiel",
     "serialNumber": "15/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 30,
-      "wisdom": 60,
-      "speed": 75,
-      "energy": 50,
+      "courage": 60,
+      "power": 40,
+      "wisdom": 70,
+      "speed": 85,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -7477,12 +7690,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "16/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 100,
-      "wisdom": 100,
-      "speed": 50,
-      "energy": 50,
+      "courage": 50,
+      "power": 110,
+      "wisdom": 110,
+      "speed": 60,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -7512,12 +7726,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "17/100",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 20,
-      "wisdom": 50,
-      "speed": 75,
-      "energy": 45,
+      "courage": 40,
+      "power": 30,
+      "wisdom": 60,
+      "speed": 85,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -7547,12 +7762,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "18/100",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 20,
-      "wisdom": 55,
-      "speed": 30,
-      "energy": 35,
+      "courage": 40,
+      "power": 30,
+      "wisdom": 65,
+      "speed": 40,
+      "energy": 40,
       "mugic": 0
     },
     "elements": {
@@ -7582,12 +7798,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gustavo, Chris Fisher",
     "serialNumber": "19/100",
+    "isPast": false,
     "stats": {
-      "courage": 90,
-      "power": 40,
-      "wisdom": 35,
-      "speed": 95,
-      "energy": 50,
+      "courage": 100,
+      "power": 50,
+      "wisdom": 45,
+      "speed": 105,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -7617,12 +7834,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "27/100",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 45,
-      "wisdom": 55,
-      "speed": 85,
-      "energy": 60,
+      "courage": 40,
+      "power": 55,
+      "wisdom": 65,
+      "speed": 95,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -7652,12 +7870,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "5/100",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 60,
-      "wisdom": 40,
-      "speed": 50,
-      "energy": 55,
+      "courage": 90,
+      "power": 70,
+      "wisdom": 50,
+      "speed": 60,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -7687,12 +7906,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Bob Rivard",
     "serialNumber": "25/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 20,
-      "wisdom": 70,
-      "speed": 35,
-      "energy": 45,
+      "courage": 65,
+      "power": 30,
+      "wisdom": 80,
+      "speed": 45,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -7722,12 +7942,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
     "serialNumber": "26/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 35,
-      "wisdom": 65,
-      "speed": 85,
-      "energy": 50,
+      "courage": 60,
+      "power": 45,
+      "wisdom": 75,
+      "speed": 95,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -7757,12 +7978,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez, Anthony Washington",
     "serialNumber": "27/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 50,
-      "wisdom": 65,
-      "speed": 85,
-      "energy": 55,
+      "courage": 60,
+      "power": 60,
+      "wisdom": 75,
+      "speed": 95,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -7792,12 +8014,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez, Anthony Washington",
     "serialNumber": "28/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 30,
-      "wisdom": 25,
-      "speed": 80,
-      "energy": 35,
+      "courage": 50,
+      "power": 40,
+      "wisdom": 35,
+      "speed": 90,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -7827,12 +8050,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
     "serialNumber": "29/100",
+    "isPast": false,
     "stats": {
-      "courage": 100,
-      "power": 100,
-      "wisdom": 15,
-      "speed": 100,
-      "energy": 130,
+      "courage": 110,
+      "power": 110,
+      "wisdom": 25,
+      "speed": 110,
+      "energy": 135,
       "mugic": 0
     },
     "elements": {
@@ -7862,12 +8086,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
     "serialNumber": "30/100",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 40,
-      "wisdom": 50,
-      "speed": 80,
-      "energy": 60,
+      "courage": 80,
+      "power": 50,
+      "wisdom": 60,
+      "speed": 90,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -7897,12 +8122,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Jimmy Tran",
     "serialNumber": "31/100",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 25,
-      "wisdom": 80,
-      "speed": 50,
-      "energy": 45,
+      "courage": 40,
+      "power": 35,
+      "wisdom": 90,
+      "speed": 60,
+      "energy": 50,
       "mugic": 2
     },
     "elements": {
@@ -7932,12 +8158,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grand, Keith Conroy, Reggie Butler",
     "serialNumber": "32/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 35,
-      "wisdom": 30,
-      "speed": 100,
-      "energy": 40,
+      "courage": 70,
+      "power": 45,
+      "wisdom": 40,
+      "speed": 110,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -7967,12 +8194,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Bob Rivard",
     "serialNumber": "S14/26",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 35,
-      "wisdom": 40,
-      "speed": 80,
-      "energy": 40,
+      "courage": 50,
+      "power": 45,
+      "wisdom": 50,
+      "speed": 90,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -8002,12 +8230,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
     "serialNumber": "58/200",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 30,
-      "wisdom": 80,
-      "speed": 60,
-      "energy": 30,
+      "courage": 60,
+      "power": 40,
+      "wisdom": 90,
+      "speed": 70,
+      "energy": 35,
       "mugic": 2
     },
     "elements": {
@@ -8037,12 +8266,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph,  Etienne St.Laurent",
     "serialNumber": "59/200",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 25,
-      "wisdom": 60,
-      "speed": 80,
-      "energy": 55,
+      "courage": 75,
+      "power": 35,
+      "wisdom": 70,
+      "speed": 90,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -8072,12 +8302,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph,  Etienne St.Laurent, Emilio Lopez",
     "serialNumber": "60/200",
+    "isPast": false,
     "stats": {
-      "courage": 120,
-      "power": 120,
-      "wisdom": 30,
-      "speed": 120,
-      "energy": 60,
+      "courage": 130,
+      "power": 130,
+      "wisdom": 40,
+      "speed": 130,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -8107,12 +8338,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Axer",
     "serialNumber": "61/200",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 35,
-      "wisdom": 60,
-      "speed": 60,
-      "energy": 30,
+      "courage": 55,
+      "power": 45,
+      "wisdom": 70,
+      "speed": 70,
+      "energy": 35,
       "mugic": 0
     },
     "elements": {
@@ -8142,12 +8374,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Axer",
     "serialNumber": "62/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 30,
-      "wisdom": 45,
-      "speed": 95,
-      "energy": 45,
+      "courage": 70,
+      "power": 40,
+      "wisdom": 55,
+      "speed": 105,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -8177,12 +8410,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Bob Rivard",
     "serialNumber": "63/200",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 30,
-      "wisdom": 60,
-      "speed": 70,
-      "energy": 45,
+      "courage": 40,
+      "power": 40,
+      "wisdom": 70,
+      "speed": 80,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -8212,12 +8446,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Chris Fisher",
     "serialNumber": "S15/26",
+    "isPast": false,
     "stats": {
-      "courage": 90,
-      "power": 80,
-      "wisdom": 30,
-      "speed": 80,
-      "energy": 85,
+      "courage": 100,
+      "power": 90,
+      "wisdom": 40,
+      "speed": 90,
+      "energy": 90,
       "mugic": 0
     },
     "elements": {
@@ -8247,12 +8482,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Etienne St.Laurent",
     "serialNumber": "65/200",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 40,
-      "wisdom": 35,
-      "speed": 90,
-      "energy": 50,
+      "courage": 75,
+      "power": 50,
+      "wisdom": 45,
+      "speed": 100,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -8282,12 +8518,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Jimmy Tran",
     "serialNumber": "66/200",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 35,
-      "wisdom": 35,
-      "speed": 85,
-      "energy": 55,
+      "courage": 75,
+      "power": 45,
+      "wisdom": 45,
+      "speed": 95,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -8317,12 +8554,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keith Conroy, Bob Rivard",
     "serialNumber": "67/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 45,
-      "wisdom": 45,
-      "speed": 95,
-      "energy": 45,
+      "courage": 80,
+      "power": 55,
+      "wisdom": 55,
+      "speed": 105,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -8352,12 +8590,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Jimmy Tran",
     "serialNumber": "68/200",
+    "isPast": false,
     "stats": {
-      "courage": 90,
-      "power": 90,
-      "wisdom": 25,
-      "speed": 150,
-      "energy": 70,
+      "courage": 100,
+      "power": 100,
+      "wisdom": 35,
+      "speed": 160,
+      "energy": 75,
       "mugic": 0
     },
     "elements": {
@@ -8387,12 +8626,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Etienne St.Laurent",
     "serialNumber": "69/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 30,
-      "wisdom": 50,
-      "speed": 90,
-      "energy": 50,
+      "courage": 80,
+      "power": 40,
+      "wisdom": 60,
+      "speed": 100,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -8422,12 +8662,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
     "serialNumber": "70/200",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 25,
-      "wisdom": 60,
-      "speed": 85,
-      "energy": 45,
+      "courage": 55,
+      "power": 35,
+      "wisdom": 70,
+      "speed": 95,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -8457,12 +8698,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
     "serialNumber": "71/200",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 35,
-      "wisdom": 30,
-      "speed": 85,
-      "energy": 40,
+      "courage": 50,
+      "power": 45,
+      "wisdom": 40,
+      "speed": 95,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -8492,12 +8734,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Bob Rivard",
     "serialNumber": "72/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 20,
-      "wisdom": 65,
-      "speed": 65,
-      "energy": 40,
+      "courage": 80,
+      "power": 30,
+      "wisdom": 75,
+      "speed": 75,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -8527,12 +8770,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Axer",
     "serialNumber": "73/200",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 30,
-      "wisdom": 40,
-      "speed": 75,
-      "energy": 50,
+      "courage": 60,
+      "power": 40,
+      "wisdom": 50,
+      "speed": 85,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -8562,12 +8806,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "74/200",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 45,
-      "wisdom": 30,
-      "speed": 95,
-      "energy": 45,
+      "courage": 75,
+      "power": 55,
+      "wisdom": 40,
+      "speed": 105,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -8597,12 +8842,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Axer",
     "serialNumber": "27/100",
+    "isPast": false,
     "stats": {
-      "courage": 85,
-      "power": 50,
-      "wisdom": 45,
-      "speed": 100,
-      "energy": 65,
+      "courage": 95,
+      "power": 60,
+      "wisdom": 55,
+      "speed": 110,
+      "energy": 70,
       "mugic": 1
     },
     "elements": {
@@ -8632,12 +8878,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
     "serialNumber": "OP1-9/20",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 20,
-      "wisdom": 65,
-      "speed": 60,
-      "energy": 40,
+      "courage": 70,
+      "power": 30,
+      "wisdom": 75,
+      "speed": 70,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -8667,12 +8914,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
     "serialNumber": "OP1-10/20",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 40,
-      "wisdom": 85,
-      "speed": 35,
-      "energy": 55,
+      "courage": 75,
+      "power": 50,
+      "wisdom": 95,
+      "speed": 45,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -8702,12 +8950,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gustavo, Anthony Washington",
     "serialNumber": "LR07/10",
+    "isPast": false,
     "stats": {
-      "courage": 25,
-      "power": 30,
-      "wisdom": 55,
-      "speed": 45,
-      "energy": 30,
+      "courage": 35,
+      "power": 40,
+      "wisdom": 65,
+      "speed": 55,
+      "energy": 35,
       "mugic": 1
     },
     "elements": {
@@ -8737,12 +8986,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "LR08/10",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 55,
-      "wisdom": 45,
-      "speed": 75,
-      "energy": 60,
+      "courage": 45,
+      "power": 65,
+      "wisdom": 55,
+      "speed": 85,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -8754,7 +9004,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/nbFukeR.png"
   },
   {
-    "id": "OP-77ogmd5h",
+    "id": "OP-ace13o8c",
     "displayName": "Kobarri",
     "name": "Kobarri",
     "subname": "",
@@ -8772,12 +9022,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "",
     "serialNumber": "",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 25,
-      "wisdom": 60,
-      "speed": 20,
-      "energy": 25,
+      "courage": 60,
+      "power": 35,
+      "wisdom": 70,
+      "speed": 30,
+      "energy": 30,
       "mugic": 3
     },
     "elements": {
@@ -8807,12 +9058,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tom Baxa",
     "serialNumber": "P-019",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 30,
-      "wisdom": 75,
-      "speed": 60,
-      "energy": 50,
+      "courage": 50,
+      "power": 40,
+      "wisdom": 85,
+      "speed": 70,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -8842,12 +9094,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "P-005",
+    "isPast": false,
     "stats": {
-      "courage": 85,
-      "power": 40,
-      "wisdom": 20,
-      "speed": 80,
-      "energy": 55,
+      "courage": 95,
+      "power": 50,
+      "wisdom": 30,
+      "speed": 90,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -8877,12 +9130,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, John Rauch",
     "serialNumber": "1/232",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 65,
-      "wisdom": 30,
-      "speed": 55,
-      "energy": 50,
+      "courage": 65,
+      "power": 75,
+      "wisdom": 40,
+      "speed": 65,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -8912,12 +9166,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "2/232",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 65,
-      "wisdom": 60,
-      "speed": 105,
-      "energy": 50,
+      "courage": 40,
+      "power": 75,
+      "wisdom": 70,
+      "speed": 115,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -8947,12 +9202,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "3/232",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 40,
-      "wisdom": 60,
-      "speed": 25,
-      "energy": 40,
+      "courage": 45,
+      "power": 50,
+      "wisdom": 70,
+      "speed": 35,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -8982,12 +9238,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "4/232",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 65,
-      "wisdom": 70,
-      "speed": 45,
-      "energy": 40,
+      "courage": 45,
+      "power": 75,
+      "wisdom": 80,
+      "speed": 55,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -9017,12 +9274,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "5/232",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 40,
-      "wisdom": 80,
-      "speed": 60,
-      "energy": 45,
+      "courage": 50,
+      "power": 50,
+      "wisdom": 90,
+      "speed": 70,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -9052,12 +9310,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "6/232",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 45,
-      "wisdom": 40,
-      "speed": 25,
-      "energy": 50,
+      "courage": 70,
+      "power": 55,
+      "wisdom": 50,
+      "speed": 35,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -9087,12 +9346,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "7/232",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 65,
-      "wisdom": 65,
-      "speed": 50,
-      "energy": 45,
+      "courage": 55,
+      "power": 75,
+      "wisdom": 75,
+      "speed": 60,
+      "energy": 50,
       "mugic": 2
     },
     "elements": {
@@ -9122,12 +9382,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, John Rauch",
     "serialNumber": "8/232",
+    "isPast": false,
     "stats": {
-      "courage": 25,
-      "power": 70,
-      "wisdom": 50,
-      "speed": 75,
-      "energy": 40,
+      "courage": 35,
+      "power": 80,
+      "wisdom": 60,
+      "speed": 85,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -9157,12 +9418,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "9/232",
+    "isPast": false,
     "stats": {
-      "courage": 85,
-      "power": 80,
-      "wisdom": 45,
-      "speed": 75,
-      "energy": 35,
+      "courage": 95,
+      "power": 90,
+      "wisdom": 55,
+      "speed": 85,
+      "energy": 40,
       "mugic": 0
     },
     "elements": {
@@ -9192,12 +9454,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Edwin Nebres, Andrew Bradshaw, David Curiel",
     "serialNumber": "10/232",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 50,
-      "wisdom": 35,
-      "speed": 100,
-      "energy": 35,
+      "courage": 55,
+      "power": 60,
+      "wisdom": 45,
+      "speed": 110,
+      "energy": 40,
       "mugic": 1
     },
     "elements": {
@@ -9227,12 +9490,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "11/232",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 50,
-      "wisdom": 50,
-      "speed": 50,
-      "energy": 50,
+      "courage": 60,
+      "power": 60,
+      "wisdom": 60,
+      "speed": 60,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -9262,12 +9526,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "12/232",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 35,
-      "wisdom": 40,
-      "speed": 55,
-      "energy": 40,
+      "courage": 50,
+      "power": 45,
+      "wisdom": 50,
+      "speed": 65,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -9297,12 +9562,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "13/232",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 20,
-      "wisdom": 50,
-      "speed": 30,
-      "energy": 30,
+      "courage": 45,
+      "power": 30,
+      "wisdom": 60,
+      "speed": 40,
+      "energy": 35,
       "mugic": 2
     },
     "elements": {
@@ -9332,12 +9598,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Etienne St.Laurent",
     "serialNumber": "14/232",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 60,
-      "wisdom": 25,
-      "speed": 30,
-      "energy": 40,
+      "courage": 80,
+      "power": 70,
+      "wisdom": 35,
+      "speed": 40,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -9367,12 +9634,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "15/232",
+    "isPast": false,
     "stats": {
-      "courage": 100,
-      "power": 65,
-      "wisdom": 80,
-      "speed": 50,
-      "energy": 60,
+      "courage": 110,
+      "power": 75,
+      "wisdom": 90,
+      "speed": 60,
+      "energy": 65,
       "mugic": 2
     },
     "elements": {
@@ -9402,12 +9670,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "16/232",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 30,
-      "wisdom": 90,
-      "speed": 35,
-      "energy": 30,
+      "courage": 70,
+      "power": 40,
+      "wisdom": 100,
+      "speed": 45,
+      "energy": 35,
       "mugic": 2
     },
     "elements": {
@@ -9437,12 +9706,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios,  Etienne St.Laurent",
     "serialNumber": "17/232",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 25,
-      "wisdom": 55,
-      "speed": 30,
-      "energy": 45,
+      "courage": 70,
+      "power": 35,
+      "wisdom": 65,
+      "speed": 40,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -9472,12 +9742,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios,  Etienne St.Laurent",
     "serialNumber": "18/232",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 30,
-      "wisdom": 55,
-      "speed": 40,
-      "energy": 45,
+      "courage": 55,
+      "power": 40,
+      "wisdom": 65,
+      "speed": 50,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -9507,12 +9778,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios,  Etienne St.Laurent",
     "serialNumber": "19/232",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 65,
-      "wisdom": 60,
-      "speed": 40,
-      "energy": 50,
+      "courage": 60,
+      "power": 75,
+      "wisdom": 70,
+      "speed": 50,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -9542,12 +9814,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "20/232",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 35,
-      "wisdom": 35,
-      "speed": 40,
-      "energy": 50,
+      "courage": 55,
+      "power": 45,
+      "wisdom": 45,
+      "speed": 50,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -9577,12 +9850,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "21/232",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 45,
-      "wisdom": 25,
-      "speed": 40,
-      "energy": 50,
+      "courage": 45,
+      "power": 55,
+      "wisdom": 35,
+      "speed": 50,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -9612,12 +9886,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "22/232",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 45,
-      "wisdom": 40,
-      "speed": 30,
-      "energy": 30,
+      "courage": 50,
+      "power": 55,
+      "wisdom": 50,
+      "speed": 40,
+      "energy": 35,
       "mugic": 1
     },
     "elements": {
@@ -9647,12 +9922,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "23/232",
+    "isPast": false,
     "stats": {
-      "courage": 90,
-      "power": 45,
-      "wisdom": 90,
-      "speed": 25,
-      "energy": 35,
+      "courage": 100,
+      "power": 55,
+      "wisdom": 100,
+      "speed": 35,
+      "energy": 40,
       "mugic": 1
     },
     "elements": {
@@ -9682,12 +9958,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "24/232",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 80,
-      "wisdom": 40,
-      "speed": 25,
-      "energy": 45,
+      "courage": 65,
+      "power": 90,
+      "wisdom": 50,
+      "speed": 35,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -9717,12 +9994,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "25/232",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 30,
-      "wisdom": 50,
-      "speed": 35,
-      "energy": 35,
+      "courage": 55,
+      "power": 40,
+      "wisdom": 60,
+      "speed": 45,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -9752,12 +10030,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "26/232",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 25,
-      "wisdom": 45,
-      "speed": 60,
-      "energy": 30,
+      "courage": 50,
+      "power": 35,
+      "wisdom": 55,
+      "speed": 70,
+      "energy": 35,
       "mugic": 2
     },
     "elements": {
@@ -9787,12 +10066,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "27/232",
+    "isPast": false,
     "stats": {
-      "courage": 20,
-      "power": 20,
-      "wisdom": 20,
-      "speed": 20,
-      "energy": 50,
+      "courage": 30,
+      "power": 30,
+      "wisdom": 30,
+      "speed": 30,
+      "energy": 55,
       "mugic": 2
     },
     "elements": {
@@ -9822,12 +10102,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "28/232",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 55,
-      "wisdom": 40,
-      "speed": 40,
-      "energy": 45,
+      "courage": 55,
+      "power": 65,
+      "wisdom": 50,
+      "speed": 50,
+      "energy": 50,
       "mugic": 2
     },
     "elements": {
@@ -9857,12 +10138,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
     "serialNumber": "1/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 35,
-      "wisdom": 65,
-      "speed": 45,
-      "energy": 40,
+      "courage": 65,
+      "power": 45,
+      "wisdom": 75,
+      "speed": 55,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -9892,12 +10174,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gus Vazquez, Anthony Washington",
     "serialNumber": "2/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 25,
-      "wisdom": 75,
-      "speed": 30,
-      "energy": 55,
+      "courage": 60,
+      "power": 35,
+      "wisdom": 85,
+      "speed": 40,
+      "energy": 60,
       "mugic": 2
     },
     "elements": {
@@ -9927,12 +10210,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Edwin Nebres, David Curiel",
     "serialNumber": "3/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 35,
-      "wisdom": 65,
-      "speed": 50,
-      "energy": 30,
+      "courage": 50,
+      "power": 45,
+      "wisdom": 75,
+      "speed": 60,
+      "energy": 35,
       "mugic": 2
     },
     "elements": {
@@ -9962,12 +10246,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, John Rauch",
     "serialNumber": "4/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 50,
-      "wisdom": 60,
-      "speed": 35,
-      "energy": 40,
+      "courage": 65,
+      "power": 60,
+      "wisdom": 70,
+      "speed": 45,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -9997,12 +10282,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
     "serialNumber": "5/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 20,
-      "wisdom": 70,
-      "speed": 40,
-      "energy": 40,
+      "courage": 70,
+      "power": 30,
+      "wisdom": 80,
+      "speed": 50,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -10032,12 +10318,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Axer",
     "serialNumber": "1/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 30,
-      "wisdom": 50,
-      "speed": 35,
-      "energy": 35,
+      "courage": 55,
+      "power": 40,
+      "wisdom": 60,
+      "speed": 45,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -10067,12 +10354,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Gustavo, Etienne St.Laurent",
     "serialNumber": "2/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 55,
-      "wisdom": 95,
-      "speed": 35,
-      "energy": 50,
+      "courage": 50,
+      "power": 65,
+      "wisdom": 105,
+      "speed": 45,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -10102,12 +10390,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Ryan Benjamin, Anthony Washington",
     "serialNumber": "3/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 25,
-      "wisdom": 35,
-      "speed": 35,
-      "energy": 40,
+      "courage": 60,
+      "power": 35,
+      "wisdom": 45,
+      "speed": 45,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -10137,12 +10426,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "4/100",
+    "isPast": false,
     "stats": {
-      "courage": 25,
-      "power": 25,
-      "wisdom": 25,
-      "speed": 25,
-      "energy": 50,
+      "courage": 35,
+      "power": 35,
+      "wisdom": 35,
+      "speed": 35,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -10172,12 +10462,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Hotshots VFX",
     "serialNumber": "5/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 30,
-      "wisdom": 35,
-      "speed": 40,
-      "energy": 40,
+      "courage": 65,
+      "power": 40,
+      "wisdom": 45,
+      "speed": 50,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -10207,12 +10498,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Dan Norton, Anthony Washington",
     "serialNumber": "6/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 30,
-      "wisdom": 40,
-      "speed": 40,
-      "energy": 35,
+      "courage": 70,
+      "power": 40,
+      "wisdom": 50,
+      "speed": 50,
+      "energy": 40,
       "mugic": 3
     },
     "elements": {
@@ -10242,12 +10534,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez, David Curiel",
     "serialNumber": "7/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 35,
-      "wisdom": 65,
-      "speed": 60,
-      "energy": 50,
+      "courage": 70,
+      "power": 45,
+      "wisdom": 75,
+      "speed": 70,
+      "energy": 55,
       "mugic": 2
     },
     "elements": {
@@ -10277,12 +10570,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Dan Norton, John Rauch",
     "serialNumber": "8/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 65,
-      "wisdom": 70,
-      "speed": 30,
-      "energy": 50,
+      "courage": 50,
+      "power": 75,
+      "wisdom": 80,
+      "speed": 40,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -10312,12 +10606,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "9/100",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 45,
-      "wisdom": 75,
-      "speed": 35,
-      "energy": 40,
+      "courage": 85,
+      "power": 55,
+      "wisdom": 85,
+      "speed": 45,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -10347,12 +10642,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
     "serialNumber": "10/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 25,
-      "wisdom": 55,
-      "speed": 30,
-      "energy": 40,
+      "courage": 60,
+      "power": 35,
+      "wisdom": 65,
+      "speed": 40,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -10382,12 +10678,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gustavo, Tim Kane, Anthony Washington",
     "serialNumber": "1/222",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 45,
-      "wisdom": 70,
-      "speed": 35,
-      "energy": 65,
+      "courage": 65,
+      "power": 55,
+      "wisdom": 80,
+      "speed": 45,
+      "energy": 70,
       "mugic": 1
     },
     "elements": {
@@ -10417,12 +10714,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "2/222",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 40,
-      "wisdom": 70,
-      "speed": 45,
-      "energy": 35,
+      "courage": 50,
+      "power": 50,
+      "wisdom": 80,
+      "speed": 55,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -10452,12 +10750,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio LopezEtienne St.Laurent",
     "serialNumber": "3/222",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 70,
-      "wisdom": 90,
-      "speed": 85,
-      "energy": 55,
+      "courage": 60,
+      "power": 80,
+      "wisdom": 100,
+      "speed": 95,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -10487,12 +10786,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Dan Norton, Anthony Washington",
     "serialNumber": "4/222",
+    "isPast": false,
     "stats": {
-      "courage": 25,
-      "power": 35,
-      "wisdom": 60,
-      "speed": 40,
-      "energy": 35,
+      "courage": 35,
+      "power": 45,
+      "wisdom": 70,
+      "speed": 50,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -10522,12 +10822,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tim Kane, Etienne St.Laurent",
     "serialNumber": "5/222",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 50,
-      "wisdom": 80,
-      "speed": 50,
-      "energy": 60,
+      "courage": 85,
+      "power": 60,
+      "wisdom": 90,
+      "speed": 60,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -10557,12 +10858,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Reggie Butler",
     "serialNumber": "6/222",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 35,
-      "wisdom": 85,
-      "speed": 60,
-      "energy": 55,
+      "courage": 55,
+      "power": 45,
+      "wisdom": 95,
+      "speed": 70,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -10592,12 +10894,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "7/222",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 50,
-      "wisdom": 75,
-      "speed": 40,
-      "energy": 55,
+      "courage": 70,
+      "power": 60,
+      "wisdom": 85,
+      "speed": 50,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -10627,12 +10930,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, John Rauch",
     "serialNumber": "8/222",
+    "isPast": false,
     "stats": {
-      "courage": 25,
-      "power": 30,
-      "wisdom": 60,
-      "speed": 25,
-      "energy": 30,
+      "courage": 35,
+      "power": 40,
+      "wisdom": 70,
+      "speed": 35,
+      "energy": 35,
       "mugic": 3
     },
     "elements": {
@@ -10662,12 +10966,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "9/222",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 25,
-      "wisdom": 75,
-      "speed": 30,
-      "energy": 40,
+      "courage": 55,
+      "power": 35,
+      "wisdom": 85,
+      "speed": 40,
+      "energy": 45,
       "mugic": 3
     },
     "elements": {
@@ -10697,12 +11002,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "10/222",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 75,
-      "wisdom": 85,
-      "speed": 35,
-      "energy": 65,
+      "courage": 60,
+      "power": 85,
+      "wisdom": 95,
+      "speed": 45,
+      "energy": 70,
       "mugic": 2
     },
     "elements": {
@@ -10732,12 +11038,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
     "serialNumber": "11/222",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 55,
-      "wisdom": 65,
-      "speed": 50,
-      "energy": 45,
+      "courage": 55,
+      "power": 65,
+      "wisdom": 75,
+      "speed": 60,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -10767,12 +11074,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "12/222",
+    "isPast": false,
     "stats": {
-      "courage": 100,
-      "power": 40,
-      "wisdom": 100,
-      "speed": 60,
-      "energy": 65,
+      "courage": 110,
+      "power": 50,
+      "wisdom": 110,
+      "speed": 70,
+      "energy": 70,
       "mugic": 2
     },
     "elements": {
@@ -10802,12 +11110,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tim Kane, Etienne St.Laurent",
     "serialNumber": "13/222",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 50,
-      "wisdom": 80,
-      "speed": 40,
-      "energy": 45,
+      "courage": 55,
+      "power": 60,
+      "wisdom": 90,
+      "speed": 50,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -10837,12 +11146,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Dan Norton, David Curiel",
     "serialNumber": "14/222",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 25,
-      "wisdom": 45,
-      "speed": 40,
-      "energy": 35,
+      "courage": 40,
+      "power": 35,
+      "wisdom": 55,
+      "speed": 50,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -10872,12 +11182,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "1/100",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 50,
-      "wisdom": 90,
-      "speed": 40,
-      "energy": 70,
+      "courage": 90,
+      "power": 60,
+      "wisdom": 100,
+      "speed": 50,
+      "energy": 75,
       "mugic": 0
     },
     "elements": {
@@ -10907,12 +11218,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "2/100",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 50,
-      "wisdom": 65,
-      "speed": 60,
-      "energy": 60,
+      "courage": 75,
+      "power": 60,
+      "wisdom": 75,
+      "speed": 70,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -10942,12 +11254,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "3/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 35,
-      "wisdom": 55,
-      "speed": 100,
-      "energy": 55,
+      "courage": 70,
+      "power": 45,
+      "wisdom": 65,
+      "speed": 110,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -10977,12 +11290,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, VJ Comando",
     "serialNumber": "4/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 45,
-      "wisdom": 75,
-      "speed": 40,
-      "energy": 50,
+      "courage": 65,
+      "power": 55,
+      "wisdom": 85,
+      "speed": 50,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -11012,12 +11326,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Axer",
     "serialNumber": "5/100",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 40,
-      "wisdom": 85,
-      "speed": 35,
-      "energy": 60,
+      "courage": 80,
+      "power": 50,
+      "wisdom": 95,
+      "speed": 45,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -11047,12 +11362,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Anthony Washington",
     "serialNumber": "6/100",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 15,
-      "wisdom": 110,
-      "speed": 15,
-      "energy": 40,
+      "courage": 85,
+      "power": 25,
+      "wisdom": 120,
+      "speed": 25,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -11082,12 +11398,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "7/100",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 35,
-      "wisdom": 70,
-      "speed": 45,
-      "energy": 25,
+      "courage": 40,
+      "power": 45,
+      "wisdom": 80,
+      "speed": 55,
+      "energy": 30,
       "mugic": 3
     },
     "elements": {
@@ -11117,12 +11434,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "1/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 30,
-      "wisdom": 65,
-      "speed": 35,
-      "energy": 50,
+      "courage": 65,
+      "power": 40,
+      "wisdom": 75,
+      "speed": 45,
+      "energy": 55,
       "mugic": 2
     },
     "elements": {
@@ -11152,12 +11470,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "2/100",
+    "isPast": false,
     "stats": {
-      "courage": 95,
-      "power": 65,
-      "wisdom": 90,
-      "speed": 70,
-      "energy": 55,
+      "courage": 105,
+      "power": 75,
+      "wisdom": 100,
+      "speed": 80,
+      "energy": 60,
       "mugic": 2
     },
     "elements": {
@@ -11187,12 +11506,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "3/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 45,
-      "wisdom": 70,
-      "speed": 30,
-      "energy": 50,
+      "courage": 55,
+      "power": 55,
+      "wisdom": 80,
+      "speed": 40,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -11222,12 +11542,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Axer",
     "serialNumber": "4/100",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 50,
-      "wisdom": 40,
-      "speed": 35,
-      "energy": 55,
+      "courage": 75,
+      "power": 60,
+      "wisdom": 50,
+      "speed": 45,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -11257,12 +11578,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gustavo, David Curiel",
     "serialNumber": "13/100",
+    "isPast": false,
     "stats": {
-      "courage": 85,
-      "power": 100,
-      "wisdom": 40,
-      "speed": 20,
-      "energy": 40,
+      "courage": 95,
+      "power": 110,
+      "wisdom": 50,
+      "speed": 30,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -11292,12 +11614,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "20/100",
+    "isPast": false,
     "stats": {
-      "courage": 85,
-      "power": 75,
-      "wisdom": 55,
-      "speed": 25,
-      "energy": 50,
+      "courage": 95,
+      "power": 85,
+      "wisdom": 65,
+      "speed": 35,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -11327,12 +11650,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Axer",
     "serialNumber": "21/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 30,
-      "wisdom": 80,
-      "speed": 70,
-      "energy": 60,
+      "courage": 70,
+      "power": 40,
+      "wisdom": 90,
+      "speed": 80,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -11362,12 +11686,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
     "serialNumber": "1/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 65,
-      "wisdom": 90,
-      "speed": 35,
-      "energy": 60,
+      "courage": 70,
+      "power": 75,
+      "wisdom": 100,
+      "speed": 45,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -11397,12 +11722,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, David Curiel",
     "serialNumber": "2/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 30,
-      "wisdom": 75,
-      "speed": 55,
-      "energy": 45,
+      "courage": 70,
+      "power": 40,
+      "wisdom": 85,
+      "speed": 65,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -11432,12 +11758,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw,  Etienne St.Laurent",
     "serialNumber": "3/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 40,
-      "wisdom": 75,
-      "speed": 45,
-      "energy": 50,
+      "courage": 70,
+      "power": 50,
+      "wisdom": 85,
+      "speed": 55,
+      "energy": 55,
       "mugic": 2
     },
     "elements": {
@@ -11467,12 +11794,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, David Curiel",
     "serialNumber": "4/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 30,
-      "wisdom": 70,
-      "speed": 45,
-      "energy": 35,
+      "courage": 55,
+      "power": 40,
+      "wisdom": 80,
+      "speed": 55,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -11502,12 +11830,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, David Curiel",
     "serialNumber": "5/100",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 70,
-      "wisdom": 50,
-      "speed": 30,
-      "energy": 55,
+      "courage": 75,
+      "power": 80,
+      "wisdom": 60,
+      "speed": 40,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -11537,12 +11866,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
     "serialNumber": "6/100",
+    "isPast": false,
     "stats": {
-      "courage": 110,
-      "power": 55,
-      "wisdom": 80,
-      "speed": 45,
-      "energy": 55,
+      "courage": 120,
+      "power": 65,
+      "wisdom": 90,
+      "speed": 55,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -11572,12 +11902,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington, Emilio Lopez",
     "serialNumber": "7/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 75,
-      "wisdom": 95,
-      "speed": 35,
-      "energy": 60,
+      "courage": 65,
+      "power": 85,
+      "wisdom": 105,
+      "speed": 45,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -11607,12 +11938,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "8/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 25,
-      "wisdom": 105,
-      "speed": 30,
-      "energy": 40,
+      "courage": 55,
+      "power": 35,
+      "wisdom": 115,
+      "speed": 40,
+      "energy": 45,
       "mugic": 3
     },
     "elements": {
@@ -11642,12 +11974,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Etienne St.Laurent, Chris Fisher",
     "serialNumber": "S05/26",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 40,
-      "wisdom": 65,
-      "speed": 30,
-      "energy": 30,
+      "courage": 90,
+      "power": 50,
+      "wisdom": 75,
+      "speed": 40,
+      "energy": 35,
       "mugic": 2
     },
     "elements": {
@@ -11677,12 +12010,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Reggie Butler",
     "serialNumber": "6/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 45,
-      "wisdom": 70,
-      "speed": 60,
-      "energy": 50,
+      "courage": 80,
+      "power": 55,
+      "wisdom": 80,
+      "speed": 70,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -11712,12 +12046,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
     "serialNumber": "7/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 40,
-      "wisdom": 60,
-      "speed": 40,
-      "energy": 40,
+      "courage": 80,
+      "power": 50,
+      "wisdom": 70,
+      "speed": 50,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -11747,12 +12082,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios,  Etienne St.Laurent",
     "serialNumber": "8/200",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 70,
-      "wisdom": 75,
-      "speed": 40,
-      "energy": 60,
+      "courage": 60,
+      "power": 80,
+      "wisdom": 85,
+      "speed": 50,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -11782,12 +12118,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Bob Rivard",
     "serialNumber": "9/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 40,
-      "wisdom": 75,
-      "speed": 30,
-      "energy": 45,
+      "courage": 70,
+      "power": 50,
+      "wisdom": 85,
+      "speed": 40,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -11817,12 +12154,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios Emilio Lopez",
     "serialNumber": "10/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 60,
-      "wisdom": 65,
-      "speed": 45,
-      "energy": 60,
+      "courage": 80,
+      "power": 70,
+      "wisdom": 75,
+      "speed": 55,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -11852,12 +12190,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Reggie Bulter",
     "serialNumber": "11/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 25,
-      "wisdom": 75,
-      "speed": 30,
-      "energy": 50,
+      "courage": 70,
+      "power": 35,
+      "wisdom": 85,
+      "speed": 40,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -11887,12 +12226,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
     "serialNumber": "12/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 50,
-      "wisdom": 75,
-      "speed": 30,
-      "energy": 35,
+      "courage": 70,
+      "power": 60,
+      "wisdom": 85,
+      "speed": 40,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -11922,12 +12262,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
     "serialNumber": "13/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 40,
-      "wisdom": 80,
-      "speed": 60,
-      "energy": 55,
+      "courage": 80,
+      "power": 50,
+      "wisdom": 90,
+      "speed": 70,
+      "energy": 60,
       "mugic": 2
     },
     "elements": {
@@ -11957,12 +12298,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph,  Etienne St.Laurent",
     "serialNumber": "14/200",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 50,
-      "wisdom": 50,
-      "speed": 50,
-      "energy": 50,
+      "courage": 60,
+      "power": 60,
+      "wisdom": 60,
+      "speed": 60,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -11992,12 +12334,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keith Conroy, Etienne St.Laurent",
     "serialNumber": "S06/26",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 35,
-      "wisdom": 70,
-      "speed": 25,
-      "energy": 35,
+      "courage": 70,
+      "power": 45,
+      "wisdom": 80,
+      "speed": 35,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -12027,12 +12370,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Axer",
     "serialNumber": "16/200",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 45,
-      "wisdom": 75,
-      "speed": 45,
-      "energy": 60,
+      "courage": 90,
+      "power": 55,
+      "wisdom": 85,
+      "speed": 55,
+      "energy": 65,
       "mugic": 2
     },
     "elements": {
@@ -12062,12 +12406,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "17/200",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 60,
-      "wisdom": 40,
-      "speed": 40,
-      "energy": 40,
+      "courage": 85,
+      "power": 70,
+      "wisdom": 50,
+      "speed": 50,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -12097,12 +12442,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
     "serialNumber": "18/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 30,
-      "wisdom": 100,
-      "speed": 30,
-      "energy": 35,
+      "courage": 70,
+      "power": 40,
+      "wisdom": 110,
+      "speed": 40,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -12132,12 +12478,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Bob RIvard",
     "serialNumber": "19/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 30,
-      "wisdom": 90,
-      "speed": 30,
-      "energy": 25,
+      "courage": 70,
+      "power": 40,
+      "wisdom": 100,
+      "speed": 40,
+      "energy": 30,
       "mugic": 2
     },
     "elements": {
@@ -12167,12 +12514,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Axer",
     "serialNumber": "20/200",
+    "isPast": false,
     "stats": {
-      "courage": 90,
-      "power": 50,
-      "wisdom": 60,
-      "speed": 50,
-      "energy": 55,
+      "courage": 100,
+      "power": 60,
+      "wisdom": 70,
+      "speed": 60,
+      "energy": 60,
       "mugic": 2
     },
     "elements": {
@@ -12202,12 +12550,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Etienne St.Laurent",
     "serialNumber": "21/200",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 40,
-      "wisdom": 60,
-      "speed": 30,
-      "energy": 60,
+      "courage": 90,
+      "power": 50,
+      "wisdom": 70,
+      "speed": 40,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -12237,12 +12586,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Etienne St.Laurent",
     "serialNumber": "22/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 30,
-      "wisdom": 65,
-      "speed": 45,
-      "energy": 55,
+      "courage": 70,
+      "power": 40,
+      "wisdom": 75,
+      "speed": 55,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -12272,12 +12622,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Axer",
     "serialNumber": "23/200",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 35,
-      "wisdom": 80,
-      "speed": 45,
-      "energy": 40,
+      "courage": 65,
+      "power": 45,
+      "wisdom": 90,
+      "speed": 55,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -12307,12 +12658,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
     "serialNumber": "24/200",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 60,
-      "wisdom": 50,
-      "speed": 60,
-      "energy": 60,
+      "courage": 90,
+      "power": 70,
+      "wisdom": 60,
+      "speed": 70,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -12342,12 +12694,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "15/100",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 30,
-      "wisdom": 70,
-      "speed": 85,
-      "energy": 55,
+      "courage": 80,
+      "power": 40,
+      "wisdom": 80,
+      "speed": 95,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -12377,12 +12730,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Axer",
     "serialNumber": "11/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 20,
-      "wisdom": 80,
-      "speed": 30,
-      "energy": 30,
+      "courage": 60,
+      "power": 30,
+      "wisdom": 90,
+      "speed": 40,
+      "energy": 35,
       "mugic": 1
     },
     "elements": {
@@ -12412,12 +12766,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez, Anthony Washington",
     "serialNumber": "7/100",
+    "isPast": false,
     "stats": {
-      "courage": 100,
-      "power": 50,
-      "wisdom": 70,
-      "speed": 50,
-      "energy": 60,
+      "courage": 110,
+      "power": 60,
+      "wisdom": 80,
+      "speed": 60,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -12447,12 +12802,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Various Artists",
     "serialNumber": "OP1-1/20",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 80,
-      "wisdom": 45,
-      "speed": 50,
-      "energy": 50,
+      "courage": 80,
+      "power": 90,
+      "wisdom": 55,
+      "speed": 60,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -12482,12 +12838,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "OP1-2/20",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 25,
-      "wisdom": 80,
-      "speed": 35,
-      "energy": 40,
+      "courage": 60,
+      "power": 35,
+      "wisdom": 90,
+      "speed": 45,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -12517,12 +12874,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
     "serialNumber": "OP1-3/20",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 55,
-      "wisdom": 80,
-      "speed": 55,
-      "energy": 45,
+      "courage": 40,
+      "power": 65,
+      "wisdom": 90,
+      "speed": 65,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -12552,12 +12910,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios",
     "serialNumber": "BR-01",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 50,
-      "wisdom": 20,
-      "speed": 30,
-      "energy": 35,
+      "courage": 60,
+      "power": 60,
+      "wisdom": 30,
+      "speed": 40,
+      "energy": 40,
       "mugic": 0
     },
     "elements": {
@@ -12587,12 +12946,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Edwin Nebres, David Curiel, David Rodriguez",
     "serialNumber": "BR-03",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 25,
-      "wisdom": 80,
-      "speed": 35,
-      "energy": 40,
+      "courage": 60,
+      "power": 35,
+      "wisdom": 90,
+      "speed": 45,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -12622,12 +12982,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, John Rauch",
     "serialNumber": "BR-02",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 55,
-      "wisdom": 55,
-      "speed": 55,
-      "energy": 45,
+      "courage": 40,
+      "power": 65,
+      "wisdom": 65,
+      "speed": 65,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -12657,12 +13018,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Edwin Nebres, Etienne St.Laurent",
     "serialNumber": "BR-10",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 20,
-      "wisdom": 45,
-      "speed": 35,
-      "energy": 30,
+      "courage": 60,
+      "power": 30,
+      "wisdom": 55,
+      "speed": 45,
+      "energy": 35,
       "mugic": 3
     },
     "elements": {
@@ -12692,12 +13054,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, John Rauch",
     "serialNumber": "BR-05",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 50,
-      "wisdom": 30,
-      "speed": 40,
-      "energy": 30,
+      "courage": 50,
+      "power": 60,
+      "wisdom": 40,
+      "speed": 50,
+      "energy": 35,
       "mugic": 1
     },
     "elements": {
@@ -12727,12 +13090,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "BR-06",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 20,
-      "wisdom": 65,
-      "speed": 60,
-      "energy": 40,
+      "courage": 70,
+      "power": 30,
+      "wisdom": 75,
+      "speed": 70,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -12762,12 +13126,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "BR-07",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 80,
-      "wisdom": 45,
-      "speed": 50,
-      "energy": 50,
+      "courage": 80,
+      "power": 90,
+      "wisdom": 55,
+      "speed": 60,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -12797,12 +13162,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, David Curiel",
     "serialNumber": "LR01/10",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 40,
-      "wisdom": 80,
-      "speed": 80,
-      "energy": 60,
+      "courage": 75,
+      "power": 50,
+      "wisdom": 90,
+      "speed": 90,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -12832,12 +13198,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Edwin Nebres, Andrew Bradshaw, Etienne St.Laurent",
     "serialNumber": "LR02/10",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 30,
-      "wisdom": 85,
-      "speed": 85,
-      "energy": 40,
+      "courage": 55,
+      "power": 40,
+      "wisdom": 95,
+      "speed": 95,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -12867,12 +13234,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, John Rauch",
     "serialNumber": "P-002",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 60,
-      "wisdom": 40,
-      "speed": 70,
-      "energy": 40,
+      "courage": 45,
+      "power": 70,
+      "wisdom": 50,
+      "speed": 80,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -12902,12 +13270,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Axer",
     "serialNumber": "P-016",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 85,
-      "wisdom": 40,
-      "speed": 30,
-      "energy": 60,
+      "courage": 60,
+      "power": 95,
+      "wisdom": 50,
+      "speed": 40,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -12937,12 +13306,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Chris Fisher",
     "serialNumber": "P-010",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 20,
-      "wisdom": 80,
-      "speed": 40,
-      "energy": 25,
+      "courage": 40,
+      "power": 30,
+      "wisdom": 90,
+      "speed": 50,
+      "energy": 30,
       "mugic": 2
     },
     "elements": {
@@ -12972,12 +13342,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "P-001",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 65,
-      "wisdom": 40,
-      "speed": 45,
-      "energy": 50,
+      "courage": 70,
+      "power": 75,
+      "wisdom": 50,
+      "speed": 55,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -13007,12 +13378,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Jay Axer",
     "serialNumber": "P-015",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 50,
-      "wisdom": 40,
-      "speed": 60,
-      "energy": 45,
+      "courage": 80,
+      "power": 60,
+      "wisdom": 50,
+      "speed": 70,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -13042,12 +13414,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tom Baxa",
     "serialNumber": "P-006",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 30,
-      "wisdom": 50,
-      "speed": 75,
-      "energy": 55,
+      "courage": 60,
+      "power": 40,
+      "wisdom": 60,
+      "speed": 85,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -13059,7 +13432,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/Lh9l6SJ.png"
   },
   {
-    "id": "FAS-7gw1ow57",
+    "id": "FAS-zw39a95n",
     "displayName": "Arctus, Heptadd's Squire",
     "name": "Arctus",
     "subname": "Heptadd's Squire",
@@ -13077,12 +13450,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "",
+    "isPast": false,
     "stats": {
-      "courage": 100,
-      "power": 50,
-      "wisdom": 75,
-      "speed": 40,
-      "energy": 60,
+      "courage": 110,
+      "power": 60,
+      "wisdom": 85,
+      "speed": 50,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -13112,12 +13486,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "29/232",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 85,
-      "wisdom": 15,
-      "speed": 65,
-      "energy": 60,
+      "courage": 50,
+      "power": 95,
+      "wisdom": 25,
+      "speed": 75,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -13147,12 +13522,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Reggie Butler",
     "serialNumber": "30/232",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 85,
-      "wisdom": 85,
-      "speed": 40,
-      "energy": 45,
+      "courage": 55,
+      "power": 95,
+      "wisdom": 95,
+      "speed": 50,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -13182,12 +13558,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "31/232",
+    "isPast": false,
     "stats": {
-      "courage": 95,
-      "power": 90,
-      "wisdom": 70,
-      "speed": 60,
-      "energy": 70,
+      "courage": 105,
+      "power": 100,
+      "wisdom": 80,
+      "speed": 70,
+      "energy": 75,
       "mugic": 3
     },
     "elements": {
@@ -13217,12 +13594,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "32/232",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 75,
-      "wisdom": 20,
-      "speed": 65,
-      "energy": 50,
+      "courage": 70,
+      "power": 85,
+      "wisdom": 30,
+      "speed": 75,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -13252,12 +13630,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "33/232",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 45,
-      "wisdom": 85,
-      "speed": 50,
-      "energy": 40,
+      "courage": 75,
+      "power": 55,
+      "wisdom": 95,
+      "speed": 60,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -13287,12 +13666,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Etienne St.Laurent",
     "serialNumber": "34/232",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 85,
-      "wisdom": 15,
-      "speed": 35,
-      "energy": 35,
+      "courage": 60,
+      "power": 95,
+      "wisdom": 25,
+      "speed": 45,
+      "energy": 40,
       "mugic": 0
     },
     "elements": {
@@ -13322,12 +13702,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Edwin Nebres, Etienne St.Laurent, David Rodriguez",
     "serialNumber": "35/232",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 110,
-      "wisdom": 20,
-      "speed": 60,
-      "energy": 45,
+      "courage": 40,
+      "power": 120,
+      "wisdom": 30,
+      "speed": 70,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -13357,12 +13738,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "36/232",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 30,
-      "wisdom": 55,
-      "speed": 45,
-      "energy": 50,
+      "courage": 80,
+      "power": 40,
+      "wisdom": 65,
+      "speed": 55,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -13392,12 +13774,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Etienne St.Laurent",
     "serialNumber": "37/232",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 30,
-      "wisdom": 45,
-      "speed": 65,
-      "energy": 50,
+      "courage": 55,
+      "power": 40,
+      "wisdom": 55,
+      "speed": 75,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -13427,12 +13810,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, David Curiel",
     "serialNumber": "38/232",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 25,
-      "wisdom": 85,
-      "speed": 20,
-      "energy": 40,
+      "courage": 85,
+      "power": 35,
+      "wisdom": 95,
+      "speed": 30,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -13462,12 +13846,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "39/232",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 95,
-      "wisdom": 30,
-      "speed": 65,
-      "energy": 65,
+      "courage": 75,
+      "power": 105,
+      "wisdom": 40,
+      "speed": 75,
+      "energy": 70,
       "mugic": 0
     },
     "elements": {
@@ -13497,12 +13882,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "40/232",
+    "isPast": false,
     "stats": {
-      "courage": 10,
-      "power": 85,
-      "wisdom": 20,
-      "speed": 60,
-      "energy": 40,
+      "courage": 20,
+      "power": 95,
+      "wisdom": 30,
+      "speed": 70,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -13532,12 +13918,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "41/232",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 85,
-      "wisdom": 25,
-      "speed": 45,
-      "energy": 50,
+      "courage": 75,
+      "power": 95,
+      "wisdom": 35,
+      "speed": 55,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -13567,12 +13954,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "42/232",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 115,
-      "wisdom": 50,
-      "speed": 95,
-      "energy": 65,
+      "courage": 85,
+      "power": 125,
+      "wisdom": 60,
+      "speed": 105,
+      "energy": 70,
       "mugic": 2
     },
     "elements": {
@@ -13602,12 +13990,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "43/232",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 60,
-      "wisdom": 20,
-      "speed": 35,
-      "energy": 55,
+      "courage": 85,
+      "power": 70,
+      "wisdom": 30,
+      "speed": 45,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -13637,12 +14026,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Edwin Nebres, Keith Conroy, Etienne St.Laurent",
     "serialNumber": "44/232",
+    "isPast": false,
     "stats": {
-      "courage": 20,
-      "power": 75,
-      "wisdom": 30,
-      "speed": 60,
-      "energy": 50,
+      "courage": 30,
+      "power": 85,
+      "wisdom": 40,
+      "speed": 70,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -13672,12 +14062,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "45/232",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 60,
-      "wisdom": 40,
-      "speed": 55,
-      "energy": 60,
+      "courage": 80,
+      "power": 70,
+      "wisdom": 50,
+      "speed": 65,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -13707,12 +14098,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Axer",
     "serialNumber": "46/232",
+    "isPast": false,
     "stats": {
-      "courage": 25,
-      "power": 80,
-      "wisdom": 40,
-      "speed": 65,
-      "energy": 50,
+      "courage": 35,
+      "power": 90,
+      "wisdom": 50,
+      "speed": 75,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -13742,12 +14134,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "47/232",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 60,
-      "wisdom": 30,
-      "speed": 60,
-      "energy": 50,
+      "courage": 75,
+      "power": 70,
+      "wisdom": 40,
+      "speed": 70,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -13777,12 +14170,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "48/232",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 90,
-      "wisdom": 25,
-      "speed": 50,
-      "energy": 70,
+      "courage": 85,
+      "power": 100,
+      "wisdom": 35,
+      "speed": 60,
+      "energy": 75,
       "mugic": 0
     },
     "elements": {
@@ -13812,12 +14206,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "49/232",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 25,
-      "wisdom": 55,
-      "speed": 40,
-      "energy": 35,
+      "courage": 75,
+      "power": 35,
+      "wisdom": 65,
+      "speed": 50,
+      "energy": 40,
       "mugic": 1
     },
     "elements": {
@@ -13847,12 +14242,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "50/232",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 65,
-      "wisdom": 60,
-      "speed": 20,
-      "energy": 55,
+      "courage": 90,
+      "power": 75,
+      "wisdom": 70,
+      "speed": 30,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -13882,12 +14278,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "51/232",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 60,
-      "wisdom": 65,
-      "speed": 35,
-      "energy": 40,
+      "courage": 55,
+      "power": 70,
+      "wisdom": 75,
+      "speed": 45,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -13917,12 +14314,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "52/232",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 65,
-      "wisdom": 20,
-      "speed": 90,
-      "energy": 40,
+      "courage": 70,
+      "power": 75,
+      "wisdom": 30,
+      "speed": 100,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -13952,12 +14350,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "53/232",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 70,
-      "wisdom": 40,
-      "speed": 50,
-      "energy": 50,
+      "courage": 55,
+      "power": 80,
+      "wisdom": 50,
+      "speed": 60,
+      "energy": 55,
       "mugic": 2
     },
     "elements": {
@@ -13987,12 +14386,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "54/232",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 20,
-      "wisdom": 70,
-      "speed": 35,
-      "energy": 25,
+      "courage": 50,
+      "power": 30,
+      "wisdom": 80,
+      "speed": 45,
+      "energy": 30,
       "mugic": 2
     },
     "elements": {
@@ -14022,12 +14422,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Etienne St.Laurent",
     "serialNumber": "55/232",
+    "isPast": false,
     "stats": {
-      "courage": 95,
-      "power": 40,
-      "wisdom": 35,
-      "speed": 15,
-      "energy": 20,
+      "courage": 105,
+      "power": 50,
+      "wisdom": 45,
+      "speed": 25,
+      "energy": 25,
       "mugic": 0
     },
     "elements": {
@@ -14057,12 +14458,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "56/232",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 75,
-      "wisdom": 35,
-      "speed": 25,
-      "energy": 50,
+      "courage": 75,
+      "power": 85,
+      "wisdom": 45,
+      "speed": 35,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -14092,12 +14494,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, David Curiel",
     "serialNumber": "6/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 70,
-      "wisdom": 45,
-      "speed": 40,
-      "energy": 45,
+      "courage": 55,
+      "power": 80,
+      "wisdom": 55,
+      "speed": 50,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -14127,12 +14530,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Edwin Nebres, Etienne St.Laurent",
     "serialNumber": "7/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 55,
-      "wisdom": 40,
-      "speed": 55,
-      "energy": 65,
+      "courage": 60,
+      "power": 65,
+      "wisdom": 50,
+      "speed": 65,
+      "energy": 70,
       "mugic": 1
     },
     "elements": {
@@ -14162,12 +14566,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Etienne St.Laurent",
     "serialNumber": "8/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 70,
-      "wisdom": 60,
-      "speed": 55,
-      "energy": 40,
+      "courage": 55,
+      "power": 80,
+      "wisdom": 70,
+      "speed": 65,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -14197,12 +14602,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, David Curiel",
     "serialNumber": "9/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 70,
-      "wisdom": 30,
-      "speed": 55,
-      "energy": 55,
+      "courage": 70,
+      "power": 80,
+      "wisdom": 40,
+      "speed": 65,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -14232,12 +14638,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Etienne St.Laurent",
     "serialNumber": "10/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 70,
-      "wisdom": 45,
-      "speed": 40,
-      "energy": 50,
+      "courage": 55,
+      "power": 80,
+      "wisdom": 55,
+      "speed": 50,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -14267,12 +14674,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Loprz",
     "serialNumber": "11/100",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 55,
-      "wisdom": 45,
-      "speed": 55,
-      "energy": 45,
+      "courage": 85,
+      "power": 65,
+      "wisdom": 55,
+      "speed": 65,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -14302,12 +14710,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
     "serialNumber": "12/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 65,
-      "wisdom": 65,
-      "speed": 20,
-      "energy": 40,
+      "courage": 55,
+      "power": 75,
+      "wisdom": 75,
+      "speed": 30,
+      "energy": 45,
       "mugic": 1
     },
     "elements": {
@@ -14337,12 +14746,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keith Conroy, David Curiel",
     "serialNumber": "13/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 45,
-      "wisdom": 75,
-      "speed": 40,
-      "energy": 40,
+      "courage": 60,
+      "power": 55,
+      "wisdom": 85,
+      "speed": 50,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -14372,12 +14782,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "14/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 65,
-      "wisdom": 45,
-      "speed": 55,
-      "energy": 50,
+      "courage": 55,
+      "power": 75,
+      "wisdom": 55,
+      "speed": 65,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -14407,12 +14818,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
     "serialNumber": "15/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 85,
-      "wisdom": 30,
-      "speed": 75,
-      "energy": 55,
+      "courage": 50,
+      "power": 95,
+      "wisdom": 40,
+      "speed": 85,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -14442,12 +14854,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Dan Norton, Anthony Washington",
     "serialNumber": "11/100",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 55,
-      "wisdom": 25,
-      "speed": 15,
-      "energy": 45,
+      "courage": 75,
+      "power": 65,
+      "wisdom": 35,
+      "speed": 25,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -14477,12 +14890,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "12/100",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 15,
-      "wisdom": 50,
-      "speed": 20,
-      "energy": 20,
+      "courage": 40,
+      "power": 25,
+      "wisdom": 60,
+      "speed": 30,
+      "energy": 25,
       "mugic": 3
     },
     "elements": {
@@ -14512,12 +14926,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "13/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 65,
-      "wisdom": 60,
-      "speed": 50,
-      "energy": 45,
+      "courage": 65,
+      "power": 75,
+      "wisdom": 70,
+      "speed": 60,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -14547,12 +14962,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Gustavo, Etienne St.Laurent",
     "serialNumber": "14/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 35,
-      "wisdom": 75,
-      "speed": 30,
-      "energy": 40,
+      "courage": 65,
+      "power": 45,
+      "wisdom": 85,
+      "speed": 40,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -14582,12 +14998,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Dan Norton, David Curiel",
     "serialNumber": "15/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 60,
-      "wisdom": 25,
-      "speed": 35,
-      "energy": 35,
+      "courage": 65,
+      "power": 70,
+      "wisdom": 35,
+      "speed": 45,
+      "energy": 40,
       "mugic": 0
     },
     "elements": {
@@ -14617,12 +15034,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, David Curiel",
     "serialNumber": "15/222",
+    "isPast": false,
     "stats": {
-      "courage": 100,
-      "power": 100,
-      "wisdom": 100,
-      "speed": 100,
-      "energy": 50,
+      "courage": 110,
+      "power": 110,
+      "wisdom": 110,
+      "speed": 110,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -14652,12 +15070,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "16/222",
+    "isPast": false,
     "stats": {
-      "courage": 20,
-      "power": 55,
-      "wisdom": 55,
-      "speed": 30,
-      "energy": 25,
+      "courage": 30,
+      "power": 65,
+      "wisdom": 65,
+      "speed": 40,
+      "energy": 30,
       "mugic": 2
     },
     "elements": {
@@ -14687,12 +15106,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez, Etienne St.Laurent",
     "serialNumber": "17/222",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 90,
-      "wisdom": 35,
-      "speed": 30,
-      "energy": 60,
+      "courage": 90,
+      "power": 100,
+      "wisdom": 45,
+      "speed": 40,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -14722,12 +15142,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Ryan Benjamin, Etienne St.Laurent",
     "serialNumber": "18/222",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 90,
-      "wisdom": 45,
-      "speed": 60,
-      "energy": 60,
+      "courage": 70,
+      "power": 100,
+      "wisdom": 55,
+      "speed": 70,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -14757,12 +15178,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tim Kane, Etienne St.Laurent",
     "serialNumber": "19/222",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 50,
-      "wisdom": 45,
-      "speed": 45,
-      "energy": 35,
+      "courage": 45,
+      "power": 60,
+      "wisdom": 55,
+      "speed": 55,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -14792,12 +15214,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tim Kane, Anthony Washington",
     "serialNumber": "20/222",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 90,
-      "wisdom": 25,
-      "speed": 35,
-      "energy": 70,
+      "courage": 70,
+      "power": 100,
+      "wisdom": 35,
+      "speed": 45,
+      "energy": 75,
       "mugic": 1
     },
     "elements": {
@@ -14827,12 +15250,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tim Kane, Etienne St.Laurent",
     "serialNumber": "21/222",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 65,
-      "wisdom": 40,
-      "speed": 50,
-      "energy": 45,
+      "courage": 60,
+      "power": 75,
+      "wisdom": 50,
+      "speed": 60,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -14862,12 +15286,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Hotshots VFX",
     "serialNumber": "22/222",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 85,
-      "wisdom": 15,
-      "speed": 50,
-      "energy": 65,
+      "courage": 50,
+      "power": 95,
+      "wisdom": 25,
+      "speed": 60,
+      "energy": 70,
       "mugic": 1
     },
     "elements": {
@@ -14897,12 +15322,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "23/222",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 80,
-      "wisdom": 30,
-      "speed": 55,
-      "energy": 60,
+      "courage": 70,
+      "power": 90,
+      "wisdom": 40,
+      "speed": 65,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -14932,12 +15358,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Dan Norton, Axer",
     "serialNumber": "24/222",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 100,
-      "wisdom": 40,
-      "speed": 65,
-      "energy": 60,
+      "courage": 90,
+      "power": 110,
+      "wisdom": 50,
+      "speed": 75,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -14967,12 +15394,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Ryan Benjamin, Etienne St.Laurent",
     "serialNumber": "25/222",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 70,
-      "wisdom": 35,
-      "speed": 40,
-      "energy": 55,
+      "courage": 50,
+      "power": 80,
+      "wisdom": 45,
+      "speed": 50,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -15002,12 +15430,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Dan Norton, John Rauch",
     "serialNumber": "26/222",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 75,
-      "wisdom": 40,
-      "speed": 50,
-      "energy": 55,
+      "courage": 65,
+      "power": 85,
+      "wisdom": 50,
+      "speed": 60,
+      "energy": 60,
       "mugic": 2
     },
     "elements": {
@@ -15037,12 +15466,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Dan Norton, David Curiel",
     "serialNumber": "27/222",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 90,
-      "wisdom": 20,
-      "speed": 85,
-      "energy": 50,
+      "courage": 40,
+      "power": 100,
+      "wisdom": 30,
+      "speed": 95,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -15072,12 +15502,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "28/222",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 50,
-      "wisdom": 60,
-      "speed": 25,
-      "energy": 40,
+      "courage": 45,
+      "power": 60,
+      "wisdom": 70,
+      "speed": 35,
+      "energy": 45,
       "mugic": 2
     },
     "elements": {
@@ -15107,12 +15538,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Etienne St.Laurent",
     "serialNumber": "8/100",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 35,
-      "wisdom": 70,
-      "speed": 45,
-      "energy": 25,
+      "courage": 40,
+      "power": 45,
+      "wisdom": 80,
+      "speed": 55,
+      "energy": 30,
       "mugic": 0
     },
     "elements": {
@@ -15142,12 +15574,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "9/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 65,
-      "wisdom": 40,
-      "speed": 50,
-      "energy": 50,
+      "courage": 55,
+      "power": 75,
+      "wisdom": 50,
+      "speed": 60,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -15177,12 +15610,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, David Curiel",
     "serialNumber": "10/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 50,
-      "wisdom": 70,
-      "speed": 20,
-      "energy": 50,
+      "courage": 70,
+      "power": 60,
+      "wisdom": 80,
+      "speed": 30,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -15212,12 +15646,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "11/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 50,
-      "wisdom": 90,
-      "speed": 60,
-      "energy": 30,
+      "courage": 50,
+      "power": 60,
+      "wisdom": 100,
+      "speed": 70,
+      "energy": 35,
       "mugic": 3
     },
     "elements": {
@@ -15247,12 +15682,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, Anthony Washington",
     "serialNumber": "12/100",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 65,
-      "wisdom": 65,
-      "speed": 65,
-      "energy": 65,
+      "courage": 75,
+      "power": 75,
+      "wisdom": 75,
+      "speed": 75,
+      "energy": 70,
       "mugic": 0
     },
     "elements": {
@@ -15282,12 +15718,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "13/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 90,
-      "wisdom": 40,
-      "speed": 70,
-      "energy": 65,
+      "courage": 60,
+      "power": 100,
+      "wisdom": 50,
+      "speed": 80,
+      "energy": 70,
       "mugic": 1
     },
     "elements": {
@@ -15317,12 +15754,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, David Curiel",
     "serialNumber": "14/100",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 55,
-      "wisdom": 50,
-      "speed": 35,
-      "energy": 45,
+      "courage": 45,
+      "power": 65,
+      "wisdom": 60,
+      "speed": 45,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -15352,12 +15790,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gustavo, Chris Fisher",
     "serialNumber": "8/100",
+    "isPast": false,
     "stats": {
-      "courage": 95,
-      "power": 40,
-      "wisdom": 75,
-      "speed": 25,
-      "energy": 35,
+      "courage": 105,
+      "power": 50,
+      "wisdom": 85,
+      "speed": 35,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -15387,12 +15826,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Chris Fisher",
     "serialNumber": "9/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 70,
-      "wisdom": 30,
-      "speed": 15,
-      "energy": 55,
+      "courage": 70,
+      "power": 80,
+      "wisdom": 40,
+      "speed": 25,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -15422,12 +15862,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Bob Rivard",
     "serialNumber": "10/100",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 100,
-      "wisdom": 60,
-      "speed": 35,
-      "energy": 60,
+      "courage": 85,
+      "power": 110,
+      "wisdom": 70,
+      "speed": 45,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -15457,12 +15898,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Gustavo, Etienne St.Laurent",
     "serialNumber": "11/100",
+    "isPast": false,
     "stats": {
-      "courage": 15,
-      "power": 95,
-      "wisdom": 15,
-      "speed": 60,
-      "energy": 45,
+      "courage": 25,
+      "power": 105,
+      "wisdom": 25,
+      "speed": 70,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -15492,12 +15934,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "12/100",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 50,
-      "wisdom": 75,
-      "speed": 55,
-      "energy": 60,
+      "courage": 85,
+      "power": 60,
+      "wisdom": 85,
+      "speed": 65,
+      "energy": 65,
       "mugic": 2
     },
     "elements": {
@@ -15527,12 +15970,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Tom Baxa",
     "serialNumber": "34/100",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 40,
-      "wisdom": 30,
-      "speed": 85,
-      "energy": 45,
+      "courage": 80,
+      "power": 50,
+      "wisdom": 40,
+      "speed": 95,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -15562,12 +16006,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
     "serialNumber": "28/100",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 85,
-      "wisdom": 20,
-      "speed": 60,
-      "energy": 60,
+      "courage": 45,
+      "power": 95,
+      "wisdom": 30,
+      "speed": 70,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -15597,12 +16042,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Etienne St.Laurent",
     "serialNumber": "9/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 85,
-      "wisdom": 30,
-      "speed": 40,
-      "energy": 60,
+      "courage": 70,
+      "power": 95,
+      "wisdom": 40,
+      "speed": 50,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -15632,12 +16078,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "10/100",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 90,
-      "wisdom": 20,
-      "speed": 75,
-      "energy": 60,
+      "courage": 50,
+      "power": 100,
+      "wisdom": 30,
+      "speed": 85,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -15667,12 +16114,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington, Emilio Lopez",
     "serialNumber": "11/100",
+    "isPast": false,
     "stats": {
-      "courage": 80,
-      "power": 105,
-      "wisdom": 45,
-      "speed": 45,
-      "energy": 65,
+      "courage": 90,
+      "power": 115,
+      "wisdom": 55,
+      "speed": 55,
+      "energy": 70,
       "mugic": 0
     },
     "elements": {
@@ -15702,12 +16150,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Chris Fisher",
     "serialNumber": "12/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 80,
-      "wisdom": 45,
-      "speed": 60,
-      "energy": 50,
+      "courage": 65,
+      "power": 90,
+      "wisdom": 55,
+      "speed": 70,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -15737,12 +16186,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez, Axer",
     "serialNumber": "13/100",
+    "isPast": false,
     "stats": {
-      "courage": 55,
-      "power": 85,
-      "wisdom": 15,
-      "speed": 30,
-      "energy": 70,
+      "courage": 65,
+      "power": 95,
+      "wisdom": 25,
+      "speed": 40,
+      "energy": 75,
       "mugic": 0
     },
     "elements": {
@@ -15772,12 +16222,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
     "serialNumber": "14/100",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 50,
-      "wisdom": 80,
-      "speed": 60,
-      "energy": 35,
+      "courage": 55,
+      "power": 60,
+      "wisdom": 90,
+      "speed": 70,
+      "energy": 40,
       "mugic": 3
     },
     "elements": {
@@ -15807,12 +16258,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Etienne St.Laurent",
     "serialNumber": "37/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 80,
-      "wisdom": 40,
-      "speed": 65,
-      "energy": 55,
+      "courage": 60,
+      "power": 90,
+      "wisdom": 50,
+      "speed": 75,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -15842,12 +16294,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Jimmy Tran, David Curiel",
     "serialNumber": "16/100",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 95,
-      "wisdom": 15,
-      "speed": 35,
-      "energy": 20,
+      "courage": 70,
+      "power": 105,
+      "wisdom": 25,
+      "speed": 45,
+      "energy": 25,
       "mugic": 0
     },
     "elements": {
@@ -15877,12 +16330,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
     "serialNumber": "25/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 95,
-      "wisdom": 30,
-      "speed": 60,
-      "energy": 50,
+      "courage": 70,
+      "power": 105,
+      "wisdom": 40,
+      "speed": 70,
+      "energy": 55,
       "mugic": 2
     },
     "elements": {
@@ -15912,12 +16366,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
     "serialNumber": "26/200",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 80,
-      "wisdom": 40,
-      "speed": 20,
-      "energy": 70,
+      "courage": 85,
+      "power": 90,
+      "wisdom": 50,
+      "speed": 30,
+      "energy": 75,
       "mugic": 0
     },
     "elements": {
@@ -15947,12 +16402,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
     "serialNumber": "27/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 60,
-      "wisdom": 40,
-      "speed": 30,
-      "energy": 45,
+      "courage": 70,
+      "power": 70,
+      "wisdom": 50,
+      "speed": 40,
+      "energy": 50,
       "mugic": 0
     },
     "elements": {
@@ -15982,12 +16438,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Reggie Butler",
     "serialNumber": "28/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 90,
-      "wisdom": 40,
-      "speed": 75,
-      "energy": 55,
+      "courage": 80,
+      "power": 100,
+      "wisdom": 50,
+      "speed": 85,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -16017,12 +16474,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Bob Rivard",
     "serialNumber": "29/200",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 70,
-      "wisdom": 70,
-      "speed": 40,
-      "energy": 30,
+      "courage": 40,
+      "power": 80,
+      "wisdom": 80,
+      "speed": 50,
+      "energy": 35,
       "mugic": 2
     },
     "elements": {
@@ -16052,12 +16510,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, David Curiel",
     "serialNumber": "30/200",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 55,
-      "wisdom": 30,
-      "speed": 60,
-      "energy": 45,
+      "courage": 75,
+      "power": 65,
+      "wisdom": 40,
+      "speed": 70,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -16087,12 +16546,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
     "serialNumber": "31/200",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 75,
-      "wisdom": 20,
-      "speed": 45,
-      "energy": 55,
+      "courage": 40,
+      "power": 85,
+      "wisdom": 30,
+      "speed": 55,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -16122,12 +16582,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Reggie Butler",
     "serialNumber": "32/200",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 50,
-      "wisdom": 60,
-      "speed": 55,
-      "energy": 60,
+      "courage": 75,
+      "power": 60,
+      "wisdom": 70,
+      "speed": 65,
+      "energy": 65,
       "mugic": 2
     },
     "elements": {
@@ -16157,12 +16618,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
     "serialNumber": "33/200",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 60,
-      "wisdom": 20,
-      "speed": 50,
-      "energy": 45,
+      "courage": 60,
+      "power": 70,
+      "wisdom": 30,
+      "speed": 60,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -16192,12 +16654,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Bob Rivard",
     "serialNumber": "34/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 100,
-      "wisdom": 50,
-      "speed": 60,
-      "energy": 70,
+      "courage": 70,
+      "power": 110,
+      "wisdom": 60,
+      "speed": 70,
+      "energy": 75,
       "mugic": 0
     },
     "elements": {
@@ -16227,12 +16690,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Chris Fisher",
     "serialNumber": "35/200",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 70,
-      "wisdom": 30,
-      "speed": 70,
-      "energy": 55,
+      "courage": 40,
+      "power": 80,
+      "wisdom": 40,
+      "speed": 80,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -16262,12 +16726,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
     "serialNumber": "36/200",
+    "isPast": false,
     "stats": {
-      "courage": 45,
-      "power": 80,
-      "wisdom": 40,
-      "speed": 45,
-      "energy": 35,
+      "courage": 55,
+      "power": 90,
+      "wisdom": 50,
+      "speed": 55,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -16297,12 +16762,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
     "serialNumber": "37/200",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 75,
-      "wisdom": 40,
-      "speed": 70,
-      "energy": 35,
+      "courage": 80,
+      "power": 85,
+      "wisdom": 50,
+      "speed": 80,
+      "energy": 40,
       "mugic": 2
     },
     "elements": {
@@ -16332,12 +16798,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
     "serialNumber": "S11/26",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 80,
-      "wisdom": 20,
-      "speed": 50,
-      "energy": 55,
+      "courage": 70,
+      "power": 90,
+      "wisdom": 30,
+      "speed": 60,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -16367,12 +16834,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
     "serialNumber": "39/200",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 60,
-      "wisdom": 35,
-      "speed": 30,
-      "energy": 30,
+      "courage": 50,
+      "power": 70,
+      "wisdom": 45,
+      "speed": 40,
+      "energy": 35,
       "mugic": 1
     },
     "elements": {
@@ -16402,12 +16870,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
     "serialNumber": "40/200",
+    "isPast": false,
     "stats": {
-      "courage": 20,
-      "power": 20,
-      "wisdom": 20,
-      "speed": 20,
-      "energy": 20,
+      "courage": 30,
+      "power": 30,
+      "wisdom": 30,
+      "speed": 30,
+      "energy": 25,
       "mugic": 0
     },
     "elements": {
@@ -16437,12 +16906,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "41/200",
+    "isPast": false,
     "stats": {
-      "courage": 60,
-      "power": 70,
-      "wisdom": 30,
-      "speed": 35,
-      "energy": 50,
+      "courage": 70,
+      "power": 80,
+      "wisdom": 40,
+      "speed": 45,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -16472,12 +16942,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "42/200",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 30,
-      "wisdom": 70,
-      "speed": 30,
-      "energy": 45,
+      "courage": 50,
+      "power": 40,
+      "wisdom": 80,
+      "speed": 40,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -16507,12 +16978,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Bob Rivard",
     "serialNumber": "S12/26",
+    "isPast": false,
     "stats": {
-      "courage": 40,
-      "power": 70,
-      "wisdom": 60,
-      "speed": 30,
-      "energy": 50,
+      "courage": 50,
+      "power": 80,
+      "wisdom": 70,
+      "speed": 40,
+      "energy": 55,
       "mugic": 0
     },
     "elements": {
@@ -16542,12 +17014,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
     "serialNumber": "44/200",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 60,
-      "wisdom": 40,
-      "speed": 80,
-      "energy": 55,
+      "courage": 85,
+      "power": 70,
+      "wisdom": 50,
+      "speed": 90,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -16577,12 +17050,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "21/100",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 75,
-      "wisdom": 30,
-      "speed": 50,
-      "energy": 55,
+      "courage": 60,
+      "power": 85,
+      "wisdom": 40,
+      "speed": 60,
+      "energy": 60,
       "mugic": 0
     },
     "elements": {
@@ -16612,12 +17086,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Jimmy Tran",
     "serialNumber": "OP1-4/20",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 85,
-      "wisdom": 65,
-      "speed": 50,
-      "energy": 60,
+      "courage": 85,
+      "power": 95,
+      "wisdom": 75,
+      "speed": 60,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -16647,12 +17122,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Graz Entertainment ",
     "serialNumber": "OP1-5/20",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 60,
-      "wisdom": 45,
-      "speed": 65,
-      "energy": 45,
+      "courage": 45,
+      "power": 70,
+      "wisdom": 55,
+      "speed": 75,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -16682,12 +17158,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, David Curiel",
     "serialNumber": "OP1-6/20",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 95,
-      "wisdom": 25,
-      "speed": 45,
-      "energy": 60,
+      "courage": 60,
+      "power": 105,
+      "wisdom": 35,
+      "speed": 55,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -16717,12 +17194,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Etienne St.Laurent",
     "serialNumber": "BR-08",
+    "isPast": false,
     "stats": {
-      "courage": 65,
-      "power": 40,
-      "wisdom": 85,
-      "speed": 35,
-      "energy": 55,
+      "courage": 75,
+      "power": 50,
+      "wisdom": 95,
+      "speed": 45,
+      "energy": 60,
       "mugic": 1
     },
     "elements": {
@@ -16752,12 +17230,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "BR-11",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 85,
-      "wisdom": 65,
-      "speed": 50,
-      "energy": 60,
+      "courage": 85,
+      "power": 95,
+      "wisdom": 75,
+      "speed": 60,
+      "energy": 65,
       "mugic": 1
     },
     "elements": {
@@ -16787,12 +17266,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
     "serialNumber": "BR-09",
+    "isPast": false,
     "stats": {
-      "courage": 50,
-      "power": 95,
-      "wisdom": 25,
-      "speed": 45,
-      "energy": 60,
+      "courage": 60,
+      "power": 105,
+      "wisdom": 35,
+      "speed": 55,
+      "energy": 65,
       "mugic": 0
     },
     "elements": {
@@ -16822,12 +17302,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
     "serialNumber": "BR-04",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 60,
-      "wisdom": 45,
-      "speed": 65,
-      "energy": 45,
+      "courage": 45,
+      "power": 70,
+      "wisdom": 55,
+      "speed": 75,
+      "energy": 50,
       "mugic": 1
     },
     "elements": {
@@ -16857,12 +17338,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
     "serialNumber": "LR03/10",
+    "isPast": false,
     "stats": {
-      "courage": 30,
-      "power": 50,
-      "wisdom": 20,
-      "speed": 20,
-      "energy": 40,
+      "courage": 40,
+      "power": 60,
+      "wisdom": 30,
+      "speed": 30,
+      "energy": 45,
       "mugic": 0
     },
     "elements": {
@@ -16892,12 +17374,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Keron Grant, VJ Comando",
     "serialNumber": "LR04/10",
+    "isPast": false,
     "stats": {
-      "courage": 35,
-      "power": 55,
-      "wisdom": 65,
-      "speed": 65,
-      "energy": 30,
+      "courage": 45,
+      "power": 65,
+      "wisdom": 75,
+      "speed": 75,
+      "energy": 35,
       "mugic": 0
     },
     "elements": {
@@ -16927,12 +17410,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Bob Rivard",
     "serialNumber": "P-017",
+    "isPast": false,
     "stats": {
-      "courage": 75,
-      "power": 60,
-      "wisdom": 30,
-      "speed": 40,
-      "energy": 50,
+      "courage": 85,
+      "power": 70,
+      "wisdom": 40,
+      "speed": 50,
+      "energy": 55,
       "mugic": 1
     },
     "elements": {
@@ -16962,12 +17446,13 @@ export const creatureDatabase = [
     "loyalRestriction": "",
     "artist": "Edwin Nebres, Etienne St.Laurent",
     "serialNumber": "P-003",
+    "isPast": false,
     "stats": {
-      "courage": 70,
-      "power": 50,
-      "wisdom": 50,
-      "speed": 40,
-      "energy": 30,
+      "courage": 80,
+      "power": 60,
+      "wisdom": 60,
+      "speed": 50,
+      "energy": 35,
       "mugic": 0
     },
     "elements": {
@@ -16989,6 +17474,7 @@ export const getAllCreatureNames = () => {
   return creatureDatabase.map(creature => ({
     id: creature.id,
     displayName: creature.displayName,
-    tribe: creature.tribe
+    tribe: creature.tribe,
+    isPast: creature.isPast
   }));
 };

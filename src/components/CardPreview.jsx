@@ -79,6 +79,7 @@ const CardPreview = ({ cardData }) => {
     canvas.style.objectFit = 'contain';
     canvas.style.imageRendering = 'auto';
     canvas.style.display = 'block';
+    
 
           // Clear and append the new canvas
           container.innerHTML = '';

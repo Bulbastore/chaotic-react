@@ -44,6 +44,7 @@ function convertExcelToDatabase(excelFilePath, outputFilePath) {
     const unique = card.Unique === 'Y' || card.Unique === 1 || card.Unique === true;
     const legendary = card.Legendary === 'Y' || card.Legendary === 1 || card.Legendary === true;
     const loyal = card.Loyal === 'Y' || card.Loyal === 1 || card.Loyal === true;
+    const isPast = card.isPast === 'Y' || card.isPast === 1 || card.isPast === true;
     
     // Generate ID
     const id = `${card.Set}-${card["Serial #"] || Math.random().toString(36).substring(2, 10)}`;
@@ -67,6 +68,7 @@ function convertExcelToDatabase(excelFilePath, outputFilePath) {
       loyalRestriction: card["Loyal Restriction"] || '',
       artist: card.Artist || '',
       serialNumber: card["Serial #"] || '',
+      isPast,
       stats: {
         courage: parseInt(card.Courage) || 0,
         power: parseInt(card.Power) || 0,
@@ -96,7 +98,8 @@ export const getAllCreatureNames = () => {
   return creatureDatabase.map(creature => ({
     id: creature.id,
     displayName: creature.displayName,
-    tribe: creature.tribe
+    tribe: creature.tribe,
+    isPast: creature.isPast
   }));
 };
 `;

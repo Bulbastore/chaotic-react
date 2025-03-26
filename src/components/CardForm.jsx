@@ -5,6 +5,7 @@ import { getAssetPath } from './assetPaths';
 import FormattingToolbar from './FormattingToolbar';
 import CreatureSelector from './CreatureSelector';
 import { getCreatureById } from './CreatureDatabase';
+import BatchGeneratorUI from './BatchGeneratorUI';
 
 const CARD_SYMBOLS = [
   // Ability elements
@@ -57,7 +58,6 @@ const CARD_SYMBOLS = [
   { code: ':genericmugic:', label: 'Generic Mugic', icon: getAssetPath('img/icons/mugic/generic.png') },
   { code: ':genericmugic0:', label: 'Generic Mugic 0', icon: getAssetPath('img/icons/mugic/generic_0.png') },
   { code: ':genericmugicX:', label: 'Generic Mugic X', icon: getAssetPath('img/icons/mugic/generic_x.png') }
-
 ];
 
 const SymbolBar = ({ onSymbolSelect }) => {
@@ -434,10 +434,12 @@ const ElementItem = ({ element, value, onChange, type = 'creature' }) => (
 const CardForm = () => {
   const [brainwashed, setBrainwashed] = useState(false);
   const [isPast, setIsPast] = useState(false);
+  const [showBatchGenerator, setShowBatchGenerator] = useState(false);
   const [brainwashedText, setBrainwashedText] = useState('');
   const [serialNumber, setSerialNumber] = useState('');
   const [showCopyright, setShowCopyright] = useState(true);
   const [showArtist, setShowArtist] = useState(true);
+  const [useBleedTemplates, setUseBleedTemplates] = useState(false);
   const [selectedType, setSelectedType] = useState('');
   const [canvasRef, setCanvasRef] = useState(null);
   const [name, setName] = useState('');
@@ -586,6 +588,7 @@ setShowArtist(true);
   const [mugicCost, setMugicCost] = useState(0);
   const [base, setBase] = useState(0);
 
+// Keep your existing download function
 const handleDownload = () => {
   const previewCanvas = document.querySelector('#preview-canvas');
   if (previewCanvas) {
@@ -596,6 +599,131 @@ const handleDownload = () => {
     CardCreator.downloadCard(previewCanvas, filename);
   }
 };
+
+//Bleed download function
+const handleBleedDownload = async () => {
+  const previewCanvas = document.querySelector('#preview-canvas');
+  if (!previewCanvas) return;
+  
+  try {
+    // Get the standard card canvas
+    const standardCard = previewCanvas;
+    console.log(`Standard card dimensions: ${standardCard.width}x${standardCard.height}`);
+    
+    // Create a new canvas for the bleed version
+    const bleedCanvas = document.createElement('canvas');
+    const bleedCtx = bleedCanvas.getContext('2d');
+    
+    // Determine which border frame to use based on tribe
+    let borderPath;
+    if (selectedType === 'creature' && tribe) {
+      // Use tribe-specific border for creatures
+      borderPath = getAssetPath(`img/template/bleed/${tribe.toLowerCase()}.png`);
+    } else {
+      // Use a type-specific border for non-creatures (attack, battlegear, etc.)
+      borderPath = getAssetPath(`img/template/bleed/${selectedType.toLowerCase()}.png`);
+    }
+    
+    console.log('Loading bleed border from:', borderPath);
+    
+    // Load the border frame image
+    const borderImg = new Image();
+    borderImg.crossOrigin = 'anonymous';
+    
+    // Wait for the border image to load
+    await new Promise((resolve, reject) => {
+      borderImg.onload = () => {
+        console.log(`Border image loaded: ${borderImg.width}x${borderImg.height}`);
+        resolve();
+      };
+      
+      borderImg.onerror = (err) => {
+        console.error('Failed to load border image:', err);
+        // Try a fallback to a generic border
+        const fallbackPath = getAssetPath('img/template/bleed/border.png');
+        console.log('Trying fallback path:', fallbackPath);
+        borderImg.src = fallbackPath;
+        borderImg.onload = resolve;
+        borderImg.onerror = reject;
+      };
+      
+      borderImg.src = borderPath;
+    });
+    
+    // Set the canvas size to the border image size
+    bleedCanvas.width = borderImg.width;
+    bleedCanvas.height = borderImg.height;
+    
+    // Fill with white background
+    bleedCtx.fillStyle = '#ffffff';
+    bleedCtx.fillRect(0, 0, bleedCanvas.width, bleedCanvas.height);
+    
+    // Fine-tuned parameters based on your feedback
+    const scaleFactor = 0.949798; // Your specified value that works for scaling
+    
+    // Adjust the position - positive X moves right, negative Y moves up
+    const offsetXAdjust = 1.28;    // Move 2px to the right
+    const offsetYAdjust = -3.95;   // Move 2px up
+    
+    // Calculate base scale to fill the border
+    const scaleX = borderImg.width / standardCard.width;
+    const scaleY = borderImg.height / standardCard.height;
+    const baseScale = Math.min(scaleX, scaleY);
+    
+    // Apply the scaling adjustment
+    const finalScale = baseScale * scaleFactor;
+    
+    // Calculate the dimensions after scaling
+    const scaledWidth = standardCard.width * finalScale;
+    const scaledHeight = standardCard.height * finalScale;
+    
+    // Center the card in the border with the position adjustments
+    const centerX = (borderImg.width - scaledWidth) / 2 + offsetXAdjust;
+    const centerY = (borderImg.height - scaledHeight) / 2 + offsetYAdjust;
+    
+    // Draw the scaled card first
+    bleedCtx.drawImage(
+      standardCard, 
+      0, 0, standardCard.width, standardCard.height, // Source rectangle
+      centerX, centerY, scaledWidth, scaledHeight     // Destination rectangle (scaled)
+    );
+    
+    // Then draw the border on top
+    bleedCtx.drawImage(borderImg, 0, 0, bleedCanvas.width, bleedCanvas.height);
+    
+    // Log the settings for debugging
+    console.log(`Using scale factor: ${scaleFactor}, Final scale: ${finalScale.toFixed(3)}`);
+    console.log(`Card position: ${centerX.toFixed(1)},${centerY.toFixed(1)} with size ${scaledWidth.toFixed(1)}x${scaledHeight.toFixed(1)}`);
+    
+    // Create filename
+    const filename = name ? 
+      `${name}${subname ? `, ${subname}` : ''}_bleed.png` : 
+      'card_bleed.png';
+    
+    // Download the bleed card
+    CardCreator.downloadCard(bleedCanvas, filename);
+    
+    console.log('Bleed card created and downloaded successfully');
+    
+  } catch (error) {
+    console.error('Error creating bleed card:', error);
+    
+    // Try a simpler approach as fallback
+    try {
+      const previewCanvas = document.querySelector('#preview-canvas');
+      if (previewCanvas) {
+        const filename = name ? 
+          `${name}${subname ? `, ${subname}` : ''}_bleed.png` : 
+          'card_bleed.png';
+        CardCreator.downloadCard(previewCanvas, filename);
+        alert('Used standard card as fallback (bleed border not available)');
+      }
+    } catch (fallbackError) {
+      alert('Error creating bleed card. Check console for details.');
+    }
+  }
+};
+
 return (
 <div className="container mx-auto flex flex-col lg:flex-row gap-0 p-2 lg:p-4 min-h-screen w-full max-w-none">
   <div className="w-full lg:w-1/2 bg-black text-white flex flex-col">
@@ -708,12 +836,8 @@ return (
             });
         }
         
-        // Check for other properties like isPast, etc.
-        if (cardData.tribe?.toLowerCase() === 'tribeless' || cardData.isPast) {
-          setIsPast(true);
-        } else {
-          setIsPast(false);
-        }
+        // Set Past flag based on isPast property only
+        setIsPast(!!cardData.isPast);
       }}
     />
   </div>
@@ -737,7 +861,8 @@ return (
           { value: 'mipedian', label: 'Mipedian' },
           { value: 'danian', label: 'Danian' },
           { value: "m'arrillian", label: "M'arrillian" },
-          { value: 'tribeless', label: 'Tribeless' }
+          { value: 'tribeless', label: 'Tribeless' },
+          { value: 'mipedianow', label: 'Mipedian OverWorld' }
         ]}
       />
     </div>
@@ -846,18 +971,17 @@ return (
       <label htmlFor="brainwashed" className="text-white">Brainwashed</label>
     </div>
     
-    {tribe.toLowerCase() !== 'tribeless' && (
-      <div className="flex items-center gap-2">
-        <input
-          type="checkbox"
-          id="past"
-          checked={isPast}
-          onChange={(e) => setIsPast(e.target.checked)}
-          className="w-4 h-4 accent-[#9FE240]"
-        />
-        <label htmlFor="past" className="text-white">Past</label>
-      </div>
-    )}
+    {/* Always show the Past checkbox, regardless of tribe */}
+    <div className="flex items-center gap-2">
+      <input
+        type="checkbox"
+        id="past"
+        checked={isPast}
+        onChange={(e) => setIsPast(e.target.checked)}
+        className="w-4 h-4 accent-[#9FE240]"
+      />
+      <label htmlFor="past" className="text-white">Past</label>
+    </div>
   </div>
 )}
 
@@ -1126,14 +1250,20 @@ return (
           </div>
         )}
 
-{/* Download Button for Non-Attack Cards */}
+{/* Download Buttons for Non-Attack Cards */}
 {selectedType && selectedType !== 'attack' && (
-  <div className="flex justify-center mt-5">
+  <div className="flex justify-center gap-4 mt-5">
     <button 
       onClick={handleDownload}
       className="px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
     >
-      Download
+      Download Standard
+    </button>
+    <button 
+      onClick={handleBleedDownload}
+      className="px-6 py-2 bg-[#FF9933] text-black font-bold rounded hover:bg-[#FF8822] transition-colors"
+    >
+      Download with Bleed
     </button>
   </div>
 )}
@@ -1168,12 +1298,13 @@ return (
         brainwashedText,
         past: isPast,
         showCopyright,
-        showArtist
+        showArtist,
+        useBleedTemplates: true
       }} 
     />
   </div>
 
-{/* Build Points section with Download Button */}
+{/* Build Points section with Download Buttons */}
 {selectedType === 'attack' && (
   <div className="max-w-[620px] w-full space-y-4 mt-5">
     <div className="bg-black border border-gray-700 rounded-lg p-4">
@@ -1185,12 +1316,18 @@ return (
         type="small"
       />
     </div>
-    <div className="flex justify-center">
+    <div className="flex justify-center gap-4">
       <button 
         onClick={handleDownload}
         className="px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
       >
-        Download
+        Download Standard
+      </button>
+      <button 
+        onClick={handleBleedDownload}
+        className="px-6 py-2 bg-[#FF9933] text-black font-bold rounded hover:bg-[#FF8822] transition-colors"
+      >
+        Download with Bleed
       </button>
     </div>
   </div>
@@ -1247,14 +1384,22 @@ return (
 </div>
 </div>
 
-{/* Download Button - Mobile Only */}
+{/* Download Buttons - Mobile Only */}
 <div className="lg:hidden sticky bottom-0 w-full bg-black p-4 border-t border-gray-700">
-  <button
-    onClick={handleDownload}
-    className="w-full px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
-  >
-    Mobile Download
-  </button>
+  <div className="flex gap-2">
+    <button
+      onClick={handleDownload}
+      className="w-1/2 px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
+    >
+      Standard
+    </button>
+    <button
+      onClick={handleBleedDownload}
+      className="w-1/2 px-6 py-2 bg-[#FF9933] text-black font-bold rounded hover:bg-[#FF8822] transition-colors"
+    >
+      With Bleed
+    </button>
+  </div>
 </div>
 
 </div>

@@ -247,9 +247,21 @@ const CardCreator = {
     },
 
     downloadCard(canvas, name = 'card.png') {
+        // Create a temporary canvas that will contain just the card without any scaling
+        const tempCanvas = document.createElement('canvas');
+        const tempCtx = tempCanvas.getContext('2d');
+        
+        // Set the temporary canvas to the exact dimensions of the original canvas
+        tempCanvas.width = canvas.width;
+        tempCanvas.height = canvas.height;
+        
+        // Draw the original canvas content to our temporary canvas
+        tempCtx.drawImage(canvas, 0, 0);
+        
+        // Create a download link and trigger the download
         const link = document.createElement('a');
         link.download = name;
-        link.href = canvas.toDataURL('image/png');
+        link.href = tempCanvas.toDataURL('image/png');
         link.click();
     }
 };
@@ -316,13 +328,28 @@ function fillText(text, x, y, maxWidth) {
     }
 }
 
-function setCanvas(x, y) {
-    width = x;
-    height = y;
-    canvas.width = width * 4;
-    canvas.height = height * 4;
-    canvas.style.width = 'auto';
-    canvas.style.height = 'auto';
+function setCanvas(x, y, useBleed = false) {
+  // Store the template dimensions for the card
+  width = x;
+  height = y;
+  
+  // Set the canvas dimensions
+  canvas.width = width * scale;
+  canvas.height = height * scale;
+  canvas.style.width = 'auto';
+  canvas.style.height = 'auto';
+  
+  // Calculate offsets if using bleed template
+  let offsetX = 0;
+  let offsetY = 0;
+  
+  if (useBleed) {
+    // Adjust these values as needed to center content on your bleed template
+    offsetX = 15; // Start with this value and adjust as needed
+    offsetY = 15; // Start with this value and adjust as needed
+  }
+  
+  return { offsetX, offsetY };
 }
 
 function wrapText(text, maxWidth) {
@@ -422,6 +449,7 @@ function formatTribe(tribe) {
         case "m'arrillian": return "M'arrillian";
         case "tribeless": return "";
         case "generic": return "Generic";
+        case "mipedianow": return "Mipedian OverWorld";
         default: return tribe;
     }
 }
@@ -429,27 +457,67 @@ function formatTribe(tribe) {
 async function loadAssets(cardData) {
     const assets = {};
     const promises = [];
+    
+    // Determine if bleed templates should be used
+    const useBleed = cardData.useBleedTemplates || false;
 
     // Template
     if (cardData.type) {
         let templatePath;
+        
+        // Use different folder path based on bleed preference
+        const useBleed = cardData.useBleedTemplates || false;
+        const templateFolder = useBleed ? 'img/template/bleed' : 'img/template';
+        
+        console.log(`Template settings - Type: ${cardData.type}, Tribe: ${cardData.tribe}, UseBleed: ${useBleed}`);
+        console.log(`Template folder path: ${templateFolder}`);
+        
         if (cardData.type === 'creature' && cardData.tribe) {
-            // Check for brainwashed state
-            if (cardData.brainwashed) {
-                templatePath = getAssetPath(`img/template/${cardData.tribe.toLowerCase()}bw.png`);
+            // Check for hybrid template
+            if (cardData.hybridTemplate === 'mipedianow') {
+                templatePath = getAssetPath(`${templateFolder}/mipedianow.png`);
+                console.log('Loading hybrid Mipedian + OverWorld template:', templatePath);
+            } else if (cardData.brainwashed) {
+                templatePath = getAssetPath(`${templateFolder}/${cardData.tribe.toLowerCase()}bw.png`);
                 console.log('Loading brainwashed template:', templatePath);
             } else {
-                templatePath = getAssetPath(`img/template/${cardData.tribe.toLowerCase()}.png`);
+                templatePath = getAssetPath(`${templateFolder}/${cardData.tribe.toLowerCase()}.png`);
                 console.log('Loading normal template:', templatePath);
             }
         } else if (cardData.type === 'mugic' && cardData.tribe) {
-            templatePath = getAssetPath(`img/template/mugic/${cardData.tribe.toLowerCase()}.png`);
+            // For mugic cards, we need to maintain the mugic subdirectory
+            if (useBleed) {
+                // For bleed templates, check if there's a specific mugic bleed folder
+                templatePath = getAssetPath(`${templateFolder}/mugic/${cardData.tribe.toLowerCase()}.png`);
+                console.log('Loading mugic bleed template:', templatePath);
+            } else {
+                templatePath = getAssetPath(`img/template/mugic/${cardData.tribe.toLowerCase()}.png`);
+                console.log('Loading mugic standard template:', templatePath);
+            }
         } else {
-            templatePath = getAssetPath(`img/template/${cardData.type.toLowerCase()}.png`);
+            templatePath = getAssetPath(`${templateFolder}/${cardData.type.toLowerCase()}.png`);
+            console.log(`Loading ${cardData.type} template:`, templatePath);
         }
         
         promises.push(loadAsset('template', templatePath)
-            .then(img => assets.template = img));
+            .then(img => {
+                assets.template = img;
+                console.log(`Template loaded successfully: ${templatePath}`);
+            })
+            .catch(error => {
+                console.error(`Failed to load template: ${templatePath}`, error);
+                // Try a fallback path without the bleed folder if we're using bleed templates
+                if (useBleed) {
+                    const fallbackPath = templatePath.replace('/bleed/', '/');
+                    console.log(`Trying standard template fallback: ${fallbackPath}`);
+                    return loadAsset('template', fallbackPath)
+                        .then(img => {
+                            console.log('Fallback template loaded successfully');
+                            assets.template = img;
+                        });
+                }
+                return Promise.reject(error);
+            }));
     }
 
     // If brainwashed, load the brainwashed bar
@@ -463,6 +531,7 @@ async function loadAssets(cardData) {
         }));
     }
 
+    // Rest of loadAssets function remains the same...
     // Set symbol
     if (cardData.set && cardData.rarity) {
         promises.push(loadAsset('symbol', 
@@ -493,25 +562,25 @@ async function loadAssets(cardData) {
         }
     }
 
-// Load elements for attacks
-if (cardData.type === 'attack') {
-    if (cardData.elements?.fire) {
-        promises.push(loadAsset('fireattack', getAssetPath('img/fireattack.png'))
-            .then(img => assets.fireattack = img));
+    // Load elements for attacks
+    if (cardData.type === 'attack') {
+        if (cardData.elements?.fire) {
+            promises.push(loadAsset('fireattack', getAssetPath('img/fireattack.png'))
+                .then(img => assets.fireattack = img));
+        }
+        if (cardData.elements?.air) {
+            promises.push(loadAsset('airattack', getAssetPath('img/airattack.png'))
+                .then(img => assets.airattack = img));
+        }
+        if (cardData.elements?.earth) {
+            promises.push(loadAsset('earthattack', getAssetPath('img/earthattack.png'))
+                .then(img => assets.earthattack = img));
+        }
+        if (cardData.elements?.water) {
+            promises.push(loadAsset('waterattack', getAssetPath('img/waterattack.png'))
+                .then(img => assets.waterattack = img));
+        }
     }
-    if (cardData.elements?.air) {
-        promises.push(loadAsset('airattack', getAssetPath('img/airattack.png'))
-            .then(img => assets.airattack = img));
-    }
-    if (cardData.elements?.earth) {
-        promises.push(loadAsset('earthattack', getAssetPath('img/earthattack.png'))
-            .then(img => assets.earthattack = img));
-    }
-    if (cardData.elements?.water) {
-        promises.push(loadAsset('waterattack', getAssetPath('img/waterattack.png'))
-            .then(img => assets.waterattack = img));
-    }
-}
 
     // Art
     if (cardData.art) {
@@ -571,6 +640,32 @@ async function loadAsset(key, path) {
         
         img.onerror = (error) => {
             console.error(`Failed to load ${key} from ${path}`, error);
+            
+            // Special handling for bleed templates
+            if (path.includes('/bleed/')) {
+                console.log(`Bleed template failed to load. Attempting to use regular template as fallback.`);
+                // Create a fallback path by replacing bleed with the standard path
+                const fallbackPath = path.replace('/bleed/', '/');
+                
+                console.log(`Trying fallback path: ${fallbackPath}`);
+                const fallbackImg = new Image();
+                fallbackImg.crossOrigin = 'anonymous';
+                
+                fallbackImg.onload = () => {
+                    console.log(`Successfully loaded fallback for ${key}: ${fallbackPath}`);
+                    resolve(fallbackImg);
+                };
+                
+                fallbackImg.onerror = () => {
+                    console.error(`Fallback also failed for ${key}`);
+                    reject(new Error(`Failed to load ${key} image from both ${path} and fallback`));
+                };
+                
+                fallbackImg.src = fallbackPath;
+                return;
+            }
+            
+            // Try removing the leading slash if present
             if (path.startsWith('/')) {
                 const altPath = path.substring(1);
                 console.log(`Attempting alternate path: ${altPath}`);
@@ -584,11 +679,16 @@ async function loadAsset(key, path) {
     });
 }
 
-
 async function drawCard(cardData, assets) {
     const isLocation = cardData.type === 'location';
+    const useBleed = cardData.useBleedTemplates || false;
     
-    setCanvas(isLocation ? 350 : 250, isLocation ? 250 : 350);
+    // Get template dimensions
+    const templateWidth = isLocation ? 350 : 250;
+    const templateHeight = isLocation ? 250 : 350;
+    
+    // Set up canvas with appropriate dimensions and get offsets
+    const { offsetX, offsetY } = setCanvas(templateWidth, templateHeight, useBleed);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Draw art
@@ -596,7 +696,7 @@ async function drawCard(cardData, assets) {
         if (isLocation) {
             drawImage(assets.art, 0, 0, assets.art.width, assets.art.height, 35, 34, 306, 137);
         } else if (cardData.type === 'mugic') {
-            drawImage(assets.art, 0, 0, assets.art.width, assets.art.height, 0, 0, width, height);
+            drawImage(assets.art, 0, 0, assets.art.width, assets.art.height, 0, 0, templateWidth, templateHeight);
         } else {
             drawImage(assets.art, 0, 0, assets.art.width, assets.art.height, 9, 22, 235.81, 197.66);
         }
@@ -604,6 +704,11 @@ async function drawCard(cardData, assets) {
 
     // Draw template and elements
     if (assets.template) {
+        console.log(`Drawing template: ${cardData.useBleedTemplates ? 'Bleed' : 'Standard'}`);
+        console.log(`Template dimensions: ${assets.template.width}x${assets.template.height}`);
+        
+        // Draw the template normally regardless of bleed setting
+        // The bleed templates will be loaded from a different directory but drawn the same way
         drawImage(assets.template, 0, 0, assets.template.width, assets.template.height, 0, 0, width, height);
     }
 
@@ -1279,7 +1384,8 @@ if (cardData.artist && cardData.showArtist !== false) {
         case 'location': drawLocation(cardData); break;
     }
 
-    return canvas;
+return canvas;
+
 }
 
 function drawCreature(cardData) {
