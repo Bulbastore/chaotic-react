@@ -456,6 +456,7 @@ const CardForm = () => {
   const [legendary, setLegendary] = useState(false);
   const [loyal, setLoyal] = useState(false);
   const [loyalRestriction, setLoyalRestriction] = useState('');
+  const [forceUpdate, setForceUpdate] = useState(false);
   const getFormattedSubtype = (type, tribe, subtype, isPast) => {
     if (!tribe) return '';
 
@@ -838,6 +839,13 @@ return (
         
         // Set Past flag based on isPast property only
         setIsPast(!!cardData.isPast);
+
+        // ADD THIS CODE - Force a re-render after a short delay
+        setTimeout(() => {
+          // Trigger a small state change to force re-render
+          // You'll need to add this state at the top of your component
+          setForceUpdate(prev => !prev);
+        }, 100);
       }}
     />
   </div>

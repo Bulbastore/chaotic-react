@@ -353,9 +353,6 @@ function setCanvas(x, y, useBleed = false) {
 }
 
 function wrapText(text, maxWidth) {
-    // Double all spaces in the original text to make them wider
-    const textWithWiderSpaces = text.replace(/ /g, '   ');
-
     // Split text into paragraphs
     const paragraphs = text.split('\n');
     const allLines = [];
@@ -366,7 +363,7 @@ function wrapText(text, maxWidth) {
             continue;
         }
 
-        const words = paragraph.split(/(\s+|:[\w']+:|<\/?[bi]>)/);
+        const words = paragraph.split(' ');
         let currentLine = '';
         let testLine = '';
         let currentWidth = 0;
@@ -377,34 +374,61 @@ function wrapText(text, maxWidth) {
             const word = words[i];
             if (!word) continue;
             
-            // Handle formatting tags
-            if (word === '<b>') {
-                isInBold = true;
-                testLine += word;
-                continue;
-            } else if (word === '</b>') {
-                isInBold = false;
-                testLine += word;
-                continue;
-            } else if (word === '<i>') {
-                isInItalic = true;
-                testLine += word;
-                continue;
-            } else if (word === '</i>') {
-                isInItalic = false;
-                testLine += word;
-                continue;
+            // Check if the word contains symbols and measure accordingly
+            const hasSymbol = word.match(/:[a-z0-9']+:/);
+            let wordWidth;
+            
+            if (hasSymbol) {
+                // Calculate an estimated width for symbols in the word
+                // This estimation mimics how drawTextWithSymbols will render it
+                let estimatedWidth = 0;
+                let remainingWord = word;
+                let symbolMatch;
+                
+                // Custom regex to match :symbol: patterns
+                const symbolRegex = /:[a-z0-9']+:/g;
+                
+                // Track position in the string
+                let lastIndex = 0;
+                
+                while ((symbolMatch = symbolRegex.exec(word)) !== null) {
+                    // Text before the symbol
+                    const textBefore = word.substring(lastIndex, symbolMatch.index);
+                    if (textBefore) {
+                        estimatedWidth += ctx.measureText(textBefore).width;
+                    }
+                    
+                    // The symbol itself
+                    const symbolCode = symbolMatch[0];
+                    if (SYMBOL_MAPPINGS && SYMBOL_MAPPINGS[symbolCode]) {
+                        // Use a width proportional to current font size
+                        const fontSize = parseInt(ctx.font) / scale;
+                        estimatedWidth += fontSize * 1.2 * scale;
+                    } else {
+                        // Fallback if symbol not found
+                        estimatedWidth += ctx.measureText(symbolCode).width;
+                    }
+                    
+                    lastIndex = symbolMatch.index + symbolMatch[0].length;
+                }
+                
+                // Add any remaining text after the last symbol
+                const textAfter = word.substring(lastIndex);
+                if (textAfter) {
+                    estimatedWidth += ctx.measureText(textAfter).width;
+                }
+                
+                wordWidth = estimatedWidth;
+            } else {
+                // For regular words, use standard text measurement
+                wordWidth = ctx.measureText(word).width;
             }
             
-            testLine += word;
+            // For the first word, don't add space width
+            const spaceWidth = i > 0 ? ctx.measureText(' ').width : 0;
             
-            // Skip measuring for tags
-            if (word.match(/^<\/?[bi]>$/)) continue;
-            
-            const metrics = ctx.measureText(testLine);
-            currentWidth = metrics.width;
-            
-            if (currentWidth > maxWidth * scale && i > 0) {
+            // Test if adding this word would exceed the maximum width
+            if (currentWidth + wordWidth + spaceWidth > maxWidth * scale && i > 0) {
                 // Complete any open tags before breaking the line
                 let endLine = currentLine;
                 if (isInBold) endLine += '</b>';
@@ -414,20 +438,71 @@ function wrapText(text, maxWidth) {
                 
                 // Start a new line with any active formatting
                 currentLine = '';
-                if (isInBold) currentLine += '<b>';
-                if (isInItalic) currentLine += '<i>';
+                testLine = '';
+                if (isInBold) {
+                    currentLine += '<b>';
+                    testLine += '<b>';
+                }
+                if (isInItalic) {
+                    currentLine += '<i>';
+                    testLine += '<i>';
+                }
                 
-                // Add the current word (but don't add leading spaces to a new line)
-                currentLine += word.trimStart();
+                // Process formatting tags in this word
+                // Handle <b> and </b> tags
+                let processedWord = word;
+                let boldTagsFound = false;
+                let italicTagsFound = false;
                 
-                // Reset test line
+                if (word.includes('<b>')) {
+                    isInBold = true;
+                    boldTagsFound = true;
+                }
+                if (word.includes('</b>')) {
+                    isInBold = false;
+                    boldTagsFound = true;
+                }
+                if (word.includes('<i>')) {
+                    isInItalic = true;
+                    italicTagsFound = true;
+                }
+                if (word.includes('</i>')) {
+                    isInItalic = false;
+                    italicTagsFound = true;
+                }
+                
+                currentLine += processedWord;
                 testLine = currentLine;
+                currentWidth = wordWidth;
             } else {
-                currentLine = testLine;
+                // Add a space before the current word if it's not the first word
+                if (i > 0) {
+                    currentLine += ' ';
+                    testLine += ' ';
+                    currentWidth += spaceWidth;
+                }
+                
+                // Process formatting tags in this word
+                if (word.includes('<b>')) {
+                    isInBold = true;
+                }
+                if (word.includes('</b>')) {
+                    isInBold = false;
+                }
+                if (word.includes('<i>')) {
+                    isInItalic = true;
+                }
+                if (word.includes('</i>')) {
+                    isInItalic = false;
+                }
+                
+                currentLine += word;
+                testLine = currentLine;
+                currentWidth += wordWidth;
             }
         }
         
-        // Add the last line
+        // Add the last line if it exists
         if (currentLine) {
             // Close any open tags
             if (isInBold) currentLine += '</b>';
