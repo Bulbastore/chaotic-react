@@ -1105,8 +1105,12 @@ if (cardData.brainwashed && (cardData.ability || cardData.brainwashedText)) {
     let abilityLines = [];
     let brainwashedLines = [];
     let abilityHeight, brainwashedHeight, totalHeight;
-
-    // Adjust font size to fit text within the defined area
+    
+    // Define fixed positions for unique text and margin
+    const uniqueTextY = 308;
+    const uniqueTextTopMargin = 4; // Space between brainwashed text and unique line
+    
+    // Adjust font size to fit text within the defined area 
     while (fontSize > 5) {
         setFont(fontSize, 'Eurostile Medium');
         lineHeight = fontSize * 1.2;
@@ -1116,18 +1120,25 @@ if (cardData.brainwashed && (cardData.ability || cardData.brainwashedText)) {
         brainwashedLines = cardData.brainwashedText ? wrapText(cardData.brainwashedText, 172) : [];
         abilityHeight = abilityLines.length * lineHeight;
         brainwashedHeight = brainwashedLines.length * lineHeight;
+        
+        // Calculate total height adjusted for unique text if needed
+        const effectiveTextBoxHeight = cardData.unique ? 
+            (uniqueTextY - uniqueTextTopMargin) - textBoxTop : 
+            textBoxHeight;
+            
         totalHeight = abilityHeight + barHeight + lineHeight + brainwashedHeight;
 
-        if (totalHeight <= textBoxHeight) {
+        if (totalHeight <= effectiveTextBoxHeight) {
             break;
         }
 
+        // Reduce font size
         fontSize -= 0.5;
     }
 
     // Calculate positions
     const abilityStartY = textBoxTop;
-    const barY = abilityStartY + abilityHeight;
+    const barY = abilityStartY + abilityHeight - 6;
     const brainwashedStartY = barY + barHeight + lineHeight + 10;
 
     // Draw ability text with preserved formatting
@@ -1155,88 +1166,144 @@ if (cardData.brainwashed && (cardData.ability || cardData.brainwashedText)) {
         }
     }
 
-// Draw light grey background for brainwashed text
-       if (cardData.brainwashedText) {
-           const paddingSides = 5 * scale;
-           const paddingTop = 10 * scale;    
-           const paddingBottom = 5 * scale;  // Added bottom padding
-           const backgroundWidth = 160 * scale;
-           const maxBackgroundHeight = (textBoxBottom - brainwashedStartY - 10) * scale; // Limit height
-           const backgroundHeight = Math.min((brainwashedHeight + 5) * scale, maxBackgroundHeight);
-           const backgroundX = 50 * scale;
-           const backgroundY = (brainwashedStartY - 2) * scale;
-
-           // Reset any existing shadows/effects
-           ctx.shadowColor = 'transparent';
-           ctx.shadowBlur = 0;
-           ctx.shadowOffsetX = 0;
-           ctx.shadowOffsetY = 0;
-           ctx.strokeStyle = 'transparent';
-           ctx.lineWidth = 0;
-
-           ctx.fillStyle = 'rgb(220, 220, 220)';
-           ctx.beginPath();
-           ctx.roundRect(
-               backgroundX - paddingSides,
-               backgroundY - paddingTop,
-               backgroundWidth + (paddingSides * 2),
-               backgroundHeight + paddingTop + paddingBottom,
-               [0, 0, 5 * scale, 5 * scale]
-           );
-           ctx.fill();
-
-           // Ensure no stroke is drawn
-           ctx.strokeStyle = 'transparent';
-           ctx.stroke();
-       }
-
-       // Draw brainwashed bar
-       if (assets.brainwashedBar) {
-           const barWidth = 170;
-           const barStartX = 45;
-           drawImage(
-               assets.brainwashedBar,
-               0,
-               0,
-               assets.brainwashedBar.width,
-               assets.brainwashedBar.height,
-               45,
-               barY,
-               barWidth,
-               18
-           );
-       }
+    // Draw light grey background for brainwashed text
+    if (cardData.brainwashedText) {
+        // First calculate what the text will look like
+        const brainwashedMaxWidth = 166;
         
-// Draw brainwashed text
-// Draw brainwashed text
-if (cardData.brainwashedText) {
-    const brainwashedMaxWidth = 164;
-    const maxTextBottom = textBoxBottom - 3;
-    
-    // Use same exact font settings as ability text
-    setFont(fontSize, 'Eurostile Medium');
-    ctx.fillStyle = '#000000';
-    
-    brainwashedLines = wrapText(cardData.brainwashedText, brainwashedMaxWidth);
-    
-    // Calculate total height needed and adjust font size if necessary
-    let adjustedFontSize = fontSize;
-    let adjustedLineHeight = lineHeight;
-    while ((brainwashedStartY + (brainwashedLines.length * adjustedLineHeight)) > maxTextBottom && adjustedFontSize > 5) {
-        adjustedFontSize -= 0.5;
-        adjustedLineHeight = adjustedFontSize * 1.2;
-        setFont(adjustedFontSize, 'Eurostile Medium');
+        // Set up font for calculation
+        setFont(fontSize, 'Eurostile Heavy');
         brainwashedLines = wrapText(cardData.brainwashedText, brainwashedMaxWidth);
+        
+        // Calculate and adjust font size if needed
+        let adjustedFontSize = fontSize;
+        let adjustedLineHeight = lineHeight;
+        
+        // Calculate the maximum text position based on unique text
+        const maxTextBottom = cardData.unique ? 
+            uniqueTextY - uniqueTextTopMargin : 
+            textBoxBottom;
+        
+        while ((brainwashedStartY + (brainwashedLines.length * adjustedLineHeight)) > maxTextBottom && adjustedFontSize > 5) {
+            adjustedFontSize -= 0.5;
+            adjustedLineHeight = adjustedFontSize * 1.2;
+            setFont(adjustedFontSize, 'Eurostile Heavy');
+            brainwashedLines = wrapText(cardData.brainwashedText, brainwashedMaxWidth);
+        }
+        
+        // Now we know the exact height needed for the text
+        const actualTextHeight = brainwashedLines.length * adjustedLineHeight;
+        
+        // Configure background dimensions
+        const paddingSides = 5 * scale;
+        const paddingTop = 10 * scale;
+        const paddingBottom = -5; // Small fixed padding at bottom
+        const backgroundWidth = 160 * scale;
+        const backgroundX = 50 * scale;
+        const backgroundY = (brainwashedStartY - 2) * scale;
+
+        // DEFINE MAXIMUM Y POSITION FOR GREY BOX BOTTOM
+        const maxGreyBoxBottom = cardData.unique ? 
+            (uniqueTextY - uniqueTextTopMargin) * scale : 
+            315 * scale;
+
+        // Calculate total height and resulting bottom position
+        let totalBackgroundHeight = (actualTextHeight * scale) + paddingTop + paddingBottom;
+        const calculatedBottom = backgroundY + totalBackgroundHeight;
+        
+        
+        // Reset any existing shadows/effects
+        ctx.shadowColor = 'transparent';
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+        ctx.strokeStyle = 'transparent';
+        ctx.lineWidth = 0;
+
+        // Draw the background using the actual text dimensions
+        ctx.fillStyle = 'rgb(220, 220, 220)';
+        ctx.beginPath();
+        ctx.roundRect(
+            backgroundX - paddingSides,
+            backgroundY - paddingTop,
+            backgroundWidth + (paddingSides * 2),
+            totalBackgroundHeight, // Use the potentially adjusted height here
+            [0, 0, 5 * scale, 5 * scale]
+        );
+        ctx.fill();
+
+        // Ensure no stroke is drawn
+        ctx.strokeStyle = 'transparent';
+        ctx.stroke();
     }
 
-    // Draw text with exact same settings as ability text
-    for (let i = 0; i < brainwashedLines.length; i++) {
-        const yPos = brainwashedStartY + (i * adjustedLineHeight);
-        if (yPos + adjustedLineHeight <= maxTextBottom) {
-            await drawTextWithSymbols(brainwashedLines[i], 50, yPos, adjustedFontSize);
+    // Draw brainwashed bar
+    if (assets.brainwashedBar) {
+        const barWidth = 170;
+        const barStartX = 45;
+        drawImage(
+            assets.brainwashedBar,
+            0,
+            0,
+            assets.brainwashedBar.width,
+            assets.brainwashedBar.height,
+            45,
+            barY,
+            barWidth,
+            18
+        );
+    }
+    
+    // Draw brainwashed text
+    if (cardData.brainwashedText) {
+        const brainwashedMaxWidth = 166;
+        // Set up font
+        setFont(fontSize, 'Eurostile Heavy');
+        ctx.fillStyle = '#000000';
+        
+        brainwashedLines = wrapText(cardData.brainwashedText, brainwashedMaxWidth);
+        
+        // Calculate total height needed and adjust font size if necessary
+        let adjustedFontSize = fontSize;
+        let adjustedLineHeight = lineHeight;
+        
+        // Calculate the maximum text position based on unique text
+        const maxTextBottom = cardData.unique ? 
+            uniqueTextY - uniqueTextTopMargin : 
+            textBoxBottom;
+        
+        while ((brainwashedStartY + (brainwashedLines.length * adjustedLineHeight)) > maxTextBottom && adjustedFontSize > 5) {
+            adjustedFontSize -= 0.5;
+            adjustedLineHeight = adjustedFontSize * 1.2;
+            setFont(adjustedFontSize, 'Eurostile Heavy');
+            brainwashedLines = wrapText(cardData.brainwashedText, brainwashedMaxWidth);
+        }
+
+        // Draw text with bold effect using multiple passes
+        for (let i = 0; i < brainwashedLines.length; i++) {
+            const yPos = brainwashedStartY + (i * adjustedLineHeight);
+            if (yPos + adjustedLineHeight <= maxTextBottom) {
+                // First pass - draw the text normally
+                await drawTextWithSymbols(brainwashedLines[i], 48, yPos, adjustedFontSize);
+                
+                // Second pass - draw the same text with slight offset
+                // This creates a subtle bolding effect
+                await drawTextWithSymbols(brainwashedLines[i], 48.3, yPos, adjustedFontSize);
+            }
         }
     }
-}
+    
+    // Draw "Unique" text at fixed position if the card is unique
+    if (cardData.unique) {
+        // Set font to match the rest of the card text
+        setFont(fontSize, 'Eurostile Heavy');
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'left';
+        
+        // Draw at fixed y position
+        fillText("Unique", 45, uniqueTextY);
+    }
+
 } else {
 
    // Calculate flavor text height and font size first

@@ -809,15 +809,18 @@ return (
         // Infer brainwashed state from either explicit flag or presence of brainwashed text
         setBrainwashed(cardData.brainwashed || hasBrainwashedText);
         
-        // If inferred as brainwashed, make sure to hide incompatible properties
+        // Always preserve the unique property regardless of brainwashed status
+        setUnique(cardData.unique || false);
+
+        // Only set legendary and loyal for non-brainwashed creatures
         if (cardData.brainwashed || hasBrainwashedText) {
-          setUnique(false);
+          // Reset legendary and loyal for brainwashed creatures
           setLegendary(false);
           setLoyal(false);
-          // Optionally clear flavor text as well since it's not shown for brainwashed creatures
+          // Clear flavor text since it's not shown for brainwashed creatures
           setFlavorText('');
         } else {
-          setUnique(cardData.unique || false);
+          // Set legendary and loyal for non-brainwashed creatures
           setLegendary(cardData.legendary || false);
           setLoyal(cardData.loyal || false);
         }
@@ -997,9 +1000,6 @@ return (
         onChange={(e) => {
           setBrainwashed(e.target.checked);
           if (e.target.checked) {
-            setUnique(false);
-            setLegendary(false);
-            setLoyal(false);
             setFlavorText('');
           }
         }}
@@ -1129,9 +1129,10 @@ return (
     </div>
   )}
 
-{/* Card Properties (Only show if not brainwashed and is creature/battlegear) */}
-{!brainwashed && ['creature', 'battlegear'].includes(selectedType) && (
+{/* Card Properties - Unique is always available, Legendary and Loyal only if not brainwashed */}
+{['creature', 'battlegear'].includes(selectedType) && (
     <div className="flex flex-wrap items-center justify-center gap-4 pt-0 border-gray-700">
+        {/* Unique checkbox always visible */}
         <div className="flex items-center gap-2">
             <label className="font-bold">Unique</label>
             <input 
@@ -1142,32 +1143,37 @@ return (
             />
         </div>
         
-        <div className="flex items-center gap-2">
-            <label className="font-bold">Legendary</label>
-            <input 
-                type="checkbox" 
-                checked={legendary}
-                onChange={(e) => setLegendary(e.target.checked)}
-                className="w-4 h-4 accent-[#9FE240]" 
-            />
-        </div>
-        
-        <div className="flex items-center gap-2">
-            <label className="font-bold">Loyal</label>
-            <input 
-                type="checkbox" 
-                checked={loyal}
-                onChange={(e) => setLoyal(e.target.checked)}
-                className="w-4 h-4 accent-[#9FE240]" 
-            />
-            <input 
-                type="text" 
-                value={loyalRestriction}
-                onChange={(e) => setLoyalRestriction(e.target.value)}
-                className="w-32 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none" 
-                placeholder="Restriction" 
-            />
-        </div>
+        {/* Legendary and Loyal only visible when not brainwashed */}
+        {!brainwashed && (
+            <>
+                <div className="flex items-center gap-2">
+                    <label className="font-bold">Legendary</label>
+                    <input 
+                        type="checkbox" 
+                        checked={legendary}
+                        onChange={(e) => setLegendary(e.target.checked)}
+                        className="w-4 h-4 accent-[#9FE240]" 
+                    />
+                </div>
+                
+                <div className="flex items-center gap-2">
+                    <label className="font-bold">Loyal</label>
+                    <input 
+                        type="checkbox" 
+                        checked={loyal}
+                        onChange={(e) => setLoyal(e.target.checked)}
+                        className="w-4 h-4 accent-[#9FE240]" 
+                    />
+                    <input 
+                        type="text" 
+                        value={loyalRestriction}
+                        onChange={(e) => setLoyalRestriction(e.target.value)}
+                        className="w-32 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none" 
+                        placeholder="Restriction" 
+                    />
+                </div>
+            </>
+        )}
     </div>
 )}
 </div>

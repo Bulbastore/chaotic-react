@@ -13,6 +13,12 @@ const CardPreview = ({ cardData }) => {
     let mounted = true;
 
     const updatePreview = async () => {
+    // Add this debug log
+    console.log("Rendering card with properties:", {
+      unique: cardData.unique,
+      brainwashed: cardData.brainwashed,
+      brainwashedText: cardData.brainwashedText
+    });      
       setError(null);
 
       if (!cardData.selectedType) {
