@@ -1136,10 +1136,16 @@ if (cardData.brainwashed && (cardData.ability || cardData.brainwashedText)) {
         fontSize -= 0.5;
     }
 
-    // Calculate positions
-    const abilityStartY = textBoxTop;
+    // Only center when both content areas have just 1 line
+    let verticalOffset = 0;
+    if (abilityLines.length === 1 && brainwashedLines.length === 1) {
+        // Add a fixed offset to move everything down slightly
+        verticalOffset = 15; // Adjust this value as needed (10-20px)
+    }
+    
+    const abilityStartY = textBoxTop + verticalOffset;
     const barY = abilityStartY + abilityHeight - 6;
-    const brainwashedStartY = barY + barHeight + lineHeight + 10;
+    const brainwashedStartY = barY + barHeight + lineHeight + 9;
 
     // Draw ability text with preserved formatting
     if (cardData.ability) {
