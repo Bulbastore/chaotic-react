@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/chaotic-react/static/css/main.ba631f9f.css",
-    "main.js": "/chaotic-react/static/js/main.932bb06d.js",
+    "main.js": "/chaotic-react/static/js/main.d497f4ce.js",
     "static/js/453.d33c3b84.chunk.js": "/chaotic-react/static/js/453.d33c3b84.chunk.js",
     "static/media/arial-narrow-italic.ttf": "/chaotic-react/static/media/arial-narrow-italic.465dc0649679f65097f5.ttf",
     "static/media/century-gothic-bold.ttf": "/chaotic-react/static/media/century-gothic-bold.861d22617fdfce5fc922.ttf",
@@ -16,11 +16,11 @@
     "static/media/Eurostile Cond Heavy Italic.ttf": "/chaotic-react/static/media/Eurostile Cond Heavy Italic.ab58fd6ff2a110ff0fab.ttf",
     "index.html": "/chaotic-react/index.html",
     "main.ba631f9f.css.map": "/chaotic-react/static/css/main.ba631f9f.css.map",
-    "main.932bb06d.js.map": "/chaotic-react/static/js/main.932bb06d.js.map",
+    "main.d497f4ce.js.map": "/chaotic-react/static/js/main.d497f4ce.js.map",
     "453.d33c3b84.chunk.js.map": "/chaotic-react/static/js/453.d33c3b84.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ba631f9f.css",
-    "static/js/main.932bb06d.js"
+    "static/js/main.d497f4ce.js"
   ]
 }
