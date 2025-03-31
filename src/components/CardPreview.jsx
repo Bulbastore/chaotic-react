@@ -13,12 +13,12 @@ const CardPreview = ({ cardData }) => {
     let mounted = true;
 
     const updatePreview = async () => {
-    // Add this debug log
-    console.log("Rendering card with properties:", {
-      unique: cardData.unique,
-      brainwashed: cardData.brainwashed,
-      brainwashedText: cardData.brainwashedText
-    });      
+      // Add this debug log
+      console.log("Rendering card with properties:", {
+        unique: cardData.unique,
+        brainwashed: cardData.brainwashed,
+        brainwashedText: cardData.brainwashedText
+      });      
       setError(null);
 
       if (!cardData.selectedType) {
@@ -77,16 +77,15 @@ const CardPreview = ({ cardData }) => {
         if (mounted) {
           canvas.id = 'preview-canvas';
           
-          // Canvas styling
+          // Fixed size canvas styling
           canvas.style.width = '100%';
-          canvas.style.height = '100%';
-          canvas.style.maxWidth = '100%';
-          canvas.style.maxHeight = '100%';
+          canvas.style.height = 'auto';
+          canvas.style.maxWidth = '450px'; // Maximum width for the card
           canvas.style.objectFit = 'contain';
           canvas.style.imageRendering = 'auto';
           canvas.style.display = 'block';
+          canvas.style.margin = '0 auto'; // Center the canvas
     
-
           // Clear and append the new canvas
           container.innerHTML = '';
           container.appendChild(canvas);
@@ -138,21 +137,20 @@ const CardPreview = ({ cardData }) => {
     return null;
   };
 
-return (
-  <div className="w-full h-full flex items-center justify-center px-2 lg:px-0">
-    <div className="w-full h-full flex items-center justify-center rounded-lg shadow-xl">
-      {getMessage()}
-      <div 
-        ref={containerRef}
-        className="flex items-center justify-center w-full h-full"
-        style={{ 
-          display: (!cardData.selectedType || ((cardData.selectedType === 'creature' || cardData.selectedType === 'mugic') && !cardData.tribe)) ? 'none' : 'flex'
-        }}
-      />
+  return (
+    <div className="w-full flex items-center justify-center px-2 lg:px-0">
+      <div className="w-full max-w-md aspect-[5/7] flex items-center justify-center rounded-lg shadow-xl">
+        {getMessage()}
+        <div 
+          ref={containerRef}
+          className="flex items-center justify-center w-full h-full"
+          style={{ 
+            display: (!cardData.selectedType || ((cardData.selectedType === 'creature' || cardData.selectedType === 'mugic') && !cardData.tribe)) ? 'none' : 'flex'
+          }}
+        />
+      </div>
     </div>
-  </div>
-);
-
+  );
 };
 
 export default CardPreview;

@@ -119,12 +119,12 @@ const SymbolBar = ({ onSymbolSelect }) => {
   // Original desktop version
   return (
     <div className="bg-black rounded-t border-b border-gray-700">
-      <div className="flex flex-wrap justify-center gap-1 p-1">
+      <div className="flex flex-wrap justify-center gap-[2px] p-1">
         {CARD_SYMBOLS.map(({ code, label, icon }) => (
           <button
             key={code}
             onClick={() => onSymbolSelect(code)}
-            className="p-1 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
+            className="p-[3px] bg-gray-200 rounded hover:bg-gray-300 transition-colors"
           >
             <img 
               src={icon} 
@@ -296,8 +296,8 @@ const generateTicks = (min, max, type) => {
 // Round to nearest step
 const roundToStep = (value, step) => Math.round(value / step) * step;
 
-// Enhanced Number Slider Component
-const NumberSlider = ({ value, onChange, min = 0, max = 4, step = 1, label, type = 'small' }) => {
+// Enhanced Number Slider Component with value-based coloring
+const NumberSlider = ({ value, onChange, min = 0, max = 4, step = 1, label, type = 'small', useOrangeColor = false }) => {
   const [inputValue, setInputValue] = useState(value.toString());
   const ticks = generateTicks(min, max, type);
   
@@ -307,7 +307,6 @@ const NumberSlider = ({ value, onChange, min = 0, max = 4, step = 1, label, type
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-    const newValue = parseInt(e.target.value) || 0;
   };
 
   const handleInputBlur = () => {
@@ -323,6 +322,20 @@ const NumberSlider = ({ value, onChange, min = 0, max = 4, step = 1, label, type
     onChange({ target: { value: newValue } });
   };
 
+  // Convert to numbers for comparison
+  const numValue = parseInt(value) || 0;
+  const numMax = parseInt(max) || 1;
+  
+  // Use orange in two cases:
+  // 1. If the useOrangeColor flag is true (from preset dropdown)
+  // 2. OR if this specific value is at its maximum (for random selection cases)
+  const isAtMax = numValue === numMax;
+  const shouldUseOrange = (useOrangeColor || isAtMax) && type !== 'small';
+  const sliderColor = shouldUseOrange ? '#FF9933' : '#9FE240';
+  
+  // Calculate percentage for gradient
+  const percentage = (numValue / numMax) * 100;
+
   return (
     <div className="flex items-center gap-2 w-full px-2">
       <label className="w-16 text-right font-bold text-white text-sm whitespace-nowrap">{label}</label>
@@ -336,7 +349,7 @@ const NumberSlider = ({ value, onChange, min = 0, max = 4, step = 1, label, type
           step={step}
           className="w-full h-3 bg-gray-900 rounded-lg appearance-none cursor-pointer"
           style={{
-            background: `linear-gradient(to right, #9FE240 0%, #9FE240 ${(value/max)*100}%, #333 ${(value/max)*100}%, #333 100%)`
+            background: `linear-gradient(to right, ${sliderColor} 0%, ${sliderColor} ${percentage}%, #333 ${percentage}%, #333 100%)`
           }}
         />
         <div className="w-full flex justify-between mt-1">
@@ -439,6 +452,15 @@ const CardForm = () => {
   const [serialNumber, setSerialNumber] = useState('');
   const [showCopyright, setShowCopyright] = useState(true);
   const [showArtist, setShowArtist] = useState(true);
+  const [statsPreset, setStatsPreset] = useState('mid');
+  const [originalMaxStats, setOriginalMaxStats] = useState({
+    energy: 0,
+    courage: 0,
+    power: 0,
+    wisdom: 0,
+    speed: 0,
+    mugic: 0
+  });
   const [useBleedTemplates, setUseBleedTemplates] = useState(false);
   const [selectedType, setSelectedType] = useState('');
   const [canvasRef, setCanvasRef] = useState(null);
@@ -457,6 +479,7 @@ const CardForm = () => {
   const [loyal, setLoyal] = useState(false);
   const [loyalRestriction, setLoyalRestriction] = useState('');
   const [forceUpdate, setForceUpdate] = useState(false);
+  const [useOrangeSliders, setUseOrangeSliders] = useState(false);
   const getFormattedSubtype = (type, tribe, subtype, isPast) => {
     if (!tribe) return '';
 
@@ -524,6 +547,82 @@ const resetForm = () => {
   setShowCopyright(true);
 setShowArtist(true);
   setBrainwashedText('');
+};
+
+const adjustStatsBasedOnPreset = (maxStats, preset) => {
+  if (!maxStats) return maxStats;
+  
+  const adjustedStats = { ...maxStats };
+  
+  switch (preset) {
+    case 'max':
+      // Return the original max stats directly
+      return { ...maxStats };
+    case 'mid':
+      // For mid: -10 to courage/power/wisdom/speed, -5 to energy from max
+      adjustedStats.courage = Math.max(0, maxStats.courage - 10);
+      adjustedStats.power = Math.max(0, maxStats.power - 10);
+      adjustedStats.wisdom = Math.max(0, maxStats.wisdom - 10);
+      adjustedStats.speed = Math.max(0, maxStats.speed - 10);
+      adjustedStats.energy = Math.max(0, maxStats.energy - 5);
+      return adjustedStats;
+    case 'min':
+      // For min: -20 to courage/power/wisdom/speed, -10 to energy from max
+      adjustedStats.courage = Math.max(0, maxStats.courage - 20);
+      adjustedStats.power = Math.max(0, maxStats.power - 20);
+      adjustedStats.wisdom = Math.max(0, maxStats.wisdom - 20);
+      adjustedStats.speed = Math.max(0, maxStats.speed - 20);
+      adjustedStats.energy = Math.max(0, maxStats.energy - 10);
+      return adjustedStats;
+    default:
+      return { ...maxStats };
+  }
+};
+
+// Add this function right after adjustStatsBasedOnPreset
+const generateRandomStats = (maxStats) => {
+  const result = { ...maxStats };
+  
+  // Box-Muller transform to generate normally distributed random numbers
+  const generateGaussian = (mean, stdev) => {
+    const u = 1 - Math.random(); // Converting [0,1) to (0,1]
+    const v = Math.random();
+    const z = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+    // Transform to desired mean and standard deviation
+    return z * stdev + mean;
+  };
+  
+  // Define stats that should use bell curve (all except mugic)
+  const bellCurveStats = ['energy', 'courage', 'power', 'wisdom', 'speed'];
+  
+  bellCurveStats.forEach(stat => {
+    // Define the min value for each stat
+    const minValue = stat === 'energy' ? maxStats[stat] - 10 : maxStats[stat] - 20;
+    
+    // Set up the mean and standard deviation for bell curve
+    // Mean is set between min and max, but closer to the mid value
+    const mean = (maxStats[stat] + minValue) / 2;
+    const stdev = (maxStats[stat] - minValue) / 4; // Standard deviation covers most of the range
+    
+    // Generate a random value using bell curve distribution
+    let randomValue = Math.round(generateGaussian(mean, stdev));
+    
+    // Ensure value stays within min-max bounds
+    randomValue = Math.max(minValue, Math.min(maxStats[stat], randomValue));
+    
+    // For stats other than energy, round to nearest 5
+    if (stat !== 'energy' || randomValue >= 25) {
+      randomValue = Math.round(randomValue / 5) * 5;
+    }
+    
+    result[stat] = randomValue;
+  });
+  
+  // Handle mugic separately since it has a small range
+  // Just pick a random value between 0 and max mugic
+  result.mugic = Math.floor(Math.random() * (maxStats.mugic + 1));
+  
+  return result;
 };
 
   // Function to determine if card type can have legendary/loyal properties
@@ -737,8 +836,10 @@ const handleBleedDownload = async () => {
 };
 
 return (
-<div className="container mx-auto flex flex-col lg:flex-row gap-0 p-2 lg:p-4 min-h-screen w-full max-w-none">
-  <div className="w-full lg:w-1/2 bg-black text-white flex flex-col">
+  // Added a max-width container that centers the content
+  <div className="mx-auto flex flex-col lg:flex-row gap-0 p-2 lg:p-4 min-h-screen max-w-6xl">
+    {/* Form Section - fixed width on large screens */}
+    <div className="w-full lg:w-1/2 bg-black text-white flex flex-col">
       <div className="flex-1 overflow-y-auto space-y-4">
 
       {/* Card Type Selection */}
@@ -835,15 +936,25 @@ return (
         setArtist(cardData.artist || '');
         setSerialNumber(cardData.serialNumber || '');
         
-        // Set stats
-        setStats({
+        // Reset statsPreset to 'mid' whenever a new creature is selected
+        setStatsPreset('mid');
+
+        // Get the original stats and adjust them based on preset
+        const originalStats = {
           energy: cardData.stats.energy || 0,
           courage: cardData.stats.courage || 0,
           power: cardData.stats.power || 0,
           wisdom: cardData.stats.wisdom || 0,
           speed: cardData.stats.speed || 0,
           mugic: cardData.stats.mugic || 0
-        });
+        };
+      
+        // Save the original max stats
+        setOriginalMaxStats(originalStats);
+      
+       // Apply the default 'mid' preset
+        const adjustedStats = adjustStatsBasedOnPreset(originalStats, 'mid');
+        setStats(adjustedStats);
         
         // Set elements
         setElements({
@@ -1236,6 +1347,7 @@ return (
         <label htmlFor="show-copyright" className="text-sm text-gray-300">Show copyright line</label>
     </div>
 </div>
+
 </div>
           </div>
 
@@ -1290,26 +1402,9 @@ return (
     </div>
   </div>
 )}
+
           </div>
         )}
-
-{/* Download Buttons for Non-Attack Cards */}
-{selectedType && selectedType !== 'attack' && (
-  <div className="flex justify-center gap-4 mt-5">
-    <button 
-      onClick={handleDownload}
-      className="px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
-    >
-      Download Standard
-    </button>
-    <button 
-      onClick={handleBleedDownload}
-      className="px-6 py-2 bg-[#FF9933] text-black font-bold rounded hover:bg-[#FF8822] transition-colors"
-    >
-      Download with Bleed
-    </button>
-  </div>
-)}
       </div>
     </div>
 <div className="w-full lg:w-1/2 flex flex-col h-full lg:ml-5">
@@ -1393,6 +1488,7 @@ return (
             max={stat === 'mugic' ? 5 : 220}
             step={stat === 'mugic' ? 1 : 5}
             type={stat === 'mugic' ? 'small' : 'stats'}
+            useOrangeColor={useOrangeSliders || (originalMaxStats[stat] !== undefined && value === originalMaxStats[stat])}
           />
         ))}
       </div>
@@ -1400,11 +1496,68 @@ return (
   )}
 
 </div>
-
 {/* Stats Section - Desktop Only */}
 <div className="hidden lg:block">
   {selectedType === 'creature' && (
     <div className="max-w-[620px] w-full bg-black border border-gray-700 rounded-lg mt-5">
+     <div className="w-full max-w-xs mx-auto bg-black border border-gray-700 rounded-lg mt-3 mb-2 p-2">
+      <div className="flex items-center justify-center gap-3">
+        <div className="flex items-center gap-2">
+          <label className="font-bold text-white">Stats Preset:</label>
+          <select
+            value={statsPreset}
+            onChange={(e) => {
+              const newPreset = e.target.value;
+              setStatsPreset(newPreset);
+              
+              // Set the orange slider flag based on preset selection
+              setUseOrangeSliders(newPreset === 'max');
+              
+              if (newPreset === 'random') {
+                // Modified to preserve mugic stat
+                const originalMugic = stats.mugic;
+                const randomStats = generateRandomStats(originalMaxStats);
+                // Keep the original mugic value
+                randomStats.mugic = originalMugic;
+                setStats(randomStats);
+              } else {
+                // Use the existing adjustment for other presets
+                const adjustedStats = adjustStatsBasedOnPreset(originalMaxStats, newPreset);
+                setStats(adjustedStats);
+              }
+            }}
+            className="w-24 p-1 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
+          >
+            <option value="max">Max</option>
+            <option value="mid">Mid</option>
+            <option value="min">Min</option>
+            <option value="random">Random</option>
+          </select>
+        </div>
+        
+        {/* Dice Button - Only visible when random is selected */}
+        {statsPreset === 'random' && (
+          <button 
+            onClick={() => {
+              // Modified to preserve mugic stat
+              const originalMugic = stats.mugic;
+              const randomStats = generateRandomStats(originalMaxStats);
+              // Keep the original mugic value
+              randomStats.mugic = originalMugic;
+              setStats(randomStats);
+            }}
+            className="bg-transparent border-none p-0"
+            title="Re-roll random stats"
+          >
+            <img 
+              src={getAssetPath('img/d20.png')}
+              alt="Re-roll dice" 
+              className="w-10 h-10 object-contain hover:opacity-80 transition-opacity"
+            />
+          </button>
+        )}
+      </div>
+    </div>
       <div className="grid grid-cols-1 gap-0 p-2">
         {Object.entries(stats).map(([stat, value]) => (
           <NumberSlider
@@ -1418,12 +1571,30 @@ return (
             max={stat === 'mugic' ? 5 : 220}
             step={stat === 'mugic' ? 1 : 5}
             type={stat === 'mugic' ? 'small' : 'stats'}
+            useOrangeColor={useOrangeSliders || (originalMaxStats[stat] !== undefined && value === originalMaxStats[stat])}
           />
         ))}
       </div>
     </div>
   )}
-
+  
+{/* Download Buttons for Non-Attack Cards */}
+{selectedType && selectedType !== 'attack' && (
+  <div className="flex justify-center gap-4 mt-5">
+    <button 
+      onClick={handleDownload}
+      className="px-6 py-2 bg-[#9FE240] text-black font-bold rounded hover:bg-[#8FD230] transition-colors"
+    >
+      Download Standard
+    </button>
+    <button 
+      onClick={handleBleedDownload}
+      className="px-6 py-2 bg-[#FF9933] text-black font-bold rounded hover:bg-[#FF8822] transition-colors"
+    >
+      Download with Bleed
+    </button>
+  </div>
+)}
 </div>
 </div>
 
