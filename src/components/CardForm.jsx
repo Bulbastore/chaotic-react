@@ -582,48 +582,98 @@ const adjustStatsBasedOnPreset = (maxStats, preset) => {
   }
 };
 
-// Add this function right after adjustStatsBasedOnPreset
+// Modified version of generateRandomStats with significantly reduced probabilities
 const generateRandomStats = (maxStats) => {
   const result = { ...maxStats };
   
-  // Box-Muller transform to generate normally distributed random numbers
-  const generateGaussian = (mean, stdev) => {
-    const u = 1 - Math.random(); // Converting [0,1) to (0,1]
-    const v = Math.random();
-    const z = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
-    // Transform to desired mean and standard deviation
-    return z * stdev + mean;
-  };
+  // Define combat stats (excluding energy, which has special handling)
+  const combatStats = ['courage', 'power', 'wisdom', 'speed'];
   
-  // Define stats that should use bell curve (all except mugic)
-  const bellCurveStats = ['energy', 'courage', 'power', 'wisdom', 'speed'];
+  // Individual probability for each combat stat to be max (5%)
+  const combatMaxProbability = 0.05;
   
-  bellCurveStats.forEach(stat => {
-    // Define the min value for each stat
-    const minValue = stat === 'energy' ? maxStats[stat] - 10 : maxStats[stat] - 20;
+  // Higher probability for energy to be max (10%)
+  const energyMaxProbability = 0.10;
+  
+  // Special handling for multi-max probability
+  // This determines if we'll try to generate a multi-max card
+  const multiMaxRoll = Math.random();
+  let forcedMaxCount = 0;
+  
+  // Much more restrained distribution of multi-max cards:
+  // ~0.1% chance of 4 max stats (1 in 1000 rolls)
+  // ~0.5% chance of 3 max stats (1 in 200 rolls)
+  // ~2% chance of 2 max stats (1 in 50 rolls)
+  if (multiMaxRoll < 0.001) {
+    // Force 4 max stats (extremely rare)
+    forcedMaxCount = 4;
+  } else if (multiMaxRoll < 0.006) {
+    // Force 3 max stats (very rare)
+    forcedMaxCount = 3;
+  } else if (multiMaxRoll < 0.026) {
+    // Force 2 max stats (rare)
+    forcedMaxCount = 2;
+  }
+  
+  // If we're forcing multiple max stats, randomly select which ones
+  let statsToMax = [];
+  if (forcedMaxCount > 0) {
+    // Create a copy of combatStats and shuffle it
+    const shuffledStats = [...combatStats].sort(() => Math.random() - 0.5);
+    // Take the first N stats to max
+    statsToMax = shuffledStats.slice(0, forcedMaxCount);
     
-    // Set up the mean and standard deviation for bell curve
-    // Mean is set between min and max, but closer to the mid value
-    const mean = (maxStats[stat] + minValue) / 2;
-    const stdev = (maxStats[stat] - minValue) / 4; // Standard deviation covers most of the range
+    // 30% chance to include energy in the maxed stats if we're doing multi-max
+    if (Math.random() < 0.3) {
+      statsToMax.push('energy');
+      // If we already selected all combat stats, remove one to maintain the count
+      if (statsToMax.length > forcedMaxCount) {
+        statsToMax.pop();
+      }
+    }
+  }
+  
+  // Handle combat stats
+  combatStats.forEach(stat => {
+    // Max this stat if it's in our forced list OR if we roll the individual probability
+    if (statsToMax.includes(stat) || Math.random() < combatMaxProbability) {
+      // Set to max value
+      result[stat] = maxStats[stat];
+    } else {
+      // For non-maxed stats, use a more balanced distribution
+      const minValue = maxStats[stat] - 20;
+      
+      // Random number between 0 and 1, with moderate skew toward higher values
+      const skewedRandom = Math.pow(Math.random(), 0.85); // Less aggressive skew
+      
+      // Calculate value between min and max, with skew toward max
+      let randomValue = Math.round(minValue + (maxStats[stat] - minValue) * skewedRandom);
+      
+      // Round to nearest 5
+      randomValue = Math.round(randomValue / 5) * 5;
+      
+      result[stat] = randomValue;
+    }
+  });
+  
+  // Handle energy separately with higher max probability
+  if (statsToMax.includes('energy') || Math.random() < energyMaxProbability) {
+    result.energy = maxStats.energy;
+  } else {
+    const minValue = maxStats.energy - 10;
+    const skewedRandom = Math.pow(Math.random(), 0.85);
+    let randomValue = Math.round(minValue + (maxStats.energy - minValue) * skewedRandom);
     
-    // Generate a random value using bell curve distribution
-    let randomValue = Math.round(generateGaussian(mean, stdev));
-    
-    // Ensure value stays within min-max bounds
-    randomValue = Math.max(minValue, Math.min(maxStats[stat], randomValue));
-    
-    // For stats other than energy, round to nearest 5
-    if (stat !== 'energy' || randomValue >= 25) {
+    // Round if needed
+    if (randomValue >= 25) {
       randomValue = Math.round(randomValue / 5) * 5;
     }
     
-    result[stat] = randomValue;
-  });
+    result.energy = randomValue;
+  }
   
-  // Handle mugic separately since it has a small range
-  // Just pick a random value between 0 and max mugic
-  result.mugic = Math.floor(Math.random() * (maxStats.mugic + 1));
+  // Mugic never changes from its initial value
+  result.mugic = maxStats.mugic;
   
   return result;
 };
@@ -1511,6 +1561,59 @@ return (
 <div className="lg:hidden flex flex-col mb-24 mt-4">
   {selectedType === 'creature' && (
     <div className="w-full bg-black border border-gray-700 rounded-lg mb-4">
+      {/* Add the preset selector for mobile */}
+      <div className="p-3 border-b border-gray-700">
+        <div className="flex items-center justify-between">
+          <label className="font-bold text-white text-sm">Stats Preset:</label>
+          <div className="flex items-center gap-2">
+            <select
+              value={statsPreset}
+              onChange={(e) => {
+                const newPreset = e.target.value;
+                setStatsPreset(newPreset);
+                setUseOrangeSliders(newPreset === 'max');
+                
+                if (newPreset === 'random') {
+                  const originalMugic = stats.mugic;
+                  const randomStats = generateRandomStats(originalMaxStats);
+                  randomStats.mugic = originalMugic;
+                  setStats(randomStats);
+                } else {
+                  const adjustedStats = adjustStatsBasedOnPreset(originalMaxStats, newPreset);
+                  setStats(adjustedStats);
+                }
+              }}
+              className="w-20 p-1 border border-gray-700 rounded bg-black text-white text-sm focus:border-[#9FE240] focus:outline-none"
+            >
+              <option value="max">Max</option>
+              <option value="mid">Mid</option>
+              <option value="min">Min</option>
+              <option value="random">Random</option>
+            </select>
+            
+            {statsPreset === 'random' && (
+              <button 
+                onClick={() => {
+                  const originalMugic = stats.mugic;
+                  const randomStats = generateRandomStats(originalMaxStats);
+                  randomStats.mugic = originalMugic;
+                  setStats(randomStats);
+                }}
+                className="bg-transparent border-none p-0"
+                title="Re-roll random stats"
+              >
+                <img 
+                  src={getAssetPath('img/d20.png')}
+                  alt="Re-roll dice" 
+                  className="w-8 h-8 object-contain"
+                />
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+      
+      {/* Existing stats sliders */}
       <div className="grid grid-cols-1 gap-0 p-2">
         {Object.entries(stats).map(([stat, value]) => (
           <NumberSlider
@@ -1530,8 +1633,8 @@ return (
       </div>
     </div>
   )}
-
 </div>
+
 {/* Stats Section - Desktop Only */}
 <div className="hidden lg:block">
   {selectedType === 'creature' && (
