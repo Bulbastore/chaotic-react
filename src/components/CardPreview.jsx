@@ -138,7 +138,7 @@ const CardPreview = ({ cardData }) => {
   };
 
   return (
-    <div className="w-full flex items-center justify-center px-2 lg:px-0">
+    <div className="w-full flex items-center justify-center px-2 lg:px-0 overflow-visible">
       <div className="w-full max-w-md aspect-[5/7] flex items-center justify-center rounded-lg shadow-xl">
         {getMessage()}
         <div 

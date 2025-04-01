@@ -480,6 +480,9 @@ const CardForm = () => {
   const [loyalRestriction, setLoyalRestriction] = useState('');
   const [forceUpdate, setForceUpdate] = useState(false);
   const [useOrangeSliders, setUseOrangeSliders] = useState(false);
+  const isMobileBrowser = () => {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  };
   const getFormattedSubtype = (type, tribe, subtype, isPast) => {
     if (!tribe) return '';
 
@@ -696,7 +699,22 @@ const handleDownload = () => {
     const filename = name ? 
       `${name}${subname ? `, ${subname}` : ''}.png` : 
       'card.png';
-    CardCreator.downloadCard(previewCanvas, filename);
+    
+    if (isMobileBrowser()) {
+      // For mobile devices, create an anchor to open image in new tab
+      previewCanvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank'; // Open in new tab
+        link.click();
+        // Clean up
+        setTimeout(() => URL.revokeObjectURL(url), 100);
+      }, 'image/png');
+    } else {
+      // Use normal download for desktop
+      CardCreator.downloadCard(previewCanvas, filename);
+    }
   }
 };
 
@@ -814,7 +832,25 @@ const handleBleedDownload = async () => {
     // Download the bleed card
     CardCreator.downloadCard(bleedCanvas, filename);
     
-    console.log('Bleed card created and downloaded successfully');
+        // After creating the bleed card
+    if (isMobileBrowser()) {
+      // For mobile devices
+      bleedCanvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank'; // Open in new tab
+        link.click();
+        // Clean up
+        setTimeout(() => URL.revokeObjectURL(url), 100);
+      }, 'image/png');
+    } else {
+      // Use normal download for desktop
+      const filename = name ? 
+        `${name}${subname ? `, ${subname}` : ''}_bleed.png` : 
+        'card_bleed.png';
+      CardCreator.downloadCard(bleedCanvas, filename);
+    }
     
   } catch (error) {
     console.error('Error creating bleed card:', error);
@@ -837,7 +873,7 @@ const handleBleedDownload = async () => {
 
 return (
   // Added a max-width container that centers the content
-  <div className="mx-auto flex flex-col lg:flex-row gap-0 p-2 lg:p-4 min-h-screen max-w-6xl">
+  <div className="mx-auto flex flex-col lg:flex-row gap-0 p-2 lg:p-4 max-w-6xl">
     {/* Form Section - fixed width on large screens */}
     <div className="w-full lg:w-1/2 bg-black text-white flex flex-col">
       <div className="flex-1 overflow-y-auto space-y-4">
@@ -1472,7 +1508,7 @@ return (
 )}
 
 {/* Stats Section - Mobile Only */}
-<div className="lg:hidden flex flex-col mb-20">
+<div className="lg:hidden flex flex-col mb-24 mt-4">
   {selectedType === 'creature' && (
     <div className="w-full bg-black border border-gray-700 rounded-lg mb-4">
       <div className="grid grid-cols-1 gap-0 p-2">
@@ -1599,7 +1635,7 @@ return (
 </div>
 
 {/* Download Buttons - Mobile Only */}
-<div className="lg:hidden sticky bottom-0 w-full bg-black p-4 border-t border-gray-700">
+<div className="lg:hidden fixed bottom-0 w-full bg-black p-4 border-t border-gray-700 z-50">
   <div className="flex gap-2">
     <button
       onClick={handleDownload}
