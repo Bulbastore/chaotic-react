@@ -40,7 +40,7 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
   }, [isDropdownOpen]);
   
   // Filter creatures when search term changes
-  useEffect(() => {
+useEffect(() => {
     if (searchTerm.trim() === '') {
       setFilteredCreatures(allCreatures.current);
     } else {
@@ -48,6 +48,30 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
         creature.displayName.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredCreatures(filtered);
+      
+      // Auto-expand tribes that contain matches
+      if (searchTerm.trim() !== '') {
+        // Group the filtered creatures by tribe
+        const matchingTribes = filtered.reduce((tribes, creature) => {
+          const tribe = creature.tribe || 'unknown';
+          tribes[tribe] = true;
+          return tribes;
+        }, {});
+        
+        // Only expand tribes that have matches
+        setExpandedTribes(prev => {
+          const newState = {...prev};
+          // First set all to collapsed
+          tribeDisplayOrder.forEach(tribe => {
+            newState[tribe] = false;
+          });
+          // Then expand only those with matches
+          Object.keys(matchingTribes).forEach(tribe => {
+            newState[tribe] = true;
+          });
+          return newState;
+        });
+      }
     }
     // Reset selected index when filtered results change
     setSelectedIndex(-1);
