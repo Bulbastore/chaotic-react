@@ -6,6 +6,7 @@ import FormattingToolbar from './FormattingToolbar';
 import CreatureSelector from './CreatureSelector';
 import { getCreatureById } from './CreatureDatabase';
 import BatchGeneratorUI from './BatchGeneratorUI';
+import { urlToFile, loadAndCacheImage } from './imageCache';
 
 const CARD_SYMBOLS = [
   // Ability elements
@@ -137,6 +138,15 @@ const SymbolBar = ({ onSymbolSelect }) => {
     </div>
   );
 };
+
+const LoadingIndicator = () => (
+  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 rounded-lg pointer-events-none">
+    <div className="flex flex-col items-center">
+      <div className="w-20 h-20 border-4 border-[#9FE240] border-t-transparent rounded-full animate-spin"></div>
+      <div className="mt-3 text-[#9FE240] font-bold text-lg animate-pulse">Loading...</div>
+    </div>
+  </div>
+);
 
 const TextAreaWithSymbols = ({ value, onChange, allowFormatting = true }) => {
   const textareaRef = useRef(null);
@@ -448,6 +458,7 @@ const CardForm = () => {
   const [brainwashed, setBrainwashed] = useState(false);
   const [isPast, setIsPast] = useState(false);
   const [showBatchGenerator, setShowBatchGenerator] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [brainwashedText, setBrainwashedText] = useState('');
   const [serialNumber, setSerialNumber] = useState('');
   const [showCopyright, setShowCopyright] = useState(true);
@@ -686,32 +697,7 @@ const generateRandomStats = (maxStats) => {
   // Add the loadImageFromUrl function right here
   const loadImageFromUrl = async (url) => {
     if (!url) return null;
-    
-    try {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.crossOrigin = 'anonymous';
-        img.onload = () => {
-          // Convert image to File object
-          const canvas = document.createElement('canvas');
-          const ctx = canvas.getContext('2d');
-          canvas.width = img.width;
-          canvas.height = img.height;
-          ctx.drawImage(img, 0, 0);
-          
-          canvas.toBlob((blob) => {
-            const fileName = url.split('/').pop() || 'card-image.jpg';
-            const file = new File([blob], fileName, { type: 'image/jpeg' });
-            resolve(file);
-          }, 'image/jpeg');
-        };
-        img.onerror = () => reject(new Error('Failed to load image'));
-        img.src = url;
-      });
-    } catch (err) {
-      console.error('Error loading image:', err);
-      return null;
-    }
+    return urlToFile(url);
   };
   
   // Add useEffect to preload icons
@@ -976,8 +962,14 @@ return (
   <div className="p-4 border border-gray-700 rounded-lg bg-black">
     <CreatureSelector
       onSelectCreature={(creatureId, loyalRestriction) => {
+        // Set loading state immediately
+        setIsLoading(true);
+        
         const cardData = getCreatureById(creatureId);
-        if (!cardData) return;
+        if (!cardData) {
+          setIsLoading(false);
+          return;
+        }
         
         // Get brainwashed text
         const hasBrainwashedText = cardData.brainwashedText && cardData.brainwashedText.trim().length > 0;
@@ -1049,7 +1041,7 @@ return (
           earth: cardData.elements.earth || 0,
           water: cardData.elements.water || 0
         });
-        
+                
         // Load image if available
         if (cardData.imageUrl) {
           loadImageFromUrl(cardData.imageUrl)
@@ -1057,10 +1049,14 @@ return (
               if (imageFile) {
                 setArt(imageFile);
               }
+              setIsLoading(false);
             })
             .catch(err => {
               console.error('Failed to load image:', err);
+              setIsLoading(false);
             });
+        } else {
+          setIsLoading(false);
         }
         
         // Set Past flag based on isPast property only
@@ -1399,16 +1395,6 @@ return (
             className="w-48 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
         />
     </div>
-    <div className="flex items-center gap-2 ml-2">
-        <input 
-            type="checkbox" 
-            id="show-artist"
-            checked={showArtist}
-            onChange={(e) => setShowArtist(e.target.checked)}
-            className="w-4 h-4 accent-[#9FE240]" 
-        />
-        <label htmlFor="show-artist" className="text-sm text-gray-300">Show artist line</label>
-    </div>
 </div>
 
 <div className="flex flex-col gap-1">
@@ -1421,16 +1407,6 @@ return (
             placeholder="##/100"
             className="w-20 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
         />
-    </div>
-    <div className="flex items-center gap-2 ml-2">
-        <input 
-            type="checkbox" 
-            id="show-copyright"
-            checked={showCopyright}
-            onChange={(e) => setShowCopyright(e.target.checked)}
-            className="w-4 h-4 accent-[#9FE240]" 
-        />
-        <label htmlFor="show-copyright" className="text-sm text-gray-300">Show copyright line</label>
     </div>
 </div>
 
@@ -1494,7 +1470,8 @@ return (
       </div>
     </div>
 <div className="w-full lg:w-1/2 flex flex-col h-full lg:ml-5">
-  <div className="flex items-start justify-start">
+  <div className="flex items-start justify-start relative">
+    {isLoading && <LoadingIndicator />}
     <CardPreview 
       cardData={{
         selectedType,

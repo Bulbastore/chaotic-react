@@ -1444,7 +1444,8 @@ if (cardData.type === 'creature' && cardData.showCopyright !== false) {
     ctx.letterSpacing = "0.3px";
     ctx.textAlign = 'left';
     
-    const copyrightText = `${cardData.serialNumber || '--/100'}    ©2024 4Kids and Chaotic USA. Chaotic® Home Focus.`;
+    // New copyright text
+    const copyrightText = `${cardData.serialNumber || '--/100'}    This is a non-authentic proxy card made at Bulbastore.com`;
     
     switch(cardData.tribe?.toLowerCase()) {
         case 'overworld':

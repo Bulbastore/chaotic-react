@@ -9,11 +9,35 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
   const [filteredCreatures, setFilteredCreatures] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [flattenedCreatures, setFlattenedCreatures] = useState([]);
+  const [expandedTribes, setExpandedTribes] = useState({});
   const dropdownRef = useRef(null);
   const inputRef = useRef(null);
   const listRef = useRef(null);
   // Cache all creatures to avoid recalculation
   const allCreatures = useRef(getAllCreatureNames());
+  
+  // Define the tribe display order - doesn't change so defined outside
+  const tribeDisplayOrder = [
+    'overworld', 
+    'underworld', 
+    'mipedian', 
+    'danian', 
+    'm\'arrillian', 
+    'tribeless',
+    'unknown' // Keep unknown at the end
+  ];
+
+  // Initialize expanded tribes state when dropdown opens
+  useEffect(() => {
+    if (isDropdownOpen) {
+      // Start with all tribes collapsed by default
+      const initialExpandState = {};
+      tribeDisplayOrder.forEach(tribe => {
+        initialExpandState[tribe] = false;
+      });
+      setExpandedTribes(initialExpandState);
+    }
+  }, [isDropdownOpen]);
   
   // Filter creatures when search term changes
   useEffect(() => {
@@ -51,29 +75,18 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     return creaturesByTribe;
   }, [filteredCreatures]);
 
-  // Define the tribe display order - doesn't change so defined outside
-  const tribeDisplayOrder = [
-    'overworld', 
-    'underworld', 
-    'mipedian', 
-    'danian', 
-    'm\'arrillian', 
-    'tribeless',
-    'unknown' // Keep unknown at the end
-  ];
-
   // Create a flattened list for keyboard navigation
   useEffect(() => {
     const flattened = [];
     tribeDisplayOrder
-      .filter(tribe => groupedCreatures[tribe])
+      .filter(tribe => groupedCreatures[tribe] && expandedTribes[tribe])
       .forEach(tribe => {
         groupedCreatures[tribe].forEach(creature => {
           flattened.push(creature);
         });
       });
     setFlattenedCreatures(flattened);
-  }, [groupedCreatures]);
+  }, [groupedCreatures, expandedTribes]);
 
   // Format tribe name for display
   const formatTribe = (tribe) => {
@@ -86,6 +99,16 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
       case 'tribeless': return 'Tribeless';
       default: return tribe;
     }
+  };
+
+  // Toggle a tribe's expanded state
+  const toggleTribe = (tribe) => {
+    setExpandedTribes(prev => ({
+      ...prev,
+      [tribe]: !prev[tribe]
+    }));
+    // Reset selection index when toggling tribes
+    setSelectedIndex(-1);
   };
 
   // Memoize the selection handler to avoid recreating during renders
@@ -285,25 +308,45 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
                   .filter(tribe => groupedCreatures[tribe]) // Only include tribes that have creatures
                   .map(tribe => (
                     <div key={tribe} className="border-b border-gray-700 last:border-0">
-                      <div className="p-2 bg-gray-800 text-gray-300 text-xs font-bold uppercase tracking-wider">
-                        {formatTribe(tribe)}
-                      </div>
-                      {groupedCreatures[tribe].map(creature => (
-                        <div
-                          key={creature.id}
-                          className={`p-2 cursor-pointer border-t border-gray-700 first:border-0 creature-item ${
-                            isSelected(creature) ? 'bg-gray-700' : 'hover:bg-gray-800'
-                          }`}
-                          onClick={() => handleCreatureSelection(creature)}
-                          role="option"
-                          aria-selected={isSelected(creature)}
-                        >
-                          <div className="text-white">{creature.displayName}</div>
-                          {creature.isPast && (
-                            <div className="text-xs text-gray-400">Past</div>
+                      <div 
+                        className="p-2 bg-gray-800 text-gray-300 text-xs font-bold uppercase tracking-wider flex justify-between items-center cursor-pointer hover:bg-gray-700"
+                        onClick={() => toggleTribe(tribe)}
+                      >
+                        <span>{formatTribe(tribe)} ({groupedCreatures[tribe].length})</span>
+                        <span className="text-gray-400">
+                          {expandedTribes[tribe] ? (
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          ) : (
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
                           )}
+                        </span>
+                      </div>
+                      
+                      {/* Creature list - only show if tribe is expanded */}
+                      {expandedTribes[tribe] && (
+                        <div className="creature-list">
+                          {groupedCreatures[tribe].map(creature => (
+                            <div
+                              key={creature.id}
+                              className={`p-2 cursor-pointer border-t border-gray-700 first:border-0 creature-item ${
+                                isSelected(creature) ? 'bg-gray-700' : 'hover:bg-gray-800'
+                              }`}
+                              onClick={() => handleCreatureSelection(creature)}
+                              role="option"
+                              aria-selected={isSelected(creature)}
+                            >
+                              <div className="text-white">{creature.displayName}</div>
+                              {creature.isPast && (
+                                <div className="text-xs text-gray-400">Past</div>
+                              )}
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                      )}
                     </div>
                   ))
               )}

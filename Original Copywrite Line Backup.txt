@@ -1,0 +1,39 @@
+// Original copyright implementation from cardCreator.js
+
+// Draw copywrite info
+if (cardData.type === 'creature' && cardData.showCopyright !== false) {
+    setFont(5, 'Eurostile Cond Heavy Italic');
+    ctx.letterSpacing = "0.3px";
+    ctx.textAlign = 'left';
+    
+    const copyrightText = `${cardData.serialNumber || '--/100'}    ©2024 4Kids and Chaotic USA. Chaotic® Home Focus.`;
+    
+    switch(cardData.tribe?.toLowerCase()) {
+        case 'overworld':
+            ctx.fillStyle = '#c7e4ef';
+            break;
+        case 'underworld':
+            ctx.fillStyle = '#e1b0b3';
+            break;
+        case 'mipedian':
+            ctx.fillStyle = '#b1a277';
+            ctx.strokeStyle = '#6a5d35';
+            ctx.lineWidth = 2;
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+            break;
+        case 'danian':
+            ctx.fillStyle = '#c5ad95';
+            break;
+        case "m'arrillian":
+            ctx.fillStyle = '#cac8ba';
+            break;
+        case 'tribeless':
+            ctx.fillStyle = '#000000';
+            ctx.strokeStyle = '#cad1d9';
+            ctx.lineWidth = 4;
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+            break;
+    }
+    
+    fillText(copyrightText, 49, 344);
+}
