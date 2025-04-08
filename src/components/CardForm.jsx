@@ -754,7 +754,7 @@ const handleDownload = () => {
   }
 };
 
-// handleBleedDownload function with fix for brainwashed templates
+// Simple fix for handleBleedDownload function
 const handleBleedDownload = async () => {
   const previewCanvas = document.querySelector('#preview-canvas');
   if (!previewCanvas) return;
@@ -865,10 +865,7 @@ const handleBleedDownload = async () => {
       `${name}${subname ? `, ${subname}` : ''}_bleed.png` : 
       'card_bleed.png';
     
-    // Download the bleed card
-    CardCreator.downloadCard(bleedCanvas, filename);
-    
-        // After creating the bleed card
+    // DOWNLOAD ONLY ONCE - Choose correct method based on device type
     if (isMobileBrowser()) {
       // For mobile devices
       bleedCanvas.toBlob((blob) => {
@@ -882,11 +879,10 @@ const handleBleedDownload = async () => {
       }, 'image/png');
     } else {
       // Use normal download for desktop
-      const filename = name ? 
-        `${name}${subname ? `, ${subname}` : ''}_bleed.png` : 
-        'card_bleed.png';
       CardCreator.downloadCard(bleedCanvas, filename);
     }
+    
+    // REMOVE THE SECOND DOWNLOAD OPERATION THAT WAS HERE
     
   } catch (error) {
     console.error('Error creating bleed card:', error);
