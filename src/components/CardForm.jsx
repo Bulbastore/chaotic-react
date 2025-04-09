@@ -1153,6 +1153,7 @@ return (
                 { value: 'fun', label: 'Forged Unity' },
                 { value: 'au', label: 'Alliances Unraveled' },
                 { value: 'fas', label: 'Fire and Stone' },
+                { value: 'sas', label: 'Storm and Sea' },
                 { value: 'op', label: 'Organized Play' }
               ]}
             />
