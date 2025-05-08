@@ -537,6 +537,7 @@ function formatTribe(tribe) {
         case "mipedianow": return "Mipedian OverWorld";
         case "panivian": return "Panivian";
         case "umbrian": return "Umbrian";
+        case "frozen": return "Frozen";    
         default: return tribe;
     }
 }
@@ -1583,7 +1584,13 @@ if (cardData.showCopyright !== false) {
                 ctx.strokeStyle = '#344f30';
                 ctx.lineWidth = 2;
                 ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-                break;                
+                break;          
+            case 'frozen':
+                ctx.fillStyle = '#98d3db';
+                ctx.strokeStyle = '#3a96a3';
+                ctx.lineWidth = 2;
+                ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                break;                          
         }
         
         fillText(copyrightText, 49, 344);
@@ -1662,7 +1669,13 @@ if (cardData.artist && cardData.showArtist !== false) {
                 ctx.lineWidth = 2;
                 ctx.strokeText(artistText, 0, 0);
                 ctx.fillStyle = '#8cbe85';
-                break;                
+                break;       
+            case 'frozen':
+                ctx.strokeStyle = '#3a96a3';
+                ctx.lineWidth = 2;
+                ctx.strokeText(artistText, 0, 0);
+                ctx.fillStyle = '#98d3db';
+                break;                            
         }
         
         fillText(artistText, 0, 0);

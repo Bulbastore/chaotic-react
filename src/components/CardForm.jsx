@@ -518,7 +518,8 @@ const CardForm = () => {
       "m'arrillian": "M'arrillian",
       'tribeless': 'Past',
       'panivian': 'Panivian',
-      'umbrian': 'Umbrian'
+      'umbrian': 'Umbrian',
+      'frozen': 'Frozen'
     }[tribe.toLowerCase()];
 
     // Only add 'Past ' prefix if the tribe is not already tribeless/Past
@@ -1293,7 +1294,8 @@ return (
           { value: "m'arrillian", label: "M'arrillian" },
           { value: 'tribeless', label: 'Tribeless' },
           { value: 'panivian', label: 'Panivian' },
-          { value: 'umbrian', label: 'Umbrian' }
+          { value: 'umbrian', label: 'Umbrian' },
+          { value: 'frozen', label: 'Frozen' }
         ]}
       />
     </div>
@@ -1313,7 +1315,8 @@ return (
           { value: "m'arrillian", label: "M'arrillian" },
           { value: 'generic', label: 'Generic' },
           { value: 'panivian', label: 'Panivian' },
-          { value: 'umbrian', label: 'Umbrian' }
+          { value: 'umbrian', label: 'Umbrian' },
+          { value: 'frozen', label: 'Frozen' }
         ]}
       />
     )}
