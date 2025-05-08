@@ -1674,7 +1674,7 @@ if (cardData.artist && cardData.showArtist !== false) {
                 ctx.strokeStyle = '#3a96a3';
                 ctx.lineWidth = 2;
                 ctx.strokeText(artistText, 0, 0);
-                ctx.fillStyle = '#98d3db';
+                ctx.fillStyle = '#bce4ea';
                 break;                            
         }
         

@@ -440,16 +440,18 @@ const ElementItem = ({ element, value, onChange, type = 'creature' }) => (
     <input
       type="checkbox"
       id={`${type}-${element}`}
-      checked={value !== null}  // Changed from "value > 0" to "value !== null"
+      checked={type === 'attack' ? value !== null : value === 1}
       onChange={(e) => {
-        // When checkbox is checked, set to 0 (or 5 for attack)
-        // When unchecked, set to null
-        const defaultValue = type === 'attack' ? 5 : 0;
-        onChange({
-          target: {
-            value: e.target.checked ? defaultValue : null
-          }
-        });
+        if (type === 'attack') {
+          onChange({
+            target: {
+              value: e.target.checked ? 5 : null
+            }
+          });
+        } else {
+          // For creatures - simplified to directly update the state
+          onChange(element, e.target.checked ? 1 : 0);
+        }
       }}
       className="w-4 h-4 accent-[#9FE240]"
     />
@@ -1516,10 +1518,12 @@ return (
             key={element}
             element={element}
             value={value}
-            onChange={(e) => setElements(prev => ({
-              ...prev,
-              [element]: e.target.checked ? 1 : 0
-            }))}
+            onChange={(elementKey, newValue) => {
+              setElements(prev => ({
+                ...prev,
+                [elementKey]: newValue
+              }));
+            }}
           />
         ))}
       </div>
