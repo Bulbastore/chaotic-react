@@ -274,6 +274,16 @@ const ctx = canvas.getContext('2d');
 const scale = 4;
 let height = 0, width = 0;
 
+
+// Art placement configuration for each card type
+const ART_PLACEMENT_CONFIG = {
+  creature: { x: 7, y: 22.5, width: 236, height: 198 },
+  attack: { x: 0, y: 35, width: 251, height: 171 },
+  battlegear: { x: 0, y: 35, width: 250, height: 170 },
+  location: { x: 35, y: 34, width: 306, height: 137 },
+  mugic: { x: 0, y: 0, width: 250, height: 350 } // Uses full template size
+};
+
 //drawScaledImage function
 const drawScaledImage = (ctx, img, x, y, width, height, scale) => {
     // Create a temporary canvas for high-quality scaling
@@ -525,6 +535,8 @@ function formatTribe(tribe) {
         case "tribeless": return "";
         case "generic": return "Generic";
         case "mipedianow": return "Mipedian OverWorld";
+        case "panivian": return "Panivian";
+        case "umbrian": return "Umbrian";
         default: return tribe;
     }
 }
@@ -639,22 +651,22 @@ async function loadAssets(cardData) {
 
     // Load elements for attacks
     if (cardData.type === 'attack') {
-        if (cardData.elements?.fire) {
-            promises.push(loadAsset('fireattack', getAssetPath('img/fireattack.png'))
-                .then(img => assets.fireattack = img));
-        }
-        if (cardData.elements?.air) {
-            promises.push(loadAsset('airattack', getAssetPath('img/airattack.png'))
-                .then(img => assets.airattack = img));
-        }
-        if (cardData.elements?.earth) {
-            promises.push(loadAsset('earthattack', getAssetPath('img/earthattack.png'))
-                .then(img => assets.earthattack = img));
-        }
-        if (cardData.elements?.water) {
-            promises.push(loadAsset('waterattack', getAssetPath('img/waterattack.png'))
-                .then(img => assets.waterattack = img));
-        }
+      if (cardData.elements?.fire !== null && cardData.elements?.fire !== undefined) {
+        promises.push(loadAsset('fireattack', getAssetPath('img/fireattack.png'))
+          .then(img => assets.fireattack = img));
+      }
+      if (cardData.elements?.air !== null && cardData.elements?.air !== undefined) {
+        promises.push(loadAsset('airattack', getAssetPath('img/airattack.png'))
+          .then(img => assets.airattack = img));
+      }
+      if (cardData.elements?.earth !== null && cardData.elements?.earth !== undefined) {
+        promises.push(loadAsset('earthattack', getAssetPath('img/earthattack.png'))
+          .then(img => assets.earthattack = img));
+      }
+      if (cardData.elements?.water !== null && cardData.elements?.water !== undefined) {
+        promises.push(loadAsset('waterattack', getAssetPath('img/waterattack.png'))
+          .then(img => assets.waterattack = img));
+      }
     }
 
     // Art
@@ -768,13 +780,27 @@ async function drawCard(cardData, assets) {
 
     // Draw art
     if (assets.art) {
-        if (isLocation) {
-            drawImage(assets.art, 0, 0, assets.art.width, assets.art.height, 35, 34, 306, 137);
-        } else if (cardData.type === 'mugic') {
-            drawImage(assets.art, 0, 0, assets.art.width, assets.art.height, 0, 0, templateWidth, templateHeight);
-        } else {
-            drawImage(assets.art, 0, 0, assets.art.width, assets.art.height, 9, 22, 235.81, 197.66);
-        }
+      // Get placement config for this card type, or use creature default if not found
+      const artPlacement = ART_PLACEMENT_CONFIG[cardData.type.toLowerCase()] || ART_PLACEMENT_CONFIG.creature;
+      
+      // For mugic cards, use template dimensions instead of fixed values
+      if (cardData.type === 'mugic') {
+        drawImage(
+          assets.art, 
+          0, 0, 
+          assets.art.width, assets.art.height, 
+          artPlacement.x, artPlacement.y, 
+          templateWidth, templateHeight
+        );
+      } else {
+        drawImage(
+          assets.art, 
+          0, 0, 
+          assets.art.width, assets.art.height, 
+          artPlacement.x, artPlacement.y, 
+          artPlacement.width, artPlacement.height
+        );
+      }
     }
 
     // Draw template and elements
@@ -966,8 +992,8 @@ if (cardData.ability || cardData.flavorText || cardData.unique || cardData.legen
     let currentY = 235;
 
 if (cardData.type === 'attack') {
-    const topBoundary = 255;
-    const bottomBoundary = 310;
+    const topBoundary = 263.5;
+    const bottomBoundary = 318.5;
     const availableHeight = bottomBoundary - topBoundary;
 
     if (cardData.ability) {
@@ -1019,6 +1045,7 @@ if (cardData.type === 'attack') {
 } else if (cardData.type === 'battlegear') {
     const topBoundary = 235;
     const bottomBoundary = 315;
+    const textBoxHeight = bottomBoundary - topBoundary;
     const textBoxMiddle = (topBoundary + bottomBoundary) / 2;
     
     // Calculate flavor text height first
@@ -1029,19 +1056,69 @@ if (cardData.type === 'attack') {
         flavorHeight = flavorLines.length * lineHeight;
     }
 
+    // Check if we only have ability text (no special status and no flavor text)
+    const hasSpecialStatus = !cardData.brainwashed && (cardData.unique || cardData.legendary || cardData.loyal);
+    const hasFlavorText = !cardData.brainwashed && cardData.flavorText;
+    const onlyAbility = cardData.ability && !hasSpecialStatus && !hasFlavorText;
+
     if (cardData.ability) {
         setFont(fontSize, 'Eurostile Medium');
         ctx.fillStyle = '#000000';
         ctx.textAlign = 'left';
 
-        const lines = wrapText(cardData.ability, 172);
-        for (let i = 0; i < lines.length; i++) {
-            const yPos = topBoundary + (i * lineHeight);
-            if (yPos + lineHeight <= bottomBoundary - flavorHeight) {
-                await drawTextWithSymbols(lines[i], 18, yPos, fontSize);
+        const lines = wrapText(cardData.ability, 190);
+        
+        // If only ability text is present, center it vertically
+        if (onlyAbility) {
+            const totalTextHeight = lines.length * lineHeight;
+            const startY = topBoundary + ((textBoxHeight - totalTextHeight) / 2);
+            
+            for (let i = 0; i < lines.length; i++) {
+                const yPos = startY + (i * lineHeight);
+                if (yPos + lineHeight <= bottomBoundary) {
+                    drawTextWithSymbols(lines[i], 21, yPos, fontSize);
+                }
             }
+            currentY = startY + totalTextHeight + 4;
         }
-        currentY = topBoundary + (lines.length * lineHeight) + 4;
+        // New case: Ability with flavor text but NO special status - center vertically in remaining space
+        else if (hasFlavorText && !hasSpecialStatus) {
+            const abilityHeight = lines.length * lineHeight;
+            const availableHeight = textBoxHeight - flavorHeight;
+            const startY = topBoundary + ((availableHeight - abilityHeight) / 2);
+            
+            for (let i = 0; i < lines.length; i++) {
+                const yPos = startY + (i * lineHeight);
+                if (yPos + lineHeight <= bottomBoundary - flavorHeight) {
+                    drawTextWithSymbols(lines[i], 21, yPos, fontSize);
+                }
+            }
+            currentY = startY + abilityHeight + 4;
+        }
+        // New case: Ability with special status but NO flavor text - center both together
+        else if (!hasFlavorText && hasSpecialStatus) {
+            const abilityHeight = lines.length * lineHeight;
+            const combinedHeight = abilityHeight + lineHeight + 4; // ability + status + gap
+            const startY = topBoundary + ((textBoxHeight - combinedHeight) / 2);
+            
+            for (let i = 0; i < lines.length; i++) {
+                const yPos = startY + (i * lineHeight);
+                if (yPos + lineHeight <= bottomBoundary) {
+                    drawTextWithSymbols(lines[i], 21, yPos, fontSize);
+                }
+            }
+            currentY = startY + abilityHeight + 4;
+        }
+        // Original behavior for when there's BOTH flavor text AND special status
+        else {
+            for (let i = 0; i < lines.length; i++) {
+                const yPos = topBoundary + (i * lineHeight);
+                if (yPos + lineHeight <= bottomBoundary - flavorHeight) {
+                    drawTextWithSymbols(lines[i], 21, yPos, fontSize);
+                }
+            }
+            currentY = topBoundary + (lines.length * lineHeight) + 4;
+        }
 
         if (!cardData.brainwashed && (cardData.unique || cardData.legendary || cardData.loyal)) {
             setFont(fontSize, 'Eurostile Heavy');
@@ -1054,13 +1131,13 @@ if (cardData.type === 'attack') {
                 cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
             ].filter(Boolean).join(', ');
 
-            fillText(statusText, 18, currentY);
+            fillText(statusText, 21, currentY);
             currentY += lineHeight;
         }
     } else if (!cardData.brainwashed && (cardData.unique || cardData.legendary || cardData.loyal)) {
         setFont(fontSize, 'Eurostile Heavy');
         ctx.fillStyle = '#000000';
-        ctx.textAlign = 'left'; // Changed from 'center' to 'left'
+        ctx.textAlign = 'left';
 
         let statusText = [
             cardData.legendary && 'Legendary',
@@ -1068,11 +1145,12 @@ if (cardData.type === 'attack') {
             cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
         ].filter(Boolean).join(', ');
 
-        const lines = wrapText(statusText, 172);
+        // Center the status text vertically when it's alone
+        const lines = wrapText(statusText, 190);
         const statusHeight = lines.length * lineHeight;
         currentY = textBoxMiddle - (statusHeight / 2);
 
-        fillText(statusText, 18, currentY); // Changed x-coordinate to 18
+        fillText(statusText, 21, currentY);
         currentY += lineHeight;
     }
 
@@ -1081,16 +1159,17 @@ if (cardData.type === 'attack') {
         ctx.fillStyle = '#000000';
         ctx.textAlign = 'left';
 
-        const lines = wrapText(cardData.flavorText, 172);
+        const lines = wrapText(cardData.flavorText, 190);
         const flavorStartY = bottomBoundary - (lines.length * lineHeight);
 
         lines.forEach((line, i) => {
             const yPos = flavorStartY + (i * lineHeight);
             if (yPos <= bottomBoundary) {
-                fillText(line, 18, yPos);
+                fillText(line, 21, yPos);
             }
         });
     }
+
 } else {
    const textBoxTop = 233.5;
    const textBoxBottom = 315;
@@ -1438,57 +1517,112 @@ ctx.fillStyle = '#000000';
 ctx.textAlign = 'left';
 fillText(spacedCode, 62, 333);
 
-// Draw copywrite info
-if (cardData.type === 'creature' && cardData.showCopyright !== false) {
+// Draw copyright info
+if (cardData.showCopyright !== false) {
+    ctx.save(); // Save current context state
     setFont(5, 'Eurostile Cond Heavy Italic');
     ctx.letterSpacing = "0.3px";
-    ctx.textAlign = 'left';
     
     // New copyright text
-    const copyrightText = `${cardData.serialNumber || '--/100'}    This is a non-authentic proxy card made at Bulbastore.com`;
+    const serialNum = cardData.serialNumber || cardData.id || '--/100';
+    const copyrightText = `${serialNum}    This is a non-authentic proxy card made at Bulbastore.com`;
     
-    switch(cardData.tribe?.toLowerCase()) {
-        case 'overworld':
-            ctx.fillStyle = '#c7e4ef';
-            break;
-        case 'underworld':
-            ctx.fillStyle = '#e1b0b3';
-            break;
-        case 'mipedian':
-            ctx.fillStyle = '#b1a277';
-            ctx.strokeStyle = '#6a5d35';
-            ctx.lineWidth = 2;
-            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-            break;
-        case 'danian':
-            ctx.fillStyle = '#c5ad95';
-            break;
-        case "m'arrillian":
-            ctx.fillStyle = '#cac8ba';
-            break;
-        case 'tribeless':
-            ctx.fillStyle = '#000000';
-            ctx.strokeStyle = '#cad1d9';
-            ctx.lineWidth = 4;
-            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-            break;
+    if (cardData.type === 'attack' || cardData.type === 'battlegear') {
+        // Attack and Battlegear styling
+        ctx.textAlign = 'center';
+        const copyrightX = 122.5; // Explicitly position the text (adjust as needed)
+
+        // Update colors based on type
+        if (cardData.type === 'attack') {
+            ctx.fillStyle = '#a7b1c3';
+            ctx.strokeStyle = '#262730';
+            ctx.lineWidth = 0.5;
+            ctx.strokeText(copyrightText, copyrightX * scale, 344 * scale);
+        } else if (cardData.type === 'battlegear') {
+            ctx.fillStyle = '#2d3350';
+        }
+        
+        fillText(copyrightText, copyrightX, 344);
+    } else if (cardData.type === 'creature' && cardData.tribe) {
+        // Creature styling
+        ctx.textAlign = 'left';
+        
+        switch(cardData.tribe.toLowerCase()) {
+            case 'overworld':
+                ctx.fillStyle = '#c7e4ef';
+                break;
+            case 'underworld':
+                ctx.fillStyle = '#e1b0b3';
+                break;
+            case 'mipedian':
+                ctx.fillStyle = '#b1a277';
+                ctx.strokeStyle = '#6a5d35';
+                ctx.lineWidth = 2;
+                ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                break;
+            case 'danian':
+                ctx.fillStyle = '#c5ad95';
+                break;
+            case "m'arrillian":
+                ctx.fillStyle = '#cac8ba';
+                break;
+            case 'tribeless':
+                ctx.fillStyle = '#000000';
+                ctx.strokeStyle = '#cad1d9';
+                ctx.lineWidth = 4;
+                ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                break;
+            case 'umbrian':
+                ctx.fillStyle = '#bda0e6';
+                ctx.strokeStyle = '#56436e';
+                ctx.lineWidth = 2;
+                ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                break;
+            case 'panivian':
+                ctx.fillStyle = '#6da566';
+                ctx.strokeStyle = '#344f30';
+                ctx.lineWidth = 2;
+                ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                break;                
+        }
+        
+        fillText(copyrightText, 49, 344);
+    } else {
+        // Default styling for other card types
+        ctx.textAlign = 'left';
+        ctx.fillStyle = '#000000';
+        fillText(copyrightText, 49, 344);
     }
     
-    fillText(copyrightText, 49, 344);
+    ctx.restore(); // Restore previous context state
 }
 
-// Draw artist name with special styling for attack cards
+// Draw artist name with special styling
 if (cardData.artist && cardData.showArtist !== false) {
-    ctx.save();
+    ctx.save(); // Save current context state
     setFont(5, 'Eurostile Cond Heavy Italic');
     ctx.letterSpacing = "0.3px";
-    ctx.translate(971, 480);
+
+    // Use 979 for attack and battlegear, 971 for others
+    const xPosition = (cardData.type === 'attack' || cardData.type === 'battlegear') ? 976 : 971;
+    ctx.translate(xPosition, 480);
     ctx.rotate(-Math.PI / 2);
     ctx.textAlign = 'center';
     
     const artistText = `Art by ${cardData.artist}`;
     
-    if (cardData.type === 'creature') {
+    if (cardData.type === 'attack' || cardData.type === 'battlegear') {
+        // Attack and Battlegear styling
+        if (cardData.type === 'attack') {
+            ctx.fillStyle = '#a7b1c3';
+        } else {
+            ctx.fillStyle = '#3d4360';
+        }
+        
+        fillText(artistText, 0, 0);
+    
+    } else if (cardData.type === 'creature') {
+        // Creature styling
         switch(cardData.tribe?.toLowerCase()) {
             case 'overworld':
                 ctx.strokeStyle = '#5272bc';
@@ -1517,12 +1651,29 @@ if (cardData.artist && cardData.showArtist !== false) {
             case 'tribeless':
                 ctx.fillStyle = '#000000';
                 break;
+            case 'umbrian':
+                ctx.strokeStyle = '#56436e';
+                ctx.lineWidth = 2;
+                ctx.strokeText(artistText, 0, 0);
+                ctx.fillStyle = '#c4addf';
+                break;
+            case 'panivian':
+                ctx.strokeStyle = '#344f30';
+                ctx.lineWidth = 2;
+                ctx.strokeText(artistText, 0, 0);
+                ctx.fillStyle = '#8cbe85';
+                break;                
         }
+        
+        fillText(artistText, 0, 0);
+    } else {
+        // Default styling for other card types
+        ctx.fillStyle = '#000000';
+        fillText(artistText, 0, 0);
     }
     
-    fillText(artistText, 0, 0);
     ctx.letterSpacing = "0px";
-    ctx.restore();
+    ctx.restore(); // Restore previous context state
 }
 
     // Draw type-specific elements
@@ -1593,10 +1744,10 @@ function drawAttack(cardData) {
         { key: 'water', x: 224.5, y: 241 }
     ];
 
-elementPositions.forEach(({ key, x, y }) => {
-        if (cardData.elements[key]) {
-            fillText(cardData.elements[key].toString(), x, y);
-        }
+  elementPositions.forEach(({ key, x, y }) => {
+    if (cardData.elements[key] !== null && cardData.elements[key] !== undefined) {
+      fillText(cardData.elements[key].toString(), x, y);
+    }
 });
 }
 

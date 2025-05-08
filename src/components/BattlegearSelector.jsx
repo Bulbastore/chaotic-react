@@ -1,76 +1,68 @@
-// src/components/CreatureSelector.jsx
+// src/components/BattlegearSelector.jsx
 import React, { useState, useEffect, useRef, memo } from 'react';
-import { getAllCreatureNames, getCreatureById } from './CreatureDatabase';
+import { getAllBattlegearNames, getBattlegearById } from './BattlegearDatabase';
 
 // Use React.memo to prevent unnecessary re-renders
-const CreatureSelector = memo(({ onSelectCreature }) => {
+const BattlegearSelector = memo(({ onSelectBattlegear }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [filteredCreatures, setFilteredCreatures] = useState([]);
+  const [filteredBattlegear, setFilteredBattlegear] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const dropdownRef = useRef(null);
   const inputRef = useRef(null);
   const listRef = useRef(null);
-  // Cache all creatures to avoid recalculation
-  const allCreatures = useRef([]);
+  // Cache all battlegear to avoid recalculation
+  const allBattlegear = useRef([]);
   
-  // Load creatures in alphabetical order
+  // Load battlegear in alphabetical order
   useEffect(() => {
-    const loadCreatures = async () => {
-      const creatures = getAllCreatureNames();
+    const loadBattlegear = async () => {
+      const battlegearItems = getAllBattlegearNames();
       
-      // Filter out creatures without a displayName property first
-      const validCreatures = creatures.filter(creature => creature && creature.displayName);
+      // Filter out battlegear without a name property first
+      const validBattlegear = battlegearItems.filter(battlegear => battlegear && battlegear.name);
       
-      // Sort creatures alphabetically
-      const sortedCreatures = validCreatures.sort((a, b) => 
-        a.displayName.localeCompare(b.displayName)
+      // Sort battlegear alphabetically
+      const sortedBattlegear = validBattlegear.sort((a, b) => 
+        a.name.localeCompare(b.name)
       );
       
-      allCreatures.current = sortedCreatures;
-      setFilteredCreatures(sortedCreatures);
+      allBattlegear.current = sortedBattlegear;
+      setFilteredBattlegear(sortedBattlegear);
     };
     
-    loadCreatures();
+    loadBattlegear();
   }, []);
   
-  // Filter creatures when search term changes
+  // Filter battlegear when search term changes
   useEffect(() => {
     if (searchTerm.trim() === '') {
-      setFilteredCreatures(allCreatures.current);
+      setFilteredBattlegear(allBattlegear.current);
     } else {
-      const filtered = allCreatures.current.filter(creature => {
-        // Ensure creature has displayName property
-        if (!creature || !creature.displayName) return false;
+      const filtered = allBattlegear.current.filter(battlegear => {
+        // Ensure battlegear has name property
+        if (!battlegear || !battlegear.name) return false;
         
-        return creature.displayName.toLowerCase().includes(searchTerm.toLowerCase());
+        return battlegear.name.toLowerCase().includes(searchTerm.toLowerCase());
       });
       
-      setFilteredCreatures(filtered);
+      setFilteredBattlegear(filtered);
     }
     // Reset selected index when filtered results change
     setSelectedIndex(-1);
   }, [searchTerm]);
 
   // Memoize the selection handler to avoid recreating during renders
-  const handleCreatureSelection = React.useCallback((creatureId) => {
-    // Get the full creature data from the database
-    const creatureData = getCreatureById(creatureId);
-    if (!creatureData) {
-      console.error(`Creature not found with ID: ${creatureId}`);
+  const handleBattlegearSelection = React.useCallback((battlegearId) => {
+    // Get the full battlegear data from the database
+    const battlegearData = getBattlegearById(battlegearId);
+    if (!battlegearData) {
+      console.error(`Battlegear not found with ID: ${battlegearId}`);
       return;
     }
     
-    // Process loyalty restrictions based on tribe
-    let loyalRestriction = '';
-
-    // Only set a loyalty restriction for M'arrillians
-    if (creatureData.tribe && creatureData.tribe.toLowerCase() === 'm\'arrillian') {
-      loyalRestriction = 'M\'arrillians or Minions';
-    }
-    
-    // Call the parent component's handler with creature id and loyalty restriction
-    onSelectCreature(creatureId, loyalRestriction);
+    // Call the parent component's handler with all the battlegear data
+    onSelectBattlegear(battlegearData);
     
     // Reset local state
     setIsDropdownOpen(false);
@@ -81,7 +73,7 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     setTimeout(() => {
       inputRef.current?.focus();
     }, 10);
-  }, [onSelectCreature]);
+  }, [onSelectBattlegear]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -98,9 +90,9 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     };
   }, []);
 
-  // Get a flattened list of selectable creatures
-  const getSelectableCreatures = () => {
-    return filteredCreatures;
+  // Get a flattened list of selectable battlegear
+  const getSelectableBattlegear = () => {
+    return filteredBattlegear;
   };
 
   // Special key handler with focus lock
@@ -108,7 +100,7 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     const handleGlobalKeyDown = (e) => {
       if (!isDropdownOpen) return;
       
-      const selectableCreatures = getSelectableCreatures();
+      const selectableBattlegear = getSelectableBattlegear();
       
       if (['ArrowDown', 'ArrowUp', 'Enter', 'Escape'].includes(e.key)) {
         e.preventDefault();
@@ -117,10 +109,10 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
         switch (e.key) {
           case 'ArrowDown':
             setSelectedIndex(prevIndex => {
-              if (prevIndex < selectableCreatures.length - 1) {
+              if (prevIndex < selectableBattlegear.length - 1) {
                 // Move selection down
                 const newIndex = prevIndex + 1;
-                scrollToIndex(newIndex, selectableCreatures);
+                scrollToIndex(newIndex, selectableBattlegear);
                 return newIndex;
               }
               return prevIndex;
@@ -132,7 +124,7 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
               if (prevIndex > 0) {
                 // Move selection up
                 const newIndex = prevIndex - 1;
-                scrollToIndex(newIndex, selectableCreatures);
+                scrollToIndex(newIndex, selectableBattlegear);
                 return newIndex;
               }
               return prevIndex;
@@ -140,9 +132,9 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
             break;
             
           case 'Enter':
-            if (selectedIndex >= 0 && selectedIndex < selectableCreatures.length) {
-              // Select the highlighted creature
-              handleCreatureSelection(selectableCreatures[selectedIndex].id);
+            if (selectedIndex >= 0 && selectedIndex < selectableBattlegear.length) {
+              // Select the highlighted battlegear
+              handleBattlegearSelection(selectableBattlegear[selectedIndex].id);
             }
             break;
             
@@ -163,28 +155,31 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     return () => {
       document.removeEventListener('keydown', handleGlobalKeyDown, true);
     };
-  }, [isDropdownOpen, selectedIndex, filteredCreatures, handleCreatureSelection]);
+  }, [isDropdownOpen, selectedIndex, filteredBattlegear, handleBattlegearSelection]);
 
-  // Initialize dropdown state with first item selected
+    // Initialize dropdown state with first item selected
   useEffect(() => {
     if (isDropdownOpen && selectedIndex === -1) {
-      const selectableCreatures = getSelectableCreatures();
-      if (selectableCreatures.length > 0) {
+      const selectableBattlegear = getSelectableBattlegear();
+      if (selectableBattlegear.length > 0) {
         setSelectedIndex(0);
       }
     }
-  }, [isDropdownOpen, selectedIndex, filteredCreatures]);
+  }, [isDropdownOpen, selectedIndex, filteredBattlegear]);
 
   // Function to scroll to a specific index
-  const scrollToIndex = (index, selectableCreatures) => {
+  const scrollToIndex = (index, selectableBattlegear) => {
     if (index < 0 || !listRef.current) return;
     
     // Use setTimeout to ensure this runs after render
     setTimeout(() => {
-      const creatureId = selectableCreatures[index]?.id;
-      if (!creatureId) return;
+      const battlegearId = selectableBattlegear[index]?.id;
+      if (!battlegearId) return;
       
-      const element = listRef.current.querySelector(`[data-id="${creatureId.replace(/"/g, '\\"')}"]`);
+      // Safely escape the battlegearId for use in a CSS selector
+      const escapedId = battlegearId.replace(/"/g, '\\"').replace(/\\/g, '\\\\').replace(/:/g, '\\:');
+      
+      const element = listRef.current.querySelector(`[data-id="${escapedId}"]`);
       if (element) {
         element.scrollIntoView({
           block: 'nearest',
@@ -198,19 +193,19 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
   const handleInputFocus = () => {
     // Don't auto-open, but prepare for keyboard navigation
     if (isDropdownOpen) {
-      const selectableCreatures = getSelectableCreatures();
-      if (selectableCreatures.length > 0 && selectedIndex === -1) {
+      const selectableBattlegear = getSelectableBattlegear();
+      if (selectableBattlegear.length > 0 && selectedIndex === -1) {
         setSelectedIndex(0);
       }
     }
   };
 
-  // Helper to find if a creature is currently selected
-  const isSelected = (creature) => {
+  // Helper to find if a battlegear is currently selected
+  const isSelected = (battlegear) => {
     if (selectedIndex === -1) return false;
     
-    const selectableCreatures = getSelectableCreatures();
-    return selectableCreatures[selectedIndex]?.id === creature.id;
+    const selectableBattlegear = getSelectableBattlegear();
+    return selectableBattlegear[selectedIndex]?.id === battlegear.id;
   };
 
   // Combined input click and focus handler
@@ -223,9 +218,9 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     <div className="relative w-full" ref={dropdownRef}>
       <div className="flex flex-col gap-2">
         <div className="flex justify-between items-center">
-          <label className="text-white font-bold">Select Creature</label>
+          <label className="text-white font-bold">Select Battlegear</label>
           <span className="text-xs text-gray-400">
-            {getSelectableCreatures().length} creatures available
+            {getSelectableBattlegear().length} battlegear available
           </span>
         </div>
         
@@ -246,7 +241,7 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
                 }
               }
             }}
-            placeholder="Search creatures..."
+            placeholder="Search battlegear..."
             className="w-full p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none pl-8"
             autoComplete="off"
             aria-expanded={isDropdownOpen}
@@ -266,38 +261,27 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
               role="listbox"
               tabIndex="-1"
             >
-              {filteredCreatures.length === 0 ? (
-                <div className="p-3 text-gray-400 text-center">No creatures found</div>
+              {filteredBattlegear.length === 0 ? (
+                <div className="p-3 text-gray-400 text-center">No battlegear found</div>
               ) : (
-                <div className="creature-list">
-                  {filteredCreatures.map((creature) => (
-                    creature && creature.displayName && creature.id ? (
+                <div className="battlegear-list">
+                  {filteredBattlegear.map((battlegear) => (
+                    battlegear && battlegear.name && battlegear.id ? (
                       <div
-                        key={creature.id}
-                        data-id={creature.id}
-                        className={`p-2 cursor-pointer border-t border-gray-700 first:border-0 creature-item ${
-                          isSelected(creature) ? 'bg-gray-700' : 'hover:bg-gray-800'
+                        key={battlegear.id}
+                        data-id={battlegear.id}
+                        className={`p-2 cursor-pointer border-t border-gray-700 first:border-0 battlegear-item ${
+                          isSelected(battlegear) ? 'bg-gray-700' : 'hover:bg-gray-800'
                         }`}
-                        onClick={() => handleCreatureSelection(creature.id)}
+                        onClick={() => handleBattlegearSelection(battlegear.id)}
                         role="option"
-                        aria-selected={isSelected(creature)}
+                        aria-selected={isSelected(battlegear)}
                       >
                         <div className="flex justify-between items-start">
                           <div>
-                            <div className="text-white">{creature.displayName}</div>
-                            {/* You can add additional creature details here if needed */}
+                            <div className="text-white">{battlegear.name}</div>
                           </div>
-                          <div className="text-xs text-gray-400 ml-2">
-                            {/* Try all possible ways the set might be stored */}
-                            {creature.setDisplay || 
-                             (creature.set && creature.set.toUpperCase()) || 
-                             creature.expansionDisplay || 
-                             (creature.expansion && creature.expansion.toUpperCase()) ||
-                             (creature.releaseSet && creature.releaseSet.toUpperCase()) ||
-                             (creature.release && creature.release.toUpperCase()) ||
-                             (creature.collection && creature.collection.toUpperCase()) ||
-                             (creature.isPast ? "PAST" : "")}
-                          </div>
+                          <div className="text-xs text-gray-400 ml-2">{battlegear.setDisplay || battlegear.set?.toUpperCase()}</div>
                         </div>
                       </div>
                     ) : null
@@ -313,6 +297,6 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
 });
 
 // Export with display name for better debugging
-CreatureSelector.displayName = 'CreatureSelector';
+BattlegearSelector.displayName = 'BattlegearSelector';
 
-export default CreatureSelector;
+export default BattlegearSelector;

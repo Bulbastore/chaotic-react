@@ -13,7 +13,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Noble",
     "ability": "Hive: Ekuud has an additional 5 Energy for each Mandiblor you control and each Infected Creature in play.",
-    "flavorText": "\"Fear the enemy, yes. But fear me more!\" – Ekuud",
+    "flavorText": "\"Fear the enemy, yes. But fear me more!\" — Ekuud",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -121,7 +121,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Mandiblor Muge",
     "ability": "",
-    "flavorText": "\"Hota is the least ‘Danian’ Danian I know.\" – Ibiaan",
+    "flavorText": "\"Hota is the least ‘Danian’ Danian I know.\" — Ibiaan",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -157,7 +157,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Mandiblor",
     "ability": "Hive: Ibiaan has an additional 5 :wisdom:Wisdom for each Mandiblor you control and each Infected Creature in play.",
-    "flavorText": "\"If Ibiaan’s so smart, why is he still a Mandiblor?\" – Hota",
+    "flavorText": "\"If Ibiaan’s so smart, why is he still a Mandiblor?\" — Hota",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -229,7 +229,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Battlemaster",
     "ability": ":danianmugic:: Activate Hive.\r\nSacrifice Kannen: Return a Mandiblor Creature Card from your general discard pile to play to any unoccupied space on the Battleboard.",
-    "flavorText": "\"My life is my Tribe!\" – Kannen",
+    "flavorText": "\"My life is my Tribe!\" — Kannen",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -301,7 +301,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Mandiblor",
     "ability": "",
-    "flavorText": "\"Unless we become one, we will become none.\" – Mandiblor war cry",
+    "flavorText": "\"Unless we become one, we will become none.\" — Mandiblor war cry",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -373,7 +373,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Battlemaster",
     "ability": "Hive: Mallash has an additional 5 Energy for each Mandiblor you control and each Infected Creature in play.",
-    "flavorText": "\"Irresponsible? It’s self-preservation.\" – Mallash, rebuffing critics of his \"Attack-first, make-sure-it’s-an-enemy-later\" policy",
+    "flavorText": "\"Irresponsible? It’s self-preservation.\" — Mallash, rebuffing critics of his \"Attack-first, make-sure-it’s-an-enemy-later\" policy",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -625,7 +625,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Mandiblor",
     "ability": "Swift 2.\r\nHive: Daj Huun cannot move and has an additional 10 Energy.",
-    "flavorText": "\"Look up Look around Never forget To look down\" —UnderWorld nursery rhyme",
+    "flavorText": "\"Look up Look around Never forget To look down\" — UnderWorld nursery rhyme",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -877,7 +877,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Muge",
     "ability": ":danianmugic:: Deal 5 damage to target Creature.\r\n:danianmugic:, Deactivate Hive: Deal 15 damage to target Creature.",
-    "flavorText": "\"Power, strength and stamina? Overrated.\" —Khavakk",
+    "flavorText": "\"Power, strength and stamina? Overrated.\" — Khavakk",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -913,7 +913,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Noble",
     "ability": "If Khritlaan is in your general discard pile, Mandiblor Creature Cards in your general discard pile count as Mandiblors you control when counting Mandiblors.",
-    "flavorText": "\"Even from the grave shall you serve Illexia.\" —Khritlaan",
+    "flavorText": "\"Even from the grave shall you serve Illexia.\" — Khritlaan",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -1453,7 +1453,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Elementalist",
     "ability": "Hive: Katharaz has \"Elementproof all Elemental Types 15.\"",
-    "flavorText": "\"Unite and fight! If we lose the Reservoir, the rest of Mount Pillar will fall!\" —Katharaz",
+    "flavorText": "\"Unite and fight! If we lose the Reservoir, the rest of Mount Pillar will fall!\" — Katharaz",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -1957,7 +1957,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Mandiblor",
     "ability": "Waterproof 15.\r\nHive: Tarbok has an additional 15 Energy.",
-    "flavorText": "\"My only fear is that I have no fear.\" —Tarbok",
+    "flavorText": "\"My only fear is that I have no fear.\" — Tarbok",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -1985,9 +1985,9 @@ export const creatureDatabase = [
   },
   {
     "id": "ROTO-21/100",
-    "displayName": "Wamma, Hive Ordinance",
+    "displayName": "Wamma, Hive Ordnance",
     "name": "Wamma",
-    "subname": "Hive Ordinance",
+    "subname": "Hive Ordnance",
     "set": "roto",
     "rarity": "super rare",
     "tribe": "danian",
@@ -2173,7 +2173,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Mandiblor Elementalist",
     "ability": "If Neekwin is unequipped, it has \":water:Water 5\" and \"Untargetable.\"",
-    "flavorText": "\"The only battles the Danians ever lost were ones that I didn't fight.\" —Neekwin",
+    "flavorText": "\"The only battles the Danians ever lost were ones that I didn't fight.\" — Neekwin",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -2560,7 +2560,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/VQmYf0b.png"
   },
   {
-    "id": "AU-45/200",
+    "id": "AU-33/200",
     "displayName": "Ambolx",
     "name": "Ambolx",
     "subname": "",
@@ -2577,7 +2577,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Reggie Butler",
-    "serialNumber": "45/200",
+    "serialNumber": "33/200",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -2596,7 +2596,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/fx3zLhX.png"
   },
   {
-    "id": "AU-46/200",
+    "id": "AU-34/200",
     "displayName": "Gareep",
     "name": "Gareep",
     "subname": "",
@@ -2613,7 +2613,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Anthony Washington",
-    "serialNumber": "46/200",
+    "serialNumber": "34/200",
     "isPast": false,
     "stats": {
       "courage": 80,
@@ -2632,7 +2632,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/Z7bSZEo.png"
   },
   {
-    "id": "AU-47/200",
+    "id": "AU-35/200",
     "displayName": "Ghundac",
     "name": "Ghundac",
     "subname": "",
@@ -2649,7 +2649,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
-    "serialNumber": "47/200",
+    "serialNumber": "35/200",
     "isPast": false,
     "stats": {
       "courage": 90,
@@ -2668,7 +2668,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/g9E41ja.jpeg"
   },
   {
-    "id": "AU-48/200",
+    "id": "AU-36/200",
     "displayName": "Hiadrom, Rock Ripper",
     "name": "Hiadrom",
     "subname": "Rock Ripper",
@@ -2685,7 +2685,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
-    "serialNumber": "48/200",
+    "serialNumber": "36/200",
     "isPast": false,
     "stats": {
       "courage": 85,
@@ -2704,7 +2704,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/caoxb1k.png"
   },
   {
-    "id": "AU-49/200",
+    "id": "AU-37/200",
     "displayName": "Ketun",
     "name": "Ketun",
     "subname": "",
@@ -2721,7 +2721,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Reggie Butler",
-    "serialNumber": "49/200",
+    "serialNumber": "37/200",
     "isPast": false,
     "stats": {
       "courage": 90,
@@ -2740,7 +2740,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/lDpWlQD.png"
   },
   {
-    "id": "AU-36/200",
+    "id": "AU-38/200",
     "displayName": "Lore, High Muge of the Hive",
     "name": "Lore",
     "subname": "High Muge of the Hive",
@@ -2757,7 +2757,7 @@ export const creatureDatabase = [
     "loyal": true,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Etienne St.Laurent, Reggie Butler",
-    "serialNumber": "36/200",
+    "serialNumber": "38/200",
     "isPast": false,
     "stats": {
       "courage": 90,
@@ -2821,7 +2821,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Mandiblor Warrior",
     "ability": "Mhein has an additional 5 Energy for each Creature Card in all general discard piles.",
-    "flavorText": "\"Let the determination of the defeated empower the standing to do right for one and for all.\" —Inscription on the Danian Hive Gallery",
+    "flavorText": "\"Let the determination of the defeated empower the standing to do right for one and for all.\" — Inscription on the Danian Hive Gallery",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -2929,7 +2929,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Fluidmorpher",
     "ability": "Fluidmorph\r\nWhen combat ends, remove all Mugic counters from Nunk'worn.",
-    "flavorText": "\"Parasites subjugate giants, crumble mountains and make servants of masters.\" —Infectionist motto",
+    "flavorText": "\"Parasites subjugate giants, crumble mountains and make servants of masters.\" — Infectionist motto",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": true,
@@ -2956,7 +2956,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/hsF4Nli.png"
   },
   {
-    "id": "AU-51/200",
+    "id": "AU-43/200",
     "displayName": "Odu-Bathax, Reservoir Reclaimer",
     "name": "Odu-Bathax",
     "subname": "Reservoir Reclaimer",
@@ -2973,7 +2973,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Chris FIsher",
-    "serialNumber": "51/200",
+    "serialNumber": "43/200",
     "isPast": false,
     "stats": {
       "courage": 100,
@@ -2992,7 +2992,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/kZhAVuf.png"
   },
   {
-    "id": "AU-52/200",
+    "id": "AU-44/200",
     "displayName": "Orbaat",
     "name": "Orbaat",
     "subname": "",
@@ -3009,7 +3009,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
-    "serialNumber": "52/200",
+    "serialNumber": "44/200",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -3028,7 +3028,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/ZVlTUvl.png"
   },
   {
-    "id": "AU-53/200",
+    "id": "AU-45/200",
     "displayName": "Tarin",
     "name": "Tarin",
     "subname": "",
@@ -3045,7 +3045,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Robert Dizon, Stone Perales",
-    "serialNumber": "53/200",
+    "serialNumber": "45/200",
     "isPast": false,
     "stats": {
       "courage": 85,
@@ -3064,7 +3064,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/lmUWIt1.png"
   },
   {
-    "id": "AU-54/200",
+    "id": "AU-46/200",
     "displayName": "Tharc, Tablet Translator",
     "name": "Tharc",
     "subname": "Tablet Translator",
@@ -3073,7 +3073,7 @@ export const creatureDatabase = [
     "tribe": "danian",
     "subtype": "Noble Muge",
     "ability": ":danianmugic:: Target Creature gains 50 :courage:Courage. If that Creature has :earth:Earth, it gains an additional 50 :courage:Courage.",
-    "flavorText": "\"It pains me to admit that we could not have translated the tablet without the bugs' help.\" —Prince Mudeenu",
+    "flavorText": "\"It pains me to admit that we could not have translated the tablet without the bugs' help.\" — Prince Mudeenu",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -3081,7 +3081,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
-    "serialNumber": "54/200",
+    "serialNumber": "46/200",
     "isPast": false,
     "stats": {
       "courage": 80,
@@ -3100,7 +3100,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/KUjcIWy.png"
   },
   {
-    "id": "AU-55/200",
+    "id": "AU-47/200",
     "displayName": "Valban",
     "name": "Valban",
     "subname": "",
@@ -3117,7 +3117,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
-    "serialNumber": "55/200",
+    "serialNumber": "47/200",
     "isPast": false,
     "stats": {
       "courage": 85,
@@ -3136,7 +3136,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/Jluh5RD.png"
   },
   {
-    "id": "AU-56/200",
+    "id": "AU-48/200",
     "displayName": "Yondaf, Symbiotic Infector",
     "name": "Yondaf",
     "subname": "Symbiotic Infector",
@@ -3153,7 +3153,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
-    "serialNumber": "56/200",
+    "serialNumber": "48/200",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -3460,7 +3460,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/CMjkc2T.png"
   },
   {
-    "id": "OP-oz3plr2g",
+    "id": "OP-dx2s86ru",
     "displayName": "Tarteme",
     "name": "Tarteme",
     "subname": "",
@@ -4333,7 +4333,7 @@ export const creatureDatabase = [
     "tribe": "m'arrillian",
     "subtype": "Kha'rall",
     "ability": "Intimidate: :wisdom:Wisdom 30.\r\nFireproof 25.\r\nIkub'ra deals an additional 5 attack damage to OverWorld Creatures.",
-    "flavorText": "\"So there IS someone who despises OverWorlders more than me!\" —Chaor",
+    "flavorText": "\"So there IS someone who despises OverWorlders more than me!\" — Chaor",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -5188,7 +5188,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/TG61Fm0.png"
   },
   {
-    "id": "AU-75/200",
+    "id": "AU-65/200",
     "displayName": "Ast'imal",
     "name": "Ast'imal",
     "subname": "",
@@ -5197,7 +5197,7 @@ export const creatureDatabase = [
     "tribe": "m'arrillian",
     "subtype": "Kha'rall",
     "ability": "Expend :water:Water: Target unengaged Creature swaps spaces on the Battleboard with another unengaged Creature of the same controller's choice.",
-    "flavorText": "\"Hard questions require answers too. Hard answers require thought. Sometimes thought calls for motivation. It's name is Ast'imal\" —Fal'makin",
+    "flavorText": "\"Hard questions require answers too. Hard answers require thought. Sometimes thought calls for motivation. It's name is Ast'imal\" — Fal'makin",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -5205,7 +5205,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Axer",
-    "serialNumber": "75/200",
+    "serialNumber": "65/200",
     "isPast": false,
     "stats": {
       "courage": 60,
@@ -5224,7 +5224,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/JXzPnys.png"
   },
   {
-    "id": "AU-76/200",
+    "id": "AU-66/200",
     "displayName": "Fal'makin, AZAIA Inquisitor",
     "name": "Fal'makin",
     "subname": "AZAIA Inquisitor",
@@ -5241,7 +5241,7 @@ export const creatureDatabase = [
     "loyal": true,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Axer",
-    "serialNumber": "76/200",
+    "serialNumber": "66/200",
     "isPast": false,
     "stats": {
       "courage": 45,
@@ -5260,7 +5260,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/otDhtQd.png"
   },
   {
-    "id": "AU-77/200",
+    "id": "AU-67/200",
     "displayName": "Ihun'kalin, Psionic Master",
     "name": "Ihun'kalin",
     "subname": "Psionic Master",
@@ -5277,7 +5277,7 @@ export const creatureDatabase = [
     "loyal": true,
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
-    "serialNumber": "77/200",
+    "serialNumber": "67/200",
     "isPast": false,
     "stats": {
       "courage": 55,
@@ -5296,7 +5296,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/UegqaZL.png"
   },
   {
-    "id": "AU-78/200",
+    "id": "AU-68/200",
     "displayName": "Klik'ssi",
     "name": "Klik'ssi",
     "subname": "",
@@ -5305,7 +5305,7 @@ export const creatureDatabase = [
     "tribe": "m'arrillian",
     "subtype": "Kha'rall",
     "ability": "If Klik'ssi is equipped with a Shard Battlegear, it has \":water:Water 5.\"",
-    "flavorText": "\"The failure of Erak'tabb and Neth'uar means nothing except higher stakes.\" —Ihun'kalin",
+    "flavorText": "\"The failure of Erak'tabb and Neth'uar means nothing except higher stakes.\" — Ihun'kalin",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -5313,7 +5313,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Anthony Washington",
-    "serialNumber": "78/200",
+    "serialNumber": "68/200",
     "isPast": false,
     "stats": {
       "courage": 60,
@@ -5332,7 +5332,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/IEgkOfz.png"
   },
   {
-    "id": "AU-79/200",
+    "id": "AU-69/200",
     "displayName": "Milla'iin, Foothold Commander",
     "name": "Milla'iin",
     "subname": "Foothold Commander",
@@ -5349,7 +5349,7 @@ export const creatureDatabase = [
     "loyal": true,
     "loyalRestriction": "",
     "artist": "Imaginary Friends Studios",
-    "serialNumber": "79/200",
+    "serialNumber": "69/200",
     "isPast": false,
     "stats": {
       "courage": 60,
@@ -5368,7 +5368,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/wHuoK0q.png"
   },
   {
-    "id": "AU-80/200",
+    "id": "AU-70/200",
     "displayName": "Mock'adyn, Fluid Master",
     "name": "Mock'adyn",
     "subname": "Fluid Master",
@@ -5385,7 +5385,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw Bob rivard",
-    "serialNumber": "80/200",
+    "serialNumber": "70/200",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -5404,7 +5404,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/cFQ4YTp.png"
   },
   {
-    "id": "AU-81/200",
+    "id": "AU-71/200",
     "displayName": "Rath'tab, Mind Scryer",
     "name": "Rath'tab",
     "subname": "Mind Scryer",
@@ -5421,7 +5421,7 @@ export const creatureDatabase = [
     "loyal": true,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Anthony Washington",
-    "serialNumber": "81/200",
+    "serialNumber": "71/200",
     "isPast": false,
     "stats": {
       "courage": 80,
@@ -5440,7 +5440,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/LTCTKG6.png"
   },
   {
-    "id": "AU-82/200",
+    "id": "AU-72/200",
     "displayName": "Son'las",
     "name": "Son'las",
     "subname": "",
@@ -5449,7 +5449,7 @@ export const creatureDatabase = [
     "tribe": "m'arrillian",
     "subtype": "Kha'rall Scout",
     "ability": "When Son'las becomes engaged, the opposing engaged Creature loses Invisibility and your opponent reveals their attack hand.",
-    "flavorText": "\"Some can shade their eyes forever, and still see all.\" —Iflar",
+    "flavorText": "\"Some can shade their eyes forever, and still see all.\" — Iflar",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -5457,7 +5457,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
-    "serialNumber": "82/200",
+    "serialNumber": "72/200",
     "isPast": false,
     "stats": {
       "courage": 60,
@@ -5476,7 +5476,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/yD5FuTY.png"
   },
   {
-    "id": "AU-83/200",
+    "id": "AU-73/200",
     "displayName": "Thar'lyn, AZAIA Spy",
     "name": "Thar'lyn",
     "subname": "AZAIA Spy",
@@ -5493,7 +5493,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Jimmy Tran",
-    "serialNumber": "83/200",
+    "serialNumber": "73/200",
     "isPast": false,
     "stats": {
       "courage": 80,
@@ -6205,7 +6205,7 @@ export const creatureDatabase = [
     "tribe": "mipedian",
     "subtype": "Muge",
     "ability": ":mipedianmugic:: Put a Mugic counter on target adjacent Creature.",
-    "flavorText": "\"I can only open the door to understanding the true mysteries of Mugic. I can force no one to walk through it.\" —Dibanni",
+    "flavorText": "\"I can only open the door to understanding the true mysteries of Mugic. I can force no one to walk through it.\" — Dibanni",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": true,
@@ -6421,7 +6421,7 @@ export const creatureDatabase = [
     "tribe": "mipedian",
     "subtype": "Conjuror",
     "ability": "Damage dealt to Warbeast Creatures you control by Recklessness is reduced by 10.\r\nIf Drimesse has no Mugic counters on it, sacrifice it.",
-    "flavorText": "\"Stop this madness! Haven't you learned from your mistakes?!\" —Sobtjek",
+    "flavorText": "\"Stop this madness! Haven't you learned from your mistakes?!\" — Sobtjek",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -6529,7 +6529,7 @@ export const creatureDatabase = [
     "tribe": "mipedian",
     "subtype": "Conjuror",
     "ability": "Damage dealt to Warbeast Creatures you control by Recklessness is reduced by 5.\r\nUntargetable.",
-    "flavorText": "\"Our so-called 'leaders' have failed us. Now we must control our own destiny!\" —Fivarth",
+    "flavorText": "\"Our so-called 'leaders' have failed us. Now we must control our own destiny!\" — Fivarth",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -6781,7 +6781,7 @@ export const creatureDatabase = [
     "tribe": "mipedian",
     "subtype": "Warbeast",
     "ability": "Intimidate: :courage:Courage 50.\r\nIntimidate: :speed:Speed 50.\r\nRecklessness 20.",
-    "flavorText": "\"Sobtjek, admit that the rewards far outweigh the risks.\" —Drimesse",
+    "flavorText": "\"Sobtjek, admit that the rewards far outweigh the risks.\" — Drimesse",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -7645,7 +7645,7 @@ export const creatureDatabase = [
     "tribe": "mipedian",
     "subtype": "Conjuror Warrior",
     "ability": "Damage dealt to Warbeast Creatures you control is reduced by 5.",
-    "flavorText": "\"Warbeasts the size of palaces are under my control. Why would I ever fear a M'arrillian!?\" —Ailav",
+    "flavorText": "\"Warbeasts the size of palaces are under my control. Why would I ever fear a M'arrillian!?\" — Ailav",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": true,
@@ -8041,7 +8041,7 @@ export const creatureDatabase = [
     "tribe": "mipedian",
     "subtype": "Warbeast",
     "ability": "Recklessness 50",
-    "flavorText": "\"I realize the battle is necessary, but this... this is too much. Even if we win the war, Perim is doomed.\" —Sobtjek",
+    "flavorText": "\"I realize the battle is necessary, but this... this is too much. Even if we win the war, Perim is doomed.\" — Sobtjek",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": true,
@@ -8212,7 +8212,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/YzES6B0.png"
   },
   {
-    "id": "AU-58/200",
+    "id": "AU-49/200",
     "displayName": "Enre-hep, High Muge of the Desert",
     "name": "Enre-hep",
     "subname": "High Muge of the Desert",
@@ -8229,7 +8229,7 @@ export const creatureDatabase = [
     "loyal": true,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
-    "serialNumber": "58/200",
+    "serialNumber": "49/200",
     "isPast": false,
     "stats": {
       "courage": 60,
@@ -8248,7 +8248,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/JCyHISQ.png"
   },
   {
-    "id": "AU-59/200",
+    "id": "AU-50/200",
     "displayName": "Fasseph",
     "name": "Fasseph",
     "subname": "",
@@ -8265,7 +8265,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
-    "serialNumber": "59/200",
+    "serialNumber": "50/200",
     "isPast": false,
     "stats": {
       "courage": 75,
@@ -8284,7 +8284,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/A7jA6uv.png"
   },
   {
-    "id": "AU-60/200",
+    "id": "AU-51/200",
     "displayName": "Gintanai, The Forgotten",
     "name": "Gintanai",
     "subname": "The Forgotten",
@@ -8301,7 +8301,7 @@ export const creatureDatabase = [
     "loyal": true,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent, Emilio Lopez",
-    "serialNumber": "60/200",
+    "serialNumber": "51/200",
     "isPast": false,
     "stats": {
       "courage": 130,
@@ -8320,7 +8320,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/XOZEdQn.png"
   },
   {
-    "id": "AU-61/200",
+    "id": "AU-52/200",
     "displayName": "Habekh",
     "name": "Habekh",
     "subname": "",
@@ -8337,7 +8337,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Axer",
-    "serialNumber": "61/200",
+    "serialNumber": "52/200",
     "isPast": false,
     "stats": {
       "courage": 55,
@@ -8356,7 +8356,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/zcwiz21.png"
   },
   {
-    "id": "AU-62/200",
+    "id": "AU-53/200",
     "displayName": "Headmaster Ankhyja, Seeker of the Art",
     "name": "Headmaster Ankhyja",
     "subname": "Seeker of the Art",
@@ -8373,7 +8373,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Axer",
-    "serialNumber": "62/200",
+    "serialNumber": "53/200",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -8392,7 +8392,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/AuT7Ake.png"
   },
   {
-    "id": "AU-63/200",
+    "id": "AU-54/200",
     "displayName": "Ifjann",
     "name": "Ifjann",
     "subname": "",
@@ -8409,7 +8409,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Bob Rivard",
-    "serialNumber": "63/200",
+    "serialNumber": "54/200",
     "isPast": false,
     "stats": {
       "courage": 40,
@@ -8464,7 +8464,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/LITF5l5.png"
   },
   {
-    "id": "AU-65/200",
+    "id": "AU-55/200",
     "displayName": "Khenti",
     "name": "Khenti",
     "subname": "",
@@ -8481,7 +8481,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Etienne St.Laurent",
-    "serialNumber": "65/200",
+    "serialNumber": "55/200",
     "isPast": false,
     "stats": {
       "courage": 75,
@@ -8500,7 +8500,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/EJIGBQm.png"
   },
   {
-    "id": "AU-66/200",
+    "id": "AU-56/200",
     "displayName": "Kojjbel",
     "name": "Kojjbel",
     "subname": "",
@@ -8517,7 +8517,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Jimmy Tran",
-    "serialNumber": "66/200",
+    "serialNumber": "56/200",
     "isPast": false,
     "stats": {
       "courage": 75,
@@ -8536,7 +8536,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/NO3WoWh.png"
   },
   {
-    "id": "AU-67/200",
+    "id": "AU-57/200",
     "displayName": "Kolmo, Purified",
     "name": "Kolmo",
     "subname": "Purified",
@@ -8553,7 +8553,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Keith Conroy, Bob Rivard",
-    "serialNumber": "67/200",
+    "serialNumber": "57/200",
     "isPast": false,
     "stats": {
       "courage": 80,
@@ -8572,7 +8572,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/2hSTKw7.png"
   },
   {
-    "id": "AU-68/200",
+    "id": "AU-58/200",
     "displayName": "Ninren",
     "name": "Ninren",
     "subname": "",
@@ -8589,7 +8589,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Jimmy Tran",
-    "serialNumber": "68/200",
+    "serialNumber": "58/200",
     "isPast": false,
     "stats": {
       "courage": 100,
@@ -8608,7 +8608,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/m6LpXuX.png"
   },
   {
-    "id": "AU-69/200",
+    "id": "AU-59/200",
     "displayName": "Qwun, Solitary Scout",
     "name": "Qwun",
     "subname": "Solitary Scout",
@@ -8625,7 +8625,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Etienne St.Laurent",
-    "serialNumber": "69/200",
+    "serialNumber": "59/200",
     "isPast": false,
     "stats": {
       "courage": 80,
@@ -8644,7 +8644,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/6DLh5js.png"
   },
   {
-    "id": "AU-70/200",
+    "id": "AU-60/200",
     "displayName": "Sepmek",
     "name": "Sepmek",
     "subname": "",
@@ -8661,7 +8661,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
-    "serialNumber": "70/200",
+    "serialNumber": "60/200",
     "isPast": false,
     "stats": {
       "courage": 55,
@@ -8680,7 +8680,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/jnX7LRa.png"
   },
   {
-    "id": "AU-71/200",
+    "id": "AU-61/200",
     "displayName": "Silv, Servant of Air",
     "name": "Silv",
     "subname": "Servant of Air",
@@ -8697,7 +8697,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
-    "serialNumber": "71/200",
+    "serialNumber": "61/200",
     "isPast": false,
     "stats": {
       "courage": 50,
@@ -8716,7 +8716,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/FQvwetd.png"
   },
   {
-    "id": "AU-72/200",
+    "id": "AU-62/200",
     "displayName": "Taffial, Cothica Hunter",
     "name": "Taffial",
     "subname": "Cothica Hunter",
@@ -8733,7 +8733,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Bob Rivard",
-    "serialNumber": "72/200",
+    "serialNumber": "62/200",
     "isPast": false,
     "stats": {
       "courage": 80,
@@ -8752,7 +8752,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/oIAEhTv.png"
   },
   {
-    "id": "AU-73/200",
+    "id": "AU-63/200",
     "displayName": "Ylinné",
     "name": "Ylinné",
     "subname": "",
@@ -8769,7 +8769,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Axer",
-    "serialNumber": "73/200",
+    "serialNumber": "63/200",
     "isPast": false,
     "stats": {
       "courage": 60,
@@ -8788,7 +8788,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/qEyL3JP.png"
   },
   {
-    "id": "AU-74/200",
+    "id": "AU-64/200",
     "displayName": "Zhade, Dig Site Defender",
     "name": "Zhade",
     "subname": "Dig Site Defender",
@@ -8805,7 +8805,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
-    "serialNumber": "74/200",
+    "serialNumber": "64/200",
     "isPast": false,
     "stats": {
       "courage": 75,
@@ -9004,7 +9004,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/nbFukeR.png"
   },
   {
-    "id": "OP-b79oryz6",
+    "id": "OP-94mv0xpz",
     "displayName": "Kobarri",
     "name": "Kobarri",
     "subname": "",
@@ -9085,7 +9085,7 @@ export const creatureDatabase = [
     "tribe": "mipedian",
     "subtype": "Royal Warrior",
     "ability": "Mipedian Creatures you control have \"Invisibility: Surprise.\"",
-    "flavorText": "\"You can either surrender or die... and I won't accept your surrender.\" —Prince Mudeenu",
+    "flavorText": "\"You can either surrender or die... and I won't accept your surrender.\" — Prince Mudeenu",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": true,
@@ -9157,7 +9157,7 @@ export const creatureDatabase = [
     "tribe": "overworld",
     "subtype": "Guardian Warrior",
     "ability": "Swift 1.",
-    "flavorText": "\"A ferocious warrior – when he finally gets up the nerve to battle.\" – Intress",
+    "flavorText": "\"A ferocious warrior — when he finally gets up the nerve to battle.\" — Intress",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -9553,7 +9553,7 @@ export const creatureDatabase = [
     "tribe": "overworld",
     "subtype": "Scout",
     "ability": "",
-    "flavorText": "\"I don’t steal; I liberate lost valuables. And the only problem I have with what I do is the possibility of getting caught.\" —Laarina",
+    "flavorText": "\"I don’t steal; I liberate lost valuables. And the only problem I have with what I do is the possibility of getting caught.\" — Laarina",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -9661,7 +9661,7 @@ export const creatureDatabase = [
     "tribe": "overworld",
     "subtype": "Strategist Muge",
     "ability": ":overworldmugic::overworldmugic:: Return target Mugic Card from your general discard pile to your hand.",
-    "flavorText": "\"The search for the Cothica is the means to an end. But finding it may mean the end.\" – Najarin",
+    "flavorText": "\"The search for the Cothica is the means to an end. But finding it may mean the end.\" — Najarin",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": true,
@@ -9769,7 +9769,7 @@ export const creatureDatabase = [
     "tribe": "overworld",
     "subtype": "Caretaker",
     "ability": "Support: :courage:Courage 5.",
-    "flavorText": "\"The Mill is not my only interest. I also enjoy beating on UnderWorlders.\" – Rellim",
+    "flavorText": "\"The Mill is not my only interest. I also enjoy beating on UnderWorlders.\" — Rellim",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -9805,7 +9805,7 @@ export const creatureDatabase = [
     "tribe": "overworld",
     "subtype": "Guardian",
     "ability": "",
-    "flavorText": "As poison spreads throughout the Mipedian’s body, Slurhk sneers. He will enjoy reclaiming his desert homeland – one lizard at a time.",
+    "flavorText": "As poison spreads throughout the Mipedian’s body, Slurhk sneers. He will enjoy reclaiming his desert homeland — one lizard at a time.",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -9877,7 +9877,7 @@ export const creatureDatabase = [
     "tribe": "overworld",
     "subtype": "Strategist Warrior",
     "ability": ":overworldmugic:: Heal 10 damage to Tangath Toborn.",
-    "flavorText": "\"I battle because I must. But in my heart, I know that war is not the answer.\" – Tangath Toborn",
+    "flavorText": "\"I battle because I must. But in my heart, I know that war is not the answer.\" — Tangath Toborn",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -10309,7 +10309,7 @@ export const creatureDatabase = [
     "tribe": "overworld",
     "subtype": "Guardian",
     "ability": ":overworldmugic:: Target attack deals 5 damage. This ability can only be used once per turn.",
-    "flavorText": "\"Keep attacking. I'll let you know when it stops tickling.\" —Arbeid",
+    "flavorText": "\"Keep attacking. I'll let you know when it stops tickling.\" — Arbeid",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": true,
@@ -10741,7 +10741,7 @@ export const creatureDatabase = [
     "tribe": "overworld",
     "subtype": "Hero Warrior",
     "ability": "While you control no other Creatures, Frafdo has an additional 45 Energy.",
-    "flavorText": "\"Thirty against one? It hardly seems fair... for you.\" —Frafdo",
+    "flavorText": "\"Thirty against one? It hardly seems fair... for you.\" — Frafdo",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -11461,7 +11461,7 @@ export const creatureDatabase = [
     "tribe": "overworld",
     "subtype": "Elementalist",
     "ability": ":overworldmugic:: Creatures you control gain 5 Energy for each Elemental Type they have.",
-    "flavorText": "\"Despite our differences, since the Cothica flows through each of us, we are all united.\"—Intress",
+    "flavorText": "\"Despite our differences, since the Cothica flows through each of us, we are all united.\"— Intress",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": true,
@@ -11992,7 +11992,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/tMNmpyK.png"
   },
   {
-    "id": "AU-6/200",
+    "id": "AU-1/200",
     "displayName": "Arrthoa, Captain of the Ezoa",
     "name": "Arrthoa",
     "subname": "Captain of the Ezoa",
@@ -12009,7 +12009,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Reggie Butler",
-    "serialNumber": "6/200",
+    "serialNumber": "1/200",
     "isPast": false,
     "stats": {
       "courage": 80,
@@ -12028,7 +12028,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/O5poqns.png"
   },
   {
-    "id": "AU-7/200",
+    "id": "AU-2/200",
     "displayName": "Blazier, Citadel Cartographer",
     "name": "Blazier",
     "subname": "Citadel Cartographer",
@@ -12045,7 +12045,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
-    "serialNumber": "7/200",
+    "serialNumber": "2/200",
     "isPast": false,
     "stats": {
       "courage": 80,
@@ -12064,7 +12064,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/tpCDkAN.png"
   },
   {
-    "id": "AU-8/200",
+    "id": "AU-3/200",
     "displayName": "Dalgad",
     "name": "Dalgad",
     "subname": "",
@@ -12073,7 +12073,7 @@ export const creatureDatabase = [
     "tribe": "overworld",
     "subtype": "Elementalist Scout",
     "ability": "Dalgad deals an additional 5 damage with Elemental Attacks.",
-    "flavorText": "\"The powers of the elements can make even the smallest Creatures mighty.\" —Heptadd",
+    "flavorText": "\"The powers of the elements can make even the smallest Creatures mighty.\" — Heptadd",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -12081,7 +12081,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Etienne St.Laurent",
-    "serialNumber": "8/200",
+    "serialNumber": "3/200",
     "isPast": false,
     "stats": {
       "courage": 60,
@@ -12100,7 +12100,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/oKW5XO1.png"
   },
   {
-    "id": "AU-9/200",
+    "id": "AU-4/200",
     "displayName": "Donmar, Tablet Translator",
     "name": "Donmar",
     "subname": "Tablet Translator",
@@ -12117,7 +12117,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Bob Rivard",
-    "serialNumber": "9/200",
+    "serialNumber": "4/200",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -12136,7 +12136,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/iMysnJw.png"
   },
   {
-    "id": "AU-10/200",
+    "id": "AU-5/200",
     "displayName": "Eremia",
     "name": "Eremia",
     "subname": "",
@@ -12153,7 +12153,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios Emilio Lopez",
-    "serialNumber": "10/200",
+    "serialNumber": "5/200",
     "isPast": false,
     "stats": {
       "courage": 80,
@@ -12172,7 +12172,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/QF4Zhcz.png"
   },
   {
-    "id": "AU-11/200",
+    "id": "AU-6/200",
     "displayName": "Herken",
     "name": "Herken",
     "subname": "",
@@ -12189,7 +12189,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Reggie Bulter",
-    "serialNumber": "11/200",
+    "serialNumber": "6/200",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -12208,7 +12208,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/ZleuUaz.png"
   },
   {
-    "id": "AU-12/200",
+    "id": "AU-7/200",
     "displayName": "Hune Canin",
     "name": "Hune Canin",
     "subname": "",
@@ -12225,7 +12225,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
-    "serialNumber": "12/200",
+    "serialNumber": "7/200",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -12244,7 +12244,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/tQ3TIvM.png"
   },
   {
-    "id": "AU-13/200",
+    "id": "AU-8/200",
     "displayName": "Illiar",
     "name": "Illiar",
     "subname": "",
@@ -12261,7 +12261,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
-    "serialNumber": "13/200",
+    "serialNumber": "8/200",
     "isPast": false,
     "stats": {
       "courage": 80,
@@ -12280,7 +12280,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/YLTjB1s.png"
   },
   {
-    "id": "AU-14/200",
+    "id": "AU-9/200",
     "displayName": "Iparu, Metallic Ally",
     "name": "Iparu",
     "subname": "Metallic Ally",
@@ -12297,7 +12297,7 @@ export const creatureDatabase = [
     "loyal": true,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
-    "serialNumber": "14/200",
+    "serialNumber": "9/200",
     "isPast": false,
     "stats": {
       "courage": 60,
@@ -12352,7 +12352,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/5lwWGko.png"
   },
   {
-    "id": "AU-16/200",
+    "id": "AU-10/200",
     "displayName": "Lomma, Desert Wanderer",
     "name": "Lomma",
     "subname": "Desert Wanderer",
@@ -12369,7 +12369,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Axer",
-    "serialNumber": "16/200",
+    "serialNumber": "10/200",
     "isPast": false,
     "stats": {
       "courage": 90,
@@ -12388,7 +12388,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/AzOIIGR.png"
   },
   {
-    "id": "AU-17/200",
+    "id": "AU-11/200",
     "displayName": "Maglax, Lodestone Seeker",
     "name": "Maglax",
     "subname": "Lodestone Seeker",
@@ -12405,7 +12405,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
-    "serialNumber": "17/200",
+    "serialNumber": "11/200",
     "isPast": false,
     "stats": {
       "courage": 85,
@@ -12424,7 +12424,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/An0SvNQ.png"
   },
   {
-    "id": "AU-18/200",
+    "id": "AU-12/200",
     "displayName": "Najarin, High Muge of the Lake",
     "name": "Najarin",
     "subname": "High Muge of the Lake",
@@ -12433,7 +12433,7 @@ export const creatureDatabase = [
     "tribe": "overworld",
     "subtype": "Muge",
     "ability": "Najarin pays 1 less Mugic counter to play Mugic Cards to a minimum of 1.",
-    "flavorText": "\"After all the marvels I've seen him preform, I still don't know the limits to Najarin's power... or if there are any!\" —Maxxor",
+    "flavorText": "\"After all the marvels I've seen him preform, I still don't know the limits to Najarin's power... or if there are any!\" — Maxxor",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": true,
@@ -12441,7 +12441,7 @@ export const creatureDatabase = [
     "loyal": true,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
-    "serialNumber": "18/200",
+    "serialNumber": "12/200",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -12460,7 +12460,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/BXi0OqE.png"
   },
   {
-    "id": "AU-19/200",
+    "id": "AU-S07/26",
     "displayName": "Najarin, Younger",
     "name": "Najarin",
     "subname": "Younger",
@@ -12477,7 +12477,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Bob RIvard",
-    "serialNumber": "19/200",
+    "serialNumber": "S07/26",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -12496,7 +12496,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/n9zlzC0.png"
   },
   {
-    "id": "AU-20/200",
+    "id": "AU-13/200",
     "displayName": "Porthyn",
     "name": "Porthyn",
     "subname": "",
@@ -12513,7 +12513,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Axer",
-    "serialNumber": "20/200",
+    "serialNumber": "13/200",
     "isPast": false,
     "stats": {
       "courage": 100,
@@ -12532,7 +12532,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/zb7edP4.png"
   },
   {
-    "id": "AU-21/200",
+    "id": "AU-14/200",
     "displayName": "Silchaw",
     "name": "Silchaw",
     "subname": "",
@@ -12549,7 +12549,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Etienne St.Laurent",
-    "serialNumber": "21/200",
+    "serialNumber": "14/200",
     "isPast": false,
     "stats": {
       "courage": 90,
@@ -12568,7 +12568,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/xOXBXPi.png"
   },
   {
-    "id": "AU-22/200",
+    "id": "AU-15/200",
     "displayName": "Somnort",
     "name": "Somnort",
     "subname": "",
@@ -12585,7 +12585,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Etienne St.Laurent",
-    "serialNumber": "22/200",
+    "serialNumber": "15/200",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -12604,7 +12604,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/zIPchva.png"
   },
   {
-    "id": "AU-23/200",
+    "id": "AU-16/200",
     "displayName": "Unda, Servant of Water",
     "name": "Unda",
     "subname": "Servant of Water",
@@ -12621,7 +12621,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Axer",
-    "serialNumber": "23/200",
+    "serialNumber": "16/200",
     "isPast": false,
     "stats": {
       "courage": 65,
@@ -12640,7 +12640,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/GYs1WxS.png"
   },
   {
-    "id": "AU-24/200",
+    "id": "AU-S08/26",
     "displayName": "Vlar",
     "name": "Vlar",
     "subname": "",
@@ -12657,7 +12657,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
-    "serialNumber": "24/200",
+    "serialNumber": "S08/26",
     "isPast": false,
     "stats": {
       "courage": 90,
@@ -13432,7 +13432,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/Lh9l6SJ.png"
   },
   {
-    "id": "FAS-8bn0jmkt",
+    "id": "FAS-huc7sqkl",
     "displayName": "Arctus, Heptadd's Squire",
     "name": "Arctus",
     "subname": "Heptadd's Squire",
@@ -13693,7 +13693,7 @@ export const creatureDatabase = [
     "tribe": "underworld",
     "subtype": "Taskmaster",
     "ability": "Intimidate: :power:Power 10.",
-    "flavorText": "\"Mugic? Bah! What can a Mugician do that I can’t do with my fists?\" – Grook",
+    "flavorText": "\"Mugic? Bah! What can a Mugician do that I can’t do with my fists?\" — Grook",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -13801,7 +13801,7 @@ export const creatureDatabase = [
     "tribe": "underworld",
     "subtype": "Taskmaster",
     "ability": "Intimidate: :courage:Courage 10.\r\nIntimidate: :wisdom:Wisdom 10.",
-    "flavorText": "\"Yeah, I could build that.\" – Khybon",
+    "flavorText": "\"Yeah, I could build that.\" — Khybon",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -13873,7 +13873,7 @@ export const creatureDatabase = [
     "tribe": "underworld",
     "subtype": "Commander Scout",
     "ability": "Intimidate: :power:Power 10\r\nRange ",
-    "flavorText": "\"Fear is a great motivator. Just look at Krekk.\" – Lord Van Bloot",
+    "flavorText": "\"Fear is a great motivator. Just look at Krekk.\" — Lord Van Bloot",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -13945,7 +13945,7 @@ export const creatureDatabase = [
     "tribe": "underworld",
     "subtype": "Conqueror Muge",
     "ability": "If any Creature engaged with Lord Van Bloot has less than 65 :courage:Courage, that Creature has 10 less Energy.",
-    "flavorText": "\"I may serve Chaor, but in time, Chaor will serve me!\" – Lord Van Bloot",
+    "flavorText": "\"I may serve Chaor, but in time, Chaor will serve me!\" — Lord Van Bloot",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": true,
@@ -14089,7 +14089,7 @@ export const creatureDatabase = [
     "tribe": "underworld",
     "subtype": "Commander",
     "ability": "Intimidate: :courage:Courage 10.\r\nIntimidate: :wisdom:Wisdom 10.",
-    "flavorText": "\"Telling the truth only goes so far. But lying? That gets you where you’re going.\" – Pyrithion",
+    "flavorText": "\"Telling the truth only goes so far. But lying? That gets you where you’re going.\" — Pyrithion",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -14161,7 +14161,7 @@ export const creatureDatabase = [
     "tribe": "underworld",
     "subtype": "Commander",
     "ability": "Intimidate: :power:Power 10\r\nRecklessness 5",
-    "flavorText": "\"I don’t run. I don’t flinch. But I don’t care, either.\" – Rothar",
+    "flavorText": "\"I don’t run. I don’t flinch. But I don’t care, either.\" — Rothar",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -14449,7 +14449,7 @@ export const creatureDatabase = [
     "tribe": "underworld",
     "subtype": "Warrior",
     "ability": "",
-    "flavorText": "\"'Failure' is such a harsh word. Let's just say my experiment had unintended consequences.\" —Mommark",
+    "flavorText": "\"'Failure' is such a harsh word. Let's just say my experiment had unintended consequences.\" — Mommark",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -14593,7 +14593,7 @@ export const creatureDatabase = [
     "tribe": "underworld",
     "subtype": "Commander",
     "ability": "Deal 15 damage to Kamangareth while engaged: Deactivate Hive.",
-    "flavorText": "\"Stalk, isolate, destroy. Do these three things and the Danians are powerless!\" —Kamangareth\r\n\r\n",
+    "flavorText": "\"Stalk, isolate, destroy. Do these three things and the Danians are powerless!\" — Kamangareth\r\n\r\n",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -14701,7 +14701,7 @@ export const creatureDatabase = [
     "tribe": "underworld",
     "subtype": "Muge",
     "ability": "Muges have \"Sacrifice this Creature: Deal 10 damage to target Creature.\"\r\n\r\n",
-    "flavorText": "\"You've run out of Mugicians? Do not fear. I know how you can still be useful.\" —Slufurah",
+    "flavorText": "\"You've run out of Mugicians? Do not fear. I know how you can still be useful.\" — Slufurah",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -15817,7 +15817,7 @@ export const creatureDatabase = [
     "tribe": "underworld",
     "subtype": "Warrior",
     "ability": "Outperform :power:Power 5.\r\nIf Eximiar is engaged with an UnderWorld Creature, it has \":fire:Fire 5\" and \"Recklessness 5.\"",
-    "flavorText": "\"You call them weak-minded. I call them traitors!\" —Eximiar",
+    "flavorText": "\"You call them weak-minded. I call them traitors!\" — Eximiar",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -15997,7 +15997,7 @@ export const creatureDatabase = [
     "tribe": "underworld",
     "subtype": "Ethereal Warrior",
     "ability": "Intimidate: :power:Power 30\r\nIntimidate: :speed:Speed 30\r\nRecklessness 5",
-    "flavorText": "\"I don't care what it's made of... as long as it can fight!\" —Chaor",
+    "flavorText": "\"I don't care what it's made of... as long as it can fight!\" — Chaor",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -16312,7 +16312,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/JyBfxsv.png"
   },
   {
-    "id": "AU-25/200",
+    "id": "AU-S09/26",
     "displayName": "Kaal",
     "name": "Kaal",
     "subname": "",
@@ -16329,7 +16329,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Reggie Butler",
-    "serialNumber": "25/200",
+    "serialNumber": "S09/26",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -16348,7 +16348,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/PnhPfmO.png"
   },
   {
-    "id": "AU-26/200",
+    "id": "AU-17/200",
     "displayName": "Ketacc",
     "name": "Ketacc",
     "subname": "",
@@ -16357,7 +16357,7 @@ export const creatureDatabase = [
     "tribe": "underworld",
     "subtype": "Warrior Scout",
     "ability": "Intimidate: Energy 10\r\nRecklessness 10",
-    "flavorText": "\"On my signal, unleash the full wrath of the UnderWorld!\" —Slufurah",
+    "flavorText": "\"On my signal, unleash the full wrath of the UnderWorld!\" — Slufurah",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -16365,7 +16365,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Anthony Washington",
-    "serialNumber": "26/200",
+    "serialNumber": "17/200",
     "isPast": false,
     "stats": {
       "courage": 85,
@@ -16384,7 +16384,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/byjiYrH.png"
   },
   {
-    "id": "AU-27/200",
+    "id": "AU-18/200",
     "displayName": "Khybon, Magma Dam Overseer",
     "name": "Khybon",
     "subname": "Magma Dam Overseer",
@@ -16401,7 +16401,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
-    "serialNumber": "27/200",
+    "serialNumber": "18/200",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -16420,7 +16420,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/3KhCmxz.png"
   },
   {
-    "id": "AU-28/200",
+    "id": "AU-S10/26",
     "displayName": "Kiru",
     "name": "Kiru",
     "subname": "",
@@ -16437,7 +16437,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Reggie Butler",
-    "serialNumber": "28/200",
+    "serialNumber": "S10/26",
     "isPast": false,
     "stats": {
       "courage": 80,
@@ -16456,7 +16456,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/b8UqQJ4.png"
   },
   {
-    "id": "AU-29/200",
+    "id": "AU-19/200",
     "displayName": "Kopond, High Muge of the Hearth",
     "name": "Kopond",
     "subname": "High Muge of the Hearth",
@@ -16473,7 +16473,7 @@ export const creatureDatabase = [
     "loyal": true,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Bob Rivard",
-    "serialNumber": "29/200",
+    "serialNumber": "19/200",
     "isPast": false,
     "stats": {
       "courage": 40,
@@ -16492,7 +16492,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/Z2PB8zD.png"
   },
   {
-    "id": "AU-30/200",
+    "id": "AU-20/200",
     "displayName": "Krekk, Phalanx Recon",
     "name": "Krekk",
     "subname": "Phalanx Recon",
@@ -16509,7 +16509,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, David Curiel",
-    "serialNumber": "30/200",
+    "serialNumber": "20/200",
     "isPast": false,
     "stats": {
       "courage": 75,
@@ -16528,7 +16528,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/OkhDl8F.png"
   },
   {
-    "id": "AU-31/200",
+    "id": "AU-21/200",
     "displayName": "Magmon, Engulfed",
     "name": "Magmon",
     "subname": "Engulfed",
@@ -16545,7 +16545,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Emilio Lopez",
-    "serialNumber": "31/200",
+    "serialNumber": "21/200",
     "isPast": false,
     "stats": {
       "courage": 40,
@@ -16564,7 +16564,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/JtMi7YQ.png"
   },
   {
-    "id": "AU-32/200",
+    "id": "AU-22/200",
     "displayName": "Nauthilax, Aquatic Spy",
     "name": "Nauthilax",
     "subname": "Aquatic Spy",
@@ -16581,7 +16581,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Reggie Butler",
-    "serialNumber": "32/200",
+    "serialNumber": "22/200",
     "isPast": false,
     "stats": {
       "courage": 75,
@@ -16600,7 +16600,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/UdM5hiK.png"
   },
   {
-    "id": "AU-33/200",
+    "id": "AU-23/200",
     "displayName": "Piddan",
     "name": "Piddan",
     "subname": "",
@@ -16617,7 +16617,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
-    "serialNumber": "33/200",
+    "serialNumber": "23/200",
     "isPast": false,
     "stats": {
       "courage": 60,
@@ -16636,7 +16636,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/lc2d7Gp.png"
   },
   {
-    "id": "AU-34/200",
+    "id": "AU-24/200",
     "displayName": "Rothar, Forceful Negotiator",
     "name": "Rothar",
     "subname": "Forceful Negotiator",
@@ -16645,7 +16645,7 @@ export const creatureDatabase = [
     "tribe": "underworld",
     "subtype": "Commander",
     "ability": "If Rothar can move into an adjacent occupied space, it must do so.",
-    "flavorText": "\"Treaties are made to be broken... and so are your bones!\" —Rothar",
+    "flavorText": "\"Treaties are made to be broken... and so are your bones!\" — Rothar",
     "brainwashedText": "",
     "brainwashed": false,
     "unique": false,
@@ -16653,7 +16653,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Bob Rivard",
-    "serialNumber": "34/200",
+    "serialNumber": "24/200",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -16672,7 +16672,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/BzkkEpb.png"
   },
   {
-    "id": "AU-35/200",
+    "id": "AU-25/200",
     "displayName": "Savitsa",
     "name": "Savitsa",
     "subname": "",
@@ -16689,7 +16689,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Andrew Bradshaw, Chris Fisher",
-    "serialNumber": "35/200",
+    "serialNumber": "25/200",
     "isPast": false,
     "stats": {
       "courage": 40,
@@ -16708,7 +16708,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/qgv0VHU.png"
   },
   {
-    "id": "AU-36/200",
+    "id": "AU-26/200",
     "displayName": "Seeryn, Servant of Fire",
     "name": "Seeryn",
     "subname": "Servant of Fire",
@@ -16725,7 +16725,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
-    "serialNumber": "36/200",
+    "serialNumber": "26/200",
     "isPast": false,
     "stats": {
       "courage": 55,
@@ -16744,7 +16744,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/SUMXQBN.png"
   },
   {
-    "id": "AU-37/200",
+    "id": "AU-27/200",
     "displayName": "Skithia, Gothos Spy",
     "name": "Skithia",
     "subname": "Gothos Spy",
@@ -16761,7 +16761,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Emilio Lopez",
-    "serialNumber": "37/200",
+    "serialNumber": "27/200",
     "isPast": false,
     "stats": {
       "courage": 80,
@@ -16816,7 +16816,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/CuyGM8N.png"
   },
   {
-    "id": "AU-39/200",
+    "id": "AU-28/200",
     "displayName": "Slufurah, Treacherous Translator",
     "name": "Slufurah",
     "subname": "Treacherous Translator",
@@ -16833,7 +16833,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
-    "serialNumber": "39/200",
+    "serialNumber": "28/200",
     "isPast": false,
     "stats": {
       "courage": 50,
@@ -16852,7 +16852,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/z4JQfcz.png"
   },
   {
-    "id": "AU-40/200",
+    "id": "AU-29/200",
     "displayName": "Stelgar, Vicious Mutation",
     "name": "Stelgar",
     "subname": "Vicious Mutation",
@@ -16869,7 +16869,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Adrian Barrios, Bob Rivard",
-    "serialNumber": "40/200",
+    "serialNumber": "29/200",
     "isPast": false,
     "stats": {
       "courage": 30,
@@ -16888,7 +16888,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/Wf28LcJ.png"
   },
   {
-    "id": "AU-41/200",
+    "id": "AU-30/200",
     "displayName": "Toadore",
     "name": "Toadore",
     "subname": "",
@@ -16905,7 +16905,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Kazutoko Matsumoto",
-    "serialNumber": "41/200",
+    "serialNumber": "30/200",
     "isPast": false,
     "stats": {
       "courage": 70,
@@ -16924,7 +16924,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/LjD6MJu.png"
   },
   {
-    "id": "AU-42/200",
+    "id": "AU-31/200",
     "displayName": "Ulmar, Perithon Racer",
     "name": "Ulmar",
     "subname": "Perithon Racer",
@@ -16941,7 +16941,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Etienne St.Laurent",
-    "serialNumber": "42/200",
+    "serialNumber": "31/200",
     "isPast": false,
     "stats": {
       "courage": 50,
@@ -16996,7 +16996,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/rCCCgIR.png"
   },
   {
-    "id": "AU-44/200",
+    "id": "AU-32/200",
     "displayName": "Zamool, Lord Van Bloot's Enforcer",
     "name": "Zamool",
     "subname": "Lord Van Bloot's Enforcer",
@@ -17013,7 +17013,7 @@ export const creatureDatabase = [
     "loyal": false,
     "loyalRestriction": "",
     "artist": "Khary Randolph, Anthony Washington",
-    "serialNumber": "44/200",
+    "serialNumber": "32/200",
     "isPast": false,
     "stats": {
       "courage": 85,
@@ -17464,7 +17464,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/TtjN5sl.png"
   },
   {
-    "id": "undefined-9ke71rfz",
+    "id": "undefined-7pzhy3eo",
     "displayName": "Aah'terai",
     "name": "Aah'terai",
     "subname": "",
@@ -17500,7 +17500,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/cnl3du1.jpeg"
   },
   {
-    "id": "undefined-vyqkself",
+    "id": "undefined-4a5xm4lw",
     "displayName": "Aa'une Alt Art",
     "name": "Aa'une Alt Art",
     "subname": "",
@@ -17536,7 +17536,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/gugKUqS.jpeg"
   },
   {
-    "id": "undefined-7b258kb1",
+    "id": "undefined-m76oqffn",
     "displayName": "Ahnem",
     "name": "Ahnem",
     "subname": "",
@@ -17572,7 +17572,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/5aL0qTm.jpeg"
   },
   {
-    "id": "undefined-g9lfpiqu",
+    "id": "undefined-sv1m9gpo",
     "displayName": "Aisgarr",
     "name": "Aisgarr",
     "subname": "",
@@ -17608,7 +17608,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/7XWwxr9.jpeg"
   },
   {
-    "id": "undefined-lw9uevxv",
+    "id": "undefined-kffykic3",
     "displayName": "Akwi",
     "name": "Akwi",
     "subname": "",
@@ -17644,7 +17644,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/pcktz51.jpeg"
   },
   {
-    "id": "undefined-v5mlr9co",
+    "id": "undefined-bum806jc",
     "displayName": "Aliecs",
     "name": "Aliecs",
     "subname": "",
@@ -17680,7 +17680,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/4C2dHAH.png"
   },
   {
-    "id": "undefined-ptk9k2a3",
+    "id": "undefined-cq5s13zb",
     "displayName": "Aztrolar",
     "name": "Aztrolar",
     "subname": "",
@@ -17716,7 +17716,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/D5CX7T3.jpeg"
   },
   {
-    "id": "undefined-wed20jna",
+    "id": "undefined-ocqh9zeh",
     "displayName": "Blugon Alt Art",
     "name": "Blugon Alt Art",
     "subname": "",
@@ -17752,7 +17752,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/jCg8Tke.jpeg"
   },
   {
-    "id": "undefined-rd8g26i1",
+    "id": "undefined-xlu89ytf",
     "displayName": "Borth-Majar Alt Art",
     "name": "Borth-Majar Alt Art",
     "subname": "",
@@ -17788,7 +17788,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/Ul2N3vW.jpeg"
   },
   {
-    "id": "undefined-y6i98hpm",
+    "id": "undefined-5mecbvdd",
     "displayName": "Chaor Alt Art",
     "name": "Chaor Alt Art",
     "subname": "",
@@ -17824,7 +17824,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/X5IwljL.jpeg"
   },
   {
-    "id": "undefined-ltmsbcna",
+    "id": "undefined-o45127l1",
     "displayName": "Cirleth",
     "name": "Cirleth",
     "subname": "",
@@ -17860,7 +17860,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/OxVJ1ff.jpeg"
   },
   {
-    "id": "undefined-yvgh9gy0",
+    "id": "undefined-h0zof245",
     "displayName": "Deenha",
     "name": "Deenha",
     "subname": "",
@@ -17896,7 +17896,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/9g216Lr.png"
   },
   {
-    "id": "undefined-184we5w4",
+    "id": "undefined-d729q47c",
     "displayName": "Dhegahn",
     "name": "Dhegahn",
     "subname": "",
@@ -17932,7 +17932,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/qtdwuCP.jpeg"
   },
   {
-    "id": "undefined-pgfg88am",
+    "id": "undefined-fnab13ma",
     "displayName": "Dractyl Alt Art",
     "name": "Dractyl Alt Art",
     "subname": "",
@@ -17968,7 +17968,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/DPoB0AU.jpeg"
   },
   {
-    "id": "undefined-m3l8k866",
+    "id": "undefined-s86ikqkn",
     "displayName": "Eerhin",
     "name": "Eerhin",
     "subname": "",
@@ -18004,7 +18004,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/p7WlOZQ.jpeg"
   },
   {
-    "id": "undefined-8tn74l80",
+    "id": "undefined-lfi0knn2",
     "displayName": "Ekuud Alt Art",
     "name": "Ekuud Alt Art",
     "subname": "",
@@ -18040,7 +18040,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/CE93r9s.jpeg"
   },
   {
-    "id": "undefined-albysazs",
+    "id": "undefined-kuzeac1u",
     "displayName": "Elira",
     "name": "Elira",
     "subname": "",
@@ -18076,7 +18076,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/WeIdeOp.jpeg"
   },
   {
-    "id": "undefined-f264bv0c",
+    "id": "undefined-p21pp3gy",
     "displayName": "Fahrkaj Alt Art",
     "name": "Fahrkaj Alt Art",
     "subname": "",
@@ -18112,7 +18112,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/3hKym4K.jpeg"
   },
   {
-    "id": "undefined-e9i9nuj9",
+    "id": "undefined-gz45yj72",
     "displayName": "Frafdo Alt Art",
     "name": "Frafdo Alt Art",
     "subname": "",
@@ -18148,7 +18148,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/D8bycyE.jpeg"
   },
   {
-    "id": "undefined-n53n3n2k",
+    "id": "undefined-fqvdjhqb",
     "displayName": "Ganassaran",
     "name": "Ganassaran",
     "subname": "",
@@ -18184,7 +18184,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/NESvrt2.jpeg"
   },
   {
-    "id": "undefined-e0u0nn4q",
+    "id": "undefined-0zhh2z94",
     "displayName": "Getaan",
     "name": "Getaan",
     "subname": "",
@@ -18220,7 +18220,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/kggWBCK.jpeg"
   },
   {
-    "id": "undefined-spvuv8ex",
+    "id": "undefined-7lk8cidp",
     "displayName": "Guernath",
     "name": "Guernath",
     "subname": "",
@@ -18256,7 +18256,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/s3Byu8W.png"
   },
   {
-    "id": "undefined-hgu0js8e",
+    "id": "undefined-8yu5b8me",
     "displayName": "Hear'ring",
     "name": "Hear'ring",
     "subname": "",
@@ -18292,7 +18292,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/Uw97vgd.jpeg"
   },
   {
-    "id": "undefined-t59c14vn",
+    "id": "undefined-nmvthjvx",
     "displayName": "Iflar Alt Art",
     "name": "Iflar Alt Art",
     "subname": "",
@@ -18328,10 +18328,10 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/pA36nab.jpeg"
   },
   {
-    "id": "undefined-m13748qb",
-    "displayName": "Illexia Alt Art",
-    "name": "Illexia Alt Art",
-    "subname": "",
+    "id": "undefined-5pg9v4ff",
+    "displayName": "Illexia, Elder of the Nest",
+    "name": "Illexia",
+    "subname": "Elder of the Nest",
     "set": "",
     "rarity": "",
     "tribe": "danian",
@@ -18364,7 +18364,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/72L4lDW.png"
   },
   {
-    "id": "undefined-02618ews",
+    "id": "undefined-8pouh7ai",
     "displayName": "Kemmosh",
     "name": "Kemmosh",
     "subname": "",
@@ -18400,7 +18400,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/lAGNDVJ.jpeg"
   },
   {
-    "id": "undefined-y97mphi9",
+    "id": "undefined-333x0ep1",
     "displayName": "Kienrah",
     "name": "Kienrah",
     "subname": "",
@@ -18436,7 +18436,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/WXIjk1k.jpeg"
   },
   {
-    "id": "undefined-2mvighki",
+    "id": "undefined-gyxf9vqa",
     "displayName": "Kughar Alt Art",
     "name": "Kughar Alt Art",
     "subname": "",
@@ -18472,7 +18472,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/Jy8vKvv.jpeg"
   },
   {
-    "id": "undefined-5cnfyjad",
+    "id": "undefined-1dl5k8mt",
     "displayName": "Lord Van Bloot Alt Art",
     "name": "Lord Van Bloot Alt Art",
     "subname": "",
@@ -18508,7 +18508,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/pJZZ0Wn.jpeg"
   },
   {
-    "id": "undefined-tm4erep5",
+    "id": "undefined-3ye8mn5x",
     "displayName": "Lujah",
     "name": "Lujah",
     "subname": "",
@@ -18544,7 +18544,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/bUCjfZO.jpeg"
   },
   {
-    "id": "undefined-ad0llhjf",
+    "id": "undefined-dvfuxtqy",
     "displayName": "Marquis Darini Alt Art",
     "name": "Marquis Darini Alt Art",
     "subname": "",
@@ -18580,7 +18580,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/6QXbjvq.jpeg"
   },
   {
-    "id": "undefined-wecc69s8",
+    "id": "undefined-n9gdwjci",
     "displayName": "Mhoork",
     "name": "Mhoork",
     "subname": "",
@@ -18616,7 +18616,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/NUrvbNa.jpeg"
   },
   {
-    "id": "undefined-6wmyyr74",
+    "id": "undefined-rvn4uqyy",
     "displayName": "Nidding",
     "name": "Nidding",
     "subname": "",
@@ -18652,7 +18652,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/gznZOMA.jpeg"
   },
   {
-    "id": "undefined-jokbeflk",
+    "id": "undefined-i3f1rv2m",
     "displayName": "Phelphor Alt Art",
     "name": "Phelphor Alt Art",
     "subname": "",
@@ -18688,7 +18688,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/2Al4iD7.jpeg"
   },
   {
-    "id": "undefined-qapyumu5",
+    "id": "undefined-lw3q5zbx",
     "displayName": "Prince Mudeenu, Vassal of the King",
     "name": "Prince Mudeenu",
     "subname": "Vassal of the King",
@@ -18724,7 +18724,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/IuzmjWo.jpeg"
   },
   {
-    "id": "undefined-unn7m1qr",
+    "id": "undefined-7xq832a2",
     "displayName": "Pyrithion Alt Art",
     "name": "Pyrithion Alt Art",
     "subname": "",
@@ -18760,7 +18760,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/I0l1CTG.jpeg"
   },
   {
-    "id": "undefined-uluvczgz",
+    "id": "undefined-h1z6fsj3",
     "displayName": "Raimusa Alt Art a",
     "name": "Raimusa Alt Art a",
     "subname": "",
@@ -18796,7 +18796,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/SayYPHK.jpeg"
   },
   {
-    "id": "undefined-zusz054l",
+    "id": "undefined-q7m0wf2m",
     "displayName": "Raimusa Alt Art b",
     "name": "Raimusa Alt Art b",
     "subname": "",
@@ -18832,7 +18832,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/B63gs3D.jpeg"
   },
   {
-    "id": "undefined-313wq5yn",
+    "id": "undefined-b029uhq4",
     "displayName": "Rarran, Night Thief",
     "name": "Rarran",
     "subname": "Night Thief",
@@ -18868,7 +18868,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/p2TTv4J.jpeg"
   },
   {
-    "id": "undefined-bz4eqdkd",
+    "id": "undefined-lxx2xf8d",
     "displayName": "Rhaden",
     "name": "Rhaden",
     "subname": "",
@@ -18904,7 +18904,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/XasndQL.jpeg"
   },
   {
-    "id": "undefined-gy8qupwz",
+    "id": "undefined-jh6vmbrq",
     "displayName": "Sahrbat",
     "name": "Sahrbat",
     "subname": "",
@@ -18940,7 +18940,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/6oVD4px.png"
   },
   {
-    "id": "undefined-t6qqh6aj",
+    "id": "undefined-eawwcr3b",
     "displayName": "Siado",
     "name": "Siado",
     "subname": "",
@@ -18976,7 +18976,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/g8csw5N.jpeg"
   },
   {
-    "id": "undefined-75ly25mh",
+    "id": "undefined-of8qgrwg",
     "displayName": "Steem",
     "name": "Steem",
     "subname": "",
@@ -19012,10 +19012,10 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/JaqYdyq.jpeg"
   },
   {
-    "id": "undefined-mid8t6tt",
-    "displayName": "Theb-Sarr",
+    "id": "undefined-b2pqx2my",
+    "displayName": "Theb-Sarr, King of Mipedim",
     "name": "Theb-Sarr",
-    "subname": "",
+    "subname": "King of Mipedim",
     "set": "",
     "rarity": "",
     "tribe": "mipedian",
@@ -19048,7 +19048,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/PS5IkSU.jpeg"
   },
   {
-    "id": "undefined-k3o3tw3a",
+    "id": "undefined-hg2a6kp6",
     "displayName": "Ulfheddin Alt Art",
     "name": "Ulfheddin Alt Art",
     "subname": "",
@@ -19084,7 +19084,7 @@ export const creatureDatabase = [
     "imageUrl": "https://i.imgur.com/qQjEqJl.png"
   },
   {
-    "id": "undefined-nv8k2sys",
+    "id": "undefined-gwwxbqhw",
     "displayName": "Zalvar",
     "name": "Zalvar",
     "subname": "",
@@ -19118,6 +19118,42 @@ export const creatureDatabase = [
       "water": 0
     },
     "imageUrl": "https://i.imgur.com/r5DPxit.jpeg"
+  },
+  {
+    "id": "undefined-4bi6q6rq",
+    "displayName": "Bahrakatan Alt Art",
+    "name": "Bahrakatan Alt Art",
+    "subname": "",
+    "set": "",
+    "rarity": "",
+    "tribe": "m'arrillian",
+    "subtype": "",
+    "ability": "",
+    "flavorText": "",
+    "brainwashedText": "",
+    "brainwashed": false,
+    "unique": false,
+    "legendary": false,
+    "loyal": false,
+    "loyalRestriction": "",
+    "artist": "",
+    "serialNumber": "",
+    "isPast": false,
+    "stats": {
+      "courage": 0,
+      "power": 0,
+      "wisdom": 0,
+      "speed": 0,
+      "energy": 0,
+      "mugic": 0
+    },
+    "elements": {
+      "fire": 0,
+      "air": 0,
+      "earth": 0,
+      "water": 0
+    },
+    "imageUrl": ""
   }
 ];
 
@@ -19131,6 +19167,8 @@ export const getAllCreatureNames = () => {
     id: creature.id,
     displayName: creature.displayName,
     tribe: creature.tribe,
-    isPast: creature.isPast
+    isPast: creature.isPast,
+    set: creature.set || '',
+    setDisplay: creature.set ? creature.set.toUpperCase() : ''
   }));
 };

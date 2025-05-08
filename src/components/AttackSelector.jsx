@@ -1,76 +1,68 @@
-// src/components/CreatureSelector.jsx
+// src/components/AttackSelector.jsx
 import React, { useState, useEffect, useRef, memo } from 'react';
-import { getAllCreatureNames, getCreatureById } from './CreatureDatabase';
+import { getAllAttackNames, getAttackById } from './AttackDatabase';
 
 // Use React.memo to prevent unnecessary re-renders
-const CreatureSelector = memo(({ onSelectCreature }) => {
+const AttackSelector = memo(({ onSelectAttack }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [filteredCreatures, setFilteredCreatures] = useState([]);
+  const [filteredAttacks, setFilteredAttacks] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const dropdownRef = useRef(null);
   const inputRef = useRef(null);
   const listRef = useRef(null);
-  // Cache all creatures to avoid recalculation
-  const allCreatures = useRef([]);
+  // Cache all attacks to avoid recalculation
+  const allAttacks = useRef([]);
   
-  // Load creatures in alphabetical order
+  // Load attacks in alphabetical order
   useEffect(() => {
-    const loadCreatures = async () => {
-      const creatures = getAllCreatureNames();
+    const loadAttacks = async () => {
+      const attacks = getAllAttackNames();
       
-      // Filter out creatures without a displayName property first
-      const validCreatures = creatures.filter(creature => creature && creature.displayName);
+      // Filter out attacks without a name property first
+      const validAttacks = attacks.filter(attack => attack && attack.name);
       
-      // Sort creatures alphabetically
-      const sortedCreatures = validCreatures.sort((a, b) => 
-        a.displayName.localeCompare(b.displayName)
+      // Sort attacks alphabetically
+      const sortedAttacks = validAttacks.sort((a, b) => 
+        a.name.localeCompare(b.name)
       );
       
-      allCreatures.current = sortedCreatures;
-      setFilteredCreatures(sortedCreatures);
+      allAttacks.current = sortedAttacks;
+      setFilteredAttacks(sortedAttacks);
     };
     
-    loadCreatures();
+    loadAttacks();
   }, []);
   
-  // Filter creatures when search term changes
+  // Filter attacks when search term changes
   useEffect(() => {
     if (searchTerm.trim() === '') {
-      setFilteredCreatures(allCreatures.current);
+      setFilteredAttacks(allAttacks.current);
     } else {
-      const filtered = allCreatures.current.filter(creature => {
-        // Ensure creature has displayName property
-        if (!creature || !creature.displayName) return false;
+      const filtered = allAttacks.current.filter(attack => {
+        // Ensure attack has name property
+        if (!attack || !attack.name) return false;
         
-        return creature.displayName.toLowerCase().includes(searchTerm.toLowerCase());
+        return attack.name.toLowerCase().includes(searchTerm.toLowerCase());
       });
       
-      setFilteredCreatures(filtered);
+      setFilteredAttacks(filtered);
     }
     // Reset selected index when filtered results change
     setSelectedIndex(-1);
   }, [searchTerm]);
 
   // Memoize the selection handler to avoid recreating during renders
-  const handleCreatureSelection = React.useCallback((creatureId) => {
-    // Get the full creature data from the database
-    const creatureData = getCreatureById(creatureId);
-    if (!creatureData) {
-      console.error(`Creature not found with ID: ${creatureId}`);
+  const handleAttackSelection = React.useCallback((attackId) => {
+    // Get the full attack data from the database
+    const attackData = getAttackById(attackId);
+    if (!attackData) {
+      console.error(`Attack not found with ID: ${attackId}`);
       return;
     }
     
-    // Process loyalty restrictions based on tribe
-    let loyalRestriction = '';
-
-    // Only set a loyalty restriction for M'arrillians
-    if (creatureData.tribe && creatureData.tribe.toLowerCase() === 'm\'arrillian') {
-      loyalRestriction = 'M\'arrillians or Minions';
-    }
-    
-    // Call the parent component's handler with creature id and loyalty restriction
-    onSelectCreature(creatureId, loyalRestriction);
+    // Call the parent component's handler with all the attack data
+    onSelectAttack(attackData);
     
     // Reset local state
     setIsDropdownOpen(false);
@@ -81,7 +73,7 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     setTimeout(() => {
       inputRef.current?.focus();
     }, 10);
-  }, [onSelectCreature]);
+  }, [onSelectAttack]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -98,9 +90,9 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     };
   }, []);
 
-  // Get a flattened list of selectable creatures
-  const getSelectableCreatures = () => {
-    return filteredCreatures;
+  // Get a flattened list of selectable attacks
+  const getSelectableAttacks = () => {
+    return filteredAttacks;
   };
 
   // Special key handler with focus lock
@@ -108,7 +100,7 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     const handleGlobalKeyDown = (e) => {
       if (!isDropdownOpen) return;
       
-      const selectableCreatures = getSelectableCreatures();
+      const selectableAttacks = getSelectableAttacks();
       
       if (['ArrowDown', 'ArrowUp', 'Enter', 'Escape'].includes(e.key)) {
         e.preventDefault();
@@ -117,10 +109,10 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
         switch (e.key) {
           case 'ArrowDown':
             setSelectedIndex(prevIndex => {
-              if (prevIndex < selectableCreatures.length - 1) {
+              if (prevIndex < selectableAttacks.length - 1) {
                 // Move selection down
                 const newIndex = prevIndex + 1;
-                scrollToIndex(newIndex, selectableCreatures);
+                scrollToIndex(newIndex, selectableAttacks);
                 return newIndex;
               }
               return prevIndex;
@@ -132,7 +124,7 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
               if (prevIndex > 0) {
                 // Move selection up
                 const newIndex = prevIndex - 1;
-                scrollToIndex(newIndex, selectableCreatures);
+                scrollToIndex(newIndex, selectableAttacks);
                 return newIndex;
               }
               return prevIndex;
@@ -140,9 +132,9 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
             break;
             
           case 'Enter':
-            if (selectedIndex >= 0 && selectedIndex < selectableCreatures.length) {
-              // Select the highlighted creature
-              handleCreatureSelection(selectableCreatures[selectedIndex].id);
+            if (selectedIndex >= 0 && selectedIndex < selectableAttacks.length) {
+              // Select the highlighted attack
+              handleAttackSelection(selectableAttacks[selectedIndex].id);
             }
             break;
             
@@ -163,28 +155,28 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     return () => {
       document.removeEventListener('keydown', handleGlobalKeyDown, true);
     };
-  }, [isDropdownOpen, selectedIndex, filteredCreatures, handleCreatureSelection]);
+  }, [isDropdownOpen, selectedIndex, filteredAttacks, handleAttackSelection]);
 
   // Initialize dropdown state with first item selected
   useEffect(() => {
     if (isDropdownOpen && selectedIndex === -1) {
-      const selectableCreatures = getSelectableCreatures();
-      if (selectableCreatures.length > 0) {
+      const selectableAttacks = getSelectableAttacks();
+      if (selectableAttacks.length > 0) {
         setSelectedIndex(0);
       }
     }
-  }, [isDropdownOpen, selectedIndex, filteredCreatures]);
+  }, [isDropdownOpen, selectedIndex, filteredAttacks]);
 
   // Function to scroll to a specific index
-  const scrollToIndex = (index, selectableCreatures) => {
+  const scrollToIndex = (index, selectableAttacks) => {
     if (index < 0 || !listRef.current) return;
     
     // Use setTimeout to ensure this runs after render
     setTimeout(() => {
-      const creatureId = selectableCreatures[index]?.id;
-      if (!creatureId) return;
+      const attackId = selectableAttacks[index]?.id;
+      if (!attackId) return;
       
-      const element = listRef.current.querySelector(`[data-id="${creatureId.replace(/"/g, '\\"')}"]`);
+      const element = listRef.current.querySelector(`[data-id="${attackId.replace(/"/g, '\\"')}"]`);
       if (element) {
         element.scrollIntoView({
           block: 'nearest',
@@ -198,19 +190,19 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
   const handleInputFocus = () => {
     // Don't auto-open, but prepare for keyboard navigation
     if (isDropdownOpen) {
-      const selectableCreatures = getSelectableCreatures();
-      if (selectableCreatures.length > 0 && selectedIndex === -1) {
+      const selectableAttacks = getSelectableAttacks();
+      if (selectableAttacks.length > 0 && selectedIndex === -1) {
         setSelectedIndex(0);
       }
     }
   };
 
-  // Helper to find if a creature is currently selected
-  const isSelected = (creature) => {
+  // Helper to find if an attack is currently selected
+  const isSelected = (attack) => {
     if (selectedIndex === -1) return false;
     
-    const selectableCreatures = getSelectableCreatures();
-    return selectableCreatures[selectedIndex]?.id === creature.id;
+    const selectableAttacks = getSelectableAttacks();
+    return selectableAttacks[selectedIndex]?.id === attack.id;
   };
 
   // Combined input click and focus handler
@@ -223,9 +215,9 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     <div className="relative w-full" ref={dropdownRef}>
       <div className="flex flex-col gap-2">
         <div className="flex justify-between items-center">
-          <label className="text-white font-bold">Select Creature</label>
+          <label className="text-white font-bold">Select Attack</label>
           <span className="text-xs text-gray-400">
-            {getSelectableCreatures().length} creatures available
+            {getSelectableAttacks().length} attacks available
           </span>
         </div>
         
@@ -246,7 +238,7 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
                 }
               }
             }}
-            placeholder="Search creatures..."
+            placeholder="Search attacks..."
             className="w-full p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none pl-8"
             autoComplete="off"
             aria-expanded={isDropdownOpen}
@@ -266,38 +258,28 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
               role="listbox"
               tabIndex="-1"
             >
-              {filteredCreatures.length === 0 ? (
-                <div className="p-3 text-gray-400 text-center">No creatures found</div>
+              {filteredAttacks.length === 0 ? (
+                <div className="p-3 text-gray-400 text-center">No attacks found</div>
               ) : (
-                <div className="creature-list">
-                  {filteredCreatures.map((creature) => (
-                    creature && creature.displayName && creature.id ? (
+                <div className="attack-list">
+                  {filteredAttacks.map((attack) => (
+                    attack && attack.name && attack.id ? (
                       <div
-                        key={creature.id}
-                        data-id={creature.id}
-                        className={`p-2 cursor-pointer border-t border-gray-700 first:border-0 creature-item ${
-                          isSelected(creature) ? 'bg-gray-700' : 'hover:bg-gray-800'
+                        key={attack.id}
+                        data-id={attack.id}
+                        className={`p-2 cursor-pointer border-t border-gray-700 first:border-0 attack-item ${
+                          isSelected(attack) ? 'bg-gray-700' : 'hover:bg-gray-800'
                         }`}
-                        onClick={() => handleCreatureSelection(creature.id)}
+                        onClick={() => handleAttackSelection(attack.id)}
                         role="option"
-                        aria-selected={isSelected(creature)}
+                        aria-selected={isSelected(attack)}
                       >
                         <div className="flex justify-between items-start">
                           <div>
-                            <div className="text-white">{creature.displayName}</div>
-                            {/* You can add additional creature details here if needed */}
+                            <div className="text-white">{attack.name}</div>
+                            {/* Removed fire, earth, air, water element tags */}
                           </div>
-                          <div className="text-xs text-gray-400 ml-2">
-                            {/* Try all possible ways the set might be stored */}
-                            {creature.setDisplay || 
-                             (creature.set && creature.set.toUpperCase()) || 
-                             creature.expansionDisplay || 
-                             (creature.expansion && creature.expansion.toUpperCase()) ||
-                             (creature.releaseSet && creature.releaseSet.toUpperCase()) ||
-                             (creature.release && creature.release.toUpperCase()) ||
-                             (creature.collection && creature.collection.toUpperCase()) ||
-                             (creature.isPast ? "PAST" : "")}
-                          </div>
+                          <div className="text-xs text-gray-400 ml-2">{attack.setDisplay || attack.set?.toUpperCase()}</div>
                         </div>
                       </div>
                     ) : null
@@ -313,6 +295,6 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
 });
 
 // Export with display name for better debugging
-CreatureSelector.displayName = 'CreatureSelector';
+AttackSelector.displayName = 'AttackSelector';
 
-export default CreatureSelector;
+export default AttackSelector;

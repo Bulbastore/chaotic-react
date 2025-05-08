@@ -7,6 +7,10 @@ import CreatureSelector from './CreatureSelector';
 import { getCreatureById } from './CreatureDatabase';
 import BatchGeneratorUI from './BatchGeneratorUI';
 import { urlToFile, loadAndCacheImage } from './imageCache';
+import AttackSelector from './AttackSelector';
+import BattlegearSelector from './BattlegearSelector';
+import MugicSelector from './MugicSelector';
+import LocationSelector from './LocationSelector';
 
 const CARD_SYMBOLS = [
   // Ability elements
@@ -431,20 +435,28 @@ const ELEMENT_ICONS = {
     }
 };
 
-
 const ElementItem = ({ element, value, onChange, type = 'creature' }) => (
   <div className="flex items-center gap-2">
     <input
       type="checkbox"
       id={`${type}-${element}`}
-      checked={value > 0}
-      onChange={onChange}
+      checked={value !== null}  // Changed from "value > 0" to "value !== null"
+      onChange={(e) => {
+        // When checkbox is checked, set to 0 (or 5 for attack)
+        // When unchecked, set to null
+        const defaultValue = type === 'attack' ? 5 : 0;
+        onChange({
+          target: {
+            value: e.target.checked ? defaultValue : null
+          }
+        });
+      }}
       className="w-4 h-4 accent-[#9FE240]"
     />
     <label htmlFor={`${type}-${element}`} className="flex items-center gap-1">
       <img 
         src={ELEMENT_ICONS[element][type]}
-        alt={element}  // Simplified alt text
+        alt={element}
         className="w-5 h-5 object-contain"
         style={{ imageRendering: 'pixelated' }}
       />
@@ -489,6 +501,7 @@ const CardForm = () => {
   const [legendary, setLegendary] = useState(false);
   const [loyal, setLoyal] = useState(false);
   const [loyalRestriction, setLoyalRestriction] = useState('');
+  const [initiative, setInitiative] = useState(0);
   const [forceUpdate, setForceUpdate] = useState(false);
   const [useOrangeSliders, setUseOrangeSliders] = useState(false);
   const isMobileBrowser = () => {
@@ -503,7 +516,9 @@ const CardForm = () => {
       'mipedian': 'Mipedian',
       'danian': 'Danian',
       "m'arrillian": "M'arrillian",
-      'tribeless': 'Past'
+      'tribeless': 'Past',
+      'panivian': 'Panivian',
+      'umbrian': 'Umbrian'
     }[tribe.toLowerCase()];
 
     // Only add 'Past ' prefix if the tribe is not already tribeless/Past
@@ -557,6 +572,7 @@ const resetForm = () => {
   setBuildPoints(0);
   setMugicCost(0);
   setBase(0);
+  setInitiative(0);
   setSerialNumber('');
   setShowCopyright(true);
 setShowArtist(true);
@@ -924,10 +940,10 @@ return (
               // Reset related states when changing card type
               setTribe('');
               setElements({
-                fire: 0,
-                air: 0,
-                earth: 0,
-                water: 0
+                fire: null,
+                air: null,
+                earth: null,
+                water: null
               });
               // Reset other relevant states
               setStats({
@@ -1072,6 +1088,191 @@ return (
   </div>
 )}
 
+{selectedType === 'attack' && (
+  <div className="p-4 border border-gray-700 rounded-lg bg-black">
+    <AttackSelector
+      onSelectAttack={(attackData) => {
+        setIsLoading(true);
+        
+        // Set form data from attackData
+        setName(attackData.name || '');
+        setSet(attackData.set?.toLowerCase() || '');
+        setRarity(attackData.rarity || '');
+        setAbility(attackData.ability || '');
+        setFlavorText(attackData.flavorText || '');
+        setUnique(attackData.unique || false);
+        setArtist(attackData.artist || '');
+        setSerialNumber(attackData.id || attackData.serialNumber || '');
+        setBuildPoints(attackData.bp || 0);
+        setBase(attackData.base || 0);
+        setElements({
+          fire: attackData.fire !== undefined ? attackData.fire : null,
+          air: attackData.air !== undefined ? attackData.air : null,
+          earth: attackData.earth !== undefined ? attackData.earth : null,
+          water: attackData.water !== undefined ? attackData.water : null
+        });
+        
+        // Load image if available
+        if (attackData.imageUrl) {
+          loadImageFromUrl(attackData.imageUrl)
+            .then(imageFile => {
+              if (imageFile) setArt(imageFile);
+              setIsLoading(false);
+            })
+            .catch(err => {
+              console.error('Failed to load image:', err);
+              setIsLoading(false);
+            });
+        } else {
+          setIsLoading(false);
+        }
+
+        // Create re-render sequence for UI updates
+        setTimeout(() => {
+          setForceUpdate(prev => !prev);
+          setTimeout(() => {
+            setForceUpdate(prev => !prev);
+          }, 300);
+        }, 100);
+      }}
+    />
+  </div>
+)}
+
+{selectedType === 'battlegear' && (
+  <div className="p-4 border border-gray-700 rounded-lg bg-black">
+    <BattlegearSelector
+      onSelectBattlegear={(battlegearData) => {
+        setIsLoading(true);
+        
+        // Set form data from battlegearData
+        setName(battlegearData.name || '');
+        setSet(battlegearData.set?.toLowerCase() || '');
+        setRarity(battlegearData.rarity || '');
+        setAbility(battlegearData.ability || '');
+        setFlavorText(battlegearData.flavorText || '');
+        setUnique(battlegearData.unique || false);
+        setLegendary(battlegearData.legendary || false);
+        setLoyal(battlegearData.loyal || false);
+        setArtist(battlegearData.artist || '');
+        setSerialNumber(battlegearData.id || battlegearData.serialNumber || '');
+        
+        // Load image if available
+        if (battlegearData.imageUrl) {
+          loadImageFromUrl(battlegearData.imageUrl)
+            .then(imageFile => {
+              if (imageFile) setArt(imageFile);
+              setIsLoading(false);
+            })
+            .catch(err => {
+              console.error('Failed to load image:', err);
+              setIsLoading(false);
+            });
+        } else {
+          setIsLoading(false);
+        }
+
+        // Create re-render sequence for UI updates
+        setTimeout(() => {
+          setForceUpdate(prev => !prev);
+          setTimeout(() => {
+            setForceUpdate(prev => !prev);
+          }, 300);
+        }, 100);
+      }}
+    />
+  </div>
+)}
+
+{selectedType === 'mugic' && (
+  <div className="p-4 border border-gray-700 rounded-lg bg-black">
+    <MugicSelector
+      onSelectMugic={(mugicData) => {
+        setIsLoading(true);
+        
+        // Set form data from mugicData
+        setName(mugicData.name || '');
+        setSet(mugicData.set?.toLowerCase() || '');
+        setRarity(mugicData.rarity || '');
+        setTribe(mugicData.tribe?.toLowerCase() || '');
+        setAbility(mugicData.ability || '');
+        setFlavorText(mugicData.flavorText || '');
+        setUnique(mugicData.unique || false);
+        setArtist(mugicData.artist || '');
+        setMugicCost(mugicData.mugicCost || 0);
+        setSerialNumber(mugicData.id || mugicData.serialNumber || '');
+        
+        // Load image if available
+        if (mugicData.imageUrl) {
+          loadImageFromUrl(mugicData.imageUrl)
+            .then(imageFile => {
+              if (imageFile) setArt(imageFile);
+              setIsLoading(false);
+            })
+            .catch(err => {
+              console.error('Failed to load image:', err);
+              setIsLoading(false);
+            });
+        } else {
+          setIsLoading(false);
+        }
+
+        // Create re-render sequence for UI updates
+        setTimeout(() => {
+          setForceUpdate(prev => !prev);
+          setTimeout(() => {
+            setForceUpdate(prev => !prev);
+          }, 300);
+        }, 100);
+      }}
+    />
+  </div>
+)}
+
+{selectedType === 'location' && (
+  <div className="p-4 border border-gray-700 rounded-lg bg-black">
+    <LocationSelector
+      onSelectLocation={(locationData) => {
+        setIsLoading(true);
+        
+        // Set form data from locationData
+        setName(locationData.name || '');
+        setSet(locationData.set?.toLowerCase() || '');
+        setRarity(locationData.rarity || '');
+        setAbility(locationData.ability || '');
+        setFlavorText(locationData.flavorText || '');
+        setUnique(locationData.unique || false);
+        setArtist(locationData.artist || '');
+        setInitiative(locationData.initiative || 0);
+        setSerialNumber(locationData.id || locationData.serialNumber || '');
+        
+        // Load image if available
+        if (locationData.imageUrl) {
+          loadImageFromUrl(locationData.imageUrl)
+            .then(imageFile => {
+              if (imageFile) setArt(imageFile);
+              setIsLoading(false);
+            })
+            .catch(err => {
+              console.error('Failed to load image:', err);
+              setIsLoading(false);
+            });
+        } else {
+          setIsLoading(false);
+        }
+
+        // Create re-render sequence for UI updates
+        setTimeout(() => {
+          setForceUpdate(prev => !prev);
+          setTimeout(() => {
+            setForceUpdate(prev => !prev);
+          }, 300);
+        }, 100);
+      }}
+    />
+  </div>
+)}
+
       {selectedType && (
         <div className="space-y-6">
           {/* Basic Information */}
@@ -1091,7 +1292,8 @@ return (
           { value: 'danian', label: 'Danian' },
           { value: "m'arrillian", label: "M'arrillian" },
           { value: 'tribeless', label: 'Tribeless' },
-          { value: 'mipedianow', label: 'Mipedian OverWorld' }
+          { value: 'panivian', label: 'Panivian' },
+          { value: 'umbrian', label: 'Umbrian' }
         ]}
       />
     </div>
@@ -1109,7 +1311,9 @@ return (
           { value: 'mipedian', label: 'Mipedian' },
           { value: 'danian', label: 'Danian' },
           { value: "m'arrillian", label: "M'arrillian" },
-          { value: 'generic', label: 'Generic' }
+          { value: 'generic', label: 'Generic' },
+          { value: 'panivian', label: 'Panivian' },
+          { value: 'umbrian', label: 'Umbrian' }
         ]}
       />
     )}
@@ -1423,7 +1627,7 @@ return (
             value={value}
             onChange={(e) => setElements(prev => ({
               ...prev,
-              [element]: e.target.checked ? 5 : 0
+              [element]: e.target.value
             }))}
             type="attack"
           />
@@ -1442,14 +1646,17 @@ return (
           type="base"
         />
         {Object.entries(elements).map(([element, value]) => (
-          <div key={element} style={{ display: value > 0 ? 'block' : 'none' }}>
+          <div key={element} style={{ display: value !== null ? 'block' : 'none' }}>
             <NumberSlider
               label={element.charAt(0).toUpperCase() + element.slice(1)}
-              value={value}
-              onChange={(e) => setElements(prev => ({
-                ...prev,
-                [element]: parseInt(e.target.value)
-              }))}
+              value={value !== null ? value : 0}
+              onChange={(e) => {
+                const newValue = parseInt(e.target.value);
+                setElements(prev => ({
+                  ...prev,
+                  [element]: newValue
+                }));
+              }}
               min={0}
               max={50}
               step={5}

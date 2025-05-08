@@ -1,76 +1,68 @@
-// src/components/CreatureSelector.jsx
+// src/components/MugicSelector.jsx
 import React, { useState, useEffect, useRef, memo } from 'react';
-import { getAllCreatureNames, getCreatureById } from './CreatureDatabase';
+import { getAllMugicNames, getMugicById } from './MugicDatabase';
 
 // Use React.memo to prevent unnecessary re-renders
-const CreatureSelector = memo(({ onSelectCreature }) => {
+const MugicSelector = memo(({ onSelectMugic }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [filteredCreatures, setFilteredCreatures] = useState([]);
+  const [filteredMugic, setFilteredMugic] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const dropdownRef = useRef(null);
   const inputRef = useRef(null);
   const listRef = useRef(null);
-  // Cache all creatures to avoid recalculation
-  const allCreatures = useRef([]);
+  // Cache all mugic to avoid recalculation
+  const allMugic = useRef([]);
   
-  // Load creatures in alphabetical order
+  // Load mugic in alphabetical order
   useEffect(() => {
-    const loadCreatures = async () => {
-      const creatures = getAllCreatureNames();
+    const loadMugic = async () => {
+      const mugicItems = getAllMugicNames();
       
-      // Filter out creatures without a displayName property first
-      const validCreatures = creatures.filter(creature => creature && creature.displayName);
+      // Filter out mugic without a name property first
+      const validMugic = mugicItems.filter(mugic => mugic && mugic.name);
       
-      // Sort creatures alphabetically
-      const sortedCreatures = validCreatures.sort((a, b) => 
-        a.displayName.localeCompare(b.displayName)
+      // Sort mugic alphabetically
+      const sortedMugic = validMugic.sort((a, b) => 
+        a.name.localeCompare(b.name)
       );
       
-      allCreatures.current = sortedCreatures;
-      setFilteredCreatures(sortedCreatures);
+      allMugic.current = sortedMugic;
+      setFilteredMugic(sortedMugic);
     };
     
-    loadCreatures();
+    loadMugic();
   }, []);
   
-  // Filter creatures when search term changes
+  // Filter mugic when search term changes
   useEffect(() => {
     if (searchTerm.trim() === '') {
-      setFilteredCreatures(allCreatures.current);
+      setFilteredMugic(allMugic.current);
     } else {
-      const filtered = allCreatures.current.filter(creature => {
-        // Ensure creature has displayName property
-        if (!creature || !creature.displayName) return false;
+      const filtered = allMugic.current.filter(mugic => {
+        // Ensure mugic has name property
+        if (!mugic || !mugic.name) return false;
         
-        return creature.displayName.toLowerCase().includes(searchTerm.toLowerCase());
+        return mugic.name.toLowerCase().includes(searchTerm.toLowerCase());
       });
       
-      setFilteredCreatures(filtered);
+      setFilteredMugic(filtered);
     }
     // Reset selected index when filtered results change
     setSelectedIndex(-1);
   }, [searchTerm]);
 
   // Memoize the selection handler to avoid recreating during renders
-  const handleCreatureSelection = React.useCallback((creatureId) => {
-    // Get the full creature data from the database
-    const creatureData = getCreatureById(creatureId);
-    if (!creatureData) {
-      console.error(`Creature not found with ID: ${creatureId}`);
+  const handleMugicSelection = React.useCallback((mugicId) => {
+    // Get the full mugic data from the database
+    const mugicData = getMugicById(mugicId);
+    if (!mugicData) {
+      console.error(`Mugic not found with ID: ${mugicId}`);
       return;
     }
     
-    // Process loyalty restrictions based on tribe
-    let loyalRestriction = '';
-
-    // Only set a loyalty restriction for M'arrillians
-    if (creatureData.tribe && creatureData.tribe.toLowerCase() === 'm\'arrillian') {
-      loyalRestriction = 'M\'arrillians or Minions';
-    }
-    
-    // Call the parent component's handler with creature id and loyalty restriction
-    onSelectCreature(creatureId, loyalRestriction);
+    // Call the parent component's handler with all the mugic data
+    onSelectMugic(mugicData);
     
     // Reset local state
     setIsDropdownOpen(false);
@@ -81,7 +73,7 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     setTimeout(() => {
       inputRef.current?.focus();
     }, 10);
-  }, [onSelectCreature]);
+  }, [onSelectMugic]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -98,9 +90,9 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     };
   }, []);
 
-  // Get a flattened list of selectable creatures
-  const getSelectableCreatures = () => {
-    return filteredCreatures;
+  // Get a flattened list of selectable mugic
+  const getSelectableMugic = () => {
+    return filteredMugic;
   };
 
   // Special key handler with focus lock
@@ -108,7 +100,7 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     const handleGlobalKeyDown = (e) => {
       if (!isDropdownOpen) return;
       
-      const selectableCreatures = getSelectableCreatures();
+      const selectableMugic = getSelectableMugic();
       
       if (['ArrowDown', 'ArrowUp', 'Enter', 'Escape'].includes(e.key)) {
         e.preventDefault();
@@ -117,10 +109,10 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
         switch (e.key) {
           case 'ArrowDown':
             setSelectedIndex(prevIndex => {
-              if (prevIndex < selectableCreatures.length - 1) {
+              if (prevIndex < selectableMugic.length - 1) {
                 // Move selection down
                 const newIndex = prevIndex + 1;
-                scrollToIndex(newIndex, selectableCreatures);
+                scrollToIndex(newIndex, selectableMugic);
                 return newIndex;
               }
               return prevIndex;
@@ -132,7 +124,7 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
               if (prevIndex > 0) {
                 // Move selection up
                 const newIndex = prevIndex - 1;
-                scrollToIndex(newIndex, selectableCreatures);
+                scrollToIndex(newIndex, selectableMugic);
                 return newIndex;
               }
               return prevIndex;
@@ -140,9 +132,9 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
             break;
             
           case 'Enter':
-            if (selectedIndex >= 0 && selectedIndex < selectableCreatures.length) {
-              // Select the highlighted creature
-              handleCreatureSelection(selectableCreatures[selectedIndex].id);
+            if (selectedIndex >= 0 && selectedIndex < selectableMugic.length) {
+              // Select the highlighted mugic
+              handleMugicSelection(selectableMugic[selectedIndex].id);
             }
             break;
             
@@ -163,28 +155,31 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     return () => {
       document.removeEventListener('keydown', handleGlobalKeyDown, true);
     };
-  }, [isDropdownOpen, selectedIndex, filteredCreatures, handleCreatureSelection]);
+  }, [isDropdownOpen, selectedIndex, filteredMugic, handleMugicSelection]);
 
   // Initialize dropdown state with first item selected
   useEffect(() => {
     if (isDropdownOpen && selectedIndex === -1) {
-      const selectableCreatures = getSelectableCreatures();
-      if (selectableCreatures.length > 0) {
+      const selectableMugic = getSelectableMugic();
+      if (selectableMugic.length > 0) {
         setSelectedIndex(0);
       }
     }
-  }, [isDropdownOpen, selectedIndex, filteredCreatures]);
+  }, [isDropdownOpen, selectedIndex, filteredMugic]);
 
   // Function to scroll to a specific index
-  const scrollToIndex = (index, selectableCreatures) => {
+  const scrollToIndex = (index, selectableMugic) => {
     if (index < 0 || !listRef.current) return;
     
     // Use setTimeout to ensure this runs after render
     setTimeout(() => {
-      const creatureId = selectableCreatures[index]?.id;
-      if (!creatureId) return;
+      const mugicId = selectableMugic[index]?.id;
+      if (!mugicId) return;
       
-      const element = listRef.current.querySelector(`[data-id="${creatureId.replace(/"/g, '\\"')}"]`);
+      // Safely escape the mugicId for use in a CSS selector
+      const escapedId = mugicId.replace(/"/g, '\\"').replace(/\\/g, '\\\\').replace(/:/g, '\\:');
+      
+      const element = listRef.current.querySelector(`[data-id="${escapedId}"]`);
       if (element) {
         element.scrollIntoView({
           block: 'nearest',
@@ -198,19 +193,19 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
   const handleInputFocus = () => {
     // Don't auto-open, but prepare for keyboard navigation
     if (isDropdownOpen) {
-      const selectableCreatures = getSelectableCreatures();
-      if (selectableCreatures.length > 0 && selectedIndex === -1) {
+      const selectableMugic = getSelectableMugic();
+      if (selectableMugic.length > 0 && selectedIndex === -1) {
         setSelectedIndex(0);
       }
     }
   };
 
-  // Helper to find if a creature is currently selected
-  const isSelected = (creature) => {
+  // Helper to find if a mugic is currently selected
+  const isSelected = (mugic) => {
     if (selectedIndex === -1) return false;
     
-    const selectableCreatures = getSelectableCreatures();
-    return selectableCreatures[selectedIndex]?.id === creature.id;
+    const selectableMugic = getSelectableMugic();
+    return selectableMugic[selectedIndex]?.id === mugic.id;
   };
 
   // Combined input click and focus handler
@@ -219,13 +214,29 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
     inputRef.current?.focus();
   };
 
+  // Helper function to get the tribe color
+  const getTribeColor = (tribe) => {
+    if (!tribe) return 'bg-gray-600';
+    
+    switch(tribe.toLowerCase()) {
+      case 'overworld': return 'bg-blue-700';
+      case 'underworld': return 'bg-red-800';
+      case 'mipedian': return 'bg-yellow-700';
+      case 'danian': return 'bg-amber-900';
+      case "m'arrillian": return 'bg-cyan-800';
+      case 'tribeless': 
+      case 'generic': return 'bg-gray-600';
+      default: return 'bg-gray-600';
+    }
+  };
+
   return (
     <div className="relative w-full" ref={dropdownRef}>
       <div className="flex flex-col gap-2">
         <div className="flex justify-between items-center">
-          <label className="text-white font-bold">Select Creature</label>
+          <label className="text-white font-bold">Select Mugic</label>
           <span className="text-xs text-gray-400">
-            {getSelectableCreatures().length} creatures available
+            {getSelectableMugic().length} mugic available
           </span>
         </div>
         
@@ -246,7 +257,7 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
                 }
               }
             }}
-            placeholder="Search creatures..."
+            placeholder="Search mugic..."
             className="w-full p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none pl-8"
             autoComplete="off"
             aria-expanded={isDropdownOpen}
@@ -266,38 +277,40 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
               role="listbox"
               tabIndex="-1"
             >
-              {filteredCreatures.length === 0 ? (
-                <div className="p-3 text-gray-400 text-center">No creatures found</div>
+              {filteredMugic.length === 0 ? (
+                <div className="p-3 text-gray-400 text-center">No mugic found</div>
               ) : (
-                <div className="creature-list">
-                  {filteredCreatures.map((creature) => (
-                    creature && creature.displayName && creature.id ? (
+                <div className="mugic-list">
+                  {filteredMugic.map((mugic) => (
+                    mugic && mugic.name && mugic.id ? (
                       <div
-                        key={creature.id}
-                        data-id={creature.id}
-                        className={`p-2 cursor-pointer border-t border-gray-700 first:border-0 creature-item ${
-                          isSelected(creature) ? 'bg-gray-700' : 'hover:bg-gray-800'
+                        key={mugic.id}
+                        data-id={mugic.id}
+                        className={`p-2 cursor-pointer border-t border-gray-700 first:border-0 mugic-item ${
+                          isSelected(mugic) ? 'bg-gray-700' : 'hover:bg-gray-800'
                         }`}
-                        onClick={() => handleCreatureSelection(creature.id)}
+                        onClick={() => handleMugicSelection(mugic.id)}
                         role="option"
-                        aria-selected={isSelected(creature)}
+                        aria-selected={isSelected(mugic)}
                       >
                         <div className="flex justify-between items-start">
                           <div>
-                            <div className="text-white">{creature.displayName}</div>
-                            {/* You can add additional creature details here if needed */}
+                            <div className="text-white">{mugic.name}</div>
+                            <div className="flex gap-2 mt-1">
+                              {mugic.tribe && (
+                                <span className={`text-xs ${getTribeColor(mugic.tribe)} text-white px-1 rounded`}>
+                                  {mugic.tribe.charAt(0).toUpperCase() + mugic.tribe.slice(1)}
+                                </span>
+                              )}
+                              {mugic.mugicCost !== undefined && (
+                                <span className="text-xs bg-purple-900 text-white px-1 rounded">Cost: {mugic.mugicCost}</span>
+                              )}
+                              {mugic.unique && (
+                                <span className="text-xs bg-pink-900 text-white px-1 rounded">Unique</span>
+                              )}
+                            </div>
                           </div>
-                          <div className="text-xs text-gray-400 ml-2">
-                            {/* Try all possible ways the set might be stored */}
-                            {creature.setDisplay || 
-                             (creature.set && creature.set.toUpperCase()) || 
-                             creature.expansionDisplay || 
-                             (creature.expansion && creature.expansion.toUpperCase()) ||
-                             (creature.releaseSet && creature.releaseSet.toUpperCase()) ||
-                             (creature.release && creature.release.toUpperCase()) ||
-                             (creature.collection && creature.collection.toUpperCase()) ||
-                             (creature.isPast ? "PAST" : "")}
-                          </div>
+                          <div className="text-xs text-gray-400 ml-2">{mugic.setDisplay || mugic.set?.toUpperCase()}</div>
                         </div>
                       </div>
                     ) : null
@@ -313,6 +326,6 @@ const CreatureSelector = memo(({ onSelectCreature }) => {
 });
 
 // Export with display name for better debugging
-CreatureSelector.displayName = 'CreatureSelector';
+MugicSelector.displayName = 'MugicSelector';
 
-export default CreatureSelector;
+export default MugicSelector;

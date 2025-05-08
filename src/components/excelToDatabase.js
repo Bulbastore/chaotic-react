@@ -103,7 +103,9 @@ export const getAllCreatureNames = () => {
     id: creature.id,
     displayName: creature.displayName,
     tribe: creature.tribe,
-    isPast: creature.isPast
+    isPast: creature.isPast,
+    set: creature.set || '',
+    setDisplay: creature.set ? creature.set.toUpperCase() : ''
   }));
 };
 `;
