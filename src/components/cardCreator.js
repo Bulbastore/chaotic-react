@@ -279,7 +279,7 @@ let height = 0, width = 0;
 const ART_PLACEMENT_CONFIG = {
   creature: { x: 7, y: 22.5, width: 236, height: 198 },
   attack: { x: 0, y: 35, width: 251, height: 171 },
-  battlegear: { x: 0, y: 35, width: 250, height: 170 },
+  battlegear: { x: 0, y: 35, width: 251, height: 171 },
   location: { x: 35, y: 34, width: 306, height: 137 },
   mugic: { x: 0, y: 0, width: 250, height: 350 } // Uses full template size
 };
