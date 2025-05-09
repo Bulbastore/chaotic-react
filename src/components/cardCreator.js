@@ -157,6 +157,168 @@ const SYMBOL_MAPPINGS = {
     ':underworldmugicX:': { img: 'img/icons/mugic/underworld_x.png' }
 };
 
+async function processCustomTribeLogo(logo, color, scale) {
+  if (!logo) return null;
+  
+  console.log("Processing custom tribe logo:", logo);
+  
+  // Create an image from the logo file
+  const img = new Image();
+  
+  // Wait for the image to load
+  await new Promise((resolve, reject) => {
+    img.onload = () => {
+      console.log("Logo loaded successfully with dimensions:", img.width, img.height);
+      resolve();
+    };
+    img.onerror = (err) => {
+      console.error("Error loading logo:", err);
+      reject(err);
+    };
+    
+    // Create an object URL for the logo file
+    if (logo instanceof File) {
+      img.src = URL.createObjectURL(logo);
+    } else if (logo instanceof Image) {
+      img.src = logo.src;
+    } else {
+      img.src = logo;
+    }
+  });
+  
+  // Create a temporary canvas for processing the logo
+  const tempCanvas = document.createElement('canvas');
+  const tempCtx = tempCanvas.getContext('2d');
+  
+  // Set the canvas size based on the image dimensions
+  tempCanvas.width = img.width;
+  tempCanvas.height = img.height;
+  
+  // Draw the original logo without color modification
+  tempCtx.drawImage(img, 0, 0);
+  
+  // Apply outer glow effect without changing original colors
+  const glowCanvas = document.createElement('canvas');
+  const glowCtx = glowCanvas.getContext('2d');
+  
+  // Make the glow canvas larger to accommodate the glow
+  const glowSize = 10;
+  glowCanvas.width = tempCanvas.width + glowSize * 2;
+  glowCanvas.height = tempCanvas.height + glowSize * 2;
+  
+  // Create a glow effect by drawing the logo multiple times with blur
+  // Use a neutral white glow instead of colorized glow
+  glowCtx.shadowColor = "rgba(255, 255, 255, 0.58)";
+  glowCtx.shadowBlur = 5;
+  glowCtx.shadowOffsetX = 0;
+  glowCtx.shadowOffsetY = 0;
+  
+  // Draw the shape with glow
+  glowCtx.drawImage(tempCanvas, glowSize, glowSize);
+  
+  // Create a colorized version of the logo for the background
+  const colorizedCanvas = document.createElement('canvas');
+  const colorizedCtx = colorizedCanvas.getContext('2d');
+  
+  // Make it the same size as the glow canvas
+  colorizedCanvas.width = glowCanvas.width;
+  colorizedCanvas.height = glowCanvas.height;
+  
+  // Draw the original logo
+  colorizedCtx.drawImage(tempCanvas, glowSize, glowSize);
+  
+  // Apply colorization if a color is provided
+  if (color) {
+    // Get image data to process pixel by pixel
+    const imageData = colorizedCtx.getImageData(0, 0, colorizedCanvas.width, colorizedCanvas.height);
+    const data = imageData.data;
+    
+    // Use the selected hue and saturation
+    const targetHue = color.h;
+    // Use a higher saturation for the background logo
+    const targetSaturation = Math.min(0.9, color.s * 1.2);
+    // Use a higher lightness for the background logo
+    const targetLightness = Math.min(0.9, color.l * 1.5);
+    
+    // Process each pixel (RGBA values)
+    for (let i = 0; i < data.length; i += 4) {
+      // Skip fully transparent pixels
+      if (data[i + 3] === 0) continue;
+      
+      // Calculate luminance (brightness) of the pixel
+      // Using the luminosity formula: 0.21*R + 0.72*G + 0.07*B
+      const r = data[i] / 255;
+      const g = data[i + 1] / 255;
+      const b = data[i + 2] / 255;
+      const luminance = 0.21 * r + 0.72 * g + 0.07 * b;
+      
+      // Skip pure black and white pixels (preserve them)
+      if (luminance <= 0.05 || luminance >= 0.95) continue;
+      
+      // Convert the target HSL to RGB
+      let newR, newG, newB;
+
+      // HSL to RGB conversion focusing on hue
+      const hueToRgb = (p, q, t) => {
+        if (t < 0) t += 1;
+        if (t > 1) t -= 1;
+        if (t < 1/6) return p + (q - p) * 6 * t;
+        if (t < 1/2) return q;
+        if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+        return p;
+      };
+      
+      // Normalize hue to 0-1 range
+      const h = targetHue / 360;
+      // Lighten the color to make it more visible as a background
+      const l = Math.min(0.9, luminance * targetLightness);
+      
+      // Calculate RGB based on HSL
+      let q = l < 0.5 ? l * (1 + targetSaturation) : l + targetSaturation - l * targetSaturation;
+      let p = 2 * l - q;
+      
+      newR = hueToRgb(p, q, h + 1/3);
+      newG = hueToRgb(p, q, h);
+      newB = hueToRgb(p, q, h - 1/3);
+      
+      // Set the new RGB values back
+      data[i] = Math.round(newR * 255);
+      data[i + 1] = Math.round(newG * 255);
+      data[i + 2] = Math.round(newB * 255);
+      // Reduce alpha to make it semi-transparent
+      data[i + 3] = Math.min(data[i + 3], 40); // Set transparency
+    }
+    
+    // Put the modified image data back
+    colorizedCtx.putImageData(imageData, 0, 0);
+  } else {
+    // If no color provided, just make it semi-transparent
+    const imageData = colorizedCtx.getImageData(0, 0, colorizedCanvas.width, colorizedCanvas.height);
+    const data = imageData.data;
+    
+    for (let i = 0; i < data.length; i += 4) {
+      // Only process non-transparent pixels
+      if (data[i + 3] > 0) {
+        // Keep RGB values unchanged, just reduce alpha
+        data[i + 3] = Math.min(data[i + 3], 30); // Very transparent
+      }
+    }
+    
+    // Put the modified image data back
+    colorizedCtx.putImageData(imageData, 0, 0);
+  }
+  
+  // Clean up the object URL if we created one
+  if (logo instanceof File && img.src.startsWith('blob:')) {
+    URL.revokeObjectURL(img.src);
+  }
+  
+  console.log("Processed logo without colorization");
+  
+  // Return the final processed image
+  return glowCanvas;
+}
+
 // Updated drawTextWithSymbols function to work with formatted text
 async function drawTextWithSymbols(text, x, y, fontSize) {
     // Split text into lines first
@@ -537,7 +699,8 @@ function formatTribe(tribe) {
         case "mipedianow": return "Mipedian OverWorld";
         case "panivian": return "Panivian";
         case "umbrian": return "Umbrian";
-        case "frozen": return "Frozen";    
+        case "frozen": return "Frozen";
+        case "custom": return "";
         default: return tribe;
     }
 }
@@ -554,7 +717,6 @@ async function loadAssets(cardData) {
         let templatePath;
         
         // Use different folder path based on bleed preference
-        const useBleed = cardData.useBleedTemplates || false;
         const templateFolder = useBleed ? 'img/template/bleed' : 'img/template';
         
         console.log(`Template settings - Type: ${cardData.type}, Tribe: ${cardData.tribe}, UseBleed: ${useBleed}`);
@@ -608,6 +770,54 @@ async function loadAssets(cardData) {
             }));
     }
 
+    // MOVED OUT OF ERROR HANDLER: Add elements overlay loading for custom tribe
+    if (cardData.type === 'creature' && cardData.tribe === 'custom') {
+        const elementsFolder = useBleed ? 'img/template/bleed' : 'img/template';
+        // Load the appropriate elements overlay based on brainwashed status
+        const elementsFile = cardData.brainwashed ? 'elementsbw.png' : 'elements.png';
+        const elementsPath = getAssetPath(`${elementsFolder}/${elementsFile}`);
+        
+        console.log(`Loading elements overlay: ${elementsPath}`);
+        
+        promises.push(loadAsset('elementsOverlay', elementsPath)
+            .then(img => {
+                assets.elementsOverlay = img;
+                console.log('Elements overlay loaded successfully');
+            })
+            .catch(error => {
+                console.error(`Failed to load elements overlay: ${elementsPath}`, error);
+                // Try fallback to non-bleed version if using bleed templates
+                if (useBleed) {
+                    const fallbackPath = elementsPath.replace('/bleed/', '/');
+                    console.log(`Trying standard elements overlay fallback: ${fallbackPath}`);
+                    return loadAsset('elementsOverlay', fallbackPath)
+                        .then(img => {
+                            console.log('Fallback elements overlay loaded successfully');
+                            assets.elementsOverlay = img;
+                        });
+                }
+            }));
+    }
+
+    if (cardData.tribeLogo) {
+        console.log('Loading custom tribe logo');
+        promises.push(
+            new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        assets.tribeLogo = img;
+                        console.log('Tribe logo loaded successfully');
+                        resolve();
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(cardData.tribeLogo);
+            })
+        );
+    }
+
     // If brainwashed, load the brainwashed bar
     if (cardData.type === 'creature' && cardData.brainwashed) {
         console.log('Loading brainwashed bar');
@@ -619,7 +829,6 @@ async function loadAssets(cardData) {
         }));
     }
 
-    // Rest of loadAssets function remains the same...
     // Set symbol
     if (cardData.set && cardData.rarity) {
         promises.push(loadAsset('symbol', 
@@ -804,16 +1013,115 @@ async function drawCard(cardData, assets) {
       }
     }
 
-    // Draw template and elements
-    if (assets.template) {
-        console.log(`Drawing template: ${cardData.useBleedTemplates ? 'Bleed' : 'Standard'}`);
-        console.log(`Template dimensions: ${assets.template.width}x${assets.template.height}`);
+if (assets.template) {
+    console.log(`Drawing template: ${cardData.useBleedTemplates ? 'Bleed' : 'Standard'}`);
+    console.log(`Template dimensions: ${assets.template.width}x${assets.template.height}`);
+
+if (cardData.tribe === 'custom' && cardData.customColor) {
+    console.log("CUSTOM TRIBE DETECTED - Using Photoshop-like Colorize effect");
+    console.log("Custom color values:", {
+        hue: cardData.customColor.h,
+        saturation: cardData.customColor.s,
+        lightness: cardData.customColor.l
+    });
+    
+    try {
+        // Create a temporary canvas with the same dimensions as the template
+        const tempCanvas = document.createElement('canvas');
+        const tempCtx = tempCanvas.getContext('2d');
+        tempCanvas.width = assets.template.width;
+        tempCanvas.height = assets.template.height;
         
-        // Draw the template normally regardless of bleed setting
-        // The bleed templates will be loaded from a different directory but drawn the same way
+        // Draw the original template onto the temporary canvas
+        tempCtx.drawImage(assets.template, 0, 0);
+        
+        // Get the image data to process pixel by pixel - this is key to true colorization
+        const imageData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+        const data = imageData.data;
+        
+        // Use the selected hue and saturation
+        const targetHue = cardData.customColor.h;
+        const targetSaturation = cardData.customColor.s;
+        
+        // Process each pixel (RGBA values)
+        for (let i = 0; i < data.length; i += 4) {
+            // Skip fully transparent pixels
+            if (data[i + 3] === 0) continue;
+            
+            // Calculate luminance (brightness) of the pixel
+            // Using the luminosity formula: 0.21*R + 0.72*G + 0.07*B
+            const r = data[i] / 255;
+            const g = data[i + 1] / 255;
+            const b = data[i + 2] / 255;
+            const luminance = 0.21 * r + 0.72 * g + 0.07 * b;
+            
+            // Skip pure black and white pixels (preserve them)
+            if (luminance <= 0.05 || luminance >= 0.95) continue;
+            
+            // Convert the target HSL to RGB
+            let newR, newG, newB;
+
+            // Simplified HSL to RGB conversion focusing on hue
+            const hueToRgb = (p, q, t) => {
+                if (t < 0) t += 1;
+                if (t > 1) t -= 1;
+                if (t < 1/6) return p + (q - p) * 6 * t;
+                if (t < 1/2) return q;
+                if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+                return p;
+            };
+            
+            // Normalize hue to 0-1 range
+            const h = targetHue / 360;
+            // Use the target saturation directly (already 0-1)
+            const s = targetSaturation; 
+            // Use the original pixel's luminance for l
+            const l = luminance;
+            
+            // Calculate RGB based on HSL
+            let q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+            let p = 2 * l - q;
+            
+            newR = hueToRgb(p, q, h + 1/3);
+            newG = hueToRgb(p, q, h);
+            newB = hueToRgb(p, q, h - 1/3);
+            
+            // Set the new RGB values back
+            data[i] = Math.round(newR * 255);
+            data[i + 1] = Math.round(newG * 255);
+            data[i + 2] = Math.round(newB * 255);
+            // Alpha remains unchanged
+        }
+        
+        // Put the modified image data back
+        tempCtx.putImageData(imageData, 0, 0);
+        
+        // Draw the colorized template onto the main canvas
+        drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, width, height);
+        console.log("Photoshop-like colorization completed successfully");
+        
+    } catch (error) {
+        console.error("Error during colorization:", error);
+        // Fallback to normal template if colorization fails
         drawImage(assets.template, 0, 0, assets.template.width, assets.template.height, 0, 0, width, height);
     }
-
+} else {
+    // Normal template drawing for non-custom tribes
+    console.log("Drawing normal template (non-custom tribe)");
+    drawImage(assets.template, 0, 0, assets.template.width, assets.template.height, 0, 0, width, height);
+}
+  // After drawing the base template (colorized or normal), add the elements overlay if it exists
+  if (cardData.tribe === 'custom' && assets.elementsOverlay) {
+    console.log("Drawing elements overlay on top of custom tribe template");
+    drawImage(
+      assets.elementsOverlay, 
+      0, 0, 
+      assets.elementsOverlay.width, assets.elementsOverlay.height, 
+      0, 0, 
+      width, height
+    );
+  }
+}
     if (cardData.type === 'creature') {
         if (assets.firecreature) {
             drawImage(assets.firecreature, 0, 0, assets.firecreature.width, assets.firecreature.height, 0, 0, width, height);
@@ -1497,6 +1805,156 @@ if (cardData.brainwashed && (cardData.ability || cardData.brainwashedText)) {
 }
 }
 
+if (cardData.tribe === 'custom' && assets.tribeLogo) {
+  try {
+    console.log("Rendering custom tribe logo:", assets.tribeLogo);
+    
+    // Process the tribe logo without colorization
+    const processedLogo = await processCustomTribeLogo(assets.tribeLogo, null, scale);
+    
+    if (processedLogo) {
+      console.log("Successfully processed logo, rendering to card");
+      
+      // Get the original aspect ratio
+      const logoAspectRatio = processedLogo.width / processedLogo.height;
+      
+      // SEPARATE SCALING FACTORS FOR EACH LOGO
+      // 1. Top logo scaling
+      const topLogoScaleFactor = .45; // Smaller value = smaller logo
+      const topLogoX = 6 * scale; // Move right by increasing this value
+      const topLogoY = 4 * scale; // Move down by increasing this value
+      
+      // Calculate top logo dimensions based on its scale factor
+      const topLogoHeight = width * topLogoScaleFactor;
+      const topLogoWidth = topLogoHeight * logoAspectRatio; // Width maintains aspect ratio
+      
+      // Draw the small logo at the top with preserved aspect ratio
+      ctx.drawImage(
+        processedLogo,
+        0, 0, processedLogo.width, processedLogo.height,
+        topLogoX, topLogoY, topLogoWidth, topLogoHeight
+      );
+      
+      // Create a colorized version for background
+      const lightLogo = document.createElement('canvas');
+      const lightCtx = lightLogo.getContext('2d');
+      
+      // Size matches original logo
+      lightLogo.width = processedLogo.width;
+      lightLogo.height = processedLogo.height;
+      
+      // Draw the original logo
+      lightCtx.drawImage(processedLogo, 0, 0);
+      
+      // Apply colorization if customColor is available
+      if (cardData.customColor) {
+        console.log("Applying colorization to background logo with HSL values:", 
+          cardData.customColor.h, cardData.customColor.s, cardData.customColor.l);
+          
+        const imageData = lightCtx.getImageData(0, 0, lightLogo.width, lightLogo.height);
+        const data = imageData.data;
+        
+        // Use the selected hue and saturation
+        const targetHue = cardData.customColor.h;
+        // Use a higher saturation for the background logo
+        const targetSaturation = Math.min(1, cardData.customColor.s * 1.2);
+        // Make it lighter than the original color
+        const targetLightness = Math.min(0.85, cardData.customColor.l * 1.8);
+        
+        // Process each pixel (RGBA values)
+        for (let i = 0; i < data.length; i += 4) {
+          // Skip fully transparent pixels
+          if (data[i + 3] === 0) continue;
+          
+          // Calculate luminance (brightness) of the pixel
+          const r = data[i] / 255;
+          const g = data[i + 1] / 255;
+          const b = data[i + 2] / 255;
+          const luminance = 0.21 * r + 0.72 * g + 0.07 * b;
+          
+          // Skip pure black and white pixels (preserve them)
+          if (luminance <= 0.05 || luminance >= 0.95) continue;
+          
+          // Convert the target HSL to RGB
+          let newR, newG, newB;
+
+          // HSL to RGB conversion
+          const hueToRgb = (p, q, t) => {
+            if (t < 0) t += 1;
+            if (t > 1) t -= 1;
+            if (t < 1/6) return p + (q - p) * 6 * t;
+            if (t < 1/2) return q;
+            if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+            return p;
+          };
+          
+          // Normalize hue to 0-1 range
+          const h = targetHue / 360;
+          // Use luminance to maintain the original brightness variation
+          // but scale it toward the lighter end
+          const l = 0.5 + (luminance * 0.4);
+          
+          // Calculate RGB based on HSL
+          let q = l < 0.5 ? l * (1 + targetSaturation) : l + targetSaturation - l * targetSaturation;
+          let p = 2 * l - q;
+          
+          newR = hueToRgb(p, q, h + 1/3);
+          newG = hueToRgb(p, q, h);
+          newB = hueToRgb(p, q, h - 1/3);
+          
+          // Set the new RGB values back
+          data[i] = Math.round(newR * 255);
+          data[i + 1] = Math.round(newG * 255);
+          data[i + 2] = Math.round(newB * 255);
+          // Set low opacity for background effect
+          data[i + 3] = Math.min(data[i + 3], 35);
+        }
+        
+        // Put the modified image data back
+        lightCtx.putImageData(imageData, 0, 0);
+        console.log("Colorization applied to background logo");
+      } else {
+        // If no custom color, just make it semi-transparent
+        const imageData = lightCtx.getImageData(0, 0, lightLogo.width, lightLogo.height);
+        const data = imageData.data;
+        
+        for (let i = 0; i < data.length; i += 4) {
+          if (data[i + 3] > 0) {
+            data[i + 3] = Math.min(data[i + 3], 30);
+          }
+        }
+        
+        lightCtx.putImageData(imageData, 0, 0);
+        console.log("Applied transparency only (no colorization)");
+      }
+      
+      // 2. Background logo scaling
+      const bgLogoScaleFactor = 1.4; // Adjust this for absolute size of background logo
+      const largeLogoHeight = width * bgLogoScaleFactor;
+      const largeLogoWidth = largeLogoHeight * logoAspectRatio; // Keep aspect ratio
+      
+      // Position for ability text box background
+      const abilityBoxX = 45 * scale;
+      const abilityBoxY = 222.5 * scale;
+      const abilityBoxWidth = 172 * scale;
+      const abilityBoxHeight = 90 * scale;
+      
+      // Center in the ability box
+      const largeLogoX = abilityBoxX + (abilityBoxWidth - largeLogoWidth) / 2;
+      const largeLogoY = abilityBoxY + (abilityBoxHeight - largeLogoHeight) / 2;
+      
+      // Draw the background logo
+      ctx.drawImage(
+        lightLogo,
+        0, 0, lightLogo.width, lightLogo.height,
+        largeLogoX, largeLogoY, largeLogoWidth, largeLogoHeight
+      );
+    }
+  } catch (error) {
+    console.error('Error processing tribe logo:', error);
+  }
+}
+
 // Generate random code
 const generateCode = () => {
     const chars = '0123456789ABCDEF';
@@ -1531,7 +1989,7 @@ if (cardData.showCopyright !== false) {
     if (cardData.type === 'attack' || cardData.type === 'battlegear') {
         // Attack and Battlegear styling
         ctx.textAlign = 'center';
-        const copyrightX = 122.5; // Explicitly position the text (adjust as needed)
+        const copyrightX = 122.5; // Explicitly position the text
 
         // Update colors based on type
         if (cardData.type === 'attack') {
@@ -1548,49 +2006,68 @@ if (cardData.showCopyright !== false) {
         // Creature styling
         ctx.textAlign = 'left';
         
-        switch(cardData.tribe.toLowerCase()) {
-            case 'overworld':
-                ctx.fillStyle = '#c7e4ef';
-                break;
-            case 'underworld':
-                ctx.fillStyle = '#e1b0b3';
-                break;
-            case 'mipedian':
-                ctx.fillStyle = '#b1a277';
-                ctx.strokeStyle = '#6a5d35';
-                ctx.lineWidth = 2;
-                ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-                break;
-            case 'danian':
-                ctx.fillStyle = '#c5ad95';
-                break;
-            case "m'arrillian":
-                ctx.fillStyle = '#cac8ba';
-                break;
-            case 'tribeless':
-                ctx.fillStyle = '#000000';
-                ctx.strokeStyle = '#cad1d9';
-                ctx.lineWidth = 4;
-                ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-                break;
-            case 'umbrian':
-                ctx.fillStyle = '#bda0e6';
-                ctx.strokeStyle = '#56436e';
-                ctx.lineWidth = 2;
-                ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-                break;
-            case 'panivian':
-                ctx.fillStyle = '#6da566';
-                ctx.strokeStyle = '#344f30';
-                ctx.lineWidth = 2;
-                ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-                break;          
-            case 'frozen':
-                ctx.fillStyle = '#98d3db';
-                ctx.strokeStyle = '#3a96a3';
-                ctx.lineWidth = 2;
-                ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-                break;                          
+        // Special handling for custom tribe
+        if (cardData.tribe.toLowerCase() === 'custom' && cardData.customColor) {
+            // Get the HSL values
+            const h = cardData.customColor.h;
+            const s = cardData.customColor.s;
+            const l = cardData.customColor.l;
+            
+            // Calculate lighter and darker shades for text and stroke
+            const lighterL = Math.min(0.95, l + 0.3); // Lighter shade for fill
+            const darkerL = Math.max(0.15, l - 0.2);  // Darker shade for stroke
+            
+            // Set adaptive colors
+            ctx.fillStyle = `hsl(${h}, ${s * 100}%, ${lighterL * 100}%)`;
+            ctx.strokeStyle = `hsl(${h}, ${s * 100}%, ${darkerL * 100}%)`;
+            ctx.lineWidth = 2;
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+        } else {
+            // Original tribe coloring logic
+            switch(cardData.tribe.toLowerCase()) {
+                case 'overworld':
+                    ctx.fillStyle = '#c7e4ef';
+                    break;
+                case 'underworld':
+                    ctx.fillStyle = '#e1b0b3';
+                    break;
+                case 'mipedian':
+                    ctx.fillStyle = '#b1a277';
+                    ctx.strokeStyle = '#6a5d35';
+                    ctx.lineWidth = 2;
+                    ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    break;
+                case 'danian':
+                    ctx.fillStyle = '#c5ad95';
+                    break;
+                case "m'arrillian":
+                    ctx.fillStyle = '#cac8ba';
+                    break;
+                case 'tribeless':
+                    ctx.fillStyle = '#000000';
+                    ctx.strokeStyle = '#cad1d9';
+                    ctx.lineWidth = 4;
+                    ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    break;
+                case 'umbrian':
+                    ctx.fillStyle = '#bda0e6';
+                    ctx.strokeStyle = '#56436e';
+                    ctx.lineWidth = 2;
+                    ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    break;
+                case 'panivian':
+                    ctx.fillStyle = '#6da566';
+                    ctx.strokeStyle = '#344f30';
+                    ctx.lineWidth = 2;
+                    ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    break;          
+                case 'frozen':
+                    ctx.fillStyle = '#98d3db';
+                    ctx.strokeStyle = '#3a96a3';
+                    ctx.lineWidth = 2;
+                    ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    break;                          
+            }
         }
         
         fillText(copyrightText, 49, 344);
@@ -1630,52 +2107,71 @@ if (cardData.artist && cardData.showArtist !== false) {
     
     } else if (cardData.type === 'creature') {
         // Creature styling
-        switch(cardData.tribe?.toLowerCase()) {
-            case 'overworld':
-                ctx.strokeStyle = '#5272bc';
-                ctx.lineWidth = 2;
-                ctx.strokeText(artistText, 0, 0);
-                ctx.fillStyle = '#c7e4ef';
-                break;
-            case 'underworld':
-                ctx.strokeStyle = '#b23727';
-                ctx.lineWidth = 2;
-                ctx.strokeText(artistText, 0, 0);
-                ctx.fillStyle = '#e1b0b3';
-                break;
-            case 'mipedian':
-                ctx.fillStyle = '#6d5630';
-                break;
-            case 'danian':
-                ctx.strokeStyle = '#87664f';
-                ctx.lineWidth = 2;
-                ctx.strokeText(artistText, 0, 0);
-                ctx.fillStyle = '#c5ad95';
-                break;
-            case "m'arrillian":
-                ctx.fillStyle = '#cac8ba';
-                break;
-            case 'tribeless':
-                ctx.fillStyle = '#000000';
-                break;
-            case 'umbrian':
-                ctx.strokeStyle = '#56436e';
-                ctx.lineWidth = 2;
-                ctx.strokeText(artistText, 0, 0);
-                ctx.fillStyle = '#c4addf';
-                break;
-            case 'panivian':
-                ctx.strokeStyle = '#344f30';
-                ctx.lineWidth = 2;
-                ctx.strokeText(artistText, 0, 0);
-                ctx.fillStyle = '#8cbe85';
-                break;       
-            case 'frozen':
-                ctx.strokeStyle = '#3a96a3';
-                ctx.lineWidth = 2;
-                ctx.strokeText(artistText, 0, 0);
-                ctx.fillStyle = '#bce4ea';
-                break;                            
+        // Special handling for custom tribe
+        if (cardData.tribe?.toLowerCase() === 'custom' && cardData.customColor) {
+            // Get the HSL values
+            const h = cardData.customColor.h;
+            const s = cardData.customColor.s;
+            const l = cardData.customColor.l;
+            
+            // Calculate lighter and darker shades for text and stroke
+            const lighterL = Math.min(0.95, l + 0.3); // Lighter shade for fill
+            const darkerL = Math.max(0.15, l - 0.2);  // Darker shade for stroke
+            
+            // Set adaptive colors
+            ctx.strokeStyle = `hsl(${h}, ${s * 100}%, ${darkerL * 100}%)`;
+            ctx.lineWidth = 2;
+            ctx.strokeText(artistText, 0, 0);
+            ctx.fillStyle = `hsl(${h}, ${s * 100}%, ${lighterL * 100}%)`;
+        } else {
+            // Original tribe-based styling
+            switch(cardData.tribe?.toLowerCase()) {
+                case 'overworld':
+                    ctx.strokeStyle = '#5272bc';
+                    ctx.lineWidth = 2;
+                    ctx.strokeText(artistText, 0, 0);
+                    ctx.fillStyle = '#c7e4ef';
+                    break;
+                case 'underworld':
+                    ctx.strokeStyle = '#b23727';
+                    ctx.lineWidth = 2;
+                    ctx.strokeText(artistText, 0, 0);
+                    ctx.fillStyle = '#e1b0b3';
+                    break;
+                case 'mipedian':
+                    ctx.fillStyle = '#6d5630';
+                    break;
+                case 'danian':
+                    ctx.strokeStyle = '#87664f';
+                    ctx.lineWidth = 2;
+                    ctx.strokeText(artistText, 0, 0);
+                    ctx.fillStyle = '#c5ad95';
+                    break;
+                case "m'arrillian":
+                    ctx.fillStyle = '#cac8ba';
+                    break;
+                case 'tribeless':
+                    ctx.fillStyle = '#000000';
+                    break;
+                case 'umbrian':
+                    ctx.strokeStyle = '#56436e';
+                    ctx.lineWidth = 2;
+                    ctx.strokeText(artistText, 0, 0);
+                    ctx.fillStyle = '#c4addf';
+                    break;
+                case 'panivian':
+                    ctx.strokeStyle = '#344f30';
+                    ctx.lineWidth = 2;
+                    ctx.strokeText(artistText, 0, 0);
+                    ctx.fillStyle = '#8cbe85';
+                    break;       
+                case 'frozen':
+                    ctx.strokeStyle = '#3a96a3';
+                    ctx.lineWidth = 2;
+                    ctx.strokeText(artistText, 0, 0);
+                    ctx.fillStyle = '#bce4ea';
+                    break;                            
+            }
         }
         
         fillText(artistText, 0, 0);

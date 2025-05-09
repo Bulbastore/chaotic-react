@@ -72,6 +72,8 @@ const CardPreview = ({ cardData }) => {
           serialNumber: cardData.serialNumber || '',
           showCopyright: cardData.showCopyright !== undefined ? cardData.showCopyright : true,
           showArtist: cardData.showArtist !== undefined ? cardData.showArtist : true,     
+          customColor: cardData.tribe === 'custom' ? cardData.customColor : null,
+          tribeLogo: cardData.tribeLogo,
         });
 
         if (mounted) {

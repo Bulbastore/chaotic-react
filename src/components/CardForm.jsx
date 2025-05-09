@@ -11,6 +11,8 @@ import AttackSelector from './AttackSelector';
 import BattlegearSelector from './BattlegearSelector';
 import MugicSelector from './MugicSelector';
 import LocationSelector from './LocationSelector';
+import PhotoshopColorPicker from './PhotoshopColorPicker';
+import CustomTribeLogoUploader from './CustomTribeLogoUploader';
 
 const CARD_SYMBOLS = [
   // Ability elements
@@ -469,6 +471,8 @@ const ElementItem = ({ element, value, onChange, type = 'creature' }) => (
 
 // Main Form Component
 const CardForm = () => {
+  const [tribeLogo, setTribeLogo] = useState(null);
+  const [customColor, setCustomColor] = useState({ h: 0, s: 0.5, l: 0.5 });
   const [brainwashed, setBrainwashed] = useState(false);
   const [isPast, setIsPast] = useState(false);
   const [showBatchGenerator, setShowBatchGenerator] = useState(false);
@@ -521,7 +525,8 @@ const CardForm = () => {
       'tribeless': 'Past',
       'panivian': 'Panivian',
       'umbrian': 'Umbrian',
-      'frozen': 'Frozen'
+      'frozen': 'Frozen',
+      'custom': 'Custom'
     }[tribe.toLowerCase()];
 
     // Only add 'Past ' prefix if the tribe is not already tribeless/Past
@@ -1297,10 +1302,25 @@ return (
           { value: 'tribeless', label: 'Tribeless' },
           { value: 'panivian', label: 'Panivian' },
           { value: 'umbrian', label: 'Umbrian' },
-          { value: 'frozen', label: 'Frozen' }
+          { value: 'frozen', label: 'Frozen' },
+          { value: 'custom', label: 'Custom' }
         ]}
       />
     </div>
+    
+{tribe === 'custom' && (
+  <div className="mt-4">
+    <PhotoshopColorPicker 
+      color={customColor} 
+      onChange={setCustomColor} 
+    />
+    <CustomTribeLogoUploader
+      logo={tribeLogo}
+      onChange={setTribeLogo}
+    />
+  </div>
+)}
+
   </div>
 )}
     {/* Tribe for Mugic */}
@@ -1318,7 +1338,8 @@ return (
           { value: 'generic', label: 'Generic' },
           { value: 'panivian', label: 'Panivian' },
           { value: 'umbrian', label: 'Umbrian' },
-          { value: 'frozen', label: 'Frozen' }
+          { value: 'frozen', label: 'Frozen' },
+          { value: 'custom', label: 'Custom' }
         ]}
       />
     )}
@@ -1711,7 +1732,9 @@ return (
         past: isPast,
         showCopyright,
         showArtist,
-        useBleedTemplates: true
+        useBleedTemplates: true,
+        customColor: customColor,
+        tribeLogo: tribeLogo
       }} 
     />
   </div>
