@@ -988,30 +988,50 @@ async function drawCard(cardData, assets) {
     const { offsetX, offsetY } = setCanvas(templateWidth, templateHeight, useBleed);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw art
-    if (assets.art) {
-      // Get placement config for this card type, or use creature default if not found
-      const artPlacement = ART_PLACEMENT_CONFIG[cardData.type.toLowerCase()] || ART_PLACEMENT_CONFIG.creature;
-      
-      // For mugic cards, use template dimensions instead of fixed values
-      if (cardData.type === 'mugic') {
-        drawImage(
-          assets.art, 
-          0, 0, 
-          assets.art.width, assets.art.height, 
-          artPlacement.x, artPlacement.y, 
-          templateWidth, templateHeight
-        );
-      } else {
-        drawImage(
-          assets.art, 
-          0, 0, 
-          assets.art.width, assets.art.height, 
-          artPlacement.x, artPlacement.y, 
-          artPlacement.width, artPlacement.height
-        );
-      }
-    }
+// Draw art
+if (assets.art) {
+  // Get placement config for this card type
+  const artPlacement = ART_PLACEMENT_CONFIG[cardData.type.toLowerCase()] || ART_PLACEMENT_CONFIG.creature;
+  
+  // If we have art position data AND this is not a database card
+  if (cardData.artPosition && cardData.artPosition.width > 0 && !cardData.isFromDatabase) {
+    // Calculate the source coordinates based on the art position
+    // This converts the visual positioning to source coordinates for the image
+    const sourceWidth = assets.art.width;
+    const sourceHeight = assets.art.height;
+    
+    // Calculate the scaling factor from original image to the rendered size
+    const scaleFactorX = sourceWidth / cardData.artPosition.width;
+    const scaleFactorY = sourceHeight / cardData.artPosition.height;
+    
+    // Calculate the source coordinates
+    const sourceX = -cardData.artPosition.x * scaleFactorX;
+    const sourceY = -cardData.artPosition.y * scaleFactorY;
+    
+    // Calculate how much of the source image to use
+    const sourceCropWidth = artPlacement.width * scaleFactorX;
+    const sourceCropHeight = artPlacement.height * scaleFactorY;
+    
+    // Draw the art with the calculated crop
+    drawImage(
+      assets.art,
+      sourceX, sourceY,
+      sourceCropWidth, sourceCropHeight,
+      artPlacement.x, artPlacement.y,
+      artPlacement.width, artPlacement.height
+    );
+  } else {
+    // Original code for when no position data is available
+    // This just scales/stretches the image to fit
+    drawImage(
+      assets.art, 
+      0, 0, 
+      assets.art.width, assets.art.height, 
+      artPlacement.x, artPlacement.y, 
+      artPlacement.width, artPlacement.height
+    );
+  }
+}
 
 if (assets.template) {
     console.log(`Drawing template: ${cardData.useBleedTemplates ? 'Bleed' : 'Standard'}`);
@@ -1835,7 +1855,7 @@ if (cardData.tribe === 'custom' && assets.tribeLogo) {
         topLogoX, topLogoY, topLogoWidth, topLogoHeight
       );
       
-      // Create a colorized version for background
+      // Create a semi-transparent version for background
       const lightLogo = document.createElement('canvas');
       const lightCtx = lightLogo.getContext('2d');
       
@@ -1846,87 +1866,20 @@ if (cardData.tribe === 'custom' && assets.tribeLogo) {
       // Draw the original logo
       lightCtx.drawImage(processedLogo, 0, 0);
       
-      // Apply colorization if customColor is available
-      if (cardData.customColor) {
-        console.log("Applying colorization to background logo with HSL values:", 
-          cardData.customColor.h, cardData.customColor.s, cardData.customColor.l);
-          
-        const imageData = lightCtx.getImageData(0, 0, lightLogo.width, lightLogo.height);
-        const data = imageData.data;
-        
-        // Use the selected hue and saturation
-        const targetHue = cardData.customColor.h;
-        // Use a higher saturation for the background logo
-        const targetSaturation = Math.min(1, cardData.customColor.s * 1.2);
-        // Make it lighter than the original color
-        const targetLightness = Math.min(0.85, cardData.customColor.l * 1.8);
-        
-        // Process each pixel (RGBA values)
-        for (let i = 0; i < data.length; i += 4) {
-          // Skip fully transparent pixels
-          if (data[i + 3] === 0) continue;
-          
-          // Calculate luminance (brightness) of the pixel
-          const r = data[i] / 255;
-          const g = data[i + 1] / 255;
-          const b = data[i + 2] / 255;
-          const luminance = 0.21 * r + 0.72 * g + 0.07 * b;
-          
-          // Skip pure black and white pixels (preserve them)
-          if (luminance <= 0.05 || luminance >= 0.95) continue;
-          
-          // Convert the target HSL to RGB
-          let newR, newG, newB;
-
-          // HSL to RGB conversion
-          const hueToRgb = (p, q, t) => {
-            if (t < 0) t += 1;
-            if (t > 1) t -= 1;
-            if (t < 1/6) return p + (q - p) * 6 * t;
-            if (t < 1/2) return q;
-            if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
-            return p;
-          };
-          
-          // Normalize hue to 0-1 range
-          const h = targetHue / 360;
-          // Use luminance to maintain the original brightness variation
-          // but scale it toward the lighter end
-          const l = 0.5 + (luminance * 0.4);
-          
-          // Calculate RGB based on HSL
-          let q = l < 0.5 ? l * (1 + targetSaturation) : l + targetSaturation - l * targetSaturation;
-          let p = 2 * l - q;
-          
-          newR = hueToRgb(p, q, h + 1/3);
-          newG = hueToRgb(p, q, h);
-          newB = hueToRgb(p, q, h - 1/3);
-          
-          // Set the new RGB values back
-          data[i] = Math.round(newR * 255);
-          data[i + 1] = Math.round(newG * 255);
-          data[i + 2] = Math.round(newB * 255);
-          // Set low opacity for background effect
-          data[i + 3] = Math.min(data[i + 3], 35);
+      // Just reduce opacity without changing colors
+      const imageData = lightCtx.getImageData(0, 0, lightLogo.width, lightLogo.height);
+      const data = imageData.data;
+      
+      for (let i = 0; i < data.length; i += 4) {
+        // Only process non-transparent pixels
+        if (data[i + 3] > 0) {
+          // Keep RGB values unchanged, just reduce alpha
+          data[i + 3] = Math.min(data[i + 3], 30); // Very transparent (30 instead of 40)
         }
-        
-        // Put the modified image data back
-        lightCtx.putImageData(imageData, 0, 0);
-        console.log("Colorization applied to background logo");
-      } else {
-        // If no custom color, just make it semi-transparent
-        const imageData = lightCtx.getImageData(0, 0, lightLogo.width, lightLogo.height);
-        const data = imageData.data;
-        
-        for (let i = 0; i < data.length; i += 4) {
-          if (data[i + 3] > 0) {
-            data[i + 3] = Math.min(data[i + 3], 30);
-          }
-        }
-        
-        lightCtx.putImageData(imageData, 0, 0);
-        console.log("Applied transparency only (no colorization)");
       }
+      
+      // Put the modified image data back
+      lightCtx.putImageData(imageData, 0, 0);
       
       // 2. Background logo scaling
       const bgLogoScaleFactor = 1.4; // Adjust this for absolute size of background logo

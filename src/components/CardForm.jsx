@@ -13,6 +13,7 @@ import MugicSelector from './MugicSelector';
 import LocationSelector from './LocationSelector';
 import PhotoshopColorPicker from './PhotoshopColorPicker';
 import CustomTribeLogoUploader from './CustomTribeLogoUploader';
+import CardArtPositioner from './CardArtPositioner';
 
 const CARD_SYMBOLS = [
   // Ability elements
@@ -482,6 +483,7 @@ const CardForm = () => {
   const [showCopyright, setShowCopyright] = useState(true);
   const [showArtist, setShowArtist] = useState(true);
   const [statsPreset, setStatsPreset] = useState('mid');
+  const [isFromDatabase, setIsFromDatabase] = useState(false);
   const [originalMaxStats, setOriginalMaxStats] = useState({
     energy: 0,
     courage: 0,
@@ -510,6 +512,7 @@ const CardForm = () => {
   const [initiative, setInitiative] = useState(0);
   const [forceUpdate, setForceUpdate] = useState(false);
   const [useOrangeSliders, setUseOrangeSliders] = useState(false);
+  const [artPosition, setArtPosition] = useState({ x: 0, y: 0, width: 0, height: 0 });
   const isMobileBrowser = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   };
@@ -985,6 +988,12 @@ return (
         // Set loading state immediately
         setIsLoading(true);
         
+        // Flag this as a database card
+        setIsFromDatabase(true);
+        
+        // Reset any custom art position
+        setArtPosition({ x: 0, y: 0, width: 0, height: 0 });
+        
         const cardData = getCreatureById(creatureId);
         if (!cardData) {
           setIsLoading(false);
@@ -1101,7 +1110,13 @@ return (
     <AttackSelector
       onSelectAttack={(attackData) => {
         setIsLoading(true);
+
+        // Flag this as a database card
+        setIsFromDatabase(true);
         
+        // Reset any custom art position
+        setArtPosition({ x: 0, y: 0, width: 0, height: 0 });        
+
         // Set form data from attackData
         setName(attackData.name || '');
         setSet(attackData.set?.toLowerCase() || '');
@@ -1152,6 +1167,12 @@ return (
     <BattlegearSelector
       onSelectBattlegear={(battlegearData) => {
         setIsLoading(true);
+
+        // Flag this as a database card
+        setIsFromDatabase(true);
+        
+        // Reset any custom art position
+        setArtPosition({ x: 0, y: 0, width: 0, height: 0 });        
         
         // Set form data from battlegearData
         setName(battlegearData.name || '');
@@ -1197,6 +1218,12 @@ return (
     <MugicSelector
       onSelectMugic={(mugicData) => {
         setIsLoading(true);
+
+        // Flag this as a database card
+        setIsFromDatabase(true);
+        
+        // Reset any custom art position
+        setArtPosition({ x: 0, y: 0, width: 0, height: 0 });        
         
         // Set form data from mugicData
         setName(mugicData.name || '');
@@ -1242,6 +1269,12 @@ return (
     <LocationSelector
       onSelectLocation={(locationData) => {
         setIsLoading(true);
+
+        // Flag this as a database card
+        setIsFromDatabase(true);
+        
+        // Reset any custom art position
+        setArtPosition({ x: 0, y: 0, width: 0, height: 0 });        
         
         // Set form data from locationData
         setName(locationData.name || '');
@@ -1279,13 +1312,13 @@ return (
       }}
     />
   </div>
-)}
+)} 
 
-      {selectedType && (
-        <div className="space-y-6">
-          {/* Basic Information */}
-          <div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
-            {/* Tribe Selection */}
+{selectedType && (
+  <div className="space-y-6">
+    {/* Basic Information */}
+    <div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
+      {/* Tribe Selection */}
 {selectedType === 'creature' && (
   <div className="space-y-4">
     <div>
@@ -1344,30 +1377,60 @@ return (
       />
     )}
 
-        <div className="flex items-center gap-4">
-          <label className="w-24 text-right font-bold">Art</label>
-          <div className="flex-1 overflow-hidden">
-            <input 
-              type="file" 
-              accept="image/*" 
-              onChange={(e) => setArt(e.target.files[0])}
-              className="w-full max-w-[calc(100vw-8rem)] lg:max-w-none"
-            />
-          </div>
-        </div>
-            <InputField 
-              label="Name" 
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            
-            {['creature'].includes(selectedType) && (
-            <InputField 
-              label="Subname" 
-              value={subname}
-              onChange={(e) => setSubname(e.target.value)}
-            />
-          )}
+    <div className="flex items-center gap-4">
+      <label className="w-24 text-right font-bold">Art</label>
+      <div className="flex-1">
+        <input 
+          type="file" 
+          accept="image/*" 
+          onChange={(e) => {
+            setArt(e.target.files[0]);
+            setIsFromDatabase(false); // User is uploading custom art
+            // Reset art position when new art is uploaded
+            setArtPosition({ x: 0, y: 0, width: 0, height: 0 });
+          }}
+          className="w-full mb-2"
+        />
+{art && !isFromDatabase && (
+  <CardArtPositioner
+    art={art}
+    onPositionChange={setArtPosition}
+    containerWidth={
+      selectedType === 'attack' || selectedType === 'battlegear' 
+        ? 251 
+        : selectedType === 'location' 
+          ? 306 
+          : selectedType === 'mugic' 
+            ? 250 
+            : 236
+    }
+    containerHeight={
+      selectedType === 'attack' || selectedType === 'battlegear'
+        ? 171
+        : selectedType === 'location'
+          ? 137
+          : selectedType === 'mugic'
+            ? 350
+            : 198
+    }
+  />
+)}
+      </div>
+    </div>
+
+      <InputField 
+    label="Name" 
+    value={name}
+    onChange={(e) => setName(e.target.value)}
+    placeholder="Card Name"
+  />
+  
+  <InputField 
+    label="Subname" 
+    value={subname}
+    onChange={(e) => setSubname(e.target.value)}
+    placeholder="Subname (optional)"
+  />
 
             <SelectField
               label="Set"
@@ -1709,6 +1772,8 @@ return (
         selectedType,
         tribe,
         art,
+        artPosition,
+        isFromDatabase,
         name,
         subname,
         set,

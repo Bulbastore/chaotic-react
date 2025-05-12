@@ -38,6 +38,7 @@ const CardPreview = ({ cardData }) => {
           subname: cardData.subname || '',
           tribe: cardData.tribe || '',
           art: cardData.art,
+          artPosition: cardData.artPosition,
           set: cardData.set || '',
           rarity: cardData.rarity || '',
           subtype: cardData.subtype || '',
