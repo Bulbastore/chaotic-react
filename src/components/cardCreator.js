@@ -898,42 +898,77 @@ async function loadAssets(cardData) {
         );
     }
 
-    // Preload mugic icons if this is a mugic card
-    if (cardData.type === 'mugic' && cardData.tribe && cardData.mugicCost !== undefined && cardData.mugicCost !== "") {
-        const cost = cardData.mugicCost.toString().toUpperCase();
-        const tribeLower = cardData.tribe.toLowerCase();
-        
-        // Determine which icon to preload
-        let iconPath;
-        if (cost === '0') {
-            iconPath = `img/icons/mugic/${tribeLower}_0.png`;
-        } else if (cost === 'X') {
-            iconPath = `img/icons/mugic/${tribeLower}_x.png`;
-        } else {
-            iconPath = `img/icons/mugic/${tribeLower}.png`;
+// Preload mugic icons if this is a mugic card
+if (cardData.type === 'mugic' && cardData.tribe && cardData.mugicCost !== undefined && cardData.mugicCost !== "") {
+    const cost = cardData.mugicCost.toString().toUpperCase();
+    const tribeLower = cardData.tribe.toLowerCase();
+    
+    // Determine which icon to preload
+    let iconPath;
+    if (cost === '0') {
+        iconPath = `img/icons/mugic/${tribeLower}_0.png`;
+    } else if (cost === 'X') {
+        iconPath = `img/icons/mugic/${tribeLower}_x.png`;
+    } else {
+        iconPath = `img/icons/mugic/${tribeLower}.png`;
+    }
+    
+    // Add to loading promises
+    console.log(`Preloading mugic icon: ${iconPath}`);
+    promises.push(loadAsset('mugicIcon', getAssetPath(iconPath))
+        .then(img => {
+            assets.mugicIcon = img;
+            console.log('Mugic icon preloaded successfully');
+        })
+        .catch(error => {
+            console.error(`Failed to preload mugic icon: ${iconPath}`, error);
+        })
+    );
+}
+
+// Preload mugic note assets if this is a mugic card with notes
+if (cardData.type === 'mugic' && cardData.mugicNotes && cardData.mugicNotes.length > 0) {
+    // Create a list of all required assets based on the notes
+    const noteAssets = new Set();
+    
+    cardData.mugicNotes.forEach(note => {
+        if (note) {
+            // Add the main note letter
+            noteAssets.add(`img/Mugic Notes/${note.letter}.png`);
+            
+            // Add the length indicator
+            noteAssets.add(`img/Mugic Notes/${note.length}.png`);
+            
+            // Add modifiers if present
+            if (note.sharp) noteAssets.add('img/Mugic Notes/Sharp.png');
+            if (note.flat) noteAssets.add('img/Mugic Notes/Flat.png');
         }
-        
-        // Add to loading promises
-        console.log(`Preloading mugic icon: ${iconPath}`);
-        promises.push(loadAsset('mugicIcon', getAssetPath(iconPath))
-            .then(img => {
-                assets.mugicIcon = img;
-                console.log('Mugic icon preloaded successfully');
-            })
-            .catch(error => {
-                console.error(`Failed to preload mugic icon: ${iconPath}`, error);
-            })
+    });
+    
+    // Add loading promises for each asset
+    noteAssets.forEach(path => {
+        console.log(`Preloading mugic note asset: ${path}`);
+        promises.push(
+            loadAsset(`mugicNoteAsset_${path}`, getAssetPath(path))
+                .then(img => {
+                    assets[`mugicNoteAsset_${path}`] = img;
+                    console.log(`Mugic note asset loaded: ${path}`);
+                })
+                .catch(error => {
+                    console.error(`Failed to load mugic note asset: ${path}`, error);
+                })
         );
-    }
+    });
+}
 
-    try {
-        await Promise.all(promises);
-        console.log('All assets loaded successfully:', assets);
-    } catch (error) {
-        console.error('Error loading assets:', error);
-    }
+try {
+    await Promise.all(promises);
+    console.log('All assets loaded successfully:', assets);
+} catch (error) {
+    console.error('Error loading assets:', error);
+}
 
-    return assets;
+return assets;
 }
 
 async function loadAsset(key, path) {
@@ -2286,8 +2321,8 @@ if (cardData.artist && cardData.showArtist !== false && cardData.type !== 'mugic
         case 'attack': drawAttack(cardData); break;
         case 'creature': drawCreature(cardData); break;
         case 'mugic': 
-            // Now handle the result from drawMugic
-            const mugicResult = await drawMugic(cardData);
+            // Modified to pass the assets parameter
+            const mugicResult = await drawMugic(cardData, assets);
             break;
         case 'location': drawLocation(cardData); break;
     }
@@ -2359,8 +2394,8 @@ function drawAttack(cardData) {
 });
 }
 
-// Updated drawMugic function with better text positioning
-async function drawMugic(cardData) {
+// Updated drawMugic function with proper assets access
+async function drawMugic(cardData, assets) {
   // First, draw the mugic cost number and icons as before
   setFont(24, 'Eurostile Heavy');
   ctx.fillStyle = '#000000';
@@ -2425,6 +2460,155 @@ async function drawMugic(cardData) {
           );
         }
       }
+      
+// Replace the mugic notes section in drawMugic function
+
+// Now draw the mugic notes if available
+if (cardData.mugicNotes && cardData.mugicNotes.length > 0) {
+  // Define positions and dimensions
+  const startX = 165; // Starting X position
+  const baseY = 220;  // Base Y position
+  const spacing = 9; // Space between notes
+  
+  // Different scale factors for each component type
+  const scaleFactors = {
+    letter: 0.02,   // Base note size
+    length: 0.03,  // Length indicator size
+    sharp: 0.02,   // Sharp symbol size
+    flat: 0.02     // Flat symbol size
+  };
+  
+  // Pre-calculate the height of the tallest possible note (note with both sharp and flat)
+  // to ensure consistent vertical alignment
+  const calculateTotalNoteHeight = async () => {
+    // Load sample assets to calculate heights
+    const sampleLetter = await loadAssetAndGetDimensions('img/Mugic Notes/C.png', 'letter');
+    const sampleSharp = await loadAssetAndGetDimensions('img/Mugic Notes/Sharp.png', 'sharp');
+    const sampleFlat = await loadAssetAndGetDimensions('img/Mugic Notes/Flat.png', 'flat');
+    
+    // Calculate the total height including sharp above and flat below
+    const letterHeight = sampleLetter.height;
+    const sharpHeight = sampleSharp.height;
+    const flatHeight = sampleFlat.height;
+    
+    // Add a small gap between components (0.5 units)
+    const totalHeight = letterHeight + sharpHeight + flatHeight + 1;
+    
+    // Calculate the y-position for each component relative to the center
+    return {
+      totalHeight,
+      sharpY: -letterHeight/2 - sharpHeight/2 + 1.5, // Sharp above note with small gap
+      letterY: 0, // Center of the note is at baseY
+      flatY: letterHeight/2 + flatHeight/2 + 2.5 // Flat below note with small gap
+    };
+  };
+  
+  // Helper function to load and get dimensions of an asset
+  const loadAssetAndGetDimensions = async (assetPath, type) => {
+    // Extract just the filename from the path for the asset key
+    const filename = assetPath.split('/').pop();
+    let img = assets[`mugicNoteAsset_${filename}`];
+    
+    if (!img) {
+      img = await loadAsset(`mugicNoteAsset_${filename}`, getAssetPath(assetPath));
+      assets[`mugicNoteAsset_${filename}`] = img;
+    }
+    
+    const scaleFactor = scaleFactors[type];
+    return {
+      width: img.width * scaleFactor,
+      height: img.height * scaleFactor,
+      img: img,
+      originalWidth: img.width,
+      originalHeight: img.height
+    };
+  };
+  
+  // Get vertical positioning information
+  const verticalInfo = await calculateTotalNoteHeight();
+  
+  // Process each note
+  for (let i = 0; i < Math.min(cardData.mugicNotes.length, 7); i++) {
+    const note = cardData.mugicNotes[i];
+    if (!note) continue;
+    
+    const xPos = startX + (i * spacing);
+    
+    // Load assets for this note
+    const letterPath = `img/Mugic Notes/${note.letter}.png`;
+    const lengthPath = `img/Mugic Notes/${note.length}.png`;
+    
+    const letterDims = await loadAssetAndGetDimensions(letterPath, 'letter');
+    const lengthDims = await loadAssetAndGetDimensions(lengthPath, 'length');
+    
+    // Calculate the scaled dimensions
+    const scaledLetterWidth = letterDims.originalWidth * scaleFactors.letter;
+    
+    // Draw length indicator - hugging close to the left side of the note
+    // Calculate y-offset to center length vertically with the note
+    const lengthYOffset = (letterDims.height - lengthDims.height) / 2;
+    ctx.drawImage(
+      lengthDims.img,
+      0, 0, lengthDims.img.width, lengthDims.img.height,
+      (xPos - 1.2) * scale, // Closer to note
+      (baseY + lengthYOffset) * scale,
+      lengthDims.img.width * scaleFactors.length * scale,
+      lengthDims.img.height * scaleFactors.length * scale
+    );
+    
+    // Draw sharp if present - horizontally centered with the note
+    if (note.sharp) {
+      const sharpPath = 'img/Mugic Notes/Sharp.png';
+      const sharpDims = await loadAssetAndGetDimensions(sharpPath, 'sharp');
+      
+      // Calculate the scaled dimensions of the sharp
+      const scaledSharpWidth = sharpDims.originalWidth * scaleFactors.sharp;
+      
+      // Calculate x-offset to center the sharp horizontally with the note
+      const sharpXOffset = (scaledLetterWidth - scaledSharpWidth) / 2;
+      
+      ctx.drawImage(
+        sharpDims.img,
+        0, 0, sharpDims.img.width, sharpDims.img.height,
+        (xPos + sharpXOffset) * scale, // Centered with note
+        (baseY + verticalInfo.sharpY) * scale, // Positioned above note
+        sharpDims.img.width * scaleFactors.sharp * scale,
+        sharpDims.img.height * scaleFactors.sharp * scale
+      );
+    }
+    
+    // Draw the main note
+    ctx.drawImage(
+      letterDims.img,
+      0, 0, letterDims.img.width, letterDims.img.height,
+      xPos * scale,
+      (baseY + verticalInfo.letterY) * scale, // Centered at baseY
+      letterDims.img.width * scaleFactors.letter * scale,
+      letterDims.img.height * scaleFactors.letter * scale
+    );
+    
+    // Draw flat if present - horizontally centered with the note
+    if (note.flat) {
+      const flatPath = 'img/Mugic Notes/Flat.png';
+      const flatDims = await loadAssetAndGetDimensions(flatPath, 'flat');
+      
+      // Calculate the scaled dimensions of the flat
+      const scaledFlatWidth = flatDims.originalWidth * scaleFactors.flat;
+      
+      // Calculate x-offset to center the flat horizontally with the note
+      const flatXOffset = (scaledLetterWidth - scaledFlatWidth) / 2;
+      
+      ctx.drawImage(
+        flatDims.img,
+        0, 0, flatDims.img.width, flatDims.img.height,
+        (xPos + flatXOffset) * scale, // Centered with note
+        (baseY + verticalInfo.flatY) * scale, // Positioned below note
+        flatDims.img.width * scaleFactors.flat * scale,
+        flatDims.img.height * scaleFactors.flat * scale
+      );
+    }
+  }
+}
       
       return { mugicIconsDrawn: true };
     } catch (err) {

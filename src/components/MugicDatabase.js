@@ -1221,7 +1221,7 @@ export const mugicDatabase = [
     "unique": true,
     "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/lSLtFJ9.png",
+    "imageUrl": "https://i.imgur.com/2oXN4sV.png",
     "uniqueId": "Desert's Wrathsong__btd"
   },
   {
@@ -1235,7 +1235,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/2oXN4sV.png",
+    "imageUrl": "https://i.imgur.com/lSLtFJ9.png",
     "uniqueId": "Deserter's Finale__btd"
   },
   {

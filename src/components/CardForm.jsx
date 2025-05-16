@@ -15,6 +15,7 @@ import PhotoshopColorPicker from './PhotoshopColorPicker';
 import CustomTribeLogoUploader from './CustomTribeLogoUploader';
 import CardArtPositioner from './CardArtPositioner';
 import React, { useCallback, useMemo } from 'react';
+import MugicNotesEditor from './MugicNotesEditor';
 
 const CARD_SYMBOLS = [
   // Ability elements
@@ -567,6 +568,12 @@ const CardForm = () => {
     earth: null,
     water: null
   });
+  const [mugicNotes, setMugicNotes] = useState(Array(7).fill().map(() => ({ 
+    letter: 'C', 
+    length: 1, 
+    sharp: false, 
+    flat: false 
+  })));  
   const [loadedIcons, setLoadedIcons] = useState({});
 const resetForm = () => {
   setName('');
@@ -603,8 +610,14 @@ const resetForm = () => {
   setInitiative(0);
   setSerialNumber('');
   setShowCopyright(true);
-setShowArtist(true);
+  setShowArtist(true);
   setBrainwashedText('');
+  setMugicNotes(Array(7).fill().map(() => ({ 
+    letter: 'C', 
+    length: 1, 
+    sharp: false, 
+    flat: false 
+  })));
 };
 
 const adjustStatsBasedOnPreset = (maxStats, preset) => {
@@ -1850,9 +1863,10 @@ return (
     </div>
 </div>
 
+
 </div>
           </div>
-
+          
           {/* Stats Sections */}
 {selectedType === 'attack' && (
   <div className="space-y-6">
@@ -1939,6 +1953,7 @@ return (
         buildPoints,
         base,
         mugicCost,
+        mugicNotes,
         serialNumber,
         brainwashed,
         brainwashedText,
@@ -1951,6 +1966,16 @@ return (
       }} 
     />
   </div>
+
+  {/* Mugic Notes Editor - Only shown for Mugic cards */}
+  {selectedType === 'mugic' && tribe && (
+    <div className="mt-4 mb-4">
+      <MugicNotesEditor
+        notes={mugicNotes}
+        onChange={setMugicNotes}
+      />
+    </div>
+  )}
 
 {/* Build Points section with Download Buttons */}
 {selectedType === 'attack' && (
