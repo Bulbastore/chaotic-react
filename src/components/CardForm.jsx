@@ -1862,11 +1862,9 @@ return (
         />
     </div>
 </div>
-
-
 </div>
           </div>
-          
+
           {/* Stats Sections */}
 {selectedType === 'attack' && (
   <div className="space-y-6">
