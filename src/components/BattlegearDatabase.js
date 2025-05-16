@@ -1705,7 +1705,7 @@ export const battlegearDatabase = [
     "name": "Aquatic Familiar",
     "set": "au",
     "rarity": "common",
-    "ability": "Equipped Creature has \"Expend :water:Water : Gain 50 :wisdom:Wisdom.\"",
+    "ability": "Equipped Creature has \"Expend :water:water: Gain 50 :wisdom:Wisdom.\"",
     "flavorText": "",
     "unique": false,
     "legendary": false,
@@ -1859,7 +1859,7 @@ export const battlegearDatabase = [
     "name": "Metabolic Overloader",
     "set": "au",
     "rarity": "common",
-    "ability": "Equipped Creature has \"Expend :fire:Fire : Gain 50 :power:Power.\"",
+    "ability": "Equipped Creature has \"Expend :fire:fire: Gain 50 :power:Power.\"",
     "flavorText": "",
     "unique": false,
     "legendary": false,
@@ -1873,7 +1873,7 @@ export const battlegearDatabase = [
     "name": "Mysterious Clawblade",
     "set": "au",
     "rarity": "common",
-    "ability": "Equipped Creature has \"Expend :air:Air : Gain 50 :speed:Speed.\"",
+    "ability": "Equipped Creature has \"Expend :air:Air: Gain 50 :speed:Speed.\"",
     "flavorText": "",
     "unique": false,
     "legendary": false,
@@ -1943,7 +1943,7 @@ export const battlegearDatabase = [
     "name": "Quranium Pendant",
     "set": "au",
     "rarity": "common",
-    "ability": "Equipped Creature has \"Expend :earth:Earth : Gain 50 :courage:Courage.\"",
+    "ability": "Equipped Creature has \"Expend :earth:earth: Gain 50 :courage:Courage.\"",
     "flavorText": "",
     "unique": false,
     "legendary": false,
@@ -2163,7 +2163,7 @@ export const battlegearDatabase = [
     "uniqueId": "Bodal's Element Converter__op"
   },
   {
-    "id": "OP-4lkwjc74",
+    "id": "OP-nr1xq1a5",
     "name": "Kha'rall Shard of Chance",
     "set": "op",
     "rarity": "super rare",
@@ -2177,7 +2177,7 @@ export const battlegearDatabase = [
     "uniqueId": "Kha'rall Shard of Chance__op"
   },
   {
-    "id": "OP-3h5rfnet",
+    "id": "OP-qh1wao16",
     "name": "Mommark's Energy Infuser",
     "set": "op",
     "rarity": "ultra rare",
@@ -2191,7 +2191,7 @@ export const battlegearDatabase = [
     "uniqueId": "Mommark's Energy Infuser__op"
   },
   {
-    "id": "OP-qneti4o0",
+    "id": "OP-bxn82ozv",
     "name": "Olkiex' Apron",
     "set": "op",
     "rarity": "uncommon",

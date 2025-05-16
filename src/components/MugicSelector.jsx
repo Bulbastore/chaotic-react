@@ -214,22 +214,6 @@ const MugicSelector = memo(({ onSelectMugic }) => {
     inputRef.current?.focus();
   };
 
-  // Helper function to get the tribe color
-  const getTribeColor = (tribe) => {
-    if (!tribe) return 'bg-gray-600';
-    
-    switch(tribe.toLowerCase()) {
-      case 'overworld': return 'bg-blue-700';
-      case 'underworld': return 'bg-red-800';
-      case 'mipedian': return 'bg-yellow-700';
-      case 'danian': return 'bg-amber-900';
-      case "m'arrillian": return 'bg-cyan-800';
-      case 'tribeless': 
-      case 'generic': return 'bg-gray-600';
-      default: return 'bg-gray-600';
-    }
-  };
-
   return (
     <div className="relative w-full" ref={dropdownRef}>
       <div className="flex flex-col gap-2">
@@ -296,19 +280,6 @@ const MugicSelector = memo(({ onSelectMugic }) => {
                         <div className="flex justify-between items-start">
                           <div>
                             <div className="text-white">{mugic.name}</div>
-                            <div className="flex gap-2 mt-1">
-                              {mugic.tribe && (
-                                <span className={`text-xs ${getTribeColor(mugic.tribe)} text-white px-1 rounded`}>
-                                  {mugic.tribe.charAt(0).toUpperCase() + mugic.tribe.slice(1)}
-                                </span>
-                              )}
-                              {mugic.mugicCost !== undefined && (
-                                <span className="text-xs bg-purple-900 text-white px-1 rounded">Cost: {mugic.mugicCost}</span>
-                              )}
-                              {mugic.unique && (
-                                <span className="text-xs bg-pink-900 text-white px-1 rounded">Unique</span>
-                              )}
-                            </div>
                           </div>
                           <div className="text-xs text-gray-400 ml-2">{mugic.setDisplay || mugic.set?.toUpperCase()}</div>
                         </div>

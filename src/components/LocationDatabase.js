@@ -2107,7 +2107,7 @@ export const locationDatabase = [
     "uniqueId": "Kiru City, (OP)__op"
   },
   {
-    "id": "OP-rsrrkfyj",
+    "id": "OP-jxygs37e",
     "name": "Annex of the Arcane",
     "set": "op",
     "rarity": "common",
@@ -2121,7 +2121,7 @@ export const locationDatabase = [
     "uniqueId": "Annex of the Arcane__op"
   },
   {
-    "id": "OP-t9o99vjy",
+    "id": "OP-c87qf6fq",
     "name": "Khybon's Scrapyard",
     "set": "op",
     "rarity": "uncommon",
@@ -2135,7 +2135,7 @@ export const locationDatabase = [
     "uniqueId": "Khybon's Scrapyard__op"
   },
   {
-    "id": "DOP-6hdzspji",
+    "id": "DOP-eelulz40",
     "name": "Glacier Plains, (Holiday Reward)",
     "set": "dop",
     "rarity": "super rare",

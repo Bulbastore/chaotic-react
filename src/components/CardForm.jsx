@@ -14,6 +14,7 @@ import LocationSelector from './LocationSelector';
 import PhotoshopColorPicker from './PhotoshopColorPicker';
 import CustomTribeLogoUploader from './CustomTribeLogoUploader';
 import CardArtPositioner from './CardArtPositioner';
+import React, { useCallback, useMemo } from 'react';
 
 const CARD_SYMBOLS = [
   // Ability elements
@@ -491,7 +492,7 @@ const CardForm = () => {
     wisdom: 0,
     speed: 0,
     mugic: 0
-  });
+  });  
   const [useBleedTemplates, setUseBleedTemplates] = useState(false);
   const [selectedType, setSelectedType] = useState('');
   const [canvasRef, setCanvasRef] = useState(null);
@@ -513,6 +514,22 @@ const CardForm = () => {
   const [forceUpdate, setForceUpdate] = useState(false);
   const [useOrangeSliders, setUseOrangeSliders] = useState(false);
   const [artPosition, setArtPosition] = useState({ x: 0, y: 0, width: 0, height: 0 });
+  const handleArtPositionChange = useCallback((newPosition) => {
+    setArtPosition(newPosition);
+  }, []);  
+  const getContainerDimensions = useMemo(() => {
+    switch (selectedType) {
+      case 'attack':
+      case 'battlegear':
+        return { width: 251, height: 171 };
+      case 'location':
+        return { width: 306, height: 137 };
+      case 'mugic':
+        return { width: 250, height: 350 };
+      default: // creature
+        return { width: 236, height: 198 };
+    }
+  }, [selectedType]);  
   const isMobileBrowser = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   };
@@ -781,12 +798,126 @@ const handleDownload = () => {
   }
 };
 
-// Simple fix for handleBleedDownload function
+// Final handleBleedDownload with improved mugic card handling
 const handleBleedDownload = async () => {
   const previewCanvas = document.querySelector('#preview-canvas');
   if (!previewCanvas) return;
   
   try {
+    // For mugic cards - use a different approach that preserves your standard template logic
+    if (selectedType === 'mugic') {
+      // Create a bleed canvas with exact dimensions
+      const bleedCanvas = document.createElement('canvas');
+      const bleedCtx = bleedCanvas.getContext('2d');
+      
+      // Set standard bleed dimensions
+      bleedCanvas.width = 1092;
+      bleedCanvas.height = 1488;
+      
+      // White background
+      bleedCtx.fillStyle = '#ffffff';
+      bleedCtx.fillRect(0, 0, bleedCanvas.width, bleedCanvas.height);
+      
+      // Draw the original art into the background if available
+      if (art) {
+        try {
+          const artImg = new Image();
+          await new Promise(resolve => {
+            artImg.onload = resolve;
+            artImg.src = URL.createObjectURL(art);
+          });
+          
+          // Calculate scaling to cover the entire canvas
+          const containerAspect = bleedCanvas.width / bleedCanvas.height;
+          const imageAspect = artImg.width / artImg.height;
+          
+          let drawWidth, drawHeight, offsetX = 0, offsetY = 0;
+          
+          if (imageAspect > containerAspect) {
+            drawHeight = bleedCanvas.height;
+            drawWidth = artImg.width * (bleedCanvas.height / artImg.height);
+            offsetX = (bleedCanvas.width - drawWidth) / 2;
+          } else {
+            drawWidth = bleedCanvas.width;
+            drawHeight = artImg.height * (bleedCanvas.width / artImg.width);
+            offsetY = (bleedCanvas.height - drawHeight) / 2;
+          }
+          
+          // Draw the extended art
+          bleedCtx.drawImage(artImg, offsetX, offsetY, drawWidth, drawHeight);
+          URL.revokeObjectURL(artImg.src);
+        } catch (error) {
+          console.error('Error loading art for mugic bleed:', error);
+        }
+      }
+      
+      // Scale the standard preview canvas to fit the bleed canvas
+      const scaleFactor = 4; // Multiply by 4 to match the scale factor in your cardCreator.js
+      const centerX = (bleedCanvas.width - (previewCanvas.width)) / 2;
+      const centerY = (bleedCanvas.height - (previewCanvas.height)) / 2;
+      
+      // Draw the standard card (with all your template improvements already applied)
+      bleedCtx.drawImage(previewCanvas, centerX, centerY);
+      
+      // Load the bleed border template
+      const borderPath = getAssetPath(`img/template/bleed/mugic.png`);
+      const borderImg = new Image();
+      
+      await new Promise((resolve, reject) => {
+        borderImg.onload = resolve;
+        borderImg.onerror = reject;
+        borderImg.src = borderPath;
+      });
+      
+      // Draw the bleed border on top
+      bleedCtx.drawImage(
+        borderImg, 
+        0, 0, borderImg.width, borderImg.height,
+        0, 0, bleedCanvas.width, bleedCanvas.height
+      );
+      
+      // Download logic
+      const filename = name ? 
+        `${name}${subname ? `, ${subname}` : ''}_bleed.png` : 
+        'mugic_bleed.png';
+      
+      if (isMobileBrowser()) {
+        bleedCanvas.toBlob((blob) => {
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.target = '_blank';
+          link.click();
+          setTimeout(() => URL.revokeObjectURL(url), 100);
+        }, 'image/png');
+      } else {
+        CardCreator.downloadCard(bleedCanvas, filename);
+      }
+      
+      return; // Skip remaining processing
+    }
+    
+    // Define formatTribe function directly inside handleBleedDownload
+    const formatTribe = (tribe) => {
+      if (!tribe) return "";
+      switch (tribe.toLowerCase()) {
+        case "danian": return "Danian";
+        case "overworld": return "OverWorld";
+        case "mipedian": return "Mipedian";
+        case "underworld": return "UnderWorld";
+        case "m'arrillian": return "M'arrillian";
+        case "tribeless": return "";
+        case "generic": return "Generic";
+        case "mipedianow": return "Mipedian OverWorld";
+        case "panivian": return "Panivian";
+        case "umbrian": return "Umbrian";
+        case "frozen": return "Frozen";
+        case "custom": return "";
+        default: return tribe;
+      }
+    };
+  
+    // STANDARD PROCESSING FOR NON-MUGIC CARDS
     // Get the standard card canvas
     const standardCard = previewCanvas;
     console.log(`Standard card dimensions: ${standardCard.width}x${standardCard.height}`);
@@ -808,10 +939,6 @@ const handleBleedDownload = async () => {
         borderPath = getAssetPath(`img/template/bleed/${tribe.toLowerCase()}.png`);
         console.log('Loading normal creature bleed border from:', borderPath);
       }
-    } else if (selectedType === 'mugic' && tribe) {
-      // For mugic cards, we need to maintain the mugic subdirectory
-      borderPath = getAssetPath(`img/template/bleed/mugic/${tribe.toLowerCase()}.png`);
-      console.log('Loading mugic bleed border from:', borderPath);
     } else {
       // Use a type-specific border for non-creatures (attack, battlegear, etc.)
       borderPath = getAssetPath(`img/template/bleed/${selectedType.toLowerCase()}.png`);
@@ -854,8 +981,8 @@ const handleBleedDownload = async () => {
     const scaleFactor = 0.949798; // Your specified value that works for scaling
     
     // Adjust the position - positive X moves right, negative Y moves up
-    const offsetXAdjust = 1.28;    // Move 2px to the right
-    const offsetYAdjust = -3.95;   // Move 2px up
+    const offsetXAdjust = 1.28;    // Move right
+    const offsetYAdjust = -3.95;   // Move up
     
     // Calculate base scale to fill the border
     const scaleX = borderImg.width / standardCard.width;
@@ -892,7 +1019,7 @@ const handleBleedDownload = async () => {
       `${name}${subname ? `, ${subname}` : ''}_bleed.png` : 
       'card_bleed.png';
     
-    // DOWNLOAD ONLY ONCE - Choose correct method based on device type
+    // Download based on device type
     if (isMobileBrowser()) {
       // For mobile devices
       bleedCanvas.toBlob((blob) => {
@@ -908,8 +1035,6 @@ const handleBleedDownload = async () => {
       // Use normal download for desktop
       CardCreator.downloadCard(bleedCanvas, filename);
     }
-    
-    // REMOVE THE SECOND DOWNLOAD OPERATION THAT WAS HERE
     
   } catch (error) {
     console.error('Error creating bleed card:', error);
@@ -1391,6 +1516,7 @@ return (
           }}
           className="w-full mb-2"
         />
+{/* Only render CardArtPositioner when needed */}        
 {art && !isFromDatabase && (
   <CardArtPositioner
     art={art}
@@ -1418,19 +1544,19 @@ return (
       </div>
     </div>
 
-      <InputField 
-    label="Name" 
-    value={name}
-    onChange={(e) => setName(e.target.value)}
-    placeholder="Card Name"
-  />
-  
-  <InputField 
-    label="Subname" 
-    value={subname}
-    onChange={(e) => setSubname(e.target.value)}
-    placeholder="Subname (optional)"
-  />
+            <InputField 
+          label="Name" 
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Card Name"
+        />
+        
+        <InputField 
+          label="Subname" 
+          value={subname}
+          onChange={(e) => setSubname(e.target.value)}
+          placeholder="Subname (optional)"
+        />
 
             <SelectField
               label="Set"
@@ -1665,15 +1791,37 @@ return (
 
 <div className="flex flex-wrap items-center justify-center gap-10 pt-0 border-gray-700">
     {['attack', 'mugic', 'location'].includes(selectedType) && (
-        <div className="flex items-center gap-2">
-            <label className="font-bold">Unique</label>
-            <input 
-                type="checkbox" 
-                checked={unique}
-                onChange={(e) => setUnique(e.target.checked)}
-                className="w-4 h-4 accent-[#9FE240]" 
-            />
-        </div>
+        <>
+            {selectedType === 'mugic' && (
+                <div className="flex items-center gap-2">
+                    <label className="font-bold">Mugic Cost</label>
+                    <input 
+                        type="text"
+                        value={mugicCost}
+                        onChange={(e) => {
+                            const value = e.target.value.toUpperCase();
+                            // Only allow single digit numbers (0-9) or 'X'
+                            if (value === '' || /^[0-9X]$/.test(value)) {
+                                setMugicCost(value);
+                            }
+                        }}
+                        placeholder="0-9 or X"
+                        maxLength={1}
+                        className="w-16 p-2 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none text-center"
+                    />
+                    <span className="text-gray-400 text-xs">Enter 0-9 or X</span>
+                </div>
+            )}
+            <div className="flex items-center gap-2">
+                <label className="font-bold">Unique</label>
+                <input 
+                    type="checkbox" 
+                    checked={unique}
+                    onChange={(e) => setUnique(e.target.checked)}
+                    className="w-4 h-4 accent-[#9FE240]" 
+                />
+            </div>
+        </>
     )}
     
 <div className="flex flex-col gap-1">

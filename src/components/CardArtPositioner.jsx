@@ -1,13 +1,13 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
+// Simplified version focused on performance
 const CardArtPositioner = ({ art, onPositionChange, containerWidth, containerHeight }) => {
   // Use refs for values that shouldn't trigger re-renders during dragging
   const dragRef = useRef(null);
   const imageRef = useRef(null);
   const containerRef = useRef(null);
   const positionRef = useRef({ x: 0, y: 0 });
-  const throttleTimerRef = useRef(null);
-  const lastUpdateTimeRef = useRef(0);
+  const objectUrlRef = useRef(null);
   
   // Keep state for values that should trigger UI updates
   const [imageDimensions, setImageDimensions] = useState({ 
@@ -19,6 +19,15 @@ const CardArtPositioner = ({ art, onPositionChange, containerWidth, containerHei
   // Load and calculate initial image dimensions
   useEffect(() => {
     if (!art) return;
+    
+    // Clean up previous objectURL if it exists
+    if (objectUrlRef.current) {
+      URL.revokeObjectURL(objectUrlRef.current);
+    }
+    
+    // Create new objectURL and store the reference
+    const objectUrl = URL.createObjectURL(art);
+    objectUrlRef.current = objectUrl;
     
     const img = new Image();
     img.onload = () => {
@@ -78,58 +87,19 @@ const CardArtPositioner = ({ art, onPositionChange, containerWidth, containerHei
       }
     };
     
-    img.src = URL.createObjectURL(art);
-    return () => URL.revokeObjectURL(img.src);
+    img.src = objectUrl;
+    
+    // Cleanup function
+    return () => {
+      if (objectUrlRef.current) {
+        URL.revokeObjectURL(objectUrlRef.current);
+        objectUrlRef.current = null;
+      }
+    };
   }, [art, containerWidth, containerHeight, onPositionChange]);
 
-  // Schedule an update to the parent component with throttling
-  const schedulePositionUpdate = useCallback(() => {
-    // Only update the parent component at most every 150ms during drag
-    const now = Date.now();
-    if (now - lastUpdateTimeRef.current < 150 && isDragging) {
-      // If we're throttling and a timer isn't already set, schedule one
-      if (!throttleTimerRef.current) {
-        throttleTimerRef.current = setTimeout(() => {
-          throttleTimerRef.current = null;
-          lastUpdateTimeRef.current = Date.now();
-          
-          // Notify parent component with the latest position
-          if (onPositionChange) {
-            onPositionChange({
-              x: positionRef.current.x,
-              y: positionRef.current.y,
-              width: imageDimensions.width,
-              height: imageDimensions.height,
-              isDragging: true // Flag to indicate we're in drag mode
-            });
-          }
-        }, 150 - (now - lastUpdateTimeRef.current));
-      }
-    } else {
-      // Clear any pending timer
-      if (throttleTimerRef.current) {
-        clearTimeout(throttleTimerRef.current);
-        throttleTimerRef.current = null;
-      }
-      
-      // Update immediately
-      lastUpdateTimeRef.current = now;
-      
-      // Notify parent component
-      if (onPositionChange) {
-        onPositionChange({
-          x: positionRef.current.x,
-          y: positionRef.current.y,
-          width: imageDimensions.width,
-          height: imageDimensions.height,
-          isDragging: isDragging // Flag to indicate drag state
-        });
-      }
-    }
-  }, [imageDimensions, isDragging, onPositionChange]);
-
-  // Memoized drag handlers to prevent recreating functions on each render
-  const handleDragStart = useCallback((e) => {
+  // Handler functions - no useCallback to avoid closure issues
+  const handleDragStart = (e) => {
     if (!imageDimensions.constraintAxis) return;
     
     const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
@@ -144,18 +114,13 @@ const CardArtPositioner = ({ art, onPositionChange, containerWidth, containerHei
     
     setIsDragging(true);
     
-    // Notify parent that dragging has started
-    lastUpdateTimeRef.current = 0; // Reset the timer to ensure immediate first update
-    schedulePositionUpdate();
-    
     // Prevent default only for touch events to avoid scrolling
     if (e.type.includes('touch')) {
       e.preventDefault();
     }
-  }, [imageDimensions.constraintAxis, schedulePositionUpdate]);
+  };
 
-  // Throttled drag handler uses requestAnimationFrame for UI updates with reduced parent callbacks
-  const handleDrag = useCallback((e) => {
+  const handleDrag = (e) => {
     if (!dragRef.current || !imageDimensions.constraintAxis) return;
     
     const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
@@ -184,24 +149,27 @@ const CardArtPositioner = ({ art, onPositionChange, containerWidth, containerHei
       newY = Math.min(Math.max(newY, minY), maxY);
     }
     
-    // Update position ref (doesn't trigger re-render)
+    // Update position ref and state
     positionRef.current = { x: newX, y: newY };
+    setPreviewPosition({ x: newX, y: newY });
     
-    // Use requestAnimationFrame to batch UI updates
-    requestAnimationFrame(() => {
-      // Always update local preview position for smooth visual feedback
-      setPreviewPosition({ x: newX, y: newY });
-      
-      // But throttle updates to the parent component
-      schedulePositionUpdate();
-    });
+    // Immediate update to parent
+    if (onPositionChange) {
+      onPositionChange({
+        x: newX,
+        y: newY,
+        width: imageDimensions.width,
+        height: imageDimensions.height
+      });
+    }
     
     // Prevent default to avoid text selection during drag
     e.preventDefault();
-  }, [containerWidth, containerHeight, imageDimensions, schedulePositionUpdate]);
+  };
 
-  const handleDragEnd = useCallback(() => {
+  const handleDragEnd = () => {
     dragRef.current = null;
+    setIsDragging(false);
     
     // Final update with accurate position
     if (onPositionChange) {
@@ -209,19 +177,10 @@ const CardArtPositioner = ({ art, onPositionChange, containerWidth, containerHei
         x: positionRef.current.x,
         y: positionRef.current.y,
         width: imageDimensions.width,
-        height: imageDimensions.height,
-        isDragging: false // Explicitly mark dragging as done
+        height: imageDimensions.height
       });
     }
-    
-    // Clear any pending throttled updates
-    if (throttleTimerRef.current) {
-      clearTimeout(throttleTimerRef.current);
-      throttleTimerRef.current = null;
-    }
-    
-    setIsDragging(false);
-  }, [imageDimensions, onPositionChange]);
+  };
 
   // Apply event listeners using effect
   useEffect(() => {
@@ -239,16 +198,7 @@ const CardArtPositioner = ({ art, onPositionChange, containerWidth, containerHei
       window.removeEventListener('touchmove', handleDrag);
       window.removeEventListener('touchend', handleDragEnd);
     };
-  }, [isDragging, handleDrag, handleDragEnd]);
-
-  // Clean up any pending timers on unmount
-  useEffect(() => {
-    return () => {
-      if (throttleTimerRef.current) {
-        clearTimeout(throttleTimerRef.current);
-      }
-    };
-  }, []);
+  }, [isDragging, containerWidth, containerHeight, imageDimensions]);
 
   // Determine cursor style based on constraint axis
   const getCursorStyle = () => {
@@ -282,7 +232,7 @@ const CardArtPositioner = ({ art, onPositionChange, containerWidth, containerHei
               width: imageDimensions.width, 
               height: imageDimensions.height,
               transform: `translate(${previewPosition.x}px, ${previewPosition.y}px)`,
-              backgroundImage: `url(${URL.createObjectURL(art)})`,
+              backgroundImage: objectUrlRef.current ? `url(${objectUrlRef.current})` : 'none',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               transition: isDragging ? 'none' : 'transform 0.1s ease-out'
@@ -291,7 +241,7 @@ const CardArtPositioner = ({ art, onPositionChange, containerWidth, containerHei
             onTouchStart={handleDragStart}
           />
           
-          {/* Drag overlay - appears during dragging to indicate active state */}
+          {/* Drag overlay */}
           {isDragging && (
             <div className="absolute inset-0 bg-black bg-opacity-20 pointer-events-none z-10 border border-[#9FE240]"></div>
           )}
@@ -311,7 +261,7 @@ const CardArtPositioner = ({ art, onPositionChange, containerWidth, containerHei
             </div>
           )}
           
-          {/* Always-visible instruction tooltip */}
+          {/* Instruction tooltip */}
           <div className="absolute bottom-2 right-2 text-white text-xs bg-black bg-opacity-70 px-2 py-1 rounded pointer-events-none">
             {imageDimensions.constraintAxis === 'x' ? 'Drag left/right' : 
              imageDimensions.constraintAxis === 'y' ? 'Drag up/down' : 'Drag to position'}

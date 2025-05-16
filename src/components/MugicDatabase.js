@@ -31,7 +31,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/ZdkuoyY.png",
+    "imageUrl": "https://i.imgur.com/hSGT5VV.png",
     "uniqueId": "Canon of Casualty__dop"
   },
   {
@@ -40,12 +40,12 @@ export const mugicDatabase = [
     "set": "dop",
     "rarity": "rare",
     "tribe": "overworld",
-    "ability": "Damage dealt to target Creature by :fire:or :air:attacks is reduced by 5. (An attack which is both :fire:and :air:is still reduced by 5.)",
+    "ability": "Damage dealt to target Creature by :fire:Fire or :air:Air attacks is reduced by 5. (An attack which is both :fire:Fire and :air:Air is still reduced by 5.)",
     "flavorText": "\"There is but one true language, and that is Mugic. All else is gibberish.\" - Donmar",
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/LD01WB5.png",
+    "imageUrl": "https://i.imgur.com/dp34ZzI.png",
     "uniqueId": "Cascade Symphony__dop"
   },
   {
@@ -59,7 +59,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/PoUpNMz.png",
+    "imageUrl": "https://i.imgur.com/2TlXa5m.png",
     "uniqueId": "Chorus of the Hive__dop"
   },
   {
@@ -73,7 +73,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/ayKFmid.png",
+    "imageUrl": "https://i.imgur.com/0vmIAIz.png",
     "uniqueId": "Decrescendo__dop"
   },
   {
@@ -87,7 +87,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/LWqhIUw.png",
+    "imageUrl": "https://i.imgur.com/85wqGRI.png",
     "uniqueId": "Discord of Disarming__dop"
   },
   {
@@ -96,12 +96,12 @@ export const mugicDatabase = [
     "set": "dop",
     "rarity": "uncommon",
     "tribe": "generic",
-    "ability": "Heal 15 damage to target Creature with :air:or :fire:.",
+    "ability": "Heal 15 damage to target Creature with :air:Air or :fire:Fire.",
     "flavorText": "No matter how many you carry with you, a song can never weigh you down.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Jeff Huang",
-    "imageUrl": "https://i.imgur.com/U6wSBz8.png",
+    "imageUrl": "https://i.imgur.com/I2qFZup.png",
     "uniqueId": "Ember Flourish__dop"
   },
   {
@@ -115,7 +115,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/9Te5oTz.png",
+    "imageUrl": "https://i.imgur.com/Y8JlfJc.png",
     "uniqueId": "Fanfare of the Vanishing__dop"
   },
   {
@@ -124,12 +124,12 @@ export const mugicDatabase = [
     "set": "dop",
     "rarity": "super rare",
     "tribe": "generic",
-    "ability": "Target Creature gains 5 :courage:, :power:, :wisdom:, :speed:, and Energy.",
+    "ability": "Target Creature gains 5 :courage:Courage, :power:Power, :wisdom:Wisdom, :speed:Speed, and Energy.",
     "flavorText": "Large is good. Larger is better. But really, really big is sometimes best.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/gCPOnHP.png",
+    "imageUrl": "https://i.imgur.com/TH3hodk.png",
     "uniqueId": "Fortissimo__dop"
   },
   {
@@ -138,12 +138,12 @@ export const mugicDatabase = [
     "set": "dop",
     "rarity": "uncommon",
     "tribe": "generic",
-    "ability": "Heal 15 damage to target Creature with :earth:or :water:.",
+    "ability": "Heal 15 damage to target Creature with :earth:Earth or :water:Water.",
     "flavorText": "Protect the land and the land will protect you.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Jeff Huang",
-    "imageUrl": "https://i.imgur.com/DwXHIPQ.png",
+    "imageUrl": "https://i.imgur.com/WoX1z9x.png",
     "uniqueId": "Geo Flourish__dop"
   },
   {
@@ -157,7 +157,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/6O2GskD.png",
+    "imageUrl": "https://i.imgur.com/DtE5e0A.png",
     "uniqueId": "Hymn of the Elements__dop"
   },
   {
@@ -171,7 +171,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/NWT4pzz.png",
+    "imageUrl": "https://i.imgur.com/r3KIQSH.png",
     "uniqueId": "Interlude of Consequence__dop"
   },
   {
@@ -185,7 +185,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/eB3xPWf.png",
+    "imageUrl": "https://i.imgur.com/za7pbn2.png",
     "uniqueId": "Melody of Malady__dop"
   },
   {
@@ -199,7 +199,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/XEWvK5O.png",
+    "imageUrl": "https://i.imgur.com/s6Pj05d.png",
     "uniqueId": "Melody of Mirage__dop"
   },
   {
@@ -213,7 +213,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/oocupQy.png",
+    "imageUrl": "https://i.imgur.com/yjQGZoV.png",
     "uniqueId": "Minor Flourish__dop"
   },
   {
@@ -225,9 +225,9 @@ export const mugicDatabase = [
     "ability": "Return target Mugic Card from your general discard pile to your hand.",
     "flavorText": "Everything that was once lost will be found again.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/oeAb8RJ.png",
+    "imageUrl": "https://i.imgur.com/Fezdp1i.png",
     "uniqueId": "Mugic Reprise__dop"
   },
   {
@@ -241,7 +241,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/knYwKys.png",
+    "imageUrl": "https://i.imgur.com/Sy9asbT.png",
     "uniqueId": "Notes of Neverwhere__dop"
   },
   {
@@ -250,12 +250,12 @@ export const mugicDatabase = [
     "set": "dop",
     "rarity": "super rare",
     "tribe": "overworld",
-    "ability": "Heal 10 damage to target OverWorld Creature. Damage dealt to that Creature by :fire:attacks is reduced by 5.",
+    "ability": "Heal 10 damage to target OverWorld Creature. Damage dealt to that Creature by :fire:Fire attacks is reduced by 5.",
     "flavorText": "Mugicians choose host Creatures along tribe affiliations.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/5ReUWBU.png",
+    "imageUrl": "https://i.imgur.com/qpfaU22.png",
     "uniqueId": "OverWorld Aria__dop"
   },
   {
@@ -267,9 +267,9 @@ export const mugicDatabase = [
     "ability": "Negate target Mugic.",
     "flavorText": "Cacophony signaled the beginning of the end of peace for the Mugicians.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/JtJnQnh.png",
+    "imageUrl": "https://i.imgur.com/bvt9Wiz.png",
     "uniqueId": "Refrain of Denial__dop"
   },
   {
@@ -283,7 +283,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/4jy9krh.png",
+    "imageUrl": "https://i.imgur.com/DFn5BKV.png",
     "uniqueId": "Refrain of Denial, (OverWorld)__dop"
   },
   {
@@ -297,7 +297,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/aglsuKY.png",
+    "imageUrl": "https://i.imgur.com/jS2JNXk.png",
     "uniqueId": "Refrain of Denial, (OverWorld/UnderWorld)__dop"
   },
   {
@@ -306,12 +306,12 @@ export const mugicDatabase = [
     "set": "dop",
     "rarity": "rare",
     "tribe": "underworld",
-    "ability": "Target Creature gains \":fire:5\" and \":air:5.\"",
+    "ability": "Target Creature gains \":fire:Fire 5\" and \":air:Air 5.\"",
     "flavorText": "When anger is all-consuming, hatred is the gateway to a hideous power.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Christian Jehie",
-    "imageUrl": "https://i.imgur.com/rWllmtT.png",
+    "imageUrl": "https://i.imgur.com/tws6ogC.png",
     "uniqueId": "Song of Asperity__dop"
   },
   {
@@ -323,9 +323,9 @@ export const mugicDatabase = [
     "ability": "Change the target of target Mugic or ability with a single target.",
     "flavorText": "Beauty is in the ears of the beholder - even discordant notes sound harmonious in dire situations.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 3,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/nwQVOJz.png",
+    "imageUrl": "https://i.imgur.com/4h3K41X.png",
     "uniqueId": "Song of Deflection__dop"
   },
   {
@@ -334,12 +334,12 @@ export const mugicDatabase = [
     "set": "dop",
     "rarity": "rare",
     "tribe": "generic",
-    "ability": "Deal 10 damage to target Creature with :air:or :fire:.",
+    "ability": "Deal 10 damage to target Creature with :air:Air or :fire:Fire.",
     "flavorText": "Fire consumes air, suffocating the earth.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/NpOYHV4.png",
+    "imageUrl": "https://i.imgur.com/7ImYyBy.png",
     "uniqueId": "Song of EmberNova__dop"
   },
   {
@@ -348,12 +348,12 @@ export const mugicDatabase = [
     "set": "dop",
     "rarity": "uncommon",
     "tribe": "overworld",
-    "ability": "Target Creature gains 10 :courage:, :power:, :wisdom:, and :speed:.",
+    "ability": "Target Creature gains 10 :courage:Courage, :power:Power, :wisdom:Wisdom, and :speed:Speed.",
     "flavorText": "",
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/gzsteZt.png",
+    "imageUrl": "https://i.imgur.com/PEfOVD0.png",
     "uniqueId": "Song of Focus__dop"
   },
   {
@@ -362,12 +362,12 @@ export const mugicDatabase = [
     "set": "dop",
     "rarity": "rare",
     "tribe": "underworld",
-    "ability": "Deal 10 damage to target Creature. Another target Creature gains \":fire:5.\"",
+    "ability": "Deal 10 damage to target Creature. Another target Creature gains \":fire:Fire 5.\"",
     "flavorText": "\"My legs or my Mugician? There is no choice. Cut them off!\" — Miklon",
     "unique": false,
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/zLRETtG.png",
+    "imageUrl": "https://i.imgur.com/A6VPuSY.png",
     "uniqueId": "Song of Fury__dop"
   },
   {
@@ -381,7 +381,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/V30jjYR.png",
+    "imageUrl": "https://i.imgur.com/LHDjXAx.png",
     "uniqueId": "Song of Futuresight__dop"
   },
   {
@@ -390,12 +390,12 @@ export const mugicDatabase = [
     "set": "dop",
     "rarity": "rare",
     "tribe": "generic",
-    "ability": "Deal 10 damage to target Creature with :earth:or :water:.",
+    "ability": "Deal 10 damage to target Creature with :earth:Earth or :water:Water.",
     "flavorText": "Forsake the land and the land will forsake you.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/tC6SvT9.png",
+    "imageUrl": "https://i.imgur.com/iOYFEEv.png",
     "uniqueId": "Song of GeoNova__dop"
   },
   {
@@ -404,12 +404,12 @@ export const mugicDatabase = [
     "set": "dop",
     "rarity": "super rare",
     "tribe": "danian",
-    "ability": "Target Creature gains 5 :courage:, :power:, :wisdom:, and :speed:for each Danian Creature in play.",
+    "ability": "Target Creature gains 5 :courage:Courage, :power:Power, :wisdom:Wisdom, and :speed:Speed for each Danian Creature in play.",
     "flavorText": "Listen and learn the true strength of the Danian tribe — when you face one, you contend with all.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/ECloKxX.png",
+    "imageUrl": "https://i.imgur.com/SuihghC.png",
     "uniqueId": "Song of Mandiblor__dop"
   },
   {
@@ -418,12 +418,12 @@ export const mugicDatabase = [
     "set": "dop",
     "rarity": "uncommon",
     "tribe": "mipedian",
-    "ability": "Heal 10 damage to target Creature. That Creature gains \":air:5.\"",
+    "ability": "Heal 10 damage to target Creature. That Creature gains \":air:Air 5.\"",
     "flavorText": "Tiaane believes that each Mugic is but a small piece of a great opus.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/yDMPqQ0.png",
+    "imageUrl": "https://i.imgur.com/8CpvFvT.png",
     "uniqueId": "Song of Recovery__dop"
   },
   {
@@ -435,9 +435,9 @@ export const mugicDatabase = [
     "ability": "Damage dealt by attacks to the caster is reduced by 5.",
     "flavorText": "Even the proudest Danian would never deny a chance to harden his shell.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/l5qUodp.png",
+    "imageUrl": "https://i.imgur.com/vFqmtUx.png",
     "uniqueId": "Song of Resistance__dop"
   },
   {
@@ -451,7 +451,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/nnPl8OK.png",
+    "imageUrl": "https://i.imgur.com/zF7Ph9u.png",
     "uniqueId": "Song of Resurgence__dop"
   },
   {
@@ -463,9 +463,9 @@ export const mugicDatabase = [
     "ability": "Return target UnderWorld Creature Card in your general discard pile to play to any unoccupied space on the Battleboard.",
     "flavorText": "The Mugicians believed that anything that once was cannot be lost forever.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/Aw8Un5A.png",
+    "imageUrl": "https://i.imgur.com/XSj0HXO.png",
     "uniqueId": "Song of Revival, (UnderWorld)__dop"
   },
   {
@@ -479,7 +479,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/wm6JWMP.png",
+    "imageUrl": "https://i.imgur.com/QwladhN.png",
     "uniqueId": "Song of Stasis__dop"
   },
   {
@@ -493,7 +493,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/Tokfg2y.png",
+    "imageUrl": "https://i.imgur.com/Oau2New.png",
     "uniqueId": "Song of Surprisal__dop"
   },
   {
@@ -507,7 +507,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/ofucbpz.png",
+    "imageUrl": "https://i.imgur.com/kXS74AX.png",
     "uniqueId": "Song of Symmetry__dop"
   },
   {
@@ -516,12 +516,12 @@ export const mugicDatabase = [
     "set": "dop",
     "rarity": "common",
     "tribe": "underworld",
-    "ability": "Target Creature loses 15 :courage:, :power:, :wisdom:, and :speed:.",
+    "ability": "Target Creature loses 15 :courage:Courage, :power:Power, :wisdom:Wisdom, and :speed:Speed.",
     "flavorText": "One cannot move forward if one's always watching one's own back.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/sBLpcVj.png",
+    "imageUrl": "https://i.imgur.com/hlQEG0a.png",
     "uniqueId": "Song of Treachery__dop"
   },
   {
@@ -535,7 +535,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/UdtoiBN.png",
+    "imageUrl": "https://i.imgur.com/KucdmYD.png",
     "uniqueId": "Song of Truesight__dop"
   },
   {
@@ -549,7 +549,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/auY2HEq.png",
+    "imageUrl": "https://i.imgur.com/GU5C0PV.png",
     "uniqueId": "Trills of Diminution__dop"
   },
   {
@@ -563,7 +563,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/biXpazH.png",
+    "imageUrl": "https://i.imgur.com/h9g4AzQ.png",
     "uniqueId": "Cascading Rondo__zoth"
   },
   {
@@ -577,7 +577,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/LgupUpa.png",
+    "imageUrl": "https://i.imgur.com/x3V2nDY.png",
     "uniqueId": "Casters' Warsong__zoth"
   },
   {
@@ -591,7 +591,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/t6Bk48z.png",
+    "imageUrl": "https://i.imgur.com/CYWeKC8.png",
     "uniqueId": "Chorus of Cothica__zoth"
   },
   {
@@ -605,7 +605,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/60QSrYB.png",
+    "imageUrl": "https://i.imgur.com/mdm7aqu.png",
     "uniqueId": "Composition of Concentration__zoth"
   },
   {
@@ -619,7 +619,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/Wk0V7dH.png",
+    "imageUrl": "https://i.imgur.com/UI8bbr8.png",
     "uniqueId": "Danian Element Choral__zoth"
   },
   {
@@ -633,7 +633,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/Qn9lE10.png",
+    "imageUrl": "https://i.imgur.com/kRlSUSM.png",
     "uniqueId": "Defender's Song__zoth"
   },
   {
@@ -647,7 +647,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/xcAPB67.png",
+    "imageUrl": "https://i.imgur.com/hHtz8ST.png",
     "uniqueId": "Dissonance of Distraction__zoth"
   },
   {
@@ -659,9 +659,9 @@ export const mugicDatabase = [
     "ability": "Target Creature loses X Elemental Types of your choice.",
     "flavorText": "Some believe the Cothica and nature are irrevocably linked... understand one and rule the other!",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": "X",
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/G7KrpPX.png",
+    "imageUrl": "https://i.imgur.com/wPPKU6Q.png",
     "uniqueId": "Elemental Denial__zoth"
   },
   {
@@ -675,7 +675,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/46uKs4p.png",
+    "imageUrl": "https://i.imgur.com/TG8SwnU.png",
     "uniqueId": "Elemental Elegy__zoth"
   },
   {
@@ -687,9 +687,9 @@ export const mugicDatabase = [
     "ability": "Target player removes all cards in their general discard pile from the game.",
     "flavorText": "It was the most beautiful song I've ever heard... but now I can't even remember a single note.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 3,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/bmUzCoH.png",
+    "imageUrl": "https://i.imgur.com/5Oqktmk.png",
     "uniqueId": "Forgotten Origins__zoth"
   },
   {
@@ -703,7 +703,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/CtRx4kK.png",
+    "imageUrl": "https://i.imgur.com/Vgl8gGB.png",
     "uniqueId": "Gear Glissando__zoth"
   },
   {
@@ -717,7 +717,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/YkIs20x.png",
+    "imageUrl": "https://i.imgur.com/NkxMnxe.png",
     "uniqueId": "Hive Destruction__zoth"
   },
   {
@@ -726,12 +726,12 @@ export const mugicDatabase = [
     "set": "zoth",
     "rarity": "rare",
     "tribe": "danian",
-    "ability": "Deactivate Hive.\r\nAs Hive Unsung is played, its caster can pay a Mugic counter. If the caster does, return Hive Unsung to your hand when it resolves.",
+    "ability": "Deactivate Hive.\r\nYou may pay :danianmugic:when playing Hive Unsung.\r\nIf you do, return Hive Unsung to your hand when it resolves.",
     "flavorText": "Some songs leave the audience in silence.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 0,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/8xaTP84.png",
+    "imageUrl": "https://i.imgur.com/JluC0Kt.png",
     "uniqueId": "Hive Unsung__zoth"
   },
   {
@@ -743,9 +743,9 @@ export const mugicDatabase = [
     "ability": "Infect up to two target Uninfected Creatures.",
     "flavorText": "A tune so chilling that it makes your skin crawl.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/wusqs7F.png",
+    "imageUrl": "https://i.imgur.com/MQ9Mf60.png",
     "uniqueId": "Infectious Melody__zoth"
   },
   {
@@ -759,7 +759,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/psouG01.png",
+    "imageUrl": "https://i.imgur.com/OUX63bQ.png",
     "uniqueId": "Melodic Might__zoth"
   },
   {
@@ -773,7 +773,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/Qwf0AMt.png",
+    "imageUrl": "https://i.imgur.com/iOepZJ6.png",
     "uniqueId": "Melody of the Meek__zoth"
   },
   {
@@ -785,9 +785,9 @@ export const mugicDatabase = [
     "ability": "Target Creature gains 50 in the Discipline of your choice.\r\nTarget Creature gains 50 in another Discipline of your choice. (You can target the same Creature.)",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/cnR84oF.png",
+    "imageUrl": "https://i.imgur.com/ymOFPYF.png",
     "uniqueId": "Momental Virtuosity__zoth"
   },
   {
@@ -796,12 +796,12 @@ export const mugicDatabase = [
     "set": "zoth",
     "rarity": "common",
     "tribe": "overworld",
-    "ability": "Target Creature gains \":fire:proof 10\", \":air:proof 10\", \":earth:proof 10\", and \":water:proof 10.\"",
+    "ability": "Target Creature gains \"Fireproof 10\", \"Airproof 10\", \"Earthproof 10\", and \"Waterproof 10.\"",
     "flavorText": "Perhaps the Cothica is in the light, the land, the very winds that blow!",
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/OX5V1Mb.png",
+    "imageUrl": "https://i.imgur.com/WCgGz8O.png",
     "uniqueId": "Prelude of Protection__zoth"
   },
   {
@@ -813,9 +813,9 @@ export const mugicDatabase = [
     "ability": "Deal 5 damage to target Creature for each Mandiblor you control and each Infected Creature in play, then Uninfect all Creatures.",
     "flavorText": "This may sting a little. But usually, a lot.",
     "unique": true,
-    "mugicCost": 1,
+    "mugicCost": 3,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/siLtCj5.png",
+    "imageUrl": "https://i.imgur.com/PIi7PQG.png",
     "uniqueId": "Purge Dirge__zoth"
   },
   {
@@ -829,7 +829,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/hIbDmkw.png",
+    "imageUrl": "https://i.imgur.com/FrsonjP.png",
     "uniqueId": "Recurring Rescue__zoth"
   },
   {
@@ -841,9 +841,9 @@ export const mugicDatabase = [
     "ability": "Target Creature loses 50 in the Discipline of your choice. \r\nTarget Creature gains 50 in another Discipline of your choice. (You can target the same Creature.)",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/sTlTRxb.png",
+    "imageUrl": "https://i.imgur.com/qQsVyYF.png",
     "uniqueId": "Serenade of Subordinance__zoth"
   },
   {
@@ -857,7 +857,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/UEA3rbk.png",
+    "imageUrl": "https://i.imgur.com/6pzkHGE.png",
     "uniqueId": "Song of Encompassing__zoth"
   },
   {
@@ -866,12 +866,12 @@ export const mugicDatabase = [
     "set": "zoth",
     "rarity": "common",
     "tribe": "danian",
-    "ability": "If target Creature has :fire:, it gains \":fire:proof 10\"; if it has :air:, it gains \":air:proof 10\"; if it has :earth:, it gains \":earth:proof 10\"; if it has :water:, it gains \":water:proof 10.\"",
+    "ability": "If target Creature has :fire:Fire, it gains \"Fireproof 10\"; if it has :air:Air, it gains \"Airproof 10\"; if it has :earth:Earth, it gains \"Earthproof 10\"; if it has :water:Water, it gains \"Waterproof 10.\"",
     "flavorText": "",
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/aOlFGu6.png",
+    "imageUrl": "https://i.imgur.com/YfWUgr5.png",
     "uniqueId": "Song of Resilience__zoth"
   },
   {
@@ -885,7 +885,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/SemDPlI.png",
+    "imageUrl": "https://i.imgur.com/gs0eCDx.png",
     "uniqueId": "Song of Shelter__zoth"
   },
   {
@@ -899,7 +899,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/EsfOQvv.png",
+    "imageUrl": "https://i.imgur.com/o4ZzoVu.png",
     "uniqueId": "Switch Riff__zoth"
   },
   {
@@ -913,7 +913,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/OMEXsE9.png",
+    "imageUrl": "https://i.imgur.com/0AMHl6d.png",
     "uniqueId": "Armament Adagio__ss"
   },
   {
@@ -927,7 +927,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/afRWYus.png",
+    "imageUrl": "https://i.imgur.com/7m9PYv4.png",
     "uniqueId": "Echoes of Empty Hands__ss"
   },
   {
@@ -939,9 +939,9 @@ export const mugicDatabase = [
     "ability": "Damage dealt by the next attack that resolves this turn is dealt to target engaged Creature instead. (Damage is calculated with target as the recipient.)",
     "flavorText": "The existence of Mugic is proof enough that nothing is impossible.",
     "unique": true,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/fxgbaA3.png",
+    "imageUrl": "https://i.imgur.com/0T5HBgU.png",
     "uniqueId": "Fighters' Fanfare__ss"
   },
   {
@@ -955,7 +955,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/wIo2Oqi.png",
+    "imageUrl": "https://i.imgur.com/A4xWzPm.png",
     "uniqueId": "Hymn of Teleportation__ss"
   },
   {
@@ -969,7 +969,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/ZFDPUCG.png",
+    "imageUrl": "https://i.imgur.com/g3G54N5.png",
     "uniqueId": "Melody of Parasitic Mayhem__ss"
   },
   {
@@ -983,7 +983,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/OpeTIs9.png",
+    "imageUrl": "https://i.imgur.com/VwfBi8n.png",
     "uniqueId": "Rhyme of the Reckless__ss"
   },
   {
@@ -997,7 +997,7 @@ export const mugicDatabase = [
     "unique": true,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/pRPexyp.png",
+    "imageUrl": "https://i.imgur.com/XBAXbC5.png",
     "uniqueId": "Song of Desperation__ss"
   },
   {
@@ -1011,7 +1011,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/P484QaQ.png",
+    "imageUrl": "https://i.imgur.com/PkhQGZA.png",
     "uniqueId": "Song of the Dyad__ss"
   },
   {
@@ -1023,9 +1023,9 @@ export const mugicDatabase = [
     "ability": "Sacrifice a Battlegear equipped to an unengaged UnderWorld Creature you control. If you do, destroy target Battlegear.",
     "flavorText": "As his Ice Cloak vanished, Bodal calculated he had 8.5 seconds until the firestorm immolated him.",
     "unique": true,
-    "mugicCost": 1,
+    "mugicCost": 0,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/LEXfnIW.png",
+    "imageUrl": "https://i.imgur.com/OVAs2he.png",
     "uniqueId": "Strain of Ash__ss"
   },
   {
@@ -1037,9 +1037,9 @@ export const mugicDatabase = [
     "ability": "Choose one: \r\nShuffle target Mirage Location into its controller's Location Deck. \r\nIf the active Location is a Mirage, shuffle it into its controller's Location deck and that player reveals a new active Location.",
     "flavorText": "",
     "unique": true,
-    "mugicCost": 1,
+    "mugicCost": 0,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/xbov2Oo.png",
+    "imageUrl": "https://i.imgur.com/m6PTsrS.png",
     "uniqueId": "Strain of Clarity__ss"
   },
   {
@@ -1051,9 +1051,9 @@ export const mugicDatabase = [
     "ability": "Destroy all Battlegear equipped to Creatures in the same space as target Mirage Location. Shuffle it into its controller's Location Deck.",
     "flavorText": "",
     "unique": true,
-    "mugicCost": 1,
+    "mugicCost": 0,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/JNwAQhg.png",
+    "imageUrl": "https://i.imgur.com/vhs1nTC.png",
     "uniqueId": "Strain of Expensive Delusions__ss"
   },
   {
@@ -1062,12 +1062,12 @@ export const mugicDatabase = [
     "set": "ss",
     "rarity": "rare",
     "tribe": "danian",
-    "ability": "Uninfect up to three Infected Creatures. Put a Mugic counter on target Danian Creature for each Creature Uninfected by Strain of Infection this way.",
+    "ability": "Uninfect up to three Infected Creatures.\r\nTarget Danian Creature gains :danianmugic:for each Creature Uninfected this way.",
     "flavorText": "Little parasites, big rewards.",
     "unique": true,
-    "mugicCost": 1,
+    "mugicCost": 0,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/jwgQIe0.png",
+    "imageUrl": "https://i.imgur.com/CMkBZQd.png",
     "uniqueId": "Strain of Infection__ss"
   },
   {
@@ -1079,9 +1079,9 @@ export const mugicDatabase = [
     "ability": "Remove any number of OverWorld Creatures in your general discard pile from the game. Heal 10 damage to target Creature for each card you remove this way.",
     "flavorText": "",
     "unique": true,
-    "mugicCost": 1,
+    "mugicCost": 0,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/Txf76pB.png",
+    "imageUrl": "https://i.imgur.com/dJng7hg.png",
     "uniqueId": "Strain of the Tide__ss"
   },
   {
@@ -1095,7 +1095,7 @@ export const mugicDatabase = [
     "unique": true,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/d2J0tEf.png",
+    "imageUrl": "https://i.imgur.com/eD4Lcy3.png",
     "uniqueId": "Tune of Xerium__ss"
   },
   {
@@ -1109,7 +1109,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/ZgAGVcX.png",
+    "imageUrl": "https://i.imgur.com/WwT5WP6.png",
     "uniqueId": "Void Dirge__ss"
   },
   {
@@ -1118,12 +1118,12 @@ export const mugicDatabase = [
     "set": "btd",
     "rarity": "uncommon",
     "tribe": "mipedian",
-    "ability": "Target Creature gains 50 :speed:.\r\nThe caster pays 2 less mugic Counters to play this Mugic if an engaged Creature you control won Initiative this turn.",
+    "ability": "Target Creature gains 50 :speed:Speed.\r\nIf your engaged Creature gained Initiative this turn, Allegro's cost is :mipedianmugic0:.",
     "flavorText": "Even with Spectral Viewers, the invasion squad could no longer find the elusive Mipedians.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/9R02QsY.png",
+    "imageUrl": "https://i.imgur.com/uuqyg6X.png",
     "uniqueId": "Allegro__btd"
   },
   {
@@ -1137,7 +1137,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/hrzs40C.png",
+    "imageUrl": "https://i.imgur.com/DbxSHVj.png",
     "uniqueId": "Aria of Enragement__btd"
   },
   {
@@ -1151,7 +1151,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/HbYzLtf.png",
+    "imageUrl": "https://i.imgur.com/uScI3xg.png",
     "uniqueId": "Ballad of the Belittled__btd"
   },
   {
@@ -1165,7 +1165,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/6Qx71CT.png",
+    "imageUrl": "https://i.imgur.com/CT5dggN.png",
     "uniqueId": "Cadence Clash__btd"
   },
   {
@@ -1179,7 +1179,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/0EEbd0k.png",
+    "imageUrl": "https://i.imgur.com/01qilZu.png",
     "uniqueId": "Carnivore's Keening__btd"
   },
   {
@@ -1191,9 +1191,9 @@ export const mugicDatabase = [
     "ability": "Deal 5 damage to target Creature for each Mugic counter spent to play Chromatic Postlude.",
     "flavorText": "\"What you call 'overkill' is what I call 'being thorough.'\" — Takinom",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": "X",
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/N5AhNPH.png",
+    "imageUrl": "https://i.imgur.com/KKqkrOC.png",
     "uniqueId": "Chromatic Postlude__btd"
   },
   {
@@ -1207,7 +1207,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/PJFB6Gn.png",
+    "imageUrl": "https://i.imgur.com/4KJgbXa.png",
     "uniqueId": "Deep Dirge__btd"
   },
   {
@@ -1216,12 +1216,12 @@ export const mugicDatabase = [
     "set": "btd",
     "rarity": "super rare",
     "tribe": "mipedian",
-    "ability": "Destroy target Creature with 0 :speed:and 0 :power:.",
+    "ability": "Destroy target Creature with 0 :speed:Speed and 0 :power:Power.",
     "flavorText": "Under the burning sun, even the hardiest desiccate in a matter of minutes.",
     "unique": true,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/RD5VoUq.png",
+    "imageUrl": "https://i.imgur.com/lSLtFJ9.png",
     "uniqueId": "Desert's Wrathsong__btd"
   },
   {
@@ -1230,12 +1230,12 @@ export const mugicDatabase = [
     "set": "btd",
     "rarity": "rare",
     "tribe": "underworld",
-    "ability": "Deal 5 damage to target Creature. Deal an additional 10 damage to it if it has :water:.",
+    "ability": "Deal 5 damage to target Creature. Deal an additional 10 damage to it if it has :water:Water.",
     "flavorText": "\"The fire of the UnderWorld will burn forever!\" — Chaor",
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/bHqQGul.png",
+    "imageUrl": "https://i.imgur.com/2oXN4sV.png",
     "uniqueId": "Deserter's Finale__btd"
   },
   {
@@ -1249,7 +1249,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/PrX5uBZ.png",
+    "imageUrl": "https://i.imgur.com/sUT3Z8s.png",
     "uniqueId": "Disarming Theme__btd"
   },
   {
@@ -1263,7 +1263,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/eCxMcxX.png",
+    "imageUrl": "https://i.imgur.com/bvcn8N5.png",
     "uniqueId": "Dissonance of Will__btd"
   },
   {
@@ -1277,7 +1277,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/JgE3qKN.png",
+    "imageUrl": "https://i.imgur.com/C0NlUaD.png",
     "uniqueId": "Domestic Hive Hymn__btd"
   },
   {
@@ -1291,7 +1291,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/COz685E.png",
+    "imageUrl": "https://i.imgur.com/719TGzD.png",
     "uniqueId": "Draining Dirge__btd"
   },
   {
@@ -1300,12 +1300,12 @@ export const mugicDatabase = [
     "set": "btd",
     "rarity": "rare",
     "tribe": "generic",
-    "ability": "Target Creature gains or loses :courage:, :power:, :wisdom:and :speed:to make its Disciplines equal to its Scanned Disciplines and cannot be targeted by Mugic or abilities.",
+    "ability": "Target Creature gains or loses :courage:Courage, :power:Power, :wisdom:Wisdom and :speed:Speed to make its Disciplines equal to its Scanned Disciplines and cannot be targeted by Mugic or abilities.",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 3,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/tIkAVz3.png",
+    "imageUrl": "https://i.imgur.com/nbQMVCS.png",
     "uniqueId": "Duality Dirge__btd"
   },
   {
@@ -1314,12 +1314,12 @@ export const mugicDatabase = [
     "set": "btd",
     "rarity": "uncommon",
     "tribe": "overworld",
-    "ability": "Target Creature gains 20 :wisdom:, 15 :courage:, 10 :speed:and 5 :power:.",
+    "ability": "Target Creature gains 20 :wisdom:Wisdom, 15 :courage:Courage, 10 :speed:Speed and 5 :power:Power.",
     "flavorText": "Najarin found it more interesting than prophetic that he had seven letters in his name.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/zwBopZo.png",
+    "imageUrl": "https://i.imgur.com/c5wsALz.png",
     "uniqueId": "Ecstatic Fanfare__btd"
   },
   {
@@ -1333,7 +1333,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/ndGgWLw.png",
+    "imageUrl": "https://i.imgur.com/4iXWPYb.png",
     "uniqueId": "Effervescent Etude__btd"
   },
   {
@@ -1342,12 +1342,12 @@ export const mugicDatabase = [
     "set": "btd",
     "rarity": "common",
     "tribe": "overworld",
-    "ability": "Target Creature gains 10 Energy and 10 :wisdom:.",
+    "ability": "Target Creature gains 10 Energy and 10 :wisdom:Wisdom.",
     "flavorText": "\"We all fail, my friend. But how we respond to failure - now that is the sign of a champion.\" — Maxxor",
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/G3mTot5.png",
+    "imageUrl": "https://i.imgur.com/S15wCy9.png",
     "uniqueId": "Empowering Serenade__btd"
   },
   {
@@ -1361,7 +1361,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/OVJYegN.png",
+    "imageUrl": "https://i.imgur.com/3KoVOMp.png",
     "uniqueId": "Etude of Exhaustion__btd"
   },
   {
@@ -1370,12 +1370,12 @@ export const mugicDatabase = [
     "set": "btd",
     "rarity": "common",
     "tribe": "underworld",
-    "ability": "Target Creature loses 20 :power:, 15 :speed:, 10 :courage:and 5 :wisdom:.",
+    "ability": "Target Creature loses 20 :power:Power, 15 :speed:Speed, 10 :courage:Courage and 5 :wisdom:Wisdom.",
     "flavorText": "Before: Chaor \r\nAfter: H'earring",
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/AVkj2Bg.png",
+    "imageUrl": "https://i.imgur.com/mMnpWtC.png",
     "uniqueId": "Falsetto__btd"
   },
   {
@@ -1384,12 +1384,12 @@ export const mugicDatabase = [
     "set": "btd",
     "rarity": "ultra rare",
     "tribe": "generic",
-    "ability": "Target Creature gains 25 :courage:and 25 :wisdom:. If the target is a Minion Creature, it gains another 25 :courage:and 25 :wisdom:.",
+    "ability": "Target Creature gains 25 :courage:Courage and 25 :wisdom:Wisdom. If the target is a Minion Creature, it gains another 25 :courage:Courage and 25 :wisdom:Wisdom.",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/b0Ih4j6.png",
+    "imageUrl": "https://i.imgur.com/nrKRwsv.png",
     "uniqueId": "Fanfare of the Brain__btd"
   },
   {
@@ -1401,9 +1401,9 @@ export const mugicDatabase = [
     "ability": "Target Creature gains \"Exhaust all Disciplines 15.\"",
     "flavorText": "\"If you have patience, you can win a war without fighting a single battle.\" — Vidav's teachings",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/riDYTte.png",
+    "imageUrl": "https://i.imgur.com/zcaoaSn.png",
     "uniqueId": "Fatiguing Falsetto__btd"
   },
   {
@@ -1417,7 +1417,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/qDMuPsZ.png",
+    "imageUrl": "https://i.imgur.com/PCDk9f2.png",
     "uniqueId": "Final Fugue__btd"
   },
   {
@@ -1426,12 +1426,12 @@ export const mugicDatabase = [
     "set": "btd",
     "rarity": "super rare",
     "tribe": "generic",
-    "ability": "Target Creature gains \":water:5\", put a Mugic counter on it.",
+    "ability": "Target Creature gains :genericmugic:and \":water:Water 5.\"",
     "flavorText": "\"Defeat the enemy from within. When they no longer know whom to trust, they'll crumble on their own!\" — Phelphor",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/uRRAE17.png",
+    "imageUrl": "https://i.imgur.com/GozslQ5.png",
     "uniqueId": "Fluidmorpher's Fanfare__btd"
   },
   {
@@ -1440,12 +1440,12 @@ export const mugicDatabase = [
     "set": "btd",
     "rarity": "uncommon",
     "tribe": "underworld",
-    "ability": "Deal 10 damage to target Creature.\r\nThe caster pays 2 less mugic Counters to play this Mugic if an engaged Creature you control dealt 20 or more attack damage this turn.",
+    "ability": "Deal 10 damage to target Creature. If your engaged Creature dealt 20 or more attack damage this turn, Improvisational Melody's cost is :underworldmugic0:.",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/35I2y3C.png",
+    "imageUrl": "https://i.imgur.com/nEJRKNA.png",
     "uniqueId": "Improvisational Melody__btd"
   },
   {
@@ -1454,12 +1454,12 @@ export const mugicDatabase = [
     "set": "btd",
     "rarity": "uncommon",
     "tribe": "danian",
-    "ability": "Activate Hive.\r\nThe caster pays 2 less mugic Counters to play this Mugic if an engaged Creature you control has taken 15 or more attack damage this turn.",
+    "ability": "Activate Hive.\r\nIf your Creature has taken 15 or more attack damage this turn, Intense Polyphony's cost is :danianmugic0:.",
     "flavorText": "Against the Danians, there is no such thing as a one-on-one fight.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/Er25ahV.png",
+    "imageUrl": "https://i.imgur.com/T0W0Z3Y.png",
     "uniqueId": "Intense Polyphony__btd"
   },
   {
@@ -1468,12 +1468,12 @@ export const mugicDatabase = [
     "set": "btd",
     "rarity": "uncommon",
     "tribe": "overworld",
-    "ability": "Heal 15 damage to target Creature.\r\nThe caster pays 2 less mugic Counters to play this Mugic if an engaged Creature you control won a :wisdom:Challenge this turn.",
+    "ability": "Heal 15 damage to target Creature. If your engaged Creature won a :wisdom:Wisdom Challenge this turn, Melody of Miracles' cost is :overworldmugic0:.",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/MCP4PF3.png",
+    "imageUrl": "https://i.imgur.com/PK95hgy.png",
     "uniqueId": "Melody of Miracles__btd"
   },
   {
@@ -1485,9 +1485,9 @@ export const mugicDatabase = [
     "ability": "Destroy target Battlegear equipped to an engaged Creature.",
     "flavorText": "Mugic is a sword that pierces invulnerable armor, a shield that blocks unstoppable strikes.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/VRPgQjZ.png",
+    "imageUrl": "https://i.imgur.com/j85YiDq.png",
     "uniqueId": "Melody of Mirrored Actions__btd"
   },
   {
@@ -1499,9 +1499,9 @@ export const mugicDatabase = [
     "ability": "Sacrifice a Minion Creature. If you do, target engaged Creature gains Energy equal to the Scanned Energy of the sacrificed Creature.",
     "flavorText": "I know you think you gave it your all, but I bet I can coax out a little more.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/jStikU7.png",
+    "imageUrl": "https://i.imgur.com/ziM0yIr.png",
     "uniqueId": "Nourishing Nocturne__btd"
   },
   {
@@ -1513,9 +1513,9 @@ export const mugicDatabase = [
     "ability": "Target Creature gains 15 Energy and 15 to all Disciplines.",
     "flavorText": "When a mere seven notes can change the course of history, that is the very definition of a miracle.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/GcswqYB.png",
+    "imageUrl": "https://i.imgur.com/tJR70mQ.png",
     "uniqueId": "Odd Opus__btd"
   },
   {
@@ -1529,7 +1529,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/EYH1B7U.png",
+    "imageUrl": "https://i.imgur.com/uunV0oL.png",
     "uniqueId": "Predator's Song__btd"
   },
   {
@@ -1543,7 +1543,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/o4NZn8Z.png",
+    "imageUrl": "https://i.imgur.com/BTZaZ0H.png",
     "uniqueId": "Prelude to Dominance__btd"
   },
   {
@@ -1555,9 +1555,9 @@ export const mugicDatabase = [
     "ability": "Remove a Minion Creature Card in your general discard pile from the game. If you do, deal damage to target engaged Creature equal to the removed card's Scanned Energy.",
     "flavorText": "",
     "unique": true,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/y6ammjb.png",
+    "imageUrl": "https://i.imgur.com/cfH2JJx.png",
     "uniqueId": "Psionic Serenade__btd"
   },
   {
@@ -1566,12 +1566,12 @@ export const mugicDatabase = [
     "set": "btd",
     "rarity": "super rare",
     "tribe": "danian",
-    "ability": "Target Mandiblor Creature gains \"Outperform :courage:5.\" If it is Infected, it gains \":earth:5.\" If Hive is active, it also gains 15 Energy.",
+    "ability": "Target Mandiblor Creature gains \"Outperform :courage:Courage 5.\" If it is Infected, it gains \":earth:Earth 5.\" If Hive is active, it also gains 15 Energy.",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/siv9x84.png",
+    "imageUrl": "https://i.imgur.com/DhaUS7X.png",
     "uniqueId": "Rhythms of Rage__btd"
   },
   {
@@ -1585,7 +1585,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/Zd2uQHo.png",
+    "imageUrl": "https://i.imgur.com/A74mhB4.png",
     "uniqueId": "Selective Strain__btd"
   },
   {
@@ -1597,9 +1597,9 @@ export const mugicDatabase = [
     "ability": "Target Creature's Disciplines cannot be increased or decreased.",
     "flavorText": "If every Counter has a Counter, what can we count on?",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/I1kkwdP.png",
+    "imageUrl": "https://i.imgur.com/plqLkpE.png",
     "uniqueId": "Song of Stable Shields__btd"
   },
   {
@@ -1613,7 +1613,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/IhYQY1E.png",
+    "imageUrl": "https://i.imgur.com/IHDlGYc.png",
     "uniqueId": "Specific Diminishing__btd"
   },
   {
@@ -1627,7 +1627,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/071x61m.png",
+    "imageUrl": "https://i.imgur.com/lN3FGef.png",
     "uniqueId": "Surprising Riffs__btd"
   },
   {
@@ -1641,7 +1641,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/WSWZBeC.png",
+    "imageUrl": "https://i.imgur.com/aNPuO4n.png",
     "uniqueId": "Symphony of Similarity__btd"
   },
   {
@@ -1653,9 +1653,9 @@ export const mugicDatabase = [
     "ability": "Your opponent reveals X Mugic Cards from their hand and you choose one of them. Your opponent discards the chosen card.",
     "flavorText": "If you eliminate the cause, you'll never face the consequences.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": "X",
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/LWcVfWg.png",
+    "imageUrl": "https://i.imgur.com/5WnG9wH.png",
     "uniqueId": "Tonal Destruction__btd"
   },
   {
@@ -1667,9 +1667,9 @@ export const mugicDatabase = [
     "ability": "If Aa'une the Oligarch, Projection won combat this turn while equipped with Baton of Aa'une and Rage of Aa'une was played by a Creature you control this turn, flip over Aa'une the Oligarch, Projection.",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 4,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/5JSUMJn.png",
+    "imageUrl": "https://i.imgur.com/Ya23Nky.png",
     "uniqueId": "Calling of Aa'une__roto"
   },
   {
@@ -1681,9 +1681,9 @@ export const mugicDatabase = [
     "ability": "Heal 20 damage to target Fluidmorpher Creature.",
     "flavorText": "It was hardly fair. As their mortal wounds instantly healed, the irresistible force became even more unstoppable.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/kDQwQlX.png",
+    "imageUrl": "https://i.imgur.com/RnfYoBF.png",
     "uniqueId": "Curemorph Chords__roto"
   },
   {
@@ -1692,12 +1692,12 @@ export const mugicDatabase = [
     "set": "roto",
     "rarity": "uncommon",
     "tribe": "m'arrillian",
-    "ability": "Destroy target Creature with 0 :speed:.",
+    "ability": "Destroy target Creature with 0 :speed:Speed.",
     "flavorText": "As his pulse plummeted, his heart beat slower... slower... and fell silent.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 4,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/7bmM6Bu.png",
+    "imageUrl": "https://i.imgur.com/OGgVPnZ.png",
     "uniqueId": "Decelerating Requiem__roto"
   },
   {
@@ -1709,9 +1709,9 @@ export const mugicDatabase = [
     "ability": "Negate target Mugic.",
     "flavorText": "When Bodal realized that only four of his seven notes played, he calculated that he only had 2.5 seconds until Erak'tabb's tentacle squished him like an overripe djobwon.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 3,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/FRtXJMJ.png",
+    "imageUrl": "https://i.imgur.com/OfZmb0d.png",
     "uniqueId": "Denial Refrain of the Deep__roto"
   },
   {
@@ -1725,7 +1725,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/sYb55YS.png",
+    "imageUrl": "https://i.imgur.com/0mxdQMr.png",
     "uniqueId": "Harmonies of the Wind__roto"
   },
   {
@@ -1737,9 +1737,9 @@ export const mugicDatabase = [
     "ability": "Heal 5 damage to target engaged Creature for each Mugic counter on opposing Creatures.",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/FFrsSxX.png",
+    "imageUrl": "https://i.imgur.com/UWtEmRk.png",
     "uniqueId": "Intress' Healing Ballad__roto"
   },
   {
@@ -1751,9 +1751,9 @@ export const mugicDatabase = [
     "ability": "Deal 5 damage to target engaged Creature for each Mugic counter on opposing Creatures.",
     "flavorText": "",
     "unique": true,
-    "mugicCost": 1,
+    "mugicCost": 3,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/bNnIJcw.png",
+    "imageUrl": "https://i.imgur.com/3Yopraw.png",
     "uniqueId": "Kopond's Composition__roto"
   },
   {
@@ -1762,12 +1762,12 @@ export const mugicDatabase = [
     "set": "roto",
     "rarity": "uncommon",
     "tribe": "m'arrillian",
-    "ability": "Destroy target Creature with 0 :power:.",
+    "ability": "Destroy target Creature with 0 :power:Power.",
     "flavorText": "When a pebble becomes as heavy as a boulder, your life will soon be over.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 4,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/uxm6Loe.png",
+    "imageUrl": "https://i.imgur.com/MJf9pfc.png",
     "uniqueId": "Mightsinger's Requiem__roto"
   },
   {
@@ -1776,12 +1776,12 @@ export const mugicDatabase = [
     "set": "roto",
     "rarity": "rare",
     "tribe": "danian",
-    "ability": "Heal 5 damage to target Creature and deal 5 damage to another target Creature for each Danian Creature you control with :water:.",
+    "ability": "Heal 5 damage to target Creature and deal 5 damage to another target Creature for each Danian Creature you control with :water:Water.",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/FFVfLcQ.png",
+    "imageUrl": "https://i.imgur.com/ruGo6l4.png",
     "uniqueId": "Mindproof March__roto"
   },
   {
@@ -1790,12 +1790,12 @@ export const mugicDatabase = [
     "set": "roto",
     "rarity": "uncommon",
     "tribe": "m'arrillian",
-    "ability": "Destroy target Creature with 0 :courage:.",
+    "ability": "Destroy target Creature with 0 :courage:Courage.",
     "flavorText": "There is no need to fight if your foe is in flight!",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 4,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/VTMK8Pc.png",
+    "imageUrl": "https://i.imgur.com/KZu8nL5.png",
     "uniqueId": "Requiem of Fear__roto"
   },
   {
@@ -1804,12 +1804,12 @@ export const mugicDatabase = [
     "set": "roto",
     "rarity": "uncommon",
     "tribe": "m'arrillian",
-    "ability": "Destroy target Creature with 0 :wisdom:.",
+    "ability": "Destroy target Creature with 0 :wisdom:Wisdom.",
     "flavorText": "A word to the wise: the wise need no words.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 4,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/Urmq9vl.png",
+    "imageUrl": "https://i.imgur.com/AY0QvO0.png",
     "uniqueId": "Requiem of Lost Minds__roto"
   },
   {
@@ -1821,9 +1821,9 @@ export const mugicDatabase = [
     "ability": "Negate target M'arrillian or Generic Mugic.",
     "flavorText": "The silence was deafening.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/mnlQBpB.png",
+    "imageUrl": "https://i.imgur.com/SXUvwtD.png",
     "uniqueId": "Sound of Noise__roto"
   },
   {
@@ -1835,9 +1835,9 @@ export const mugicDatabase = [
     "ability": "Destroy target Creature with no Mugic counters on it.",
     "flavorText": "Who knows why Mugicians exist. Just be thankful they do.",
     "unique": true,
-    "mugicCost": 1,
+    "mugicCost": 6,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/ZQnJLjg.png",
+    "imageUrl": "https://i.imgur.com/ovPBCen.png",
     "uniqueId": "Unheard Melody__roto"
   },
   {
@@ -1846,12 +1846,12 @@ export const mugicDatabase = [
     "set": "roto",
     "rarity": "rare",
     "tribe": "generic",
-    "ability": "Target Creature gains \"Recklessness 5.\"\r\nAs Vexing Waveform is played, its caster can pay an additional 2 Mugic counters. If the caster does, the target Creature gains an additional \"Recklessness 5.\"",
+    "ability": "Target Creature gains \"Recklessness 5.\"\r\nWhen you play Vexing Waveform you may pay an additional :genericmugic::genericmugic:. If you do, the target Creature gains an additional \"Recklessness 5.\"",
     "flavorText": "",
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/pVssciN.png",
+    "imageUrl": "https://i.imgur.com/zcifevK.png",
     "uniqueId": "Vexing Waveform__roto"
   },
   {
@@ -1863,9 +1863,9 @@ export const mugicDatabase = [
     "ability": "Destroy engaged Creatures' Battlegear. Then, if you only control Mipedian Creatures and your engaged Creature is unequipped, return a Battlegear Card from your general discard pile to play equipped to your engaged Creature.",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/amrhIwn.png",
+    "imageUrl": "https://i.imgur.com/RD0uIM6.png",
     "uniqueId": "Armament Alteration Anthem__tott"
   },
   {
@@ -1877,9 +1877,9 @@ export const mugicDatabase = [
     "ability": "Sacrifice an unengaged Mandiblor Creature. If you do, return target Danian Creature Card from your general discard pile to play to the space on the Battleboard where the sacrificed Mandiblor was. If you control only Danian Creatures, return it to any unoccupied space on the Battleboard instead.",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/asaZeic.png",
+    "imageUrl": "https://i.imgur.com/uefXXFu.png",
     "uniqueId": "Choral of the Apparition__tott"
   },
   {
@@ -1891,9 +1891,9 @@ export const mugicDatabase = [
     "ability": "Target Creature gains \"Invisibility: Surprise\" and \"Invisibility: Strike 10.\"",
     "flavorText": "The desert wind erases footprints, making the invisible even more undetectable.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/Z79dIQK.png",
+    "imageUrl": "https://i.imgur.com/OKm1l0G.png",
     "uniqueId": "Dirge of the Desert__tott"
   },
   {
@@ -1907,7 +1907,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/NOYYI1y.png",
+    "imageUrl": "https://i.imgur.com/MdFFkGN.png",
     "uniqueId": "Fanfare of Elemental Champions__tott"
   },
   {
@@ -1919,9 +1919,9 @@ export const mugicDatabase = [
     "ability": "Heal 30 damage to target Creature. If you control only OverWorld Creatures, it gains 30 Energy instead.",
     "flavorText": "\"I know enough about Mugic to know that I know very little indeed.\" — Najarin",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/xMAiI0o.png",
+    "imageUrl": "https://i.imgur.com/EyC6eFk.png",
     "uniqueId": "Harmonious Highsong__tott"
   },
   {
@@ -1935,7 +1935,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/1HYZa4T.png",
+    "imageUrl": "https://i.imgur.com/B8tdhsl.png",
     "uniqueId": "Intimidating Melody of M'arr__tott"
   },
   {
@@ -1949,7 +1949,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/17jKs9Q.png",
+    "imageUrl": "https://i.imgur.com/8GuuuHn.png",
     "uniqueId": "Katharaz's Cacophony__tott"
   },
   {
@@ -1958,12 +1958,12 @@ export const mugicDatabase = [
     "set": "tott",
     "rarity": "super rare",
     "tribe": "m'arrillian",
-    "ability": "Put 2 Mugic counters on target Minion Creature.",
+    "ability": "Target Minion gains :genericmugic::genericmugic:.",
     "flavorText": "With thousands of different Creatures having millions of unique talents, Aa'une has infinite methods to abuse and exploit them.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 3,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/fScO5z3.png",
+    "imageUrl": "https://i.imgur.com/XkkM0VW.png",
     "uniqueId": "March of the M'arrillian Minions__tott"
   },
   {
@@ -1977,7 +1977,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
-    "imageUrl": "https://i.imgur.com/MEON4Ly.png",
+    "imageUrl": "https://i.imgur.com/FNgE5sp.png",
     "uniqueId": "Minion's Freesong__tott"
   },
   {
@@ -1989,9 +1989,9 @@ export const mugicDatabase = [
     "ability": "Target opposing engaged Creature loses all Elemental Types. If you control only UnderWorld Creatures, deal 5 damage to it for each Elemental Type lost this way.",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/1lhGsPm.png",
+    "imageUrl": "https://i.imgur.com/eIjvIiI.png",
     "uniqueId": "Nocturne of the Elements__tott"
   },
   {
@@ -2005,7 +2005,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/UggIPI2.png",
+    "imageUrl": "https://i.imgur.com/SoEQZnV.png",
     "uniqueId": "Roar of the Mob__tott"
   },
   {
@@ -2017,9 +2017,9 @@ export const mugicDatabase = [
     "ability": "Deal 10 damage to target Creature. If you control only UnderWorld Creatures, also destroy all Battlegear equipped to it.",
     "flavorText": "Achieving the impossible is simple... as long as you know which seven notes to play.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/ateBrzk.png",
+    "imageUrl": "https://i.imgur.com/S5C8O7b.png",
     "uniqueId": "Shock Song__tott"
   },
   {
@@ -2031,9 +2031,9 @@ export const mugicDatabase = [
     "ability": "Mugic and activated abilities cannot be played. (Mugic and activated abilities played before this resolves are unaffected.)",
     "flavorText": "The tune died, as did any chance of reclaiming the Riverlands.",
     "unique": true,
-    "mugicCost": 1,
+    "mugicCost": 3,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/QGXi0g6.png",
+    "imageUrl": "https://i.imgur.com/9RbkHGH.png",
     "uniqueId": "Symphonic Pelagic Maresong__tott"
   },
   {
@@ -2042,12 +2042,12 @@ export const mugicDatabase = [
     "set": "tott",
     "rarity": "uncommon",
     "tribe": "mipedian",
-    "ability": "Target Creature gains \":earth:5\" and \":air:5.\" If you only control Mipedian Creatures, it also gains \"Outperform :speed:5.\"",
+    "ability": "Target Creature gains \":earth:Earth 5\" and \":air:Air 5.\" If you only control Mipedian Creatures, it also gains \"Outperform :speed:Speed 5.\"",
     "flavorText": "Never forget your roots. All answers lie there.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Peter Joworoski",
-    "imageUrl": "https://i.imgur.com/aNYXaRc.png",
+    "imageUrl": "https://i.imgur.com/BWl5oo0.png",
     "uniqueId": "Symphony of the Guard__tott"
   },
   {
@@ -2056,12 +2056,12 @@ export const mugicDatabase = [
     "set": "tott",
     "rarity": "common",
     "tribe": "danian",
-    "ability": "Target Danian Creature gains 10 Energy. If Hive is active, it also gains 10 :courage:for each Danian Creature you control.",
+    "ability": "Target Danian Creature gains 10 Energy. If Hive is active, it also gains 10 :courage:Courage for each Danian Creature you control.",
     "flavorText": "Unite and fight... or divide and die!",
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/GPAmfa0.png",
+    "imageUrl": "https://i.imgur.com/70Cn8M7.png",
     "uniqueId": "Unisong__tott"
   },
   {
@@ -2073,9 +2073,9 @@ export const mugicDatabase = [
     "ability": "Negate target Elemental Attack.",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/vfLKio8.png",
+    "imageUrl": "https://i.imgur.com/3y4sJed.png",
     "uniqueId": "Adaptive Progression__fun"
   },
   {
@@ -2089,7 +2089,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/NPZLWjW.png",
+    "imageUrl": "https://i.imgur.com/1P1gMcC.png",
     "uniqueId": "Denying Dirge__fun"
   },
   {
@@ -2101,9 +2101,9 @@ export const mugicDatabase = [
     "ability": "Target non-Mipedian Creature gains \"Invisibility: Strike 30.\"",
     "flavorText": "\"A secret shared can never be unshared... but so be it.\" — Prince Iflar",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/uLOimin.png",
+    "imageUrl": "https://i.imgur.com/SU3eMcb.png",
     "uniqueId": "Iflar's Improvisation__fun"
   },
   {
@@ -2115,9 +2115,9 @@ export const mugicDatabase = [
     "ability": "Relocate target Mirage Location to any space on the Battleboard.",
     "flavorText": "As they wandered from sand dune to sand dune in search of the Cothica, little did they know that the Cothica was never there to begin with.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 0,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/rVErxTl.png",
+    "imageUrl": "https://i.imgur.com/yCOW457.png",
     "uniqueId": "Illusion Glissando__fun"
   },
   {
@@ -2129,9 +2129,9 @@ export const mugicDatabase = [
     "ability": "Target Creature engaged with a non-UnderWorld Creature you control loses an Elemental Type of your choice and loses 30 to all Disciplines.",
     "flavorText": "\"I never thought an UnderWorlder would save my life. I owe you... unfortunately.\" — Gespedan",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/g7UZmZC.png",
+    "imageUrl": "https://i.imgur.com/h17V6mj.png",
     "uniqueId": "Intertwined Melody__fun"
   },
   {
@@ -2140,12 +2140,12 @@ export const mugicDatabase = [
     "set": "fun",
     "rarity": "uncommon",
     "tribe": "generic",
-    "ability": "Target Creature gains:\r\n10 Energy if it is an OverWorld Creature.\r\n\":fire:5\" if it is an UnderWorld Creature.\r\n20 to all Disciplines if it is a Danian Creature.\r\n\"Invisibility: Strike 10\" if it is a Mipedian Creature.",
+    "ability": "Target Creature gains:\r\n10 Energy if it is an OverWorld Creature.\r\n\":fire:Fire 5\" if it is an UnderWorld Creature.\r\n20 to all Disciplines if it is a Danian Creature.\r\n\"Invisibility: Strike 10\" if it is a Mipedian Creature.",
     "flavorText": "",
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/jO8lCHP.png",
+    "imageUrl": "https://i.imgur.com/vdms49m.png",
     "uniqueId": "Jig of Reinforcement__fun"
   },
   {
@@ -2157,9 +2157,9 @@ export const mugicDatabase = [
     "ability": "Choose a Tribe. Creatures of that Tribe cannot have Mugic counters put on them.",
     "flavorText": "The Mugician's singing turned into screams. There will be no more music this day.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/Ym453tr.png",
+    "imageUrl": "https://i.imgur.com/YCi7xEP.png",
     "uniqueId": "Monophone Mayhem__fun"
   },
   {
@@ -2171,9 +2171,9 @@ export const mugicDatabase = [
     "ability": "Infect X Uninfected Creatures. If you control a non-Danian Creature, Infect another X Uninfected Creatures.",
     "flavorText": "Where most see the tragedies of war, the wise see opportunity.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": "X",
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/rM4vPNb.png",
+    "imageUrl": "https://i.imgur.com/vgSGWHx.png",
     "uniqueId": "Ode to Obscurity__fun"
   },
   {
@@ -2187,7 +2187,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/ofCxdrw.png",
+    "imageUrl": "https://i.imgur.com/4acF5my.png",
     "uniqueId": "Opus Opposed__fun"
   },
   {
@@ -2199,9 +2199,9 @@ export const mugicDatabase = [
     "ability": "Target M'arrillian or Minion Creature gains 10 Energy for each Minion Creature Card in each general discard pile.",
     "flavorText": "Living in harsh waters, the M'arrillians learned to scrounge even the smallest shred to survive.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/fkbZSHV.png",
+    "imageUrl": "https://i.imgur.com/hIxkZYM.png",
     "uniqueId": "Ostinato of Oban'emre__fun"
   },
   {
@@ -2210,12 +2210,12 @@ export const mugicDatabase = [
     "set": "fun",
     "rarity": "rare",
     "tribe": "overworld",
-    "ability": "Target Creature gains 30 :wisdom:and \"Outperform :wisdom:5.\"",
+    "ability": "Target Creature gains 30 :wisdom:Wisdom and \"Outperform :wisdom:Wisdom 5.\"",
     "flavorText": "As Milla'iin fell into his lava trap, Bodal calculated that it would boil into a yummy seafood soup in 32.8 seconds.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/XMfIsMP.png",
+    "imageUrl": "https://i.imgur.com/lorTQ4R.png",
     "uniqueId": "Skysong Arpeggio__fun"
   },
   {
@@ -2229,7 +2229,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/DMuq023.png",
+    "imageUrl": "https://i.imgur.com/CsvuniV.png",
     "uniqueId": "Vidav's Voicing__fun"
   },
   {
@@ -2243,7 +2243,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/hdMDihv.png",
+    "imageUrl": "https://i.imgur.com/0yvB4Yi.png",
     "uniqueId": "Aegis Airia__au"
   },
   {
@@ -2255,9 +2255,9 @@ export const mugicDatabase = [
     "ability": "Remove a Creature Card in your general discard pile from the game. If you do, activate Hive.",
     "flavorText": "Resourceful and efficient, Danians recycle everything in order to survive... including corpses!",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 0,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/gh3v1xY.png",
+    "imageUrl": "https://i.imgur.com/avky9jw.png",
     "uniqueId": "Ancestral Anthem__au"
   },
   {
@@ -2266,12 +2266,12 @@ export const mugicDatabase = [
     "set": "au",
     "rarity": "common",
     "tribe": "generic",
-    "ability": "Target Creature gains :earth:. If that Creature already has :earth:, it gains \":earth:5\" instead.",
+    "ability": "Target Creature gains :earth:Earth. If that Creature already has :earth:Earth, it gains \":earth:Earth 5\" instead.",
     "flavorText": "The earth split, toppling the towers, erasing the castle from memory.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/CZDgBoR.png",
+    "imageUrl": "https://i.imgur.com/oYVf5s5.png",
     "uniqueId": "Anthem of Stone__au"
   },
   {
@@ -2283,9 +2283,9 @@ export const mugicDatabase = [
     "ability": "Creatures engaged with the caster lose all Elemental Types.",
     "flavorText": "Isolated from the embrace of the universe, Heptadd felt alone, empty and - for the first time - afraid.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/3CHq6k1.png",
+    "imageUrl": "https://i.imgur.com/08mSkjr.png",
     "uniqueId": "Battlesong of Depletion__au"
   },
   {
@@ -2299,7 +2299,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/RSJtnrV.png",
+    "imageUrl": "https://i.imgur.com/ey5jMlJ.png",
     "uniqueId": "Battlesong of Renewal__au"
   },
   {
@@ -2313,7 +2313,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/VL2Eof9.png",
+    "imageUrl": "https://i.imgur.com/EVRyTGl.png",
     "uniqueId": "Bonding Battlesong__au"
   },
   {
@@ -2322,12 +2322,12 @@ export const mugicDatabase = [
     "set": "au",
     "rarity": "super rare",
     "tribe": "underworld",
-    "ability": "Deal 20 damage to target Creature. If the caster of this Mugic has :fire:, deal an additional 10 damage.",
+    "ability": "Deal 20 damage to target Creature. If the caster of this Mugic has :fire:Fire, deal an additional 10 damage.",
     "flavorText": "Flames feed upon flames in a voracious conflagration.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/LuJCqNO.png",
+    "imageUrl": "https://i.imgur.com/DTP1tK8.png",
     "uniqueId": "Consuming Cacophony__au"
   },
   {
@@ -2341,7 +2341,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/4toarWF.png",
+    "imageUrl": "https://i.imgur.com/4ZMEsNX.png",
     "uniqueId": "Counterpoint of Chaos__au"
   },
   {
@@ -2355,7 +2355,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/OlwEBUl.png",
+    "imageUrl": "https://i.imgur.com/ULlJxEQ.png",
     "uniqueId": "Decomposition__au"
   },
   {
@@ -2369,7 +2369,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/3Xs2YiG.png",
+    "imageUrl": "https://i.imgur.com/rlMoGw1.png",
     "uniqueId": "Diminuendo__au"
   },
   {
@@ -2378,12 +2378,12 @@ export const mugicDatabase = [
     "set": "au",
     "rarity": "common",
     "tribe": "generic",
-    "ability": "Target Creature gains :fire:. If that Creature already has :fire:, it gains \":fire:5\" instead.",
+    "ability": "Target Creature gains :fire:Fire. If that Creature already has :fire:Fire, it gains \":fire:Fire 5\" instead.",
     "flavorText": "The grey coat of ash choked the petals, wilting the leaves, wilting the soul.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/SgYFo3V.png",
+    "imageUrl": "https://i.imgur.com/bZEzmfj.png",
     "uniqueId": "Dischord of Flame__au"
   },
   {
@@ -2397,7 +2397,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/a7m74Rd.png",
+    "imageUrl": "https://i.imgur.com/ExWTvoi.png",
     "uniqueId": "Elemental Counterpoint__au"
   },
   {
@@ -2411,7 +2411,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/OnCA1HT.png",
+    "imageUrl": "https://i.imgur.com/bcQq1b9.png",
     "uniqueId": "Empowering Encore__au"
   },
   {
@@ -2420,12 +2420,12 @@ export const mugicDatabase = [
     "set": "au",
     "rarity": "super rare",
     "tribe": "overworld",
-    "ability": "Heal 25 damage to target Creature. If the caster of this Mugic has :water:, also put a Mugic counter on the target Creature.",
+    "ability": "Heal 25 damage to target Creature. If the caster of this Mugic has :water:Water, that Creature gains :overworldmugic:.",
     "flavorText": "Seven notes... infinite possibilities.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/Nv0n7jt.png",
+    "imageUrl": "https://i.imgur.com/BXhDkDu.png",
     "uniqueId": "Fluid Fugue__au"
   },
   {
@@ -2434,12 +2434,12 @@ export const mugicDatabase = [
     "set": "au",
     "rarity": "common",
     "tribe": "generic",
-    "ability": "Target Creature gains :water:. If that Creature already has :water:, it gains \":water:5\" instead.",
+    "ability": "Target Creature gains :water:Water. If that Creature already has :water:Water, it gains \":water:Water 5\" instead.",
     "flavorText": "And with one final wave, the flood washed away all remaining traces of the now-forgotten civilization.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/dO6vFjc.png",
+    "imageUrl": "https://i.imgur.com/9k52WPv.png",
     "uniqueId": "Harmonics of Water__au"
   },
   {
@@ -2448,12 +2448,12 @@ export const mugicDatabase = [
     "set": "au",
     "rarity": "common",
     "tribe": "generic",
-    "ability": "Target Creature gains :air:. If that Creature already has :air:, it gains \":air:5\" instead.",
+    "ability": "Target Creature gains :air:Air. If that Creature already has :air:Air, it gains \":air:Air 5\" instead.",
     "flavorText": "The tornado ripped across the fields, destroying the harvest, starving the land.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/cJlhFBz.png",
+    "imageUrl": "https://i.imgur.com/RcwmaEU.png",
     "uniqueId": "Howl of the Wind__au"
   },
   {
@@ -2462,12 +2462,12 @@ export const mugicDatabase = [
     "set": "au",
     "rarity": "rare",
     "tribe": "overworld",
-    "ability": "Negate target Mugic unless the caster pays an additional Mugic counter.",
+    "ability": "Negate target Mugic unless the casting Creature of that Mugic plays an additional :genericmugic:.",
     "flavorText": "When the Mugicians sing, all of Perim is blessed.",
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/nwXZRrg.png",
+    "imageUrl": "https://i.imgur.com/vvfPGHC.png",
     "uniqueId": "Interlude of Interruption__au"
   },
   {
@@ -2476,12 +2476,12 @@ export const mugicDatabase = [
     "set": "au",
     "rarity": "super rare",
     "tribe": "danian",
-    "ability": "Target engaged Creature gains 5 Energy for each Elemental Type the opposing engaged Creature has. If the caster of this Mugic has :earth:, the target Creature gains an additional 5 Energy for each Elemental Type the opposing engaged Creature has.",
+    "ability": "Target engaged Creature gains 5 Energy for each Elemental Type the opposing engaged Creature has. If the caster of this Mugic has :earth:Earth, the target Creature gains an additional 5 Energy for each Elemental Type the opposing engaged Creature has.",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/XEPGZgP.png",
+    "imageUrl": "https://i.imgur.com/NaZKEtx.png",
     "uniqueId": "Rocky Refrain__au"
   },
   {
@@ -2495,7 +2495,7 @@ export const mugicDatabase = [
     "unique": true,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/XuPrhZY.png",
+    "imageUrl": "https://i.imgur.com/bGR8eby.png",
     "uniqueId": "Searing Symphony__au"
   },
   {
@@ -2509,7 +2509,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/jOxF8Jf.png",
+    "imageUrl": "https://i.imgur.com/C1uCFAN.png",
     "uniqueId": "Silent Requiem__au"
   },
   {
@@ -2518,12 +2518,12 @@ export const mugicDatabase = [
     "set": "au",
     "rarity": "super rare",
     "tribe": "mipedian",
-    "ability": "Target Creature gains \"Range\" and \"Swift 3.\" If the caster of this Mugic has :air:, the target Creature also gains \"Invisibility: Surprise.\"",
+    "ability": "Target Creature gains \"Range\" and \"Swift 3.\" If the caster of this Mugic has :air:Air, the target Creature also gains \"Invisibility: Surprise.\"",
     "flavorText": "As the thief sped away, Gespedan blamed himself for leaving the battle plans out in the open.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/pavVDdT.png",
+    "imageUrl": "https://i.imgur.com/wXZwWR4.png",
     "uniqueId": "Sonata of Storms__au"
   },
   {
@@ -2537,7 +2537,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/RVfe3v9.png",
+    "imageUrl": "https://i.imgur.com/uqwyLoZ.png",
     "uniqueId": "Song of Elemental Attunement__au"
   },
   {
@@ -2551,7 +2551,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/nZtvFAK.png",
+    "imageUrl": "https://i.imgur.com/fEQnPl0.png",
     "uniqueId": "Song of Translocation__au"
   },
   {
@@ -2563,9 +2563,9 @@ export const mugicDatabase = [
     "ability": "If the caster is engaged, the opposing engaged Creature and the caster each gain Energy equal to their lowest Discipline.",
     "flavorText": "In a maddening gyre, delving into the secrets of Mugic only reveals more secrets.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 3,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/0IQi4cz.png",
+    "imageUrl": "https://i.imgur.com/YaeXNAK.png",
     "uniqueId": "Swartbron Battlesong__au"
   },
   {
@@ -2577,9 +2577,9 @@ export const mugicDatabase = [
     "ability": "Target attack or Mugic deals 0 damage.",
     "flavorText": "As Maxxor fearlessly charged through the rain of flaming arrows, he added another tale to his legend.",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/Pxaj0Fb.png",
+    "imageUrl": "https://i.imgur.com/2hqyWjo.png",
     "uniqueId": "Symphony of Shielding__au"
   },
   {
@@ -2593,11 +2593,11 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/v9Ch8hM.png",
+    "imageUrl": "https://i.imgur.com/nYaBX9P.png",
     "uniqueId": "Unbalancing Battlesong__au"
   },
   {
-    "id": "FAS-aiavrfyi",
+    "id": "FAS-4idviq0o",
     "name": "Mondo Rondo",
     "set": "fas",
     "rarity": "rare",
@@ -2605,13 +2605,13 @@ export const mugicDatabase = [
     "ability": "Target attack counts as the first attack played this combat.",
     "flavorText": "\"Stop me if you've heard this one before\" - Enre-hep",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 2,
     "artist": "",
-    "imageUrl": "https://i.imgur.com/xnlM4pE.png",
+    "imageUrl": "https://i.imgur.com/4XPRSiz.png",
     "uniqueId": "Mondo Rondo__fas"
   },
   {
-    "id": "OP-6cv9bahm",
+    "id": "OP-fwvr7am8",
     "name": "Najarin's Tower of Song",
     "set": "op",
     "rarity": "ultra rare",
@@ -2619,13 +2619,13 @@ export const mugicDatabase = [
     "ability": "Deal 20 damage to target Creature on your side of the Battleboard.\r\nThat Creature's controller discards a random Mugic Card from their hand.",
     "flavorText": "",
     "unique": false,
-    "mugicCost": 1,
+    "mugicCost": 3,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/Rzxz3jQ.png",
+    "imageUrl": "https://i.imgur.com/WK0VMYP.png",
     "uniqueId": "Najarin's Tower of Song__op"
   },
   {
-    "id": "OP-elxv6kyb",
+    "id": "OP-ejk1qnl0",
     "name": "Ulmar's Activating Arpeggio",
     "set": "op",
     "rarity": "uncommon",
@@ -2635,7 +2635,7 @@ export const mugicDatabase = [
     "unique": true,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/SxHPMD9.png",
+    "imageUrl": "https://i.imgur.com/fa92axS.png",
     "uniqueId": "Ulmar's Activating Arpeggio__op"
   },
   {
@@ -2644,12 +2644,12 @@ export const mugicDatabase = [
     "set": "op",
     "rarity": "super rare",
     "tribe": "generic",
-    "ability": "Target Creature gains 5 :courage:, :power:, :wisdom:, :speed:, and Energy.",
+    "ability": "Target Creature gains 5 :courage:Courage, :power:Power, :wisdom:Wisdom, :speed:Speed, and Energy.",
     "flavorText": "\"The Cothica existed before the beginning. It will survive long past our end.\" — Najarin",
     "unique": false,
     "mugicCost": 1,
     "artist": "Martin Molski",
-    "imageUrl": "https://i.imgur.com/xNHqAfX.png",
+    "imageUrl": "https://i.imgur.com/QiwNb6J.png",
     "uniqueId": "Fortissimo, (OP)__op"
   }
 ];

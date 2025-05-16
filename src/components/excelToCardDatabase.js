@@ -250,12 +250,21 @@ function convertExcelToMugicDatabase(excelFilePath, outputFilePath) {
   
   // Process each card
   const mugicDatabase = jsonData.map(card => {
-    // Infer mugic cost if not explicitly provided
-    let mugicCost = card.MugicCost;
+    // Get mugic cost from the "Cost" column
+    let mugicCost = card.Cost;
+    
+    // If Cost column is undefined, fall back to other possible names
     if (mugicCost === undefined) {
-      // We can try to detect it from the ID or set some default value
-      mugicCost = 1; // Default value
+      mugicCost = card.MugicCost || card["Mugic Cost"];
+      
+      // If still undefined, use default value
+      if (mugicCost === undefined) {
+        mugicCost = 1; // Default value
+      }
     }
+    
+    // Handle mugic cost - preserve "X" values as strings, convert numbers to integers
+    const parsedMugicCost = mugicCost === "X" ? "X" : (parseInt(mugicCost) || 0);
 
     const mugicData = {
       id: card.ID || `${card.Set}-${Math.random().toString(36).substring(2, 10)}`,
@@ -266,7 +275,7 @@ function convertExcelToMugicDatabase(excelFilePath, outputFilePath) {
       ability: card.Ability || '',
       flavorText: card["Flavor Text"] || '',
       unique: card.Unique === 'Y' || card.Unique === 1 || card.Unique === true,
-      mugicCost: parseInt(mugicCost) || 0,
+      mugicCost: parsedMugicCost,  // Use the properly parsed mugicCost value
       artist: card.Artist || '',
       imageUrl: card.Art || ''
     };

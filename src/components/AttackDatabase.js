@@ -3991,7 +3991,7 @@ export const attackDatabase = [
     "air": null,
     "earth": null,
     "water": null,
-    "ability": "Gain:earth:Earth.",
+    "ability": "gain :earth:Earth.",
     "flavorText": "",
     "unique": false,
     "artist": "Reggie Butler, Andrew Bradshaw",
@@ -4099,7 +4099,7 @@ export const attackDatabase = [
     "air": null,
     "earth": null,
     "water": null,
-    "ability": "Gain:fire:Fire ",
+    "ability": "gain :fire:Fire ",
     "flavorText": "",
     "unique": false,
     "artist": "Andrew Bradshaw, Etienne St.Laurent",
@@ -4153,7 +4153,7 @@ export const attackDatabase = [
     "air": null,
     "earth": null,
     "water": null,
-    "ability": "Gain:water:Water ",
+    "ability": "gain :water:Water ",
     "flavorText": "",
     "unique": false,
     "artist": "Keith Conroy, Reggie Butler",
@@ -4603,7 +4603,7 @@ export const attackDatabase = [
     "air": null,
     "earth": null,
     "water": null,
-    "ability": "Gain:air:Air.",
+    "ability": "gain :air:Air.",
     "flavorText": "",
     "unique": false,
     "artist": "Imaginary Friends Studios",
@@ -4683,7 +4683,7 @@ export const attackDatabase = [
     "uniqueId": "Emberwhip__fas"
   },
   {
-    "id": "FAS-jei9dm5f",
+    "id": "FAS-lgqzn0i9",
     "name": "Faster than the Wind",
     "set": "fas",
     "rarity": "rare",
@@ -4693,7 +4693,7 @@ export const attackDatabase = [
     "air": 15,
     "earth": null,
     "water": null,
-    "ability": "Gain 100 :speed:Speed. Lose:courage:Courage, :power:Power, and:wisdom:Wisdom so those Disciplines equal 0.",
+    "ability": "Gain 100 :speed:Speed. lose :courage:Courage, :power:Power, and:wisdom:Wisdom so those Disciplines equal 0.",
     "flavorText": "",
     "unique": false,
     "artist": "Etienne St. Laurent, Bob Rivard",
@@ -4719,7 +4719,7 @@ export const attackDatabase = [
     "uniqueId": "Flurry of Fists__op"
   },
   {
-    "id": "OP-xvo3a2kt",
+    "id": "OP-41xb6tag",
     "name": "M.A.C.A., (Melee Artists Collaborative Attack)",
     "set": "op",
     "rarity": "common",
@@ -4809,7 +4809,7 @@ export const attackDatabase = [
     "uniqueId": "Carniwin__fun"
   },
   {
-    "id": "DOP-bvq9uyz7",
+    "id": "DOP-voj3mi0w",
     "name": "Nexdoors",
     "set": "dop",
     "rarity": "rare",

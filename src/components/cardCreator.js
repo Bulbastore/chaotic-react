@@ -735,12 +735,13 @@ async function loadAssets(cardData) {
                 console.log('Loading normal template:', templatePath);
             }
         } else if (cardData.type === 'mugic' && cardData.tribe) {
-            // For mugic cards, we need to maintain the mugic subdirectory
+            // FIXED MUGIC TEMPLATE LOADING
             if (useBleed) {
-                // For bleed templates, check if there's a specific mugic bleed folder
-                templatePath = getAssetPath(`${templateFolder}/mugic/${cardData.tribe.toLowerCase()}.png`);
+                // For bleed templates, use mugic.png directly from the bleed folder
+                templatePath = getAssetPath(`${templateFolder}/mugic.png`);
                 console.log('Loading mugic bleed template:', templatePath);
             } else {
+                // For standard templates, use tribe-specific mugic templates
                 templatePath = getAssetPath(`img/template/mugic/${cardData.tribe.toLowerCase()}.png`);
                 console.log('Loading mugic standard template:', templatePath);
             }
@@ -893,6 +894,34 @@ async function loadAssets(cardData) {
                     img.src = e.target.result;
                 };
                 reader.readAsDataURL(cardData.art);
+            })
+        );
+    }
+
+    // Preload mugic icons if this is a mugic card
+    if (cardData.type === 'mugic' && cardData.tribe && cardData.mugicCost !== undefined && cardData.mugicCost !== "") {
+        const cost = cardData.mugicCost.toString().toUpperCase();
+        const tribeLower = cardData.tribe.toLowerCase();
+        
+        // Determine which icon to preload
+        let iconPath;
+        if (cost === '0') {
+            iconPath = `img/icons/mugic/${tribeLower}_0.png`;
+        } else if (cost === 'X') {
+            iconPath = `img/icons/mugic/${tribeLower}_x.png`;
+        } else {
+            iconPath = `img/icons/mugic/${tribeLower}.png`;
+        }
+        
+        // Add to loading promises
+        console.log(`Preloading mugic icon: ${iconPath}`);
+        promises.push(loadAsset('mugicIcon', getAssetPath(iconPath))
+            .then(img => {
+                assets.mugicIcon = img;
+                console.log('Mugic icon preloaded successfully');
+            })
+            .catch(error => {
+                console.error(`Failed to preload mugic icon: ${iconPath}`, error);
             })
         );
     }
@@ -1274,7 +1303,12 @@ if (cardData.tribe) {
     typeText += ` - ${cardData.subtype}`;
 }
 
-    fillText(typeText, 43, 220);
+    // Adjust position for mugic cards
+    if (cardData.type === 'mugic') {
+        fillText(typeText, 15, 225); // Adjusted position for mugic cards
+    } else {
+        fillText(typeText, 43, 220); // Standard position for other cards
+    }
 }
 
     let abilityBottom = 235;
@@ -1375,79 +1409,50 @@ if (cardData.type === 'attack') {
     const topBoundary = 235;
     const bottomBoundary = 315;
     const textBoxHeight = bottomBoundary - topBoundary;
-    const textBoxMiddle = (topBoundary + bottomBoundary) / 2;
     
     // Calculate flavor text height first
     let flavorHeight = 0;
     if (!cardData.brainwashed && cardData.flavorText) {
         setFont(fontSize * 0.9, 'Arial Narrow Italic');
-        const flavorLines = wrapText(cardData.flavorText, 172);
+        const flavorLines = wrapText(cardData.flavorText, 205);
         flavorHeight = flavorLines.length * lineHeight;
     }
 
-    // Check if we only have ability text (no special status and no flavor text)
-    const hasSpecialStatus = !cardData.brainwashed && (cardData.unique || cardData.legendary || cardData.loyal);
-    const hasFlavorText = !cardData.brainwashed && cardData.flavorText;
-    const onlyAbility = cardData.ability && !hasSpecialStatus && !hasFlavorText;
+    // Calculate special status height
+    let statusHeight = 0;
+    if (!cardData.brainwashed && (cardData.unique || cardData.legendary || cardData.loyal)) {
+        setFont(fontSize, 'Eurostile Heavy');
+        let statusText = [
+            cardData.legendary && 'Legendary',
+            cardData.unique && 'Unique',
+            cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
+        ].filter(Boolean).join(', ');
+        statusHeight = lineHeight;
+    }
+
+    // Calculate available space for ability text
+    const availableHeight = textBoxHeight - flavorHeight - statusHeight - 4; // 4px gap
 
     if (cardData.ability) {
         setFont(fontSize, 'Eurostile Medium');
         ctx.fillStyle = '#000000';
         ctx.textAlign = 'left';
 
-        const lines = wrapText(cardData.ability, 190);
+        const lines = wrapText(cardData.ability, 205);
+        const abilityHeight = lines.length * lineHeight;
         
-        // If only ability text is present, center it vertically
-        if (onlyAbility) {
-            const totalTextHeight = lines.length * lineHeight;
-            const startY = topBoundary + ((textBoxHeight - totalTextHeight) / 2);
-            
-            for (let i = 0; i < lines.length; i++) {
-                const yPos = startY + (i * lineHeight);
-                if (yPos + lineHeight <= bottomBoundary) {
-                    drawTextWithSymbols(lines[i], 21, yPos, fontSize);
-                }
+        // Calculate starting Y position to center ability text in available space
+        const startY = topBoundary + ((availableHeight - abilityHeight) / 2);
+        
+        for (let i = 0; i < lines.length; i++) {
+            const yPos = startY + (i * lineHeight);
+            if (yPos + lineHeight <= bottomBoundary - flavorHeight - statusHeight) {
+                drawTextWithSymbols(lines[i], 21, yPos, fontSize);
             }
-            currentY = startY + totalTextHeight + 4;
         }
-        // New case: Ability with flavor text but NO special status - center vertically in remaining space
-        else if (hasFlavorText && !hasSpecialStatus) {
-            const abilityHeight = lines.length * lineHeight;
-            const availableHeight = textBoxHeight - flavorHeight;
-            const startY = topBoundary + ((availableHeight - abilityHeight) / 2);
-            
-            for (let i = 0; i < lines.length; i++) {
-                const yPos = startY + (i * lineHeight);
-                if (yPos + lineHeight <= bottomBoundary - flavorHeight) {
-                    drawTextWithSymbols(lines[i], 21, yPos, fontSize);
-                }
-            }
-            currentY = startY + abilityHeight + 4;
-        }
-        // New case: Ability with special status but NO flavor text - center both together
-        else if (!hasFlavorText && hasSpecialStatus) {
-            const abilityHeight = lines.length * lineHeight;
-            const combinedHeight = abilityHeight + lineHeight + 4; // ability + status + gap
-            const startY = topBoundary + ((textBoxHeight - combinedHeight) / 2);
-            
-            for (let i = 0; i < lines.length; i++) {
-                const yPos = startY + (i * lineHeight);
-                if (yPos + lineHeight <= bottomBoundary) {
-                    drawTextWithSymbols(lines[i], 21, yPos, fontSize);
-                }
-            }
-            currentY = startY + abilityHeight + 4;
-        }
-        // Original behavior for when there's BOTH flavor text AND special status
-        else {
-            for (let i = 0; i < lines.length; i++) {
-                const yPos = topBoundary + (i * lineHeight);
-                if (yPos + lineHeight <= bottomBoundary - flavorHeight) {
-                    drawTextWithSymbols(lines[i], 21, yPos, fontSize);
-                }
-            }
-            currentY = topBoundary + (lines.length * lineHeight) + 4;
-        }
+        
+        // Position for status text (directly below ability text)
+        currentY = startY + abilityHeight + 4;
 
         if (!cardData.brainwashed && (cardData.unique || cardData.legendary || cardData.loyal)) {
             setFont(fontSize, 'Eurostile Heavy');
@@ -1461,7 +1466,6 @@ if (cardData.type === 'attack') {
             ].filter(Boolean).join(', ');
 
             fillText(statusText, 21, currentY);
-            currentY += lineHeight;
         }
     } else if (!cardData.brainwashed && (cardData.unique || cardData.legendary || cardData.loyal)) {
         setFont(fontSize, 'Eurostile Heavy');
@@ -1474,13 +1478,9 @@ if (cardData.type === 'attack') {
             cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
         ].filter(Boolean).join(', ');
 
-        // Center the status text vertically when it's alone
-        const lines = wrapText(statusText, 190);
-        const statusHeight = lines.length * lineHeight;
-        currentY = textBoxMiddle - (statusHeight / 2);
-
-        fillText(statusText, 21, currentY);
-        currentY += lineHeight;
+        // Center the status text vertically in the available space
+        const textY = topBoundary + ((textBoxHeight - flavorHeight - statusHeight) / 2);
+        fillText(statusText, 21, textY);
     }
 
     if (!cardData.brainwashed && cardData.flavorText) {
@@ -1488,7 +1488,7 @@ if (cardData.type === 'attack') {
         ctx.fillStyle = '#000000';
         ctx.textAlign = 'left';
 
-        const lines = wrapText(cardData.flavorText, 190);
+        const lines = wrapText(cardData.flavorText, 205);
         const flavorStartY = bottomBoundary - (lines.length * lineHeight);
 
         lines.forEach((line, i) => {
@@ -1719,6 +1719,12 @@ if (cardData.brainwashed && (cardData.ability || cardData.brainwashedText)) {
     }
 
 } else {
+   // Define clear boundaries for the text box with adjusted values for mugic cards
+   const textBoxTop = cardData.type === 'mugic' ? 252 : 233.5; // Increased for mugic cards
+   const textBoxBottom = 315;
+   const absoluteBottom = 320;
+   const textBoxHeight = textBoxBottom - textBoxTop;
+   const textBoxMiddle = (textBoxTop + textBoxBottom) / 2;
 
    // Calculate flavor text height and font size first
    let flavorFontSize = fontSize * 0.9;
@@ -1726,63 +1732,126 @@ if (cardData.brainwashed && (cardData.ability || cardData.brainwashedText)) {
    let flavorLines = [];
    let flavorTextHeight = 0;
 
-   if (!cardData.brainwashed && cardData.flavorText) {
-       // Keep reducing font size until flavor text fits
-       while (flavorFontSize > 5) {  // Minimum font size of 5
-           setFont(flavorFontSize, 'Arial Narrow Italic');
-           ctx.letterSpacing = "1px";
+   // For mugic cards, we'll position the flavor text at a fixed location near the bottom
+   const flavorBottomMargin = 0; // Space between flavor text and absolute bottom
+   
+if (!cardData.brainwashed && cardData.flavorText) {
+    setFont(flavorFontSize, 'Arial Narrow Italic');
+    flavorLines = wrapText(cardData.flavorText, cardData.type === 'creature' ? 160 : 195);
+    flavorTextHeight = flavorLines.length * flavorLineHeight;
+}
 
-           flavorLines = wrapText(cardData.flavorText, 172);
-           flavorTextHeight = flavorLines.length * flavorLineHeight;
-           
-           // Check if text fits vertically
-           if (flavorTextHeight <= 50) { // Maximum height for flavor text
-               break;
-           }
-           
-           flavorFontSize -= 0.5;
-           flavorLineHeight = flavorFontSize * 1.1;
-       }
-       ctx.letterSpacing = "0px";
-   }
+    // Updated drawMugic function with more balanced positioning for mugic cards
+    if (cardData.type === 'mugic' && cardData.ability) {
+        setFont(fontSize, 'Eurostile Medium');
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'left';
+        
+        const maxWidth = 210; // Wider width for mugic cards
+        const lines = wrapText(cardData.ability, maxWidth);
+        const abilityHeight = lines.length * lineHeight;
+        
+        // ADJUSTED: Start from a fixed position below the mugic cost - slightly lower than original
+        const mugicCostBottom = 247; // Toned back from 250 to 247
+        
+        // Calculate where flavor text would start if present
+        let flavorTextTop;
+        if (!cardData.brainwashed && cardData.flavorText) {
+            flavorTextTop = absoluteBottom - flavorTextHeight - 5;
+        } else {
+            flavorTextTop = textBoxBottom;
+        }
+        
+        // Calculate the space available for ability text
+        const availableHeight = flavorTextTop - mugicCostBottom;
+        
+        // Determine total content height (ability + status line if present)
+        const hasStatusLine = !cardData.brainwashed && cardData.unique;
+        const totalContentHeight = abilityHeight + (hasStatusLine ? lineHeight + 5 : 0);
+        
+        // Calculate starting Y position to center content in available space
+        // ADJUSTED: Reduced vertical offset to a more balanced value
+        let startY = mugicCostBottom + (availableHeight - totalContentHeight) / 2 + 6; // Reduced from +10 to +6
+        
+        // ADJUSTED: Smaller adjustment for unique line
+        if (hasStatusLine) {
+            startY -= 2; // Reduced from -4 to -2
+        }
+        
+        // Draw each line of ability text
+        const abilityX = 18;
+        for (let i = 0; i < lines.length; i++) {
+            await drawTextWithSymbols(lines[i], abilityX, startY + (i * lineHeight), fontSize);
+        }
+        
+        // Update the position for unique status if present
+        // ADJUSTED: Moderate spacing between ability text and unique line
+        const currentY = startY + abilityHeight + 5; // Reduced from 6 to 5
+        
+        // Draw "Unique" status if needed
+        if (hasStatusLine) {
+            setFont(fontSize, 'Eurostile Heavy');
+            ctx.fillStyle = '#000000';
+            ctx.textAlign = 'left';
+            fillText("Unique", abilityX, currentY);
+        }
+    } 
+    // Also update the section for mugic cards with only status text (no ability)
+    else if (cardData.type === 'mugic' && !cardData.ability && !cardData.brainwashed && cardData.unique) {
+        setFont(fontSize, 'Eurostile Heavy');
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'left';
 
-   if (cardData.ability) {
+        // ADJUSTED: More balanced position for the unique status when it appears alone
+        const midY = 280; // Adjusted from 285 to 280
+        const midStatusX = 18;
+        fillText("Unique", midStatusX, midY);
+    }
+
+   // Original handling for non-mugic cards with ability text
+   else if (cardData.ability) {
        setFont(fontSize, 'Eurostile Medium');
        ctx.fillStyle = '#000000';
        ctx.textAlign = 'left';
-       const lines = wrapText(cardData.ability, 172);
+       
+       // Original code for non-mugic cards
+       const maxWidth = cardData.type === 'mugic' ? 210 : 172;
+       const lines = wrapText(cardData.ability, maxWidth);
        const totalHeight = lines.length * lineHeight;
        const hasStatusLine = !cardData.brainwashed && (cardData.unique || cardData.legendary || cardData.loyal);
        const hasFlavorText = !cardData.brainwashed && cardData.flavorText;
        
-       let startY = textBoxTop;
+       // Calculate available vertical space
        let availableHeight = textBoxHeight - (hasFlavorText ? flavorTextHeight + 5 : 0);
-
+       
+       let startY;
        if (hasStatusLine) {
            startY = textBoxTop + (availableHeight - (totalHeight + lineHeight)) / 2;
        } else {
            startY = textBoxTop + (availableHeight - totalHeight) / 2;
        }
-
+       
+       // Draw each line of text
+       const abilityX = 45; // Standard X position for non-Mugic cards
+       
        for (let i = 0; i < lines.length; i++) {
-           ctx.globalAlpha = 1.0;
-           await drawTextWithSymbols(lines[i], 45, startY + (i * lineHeight), fontSize);
-           ctx.globalAlpha = 1.0;
+           await drawTextWithSymbols(lines[i], abilityX, startY + (i * lineHeight), fontSize);
        }
+       
        currentY = startY + totalHeight + fontSize / 2;
-
+       
        if (hasStatusLine) {
            setFont(fontSize, 'Eurostile Heavy');
            ctx.fillStyle = '#000000';
            ctx.textAlign = 'left';
-
+           
            let statusText = [
                cardData.legendary && 'Legendary',
                cardData.unique && 'Unique',
                cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
            ].filter(Boolean).join(', ');
-
-           fillText(statusText, 45, currentY);
+           
+           fillText(statusText, abilityX, currentY);
        }
    } else {
        // Handle case when there's no ability text
@@ -1799,28 +1868,36 @@ if (cardData.brainwashed && (cardData.ability || cardData.brainwashedText)) {
                cardData.loyal && (cardData.loyalRestriction ? `Loyal - ${cardData.loyalRestriction}` : 'Loyal')
            ].filter(Boolean).join(', ');
 
-           fillText(statusText, 45, textBoxMiddle);
+           // For Mugic cards with only status text, use specific positioning
+           const midY = cardData.type === 'mugic' 
+               ? 275  // Lower position for Mugic status-only text
+               : textBoxMiddle;
+           
+           const midStatusX = cardData.type === 'mugic' ? 18 : 45;
+           fillText(statusText, midStatusX, midY);
        }
    }
 
-   // Always draw flavor text at the bottom if it exists
+   // Draw flavor text - use fixed positioning for mugic cards
    if (!cardData.brainwashed && cardData.flavorText) {
        setFont(flavorFontSize, 'Arial Narrow Italic');
        ctx.fillStyle = '#000000';
        ctx.textAlign = 'left';
-
-       // Add a slight letter spacing
-       ctx.letterSpacing = "1px";  // Very subtle spacing
-
-       const flavorStartY = absoluteBottom - flavorTextHeight - 5;
+       ctx.letterSpacing = "1px";  // Subtle spacing
+       
+       // Use fixed position for mugic cards' flavor text
+       const flavorStartY = cardData.type === 'mugic' 
+           ? absoluteBottom - flavorTextHeight - flavorBottomMargin
+           : absoluteBottom - flavorTextHeight - 5;
+       
+       const flavorX = cardData.type === 'mugic' ? 18 : 45;
+       
        flavorLines.forEach((line, i) => {
-           fillText(line, 45, flavorStartY + (i * flavorLineHeight));
+           fillText(line, flavorX, flavorStartY + (i * flavorLineHeight));
        });
-
-       // Reset letter spacing after drawing flavor text
+       
        ctx.letterSpacing = "0px";
    }
-
 }
 }
 }
@@ -1927,7 +2004,13 @@ const spacedCode = cardCode.split('').map((char, i) =>
 setFont(8, 'Century Gothic Bold');
 ctx.fillStyle = '#000000';
 ctx.textAlign = 'left';
-fillText(spacedCode, 62, 333);
+
+// Adjust position for mugic cards
+if (cardData.type === 'mugic') {
+    fillText(spacedCode, 65, 333);
+} else {
+    fillText(spacedCode, 62, 333);
+}
 
 // Draw copyright info
 if (cardData.showCopyright !== false) {
@@ -1937,7 +2020,12 @@ if (cardData.showCopyright !== false) {
     
     // New copyright text
     const serialNum = cardData.serialNumber || cardData.id || '--/100';
-    const copyrightText = `${serialNum}    This is a non-authentic proxy card made at Bulbastore.com`;
+    let copyrightText = `${serialNum}    This is a non-authentic proxy card made at Bulbastore.com`;
+    
+    // For mugic cards, append the artist info to copyright text if available
+    if (cardData.type === 'mugic' && cardData.artist && cardData.showArtist !== false) {
+        copyrightText += `    Art by ${cardData.artist}`;
+    }
     
     if (cardData.type === 'attack' || cardData.type === 'battlegear') {
         // Attack and Battlegear styling
@@ -1955,9 +2043,18 @@ if (cardData.showCopyright !== false) {
         }
         
         fillText(copyrightText, copyrightX, 344);
-    } else if (cardData.type === 'creature' && cardData.tribe) {
-        // Creature styling
-        ctx.textAlign = 'left';
+    } else if ((cardData.type === 'creature' || cardData.type === 'mugic') && cardData.tribe) {
+        // Creature and Mugic styling share the same tribe-based coloring
+        
+        // For mugic cards, center align the text
+        if (cardData.type === 'mugic') {
+            ctx.textAlign = 'center';
+            // Center position for mugic cards
+            const textPosition = 122.5;
+        } else {
+            // Left align for creatures
+            ctx.textAlign = 'left';
+        }
         
         // Special handling for custom tribe
         if (cardData.tribe.toLowerCase() === 'custom' && cardData.customColor) {
@@ -1974,7 +2071,14 @@ if (cardData.showCopyright !== false) {
             ctx.fillStyle = `hsl(${h}, ${s * 100}%, ${lighterL * 100}%)`;
             ctx.strokeStyle = `hsl(${h}, ${s * 100}%, ${darkerL * 100}%)`;
             ctx.lineWidth = 2;
-            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+            
+            if (cardData.type === 'mugic') {
+                ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+                fillText(copyrightText, 122.5, 344);
+            } else {
+                ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                fillText(copyrightText, 49, 344);
+            }
         } else {
             // Original tribe coloring logic
             switch(cardData.tribe.toLowerCase()) {
@@ -1985,45 +2089,76 @@ if (cardData.showCopyright !== false) {
                     ctx.fillStyle = '#e1b0b3';
                     break;
                 case 'mipedian':
-                    ctx.fillStyle = '#b1a277';
-                    ctx.strokeStyle = '#6a5d35';
+                    ctx.fillStyle = '#d2c39b';
+                    ctx.strokeStyle = '#8a7d55';
                     ctx.lineWidth = 2;
-                    ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    if (cardData.type === 'mugic') {
+                        ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+                    } else {
+                        ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    }
                     break;
                 case 'danian':
                     ctx.fillStyle = '#c5ad95';
                     break;
                 case "m'arrillian":
+                case "marrillian":
                     ctx.fillStyle = '#cac8ba';
+                    break;
+                case 'generic':
+                    ctx.fillStyle = '#a0a0a0';
                     break;
                 case 'tribeless':
                     ctx.fillStyle = '#000000';
                     ctx.strokeStyle = '#cad1d9';
                     ctx.lineWidth = 4;
-                    ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    if (cardData.type === 'mugic') {
+                        ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+                    } else {
+                        ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    }
                     break;
                 case 'umbrian':
                     ctx.fillStyle = '#bda0e6';
                     ctx.strokeStyle = '#56436e';
                     ctx.lineWidth = 2;
-                    ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    if (cardData.type === 'mugic') {
+                        ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+                    } else {
+                        ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    }
                     break;
                 case 'panivian':
                     ctx.fillStyle = '#6da566';
                     ctx.strokeStyle = '#344f30';
                     ctx.lineWidth = 2;
-                    ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    if (cardData.type === 'mugic') {
+                        ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+                    } else {
+                        ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    }
                     break;          
                 case 'frozen':
                     ctx.fillStyle = '#98d3db';
                     ctx.strokeStyle = '#3a96a3';
                     ctx.lineWidth = 2;
-                    ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-                    break;                          
+                    if (cardData.type === 'mugic') {
+                        ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+                    } else {
+                        ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    }
+                    break;
+                default:
+                    ctx.fillStyle = '#000000';
             }
         }
         
-        fillText(copyrightText, 49, 344);
+        // Draw the text at the appropriate position
+        if (cardData.type === 'mugic') {
+            fillText(copyrightText, 122.5, 344);
+        } else {
+            fillText(copyrightText, 49, 344);
+        }
     } else {
         // Default styling for other card types
         ctx.textAlign = 'left';
@@ -2034,15 +2169,16 @@ if (cardData.showCopyright !== false) {
     ctx.restore(); // Restore previous context state
 }
 
-// Draw artist name with special styling
-if (cardData.artist && cardData.showArtist !== false) {
+// Draw artist name with special styling - Only needed for non-mugic cards now
+if (cardData.artist && cardData.showArtist !== false && cardData.type !== 'mugic') {
     ctx.save(); // Save current context state
     setFont(5, 'Eurostile Cond Heavy Italic');
     ctx.letterSpacing = "0.3px";
 
     // Use 979 for attack and battlegear, 971 for others
     const xPosition = (cardData.type === 'attack' || cardData.type === 'battlegear') ? 976 : 971;
-    ctx.translate(xPosition, 480);
+    const yPosition = 480;
+    ctx.translate(xPosition, yPosition);
     ctx.rotate(-Math.PI / 2);
     ctx.textAlign = 'center';
     
@@ -2059,7 +2195,8 @@ if (cardData.artist && cardData.showArtist !== false) {
         fillText(artistText, 0, 0);
     
     } else if (cardData.type === 'creature') {
-        // Creature styling
+        // Creature styling - now only used for creature cards
+        
         // Special handling for custom tribe
         if (cardData.tribe?.toLowerCase() === 'custom' && cardData.customColor) {
             // Get the HSL values
@@ -2092,7 +2229,7 @@ if (cardData.artist && cardData.showArtist !== false) {
                     ctx.fillStyle = '#e1b0b3';
                     break;
                 case 'mipedian':
-                    ctx.fillStyle = '#6d5630';
+                    ctx.fillStyle = '#c0b288';
                     break;
                 case 'danian':
                     ctx.strokeStyle = '#87664f';
@@ -2101,7 +2238,11 @@ if (cardData.artist && cardData.showArtist !== false) {
                     ctx.fillStyle = '#c5ad95';
                     break;
                 case "m'arrillian":
+                case "marrillian":
                     ctx.fillStyle = '#cac8ba';
+                    break;
+                case 'generic':
+                    ctx.fillStyle = '#a0a0a0';
                     break;
                 case 'tribeless':
                     ctx.fillStyle = '#000000';
@@ -2123,7 +2264,9 @@ if (cardData.artist && cardData.showArtist !== false) {
                     ctx.lineWidth = 2;
                     ctx.strokeText(artistText, 0, 0);
                     ctx.fillStyle = '#bce4ea';
-                    break;                            
+                    break;
+                default:
+                    ctx.fillStyle = '#000000';
             }
         }
         
@@ -2142,7 +2285,10 @@ if (cardData.artist && cardData.showArtist !== false) {
     switch (cardData.type) {
         case 'attack': drawAttack(cardData); break;
         case 'creature': drawCreature(cardData); break;
-        case 'mugic': drawMugic(cardData); break;
+        case 'mugic': 
+            // Now handle the result from drawMugic
+            const mugicResult = await drawMugic(cardData);
+            break;
         case 'location': drawLocation(cardData); break;
     }
 
@@ -2213,14 +2359,81 @@ function drawAttack(cardData) {
 });
 }
 
-function drawMugic(cardData) {
-    setFont(24, 'Eurostile Heavy');
-    ctx.fillStyle = '#000000';
-    ctx.textAlign = 'left';
-
-    if (cardData.mugicCost) {
-        fillText(cardData.mugicCost.toString(), 18, 230);
+// Updated drawMugic function with better text positioning
+async function drawMugic(cardData) {
+  // First, draw the mugic cost number and icons as before
+  setFont(24, 'Eurostile Heavy');
+  ctx.fillStyle = '#000000';
+  ctx.textAlign = 'left';
+  
+  // Draw mugic counters above the ability text
+  if (cardData.tribe && cardData.mugicCost !== undefined && cardData.mugicCost !== "") {
+    try {
+      const cost = cardData.mugicCost.toString().toUpperCase();
+      let iconCount = 1;
+      let iconPath = "";
+      
+      // Same logic as before for determining icon path
+      const tribeLower = cardData.tribe.toLowerCase();
+      if (cost === '0') {
+        iconPath = `img/icons/mugic/${tribeLower}_0.png`;
+      } else if (cost === 'X') {
+        iconPath = `img/icons/mugic/${tribeLower}_x.png`;
+      } else {
+        iconPath = `img/icons/mugic/${tribeLower}.png`;
+        iconCount = parseInt(cost, 10);
+        if (isNaN(iconCount) || iconCount < 1) iconCount = 1;
+        if (iconCount > 9) iconCount = 9;
+      }
+      
+      const fullPath = getAssetPath(iconPath);
+      
+      // Load the icon image
+      const mugicIcon = new Image();
+      await new Promise((resolve, reject) => {
+        mugicIcon.onload = resolve;
+        mugicIcon.onerror = reject;
+        mugicIcon.src = fullPath;
+      });
+      
+      // Draw icons as before
+      if (cost === '0' || cost === 'X') {
+        const iconWidth = 13;
+        const iconHeight = 13;
+        const startX = 15;
+        const startY = 232;
+        
+        ctx.drawImage(
+          mugicIcon,
+          0, 0, mugicIcon.width, mugicIcon.height,
+          startX * scale, startY * scale,
+          iconWidth * scale, iconHeight * scale
+        );
+      } else {
+        const iconWidth = 13;
+        const iconHeight = 13;
+        const startX = 15;
+        const startY = 232;
+        const gap = 2;
+        
+        for (let i = 0; i < iconCount; i++) {
+          ctx.drawImage(
+            mugicIcon,
+            0, 0, mugicIcon.width, mugicIcon.height,
+            (startX + (i * (iconWidth + gap))) * scale, startY * scale,
+            iconWidth * scale, iconHeight * scale
+          );
+        }
+      }
+      
+      return { mugicIconsDrawn: true };
+    } catch (err) {
+      console.error(`Failed to load or draw mugic icons:`, err);
+      return { mugicIconsDrawn: false };
     }
+  }
+  
+  return { mugicIconsDrawn: false };
 }
 
 function drawLocation(cardData) {

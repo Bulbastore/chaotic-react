@@ -13,7 +13,6 @@ const CardPreview = ({ cardData }) => {
     let mounted = true;
 
     const updatePreview = async () => {
-      // Add this debug log
       console.log("Rendering card with properties:", {
         unique: cardData.unique,
         brainwashed: cardData.brainwashed,
@@ -78,20 +77,71 @@ const CardPreview = ({ cardData }) => {
         });
 
         if (mounted) {
-          canvas.id = 'preview-canvas';
+          // Get the original canvas context for dimensions
+          const originalCtx = canvas.getContext('2d');
           
-          // Fixed size canvas styling
-          canvas.style.width = '100%';
-          canvas.style.height = 'auto';
-          canvas.style.maxWidth = '450px'; // Maximum width for the card
-          canvas.style.objectFit = 'contain';
-          canvas.style.imageRendering = 'auto';
-          canvas.style.display = 'block';
-          canvas.style.margin = '0 auto'; // Center the canvas
-    
-          // Clear and append the new canvas
-          container.innerHTML = '';
-          container.appendChild(canvas);
+          // Special handling for mugic cards to add rounded corners
+          if (cardData.selectedType === 'mugic') {
+            // Create a new canvas with the same dimensions
+            const roundedCanvas = document.createElement('canvas');
+            roundedCanvas.width = canvas.width;
+            roundedCanvas.height = canvas.height;
+            roundedCanvas.id = 'preview-canvas';
+            
+            // Get context for the new canvas
+            const ctx = roundedCanvas.getContext('2d');
+            
+            // Define corner radius (adjust as needed)
+            const cornerRadius = Math.min(canvas.width, canvas.height) * 0.035; // 3.5% of the smallest dimension
+            
+            // Draw rounded rectangle path
+            ctx.beginPath();
+            ctx.moveTo(cornerRadius, 0);
+            ctx.lineTo(canvas.width - cornerRadius, 0);
+            ctx.quadraticCurveTo(canvas.width, 0, canvas.width, cornerRadius);
+            ctx.lineTo(canvas.width, canvas.height - cornerRadius);
+            ctx.quadraticCurveTo(canvas.width, canvas.height, canvas.width - cornerRadius, canvas.height);
+            ctx.lineTo(cornerRadius, canvas.height);
+            ctx.quadraticCurveTo(0, canvas.height, 0, canvas.height - cornerRadius);
+            ctx.lineTo(0, cornerRadius);
+            ctx.quadraticCurveTo(0, 0, cornerRadius, 0);
+            ctx.closePath();
+            
+            // Create clipping mask with rounded corners
+            ctx.clip();
+            
+            // Draw original canvas content onto new canvas (now with rounded corners due to clip)
+            ctx.drawImage(canvas, 0, 0);
+            
+            // Set styling
+            roundedCanvas.style.width = '100%';
+            roundedCanvas.style.height = 'auto';
+            roundedCanvas.style.maxWidth = '450px';
+            roundedCanvas.style.objectFit = 'contain';
+            roundedCanvas.style.imageRendering = 'auto';
+            roundedCanvas.style.display = 'block';
+            roundedCanvas.style.margin = '0 auto';
+            
+            // Clear container and append the rounded canvas
+            container.innerHTML = '';
+            container.appendChild(roundedCanvas);
+          } else {
+            // For other card types, use the original canvas
+            canvas.id = 'preview-canvas';
+            
+            // Fixed size canvas styling
+            canvas.style.width = '100%';
+            canvas.style.height = 'auto';
+            canvas.style.maxWidth = '450px';
+            canvas.style.objectFit = 'contain';
+            canvas.style.imageRendering = 'auto';
+            canvas.style.display = 'block';
+            canvas.style.margin = '0 auto';
+            
+            // Clear and append the canvas
+            container.innerHTML = '';
+            container.appendChild(canvas);
+          }
         }
       } catch (error) {
         console.error('Error creating card:', error);
