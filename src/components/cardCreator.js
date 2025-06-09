@@ -2519,7 +2519,7 @@ if (cardData.type === 'mugic') {
     fillText(spacedCode, 62, 333);
 }
 
-// Draw copyright info
+// Updated copyright section in drawCard function
 if (cardData.showCopyright !== false) {
     ctx.save(); // Save current context state
     setFont(5, 'Eurostile Cond Heavy Italic');
@@ -2550,29 +2550,34 @@ if (cardData.showCopyright !== false) {
         }
         
         fillText(copyrightText, copyrightX, 344);
-} else if (cardData.type === 'location') {
-    // Location cards styling - green like Panivian
-    ctx.textAlign = 'center';  // <-- Change to center
-    ctx.fillStyle = '#e8f7cb';
-    ctx.strokeStyle = '#344f30';
-    ctx.lineWidth = 2;
-    ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);  // <-- Use centered position
-    fillText(copyrightText, 122.5, 344);  // <-- Use centered position
+    } else if (cardData.type === 'location') {
+        // Location cards styling - green like Panivian
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#e8f7cb';
+        ctx.strokeStyle = '#344f30';
+        ctx.lineWidth = 2;
+        ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+        fillText(copyrightText, 122.5, 344);
     } else if ((cardData.type === 'creature' || cardData.type === 'mugic') && cardData.tribe) {
         // Creature and Mugic styling share the same tribe-based coloring
         
         // For mugic cards, center align the text
         if (cardData.type === 'mugic' || cardData.type === 'location') {
             ctx.textAlign = 'center';
-            // Center position for mugic and location cards
-            const textPosition = 122.5;
         } else {
-            // Left align for creatures
             ctx.textAlign = 'left';
         }
         
+        // Determine which tribe to use for styling
+        let tribeForStyling = cardData.tribe.toLowerCase();
+        
+        // For mixed tribes, use the main tribe for styling
+        if (cardData.mainTribe && cardData.mainTribe.trim() !== '') {
+            tribeForStyling = cardData.mainTribe.toLowerCase();
+        }
+        
         // Special handling for custom tribe
-        if (cardData.tribe.toLowerCase() === 'custom' && cardData.customColor) {
+        if (tribeForStyling === 'custom' && cardData.customColor) {
             // Get the HSL values
             const h = cardData.customColor.h;
             const s = cardData.customColor.s;
@@ -2595,8 +2600,8 @@ if (cardData.showCopyright !== false) {
                 fillText(copyrightText, 49, 344);
             }
         } else {
-            // Original tribe coloring logic
-            switch(cardData.tribe.toLowerCase()) {
+            // Original tribe coloring logic using tribeForStyling
+            switch(tribeForStyling) {
                 case 'overworld':
                     ctx.fillStyle = '#c7e4ef';
                     break;
@@ -2607,11 +2612,11 @@ if (cardData.showCopyright !== false) {
                     ctx.fillStyle = '#d2c39b';
                     ctx.strokeStyle = '#8a7d55';
                     ctx.lineWidth = 2;
-                if (cardData.type === 'mugic' || cardData.type === 'location') {
-                    ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
-                } else {
-                    ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-                }
+                    if (cardData.type === 'mugic' || cardData.type === 'location') {
+                        ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+                    } else {
+                        ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+                    }
                     break;
                 case 'danian':
                     ctx.fillStyle = '#c5ad95';
@@ -2669,11 +2674,11 @@ if (cardData.showCopyright !== false) {
         }
         
         // Draw the text at the appropriate position
-    if (cardData.type === 'mugic' || cardData.type === 'location') {
-        fillText(copyrightText, 122.5, 344);
-    } else {
-        fillText(copyrightText, 49, 344);
-    }
+        if (cardData.type === 'mugic' || cardData.type === 'location') {
+            fillText(copyrightText, 122.5, 344);
+        } else {
+            fillText(copyrightText, 49, 344);
+        }
     } else {
         // Default styling for other card types
         ctx.textAlign = 'left';
@@ -2684,8 +2689,7 @@ if (cardData.showCopyright !== false) {
     ctx.restore(); // Restore previous context state
 }
 
-// Draw artist name with special styling - Only needed for non-mugic cards now
-
+// Updated artist section in drawCard function
 if (cardData.artist && cardData.showArtist !== false && cardData.type !== 'mugic' && cardData.type !== 'location') {
     ctx.save(); // Save current context state
     setFont(5, 'Eurostile Cond Heavy Italic');
@@ -2700,9 +2704,7 @@ if (cardData.artist && cardData.showArtist !== false && cardData.type !== 'mugic
     const artistText = `Art by ${cardData.artist}`;
 
     if (cardData.type === 'attack' || cardData.type === 'battlegear') {
-
         // Attack and Battlegear styling
-
         if (cardData.type === 'attack') {
             ctx.fillStyle = '#a7b1c3';
         } else {
@@ -2710,13 +2712,18 @@ if (cardData.artist && cardData.showArtist !== false && cardData.type !== 'mugic
         }
         fillText(artistText, 0, 0);
     } else if (cardData.type === 'creature') {
-
         // Creature styling - now only used for creature cards
+        
+        // Determine which tribe to use for styling
+        let tribeForStyling = cardData.tribe?.toLowerCase();
+        
+        // For mixed tribes, use the main tribe for styling
+        if (cardData.mainTribe && cardData.mainTribe.trim() !== '') {
+            tribeForStyling = cardData.mainTribe.toLowerCase();
+        }
 
         // Special handling for custom tribe
-
-        if (cardData.tribe?.toLowerCase() === 'custom' && cardData.customColor) {
-
+        if (tribeForStyling === 'custom' && cardData.customColor) {
             // Get the HSL values
             const h = cardData.customColor.h;
             const s = cardData.customColor.s;
@@ -2732,10 +2739,8 @@ if (cardData.artist && cardData.showArtist !== false && cardData.type !== 'mugic
             ctx.strokeText(artistText, 0, 0);
             ctx.fillStyle = `hsl(${h}, ${s * 100}%, ${lighterL * 100}%)`;
         } else {
-
-            // Original tribe-based styling
-
-            switch (cardData.tribe?.toLowerCase()) {
+            // Original tribe-based styling using tribeForStyling
+            switch (tribeForStyling) {
                 case 'overworld':
                     ctx.strokeStyle = '#5272bc';
                     ctx.lineWidth = 2;
@@ -2791,7 +2796,6 @@ if (cardData.artist && cardData.showArtist !== false && cardData.type !== 'mugic
         }
         fillText(artistText, 0, 0);
     } else {
-
         // Default styling for other card types
         ctx.fillStyle = '#000000';
         fillText(artistText, 0, 0);
