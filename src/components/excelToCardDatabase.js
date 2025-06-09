@@ -352,7 +352,7 @@ export const getAllMugicNames = () => {
   console.log(`Output written to: ${outputFilePath}`);
 }
 
-// Function to convert Excel to Location JS database
+// Function to convert Excel to Location JS database with subname parsing
 function convertExcelToLocationDatabase(excelFilePath, outputFilePath) {
   console.log(`Reading Location Excel file: ${excelFilePath}`);
   
@@ -367,15 +367,39 @@ function convertExcelToLocationDatabase(excelFilePath, outputFilePath) {
   
   // Process each card
   const locationDatabase = jsonData.map(card => {
+    // Parse name and subname - split on comma like creature database
+    let name = card.Name || '';
+    let subname = '';
+    
+    if (name.includes(',')) {
+      const parts = name.split(',');
+      name = parts[0].trim();
+      subname = parts[1] ? parts[1].trim() : '';
+    }
+    
+    // Handle initiative - could be string or number, preserve symbols
+    let initiative = card.Initiative || '';
+    
+    // If initiative is a number, convert to string
+    if (typeof initiative === 'number') {
+      initiative = initiative.toString();
+    }
+    
+    // Clean up any extra whitespace but preserve special characters and symbols
+    if (typeof initiative === 'string') {
+      initiative = initiative.trim();
+    }
+    
     const locationData = {
       id: card.ID || `${card.Set}-${Math.random().toString(36).substring(2, 10)}`,
-      name: card.Name || '',
+      name: name,
+      subname: subname,
       set: card.Set ? card.Set.toLowerCase() : '',
       rarity: card.Rarity ? card.Rarity.toLowerCase() : '',
       ability: card.Ability || '',
       flavorText: card["Flavor Text"] || '',
       unique: card.Unique === 'Y' || card.Unique === 1 || card.Unique === true,
-      initiative: parseInt(card.Initiative) || 0,
+      initiative: initiative, // Keep as string to preserve any special formatting
       type: card.Type || '',
       artist: card.Artist || '',
       imageUrl: card.Art || ''
@@ -436,11 +460,12 @@ export const getAllLocationNames = () => {
   return locationDatabase.map(location => ({
     id: location.uniqueId || createUniqueCardKey(location), // Use the composite key here
     name: location.name,
+    subname: location.subname || '', // Include subname in the list
     set: location.set || '',
     setDisplay: location.set ? location.set.toUpperCase() : '',
     type: location.type || '',
     unique: location.unique || false,
-    initiative: location.initiative || 0,
+    initiative: location.initiative || '',
     // Keep the original ID for reference
     originalId: location.id
   }));

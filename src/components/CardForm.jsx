@@ -16,6 +16,28 @@ import CustomTribeLogoUploader from './CustomTribeLogoUploader';
 import CardArtPositioner from './CardArtPositioner';
 import React, { useCallback, useMemo } from 'react';
 import MugicNotesEditor from './MugicNotesEditor';
+import MixedTribeSelector from './MixedTribeSelector';
+import InitiativeInput from './InitiativeInput';
+
+const generateRandomMugicNotes = () => {
+  const NOTES = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+  const LENGTHS = [1, 2, 3, 4];
+  
+  return Array(7).fill().map(() => {
+    const letter = NOTES[Math.floor(Math.random() * NOTES.length)];
+    const length = LENGTHS[Math.floor(Math.random() * LENGTHS.length)];
+    // Randomly decide if note should be sharp or flat (never both)
+    const hasAccidental = Math.random() < 0.3; // 30% chance of having an accidental
+    const isSharp = Math.random() > 0.5;
+    
+    return {
+      letter,
+      length,
+      sharp: hasAccidental && isSharp,
+      flat: hasAccidental && !isSharp,
+    };
+  });
+};
 
 const CARD_SYMBOLS = [
   // Ability elements
@@ -37,6 +59,9 @@ const CARD_SYMBOLS = [
   { code: ':danian:', label: 'Danian', icon: getAssetPath('img/icons/danian.png') },
   { code: ':marrillian:', label: 'Marrillian', icon: getAssetPath('img/icons/marrillian.png') },
   { code: ':past:', label: 'Past', icon: getAssetPath('img/icons/tribeless.png') },
+  { code: ':panivian:', label: 'Panivian', icon: getAssetPath('img/icons/panivian.png') },
+  { code: ':umbrian:', label: 'Umbrian', icon: getAssetPath('img/icons/umbrian.png') },
+  { code: ':frozen:', label: 'Frozen', icon: getAssetPath('img/icons/frozen.png') },
 
   // Mugic icons - OverWorld
   { code: ':overworldmugic:', label: 'OverWorld Mugic', icon: getAssetPath('img/icons/mugic/overworld.png') },
@@ -67,7 +92,22 @@ const CARD_SYMBOLS = [
   // Mugic icons - Generic
   { code: ':genericmugic:', label: 'Generic Mugic', icon: getAssetPath('img/icons/mugic/generic.png') },
   { code: ':genericmugic0:', label: 'Generic Mugic 0', icon: getAssetPath('img/icons/mugic/generic_0.png') },
-  { code: ':genericmugicX:', label: 'Generic Mugic X', icon: getAssetPath('img/icons/mugic/generic_x.png') }
+  { code: ':genericmugicX:', label: 'Generic Mugic X', icon: getAssetPath('img/icons/mugic/generic_x.png') },
+
+  // Mugic icons - Panivian
+  { code: ':panivianmugic:', label: 'Panivian Mugic', icon: getAssetPath('img/icons/mugic/panivian.png') },
+  { code: ':panivianmugic0:', label: 'Panivian Mugic 0', icon: getAssetPath('img/icons/mugic/panivian_0.png') },
+  { code: ':panivianmugicX:', label: 'Panivian Mugic X', icon: getAssetPath('img/icons/mugic/panivian_x.png') },
+
+  // Mugic icons - Umbrian
+  { code: ':umbrianmugic:', label: 'Umbrian Mugic', icon: getAssetPath('img/icons/mugic/umbrian.png') },
+  { code: ':umbrianmugic0:', label: 'Umbrian Mugic 0', icon: getAssetPath('img/icons/mugic/umbrian_0.png') },
+  { code: ':umbrianmugicX:', label: 'Umbrian Mugic X', icon: getAssetPath('img/icons/mugic/umbrian_x.png') },
+
+  // Mugic icons - Frozen
+  { code: ':frozenmugic:', label: 'Frozen Mugic', icon: getAssetPath('img/icons/mugic/frozen.png') },
+  { code: ':frozenmugic0:', label: 'Frozen Mugic 0', icon: getAssetPath('img/icons/mugic/frozen_0.png') },
+  { code: ':frozenmugicX:', label: 'Frozen Mugic X', icon: getAssetPath('img/icons/mugic/frozen_x.png') }
 ];
 
 const SymbolBar = ({ onSymbolSelect }) => {
@@ -511,10 +551,12 @@ const CardForm = () => {
   const [legendary, setLegendary] = useState(false);
   const [loyal, setLoyal] = useState(false);
   const [loyalRestriction, setLoyalRestriction] = useState('');
-  const [initiative, setInitiative] = useState(0);
+  const [initiative, setInitiative] = useState('');
   const [forceUpdate, setForceUpdate] = useState(false);
   const [useOrangeSliders, setUseOrangeSliders] = useState(false);
   const [artPosition, setArtPosition] = useState({ x: 0, y: 0, width: 0, height: 0 });
+  const [showArtPositioner, setShowArtPositioner] = useState(true);
+  const [mainTribe, setMainTribe] = useState('');
   const handleArtPositionChange = useCallback((newPosition) => {
     setArtPosition(newPosition);
   }, []);  
@@ -534,26 +576,60 @@ const CardForm = () => {
   const isMobileBrowser = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   };
-  const getFormattedSubtype = (type, tribe, subtype, isPast) => {
+const getFormattedSubtype = (type, tribe, subtype, isPast, mainTribe = '') => {
     if (!tribe) return '';
 
+    // Special handling for tribeless as main tribe
+    if (mainTribe && mainTribe.toLowerCase() === 'tribeless') {
+        // For tribeless + another tribe, show "Past [SecondaryTribe]"
+        // Extract the secondary tribe from the combined tribe name
+        const tribeLower = tribe.toLowerCase();
+        const mainTribeLower = mainTribe.toLowerCase();
+        
+        // Remove the main tribe from the combined name to get secondary tribe
+        let secondaryTribe = '';
+        if (tribeLower.startsWith(mainTribeLower)) {
+            secondaryTribe = tribeLower.substring(mainTribeLower.length);
+        } else if (tribeLower.endsWith(mainTribeLower)) {
+            secondaryTribe = tribeLower.substring(0, tribeLower.length - mainTribeLower.length);
+        }
+        
+        // Format the secondary tribe
+        const formattedSecondary = {
+            'overworld': 'OverWorld',
+            'underworld': 'UnderWorld',
+            'mipedian': 'Mipedian',
+            'danian': 'Danian',
+            "m'arrillian": "M'arrillian",
+            'panivian': 'Panivian',
+            'umbrian': 'Umbrian',
+            'frozen': 'Frozen'
+        }[secondaryTribe.toLowerCase()];
+        
+        const formattedTribe = formattedSecondary ? `Past ${formattedSecondary}` : '';
+        return `${type.charAt(0).toUpperCase() + type.slice(1)} - ${formattedTribe}${subtype ? ` ${subtype}` : ''}`;
+    }
+
+    // Use mainTribe for other mixed tribes, otherwise use regular tribe
+    const tribeToFormat = mainTribe || tribe;
+
     const formattedTribe = {
-      'overworld': 'OverWorld',
-      'underworld': 'UnderWorld',
-      'mipedian': 'Mipedian',
-      'danian': 'Danian',
-      "m'arrillian": "M'arrillian",
-      'tribeless': 'Past',
-      'panivian': 'Panivian',
-      'umbrian': 'Umbrian',
-      'frozen': 'Frozen',
-      'custom': 'Custom'
-    }[tribe.toLowerCase()];
+        'overworld': 'OverWorld',
+        'underworld': 'UnderWorld',
+        'mipedian': 'Mipedian',
+        'danian': 'Danian',
+        "m'arrillian": "M'arrillian",
+        'tribeless': 'Past',
+        'panivian': 'Panivian',
+        'umbrian': 'Umbrian',
+        'frozen': 'Frozen',
+        'custom': 'Custom'
+    }[tribeToFormat.toLowerCase()];
 
     // Only add 'Past ' prefix if the tribe is not already tribeless/Past
-    const pastPrefix = (isPast && tribe.toLowerCase() !== 'tribeless') ? 'Past ' : '';
+    const pastPrefix = (isPast && tribeToFormat.toLowerCase() !== 'tribeless') ? 'Past ' : '';
     return `${type.charAt(0).toUpperCase() + type.slice(1)} - ${pastPrefix}${formattedTribe}${subtype ? ` ${subtype}` : ''}`;
-  };
+};
   const [stats, setStats] = useState({
     energy: 0,
     courage: 0,
@@ -607,7 +683,8 @@ const resetForm = () => {
   setBuildPoints(0);
   setMugicCost(0);
   setBase(0);
-  setInitiative(0);
+  setInitiative('');
+  setInitiative('');
   setSerialNumber('');
   setShowCopyright(true);
   setShowArtist(true);
@@ -751,13 +828,11 @@ const generateRandomStats = (maxStats) => {
     return type === 'creature' || type === 'battlegear';
   };
 
-  // Add the loadImageFromUrl function right here
   const loadImageFromUrl = async (url) => {
     if (!url) return null;
     return urlToFile(url);
   };
   
-  // Add useEffect to preload icons
   useEffect(() => {
     const preloadIcons = async () => {
       const loadedImages = {};
@@ -784,7 +859,46 @@ const generateRandomStats = (maxStats) => {
   const [mugicCost, setMugicCost] = useState(0);
   const [base, setBase] = useState(0);
 
-// Keep your existing download function
+const convertInitiativeToSymbol = (initiativeText) => {
+  if (!initiativeText) return '';
+  
+  // Only convert values that have actual icons/symbols
+  const textToSymbolMap = {
+    'fire': ':fire:',
+    'air': ':air:',
+    'earth': ':earth:',
+    'water': ':water:',
+    'courage': ':courage:',
+    'power': ':power:',
+    'wisdom': ':wisdom:',
+    'speed': ':speed:',
+    'overworld': ':overworld:',
+    'underworld': ':underworld:',
+    'mipedian': ':mipedian:',
+    'danian': ':danian:',
+    "m'arrillian": ':marrillian:',
+    'marrillian': ':marrillian:',
+    'panivian': ':panivian:',
+    'umbrian': ':umbrian:',
+    'frozen': ':frozen:'
+  };
+  
+  // Handle the case where it might already be a symbol
+  if (initiativeText.startsWith(':') && initiativeText.endsWith(':')) {
+    return initiativeText;
+  }
+  
+  const lowerText = initiativeText.toLowerCase().trim();
+  
+  // Only convert if we have a symbol for it, otherwise return the original text
+  if (textToSymbolMap[lowerText]) {
+    return textToSymbolMap[lowerText];
+  }
+  
+  // Return original text for values like "warbeast", "muge", etc.
+  return initiativeText;
+};
+
 const handleDownload = () => {
   const previewCanvas = document.querySelector('#preview-canvas');
   if (previewCanvas) {
@@ -817,7 +931,7 @@ const handleBleedDownload = async () => {
   if (!previewCanvas) return;
   
   try {
-    // For mugic cards - use a different approach that preserves your standard template logic
+    // For mugic cards
     if (selectedType === 'mugic') {
       // Create a bleed canvas with exact dimensions
       const bleedCanvas = document.createElement('canvas');
@@ -910,24 +1024,63 @@ const handleBleedDownload = async () => {
       return; // Skip remaining processing
     }
     
-    // Define formatTribe function directly inside handleBleedDownload
-    const formatTribe = (tribe) => {
-      if (!tribe) return "";
-      switch (tribe.toLowerCase()) {
-        case "danian": return "Danian";
-        case "overworld": return "OverWorld";
-        case "mipedian": return "Mipedian";
-        case "underworld": return "UnderWorld";
-        case "m'arrillian": return "M'arrillian";
-        case "tribeless": return "";
-        case "generic": return "Generic";
-        case "mipedianow": return "Mipedian OverWorld";
-        case "panivian": return "Panivian";
-        case "umbrian": return "Umbrian";
-        case "frozen": return "Frozen";
-        case "custom": return "";
-        default: return tribe;
-      }
+    // Helper function to check if tribe is a mixed tribe
+    const isMixedTribe = (tribeValue) => {
+      const mixedTribePatterns = [
+        // OverWorld combinations
+        'overworldunderworld', 'underworldoverworld',
+        'overworldmipedian', 'mipedianoverworld', 
+        'overworlddanian', 'danianoverworld',
+        "overworldm'arrillian", "m'arrillianoverworld",
+        'overworldtribeless', 'tribelessoverworld',
+        'overworldpanivian', 'panivianoverworld',
+        'overworldumbrian', 'umbrianoverworld',
+        'overworldfrozen', 'frozenoverworld',
+        
+        // UnderWorld combinations
+        'underworldmipedian', 'mipedianunderworld',
+        'underworlddanian', 'danianunderworld', 
+        "underworldm'arrillian", "m'arrillianunderworld",
+        'underworldtribeless', 'tribelessunderworld',
+        'underworldpanivian', 'panivianunderworld',
+        'underworldumbrian', 'umbrianunderworld',
+        'underworldfrozen', 'frozenunderworld',
+        
+        // Mipedian combinations
+        'mipediandanian', 'danianmipedian',
+        "mipedianm'arrillian", "m'arrillianmipedian",
+        'mipediantribeless', 'tribelessmipedian',
+        'mipedianpanivian', 'panivianmipedian',
+        'mipedianumbrian', 'umbrianmipedian',
+        'mipedianfrozen', 'frozenmipedian',
+        
+        // Danian combinations
+        "danianm'arrillian", "m'arrilliandanian",
+        'daniantribeless', 'tribelessdanian',
+        'danianpanivian', 'paniviandanian',
+        'danianumbrian', 'umbriandanian',
+        'danianfrozen', 'frozendanian',
+        
+        // M'arrillian combinations
+        "m'arrilliantribeless", "tribelessm'arrillian",
+        "m'arrillianpanivian", "panivianm'arrillian",
+        "m'arrillianumbrian", "umbrianm'arrillian",
+        "m'arrillianfrozen", "frozenm'arrillian",
+        
+        // Tribeless combinations
+        'tribelesspanivian', 'paniviantribeless',
+        'tribelessumbrian', 'umbriantribeless',
+        'tribelessfrozen', 'frozentribeless',
+        
+        // Panivian combinations
+        'panivianumbrian', 'umbrianpanivian',
+        'panivianfrozen', 'frozenpanivian',
+        
+        // Umbrian combinations
+        'umbrianfrozen', 'frozenumbrian'
+      ];
+      
+      return mixedTribePatterns.includes(tribeValue.toLowerCase());
     };
   
     // STANDARD PROCESSING FOR NON-MUGIC CARDS
@@ -942,8 +1095,12 @@ const handleBleedDownload = async () => {
     // Determine which border frame to use based on tribe and brainwashed status
     let borderPath;
     if (selectedType === 'creature' && tribe) {
-      // Check if this is a brainwashed creature
-      if (brainwashed) {
+      // Check if this is a mixed tribe
+      if (isMixedTribe(tribe)) {
+        // Use mixed tribe bleed template
+        borderPath = getAssetPath(`img/template/blended bleed/${tribe.toLowerCase()}.png`);
+        console.log('Loading mixed tribe bleed border from:', borderPath);
+      } else if (brainwashed) {
         // Use brainwashed-specific border for creatures
         borderPath = getAssetPath(`img/template/bleed/${tribe.toLowerCase()}bw.png`);
         console.log('Loading brainwashed bleed border from:', borderPath);
@@ -971,12 +1128,30 @@ const handleBleedDownload = async () => {
       
       borderImg.onerror = (err) => {
         console.error('Failed to load border image:', err);
-        // Try a fallback to a generic border
-        const fallbackPath = getAssetPath('img/template/bleed/border.png');
-        console.log('Trying fallback path:', fallbackPath);
-        borderImg.src = fallbackPath;
-        borderImg.onload = resolve;
-        borderImg.onerror = reject;
+        
+        // Try fallbacks in order
+        if (borderPath.includes('/blended bleed/')) {
+          // First fallback: try regular bleed template
+          const fallbackPath = borderPath.replace('/blended bleed/', '/bleed/');
+          console.log('Trying regular bleed fallback:', fallbackPath);
+          borderImg.src = fallbackPath;
+          borderImg.onload = resolve;
+          borderImg.onerror = () => {
+            // Second fallback: try generic border
+            const genericPath = getAssetPath('img/template/bleed/border.png');
+            console.log('Trying generic fallback:', genericPath);
+            borderImg.src = genericPath;
+            borderImg.onload = resolve;
+            borderImg.onerror = reject;
+          };
+        } else {
+          // Try a generic border as fallback
+          const genericPath = getAssetPath('img/template/bleed/border.png');
+          console.log('Trying generic fallback:', genericPath);
+          borderImg.src = genericPath;
+          borderImg.onload = resolve;
+          borderImg.onerror = reject;
+        }
       };
       
       borderImg.src = borderPath;
@@ -1375,6 +1550,9 @@ return (
         setMugicCost(mugicData.mugicCost || 0);
         setSerialNumber(mugicData.id || mugicData.serialNumber || '');
         
+        // RANDOMIZE MUGIC NOTES EACH TIME
+        setMugicNotes(generateRandomMugicNotes());
+        
         // Load image if available
         if (mugicData.imageUrl) {
           loadImageFromUrl(mugicData.imageUrl)
@@ -1407,25 +1585,23 @@ return (
     <LocationSelector
       onSelectLocation={(locationData) => {
         setIsLoading(true);
-
-        // Flag this as a database card
         setIsFromDatabase(true);
-        
-        // Reset any custom art position
         setArtPosition({ x: 0, y: 0, width: 0, height: 0 });        
         
-        // Set form data from locationData
+        // Set basic location data including subname
         setName(locationData.name || '');
+        setSubname(locationData.subname || '');
+        setSubtype(locationData.type || locationData.subtype || '');
         setSet(locationData.set?.toLowerCase() || '');
         setRarity(locationData.rarity || '');
         setAbility(locationData.ability || '');
         setFlavorText(locationData.flavorText || '');
         setUnique(locationData.unique || false);
         setArtist(locationData.artist || '');
-        setInitiative(locationData.initiative || 0);
+        const convertedInitiative = convertInitiativeToSymbol(locationData.initiative || '');
+        setInitiative(convertedInitiative);
         setSerialNumber(locationData.id || locationData.serialNumber || '');
         
-        // Load image if available
         if (locationData.imageUrl) {
           loadImageFromUrl(locationData.imageUrl)
             .then(imageFile => {
@@ -1440,7 +1616,6 @@ return (
           setIsLoading(false);
         }
 
-        // Create re-render sequence for UI updates
         setTimeout(() => {
           setForceUpdate(prev => !prev);
           setTimeout(() => {
@@ -1450,50 +1625,67 @@ return (
       }}
     />
   </div>
-)} 
+)}
 
 {selectedType && (
   <div className="space-y-6">
     {/* Basic Information */}
     <div className="space-y-4 border border-gray-700 rounded-lg p-4 bg-black">
-      {/* Tribe Selection */}
-{selectedType === 'creature' && (
-  <div className="space-y-4">
-    <div>
-      <SelectField
-        label="Tribe"
-        value={tribe}
-        onChange={(e) => setTribe(e.target.value)}
-        options={[
-          { value: 'overworld', label: 'OverWorld' },
-          { value: 'underworld', label: 'UnderWorld' },
-          { value: 'mipedian', label: 'Mipedian' },
-          { value: 'danian', label: 'Danian' },
-          { value: "m'arrillian", label: "M'arrillian" },
-          { value: 'tribeless', label: 'Tribeless' },
-          { value: 'panivian', label: 'Panivian' },
-          { value: 'umbrian', label: 'Umbrian' },
-          { value: 'frozen', label: 'Frozen' },
-          { value: 'custom', label: 'Custom' }
-        ]}
-      />
-    </div>
-    
-{tribe === 'custom' && (
-  <div className="mt-4">
-    <PhotoshopColorPicker 
-      color={customColor} 
-      onChange={setCustomColor} 
-    />
-    <CustomTribeLogoUploader
-      logo={tribeLogo}
-      onChange={setTribeLogo}
-    />
-  </div>
-)}
 
-  </div>
-)}
+    {/* Tribe Selection */}
+    {selectedType === 'creature' && (
+      <div className="space-y-4">
+        {/* Regular Tribe Selection */}
+        <div>
+          <SelectField
+            label="Tribe"
+            value={tribe}
+            onChange={(e) => setTribe(e.target.value)}
+            options={[
+              { value: 'overworld', label: 'OverWorld' },
+              { value: 'underworld', label: 'UnderWorld' },
+              { value: 'mipedian', label: 'Mipedian' },
+              { value: 'danian', label: 'Danian' },
+              { value: "m'arrillian", label: "M'arrillian" },
+              { value: 'tribeless', label: 'Tribeless' },
+              { value: 'panivian', label: 'Panivian' },
+              { value: 'umbrian', label: 'Umbrian' },
+              { value: 'frozen', label: 'Frozen' },
+              { value: 'custom', label: 'Custom' }
+            ]}
+          />
+        </div>
+        
+        {/* Mixed Tribe Selector */}
+        <MixedTribeSelector 
+          onTribeChange={(combinedTribe, mainTribeForSubtype) => {
+            setTribe(combinedTribe);
+            setMainTribe(mainTribeForSubtype || ''); // Store the main tribe for subtype
+            // Reset any custom tribe settings when using mixed tribes
+            if (combinedTribe) {
+              setCustomColor({ h: 0, s: 0.5, l: 0.5 });
+              setTribeLogo(null);
+            }
+          }}
+          disabled={false}
+        />
+        
+        {/* Custom Color/Logo - Only show if tribe is 'custom' */}
+        {tribe === 'custom' && (
+          <div className="mt-4">
+            <PhotoshopColorPicker 
+              color={customColor} 
+              onChange={setCustomColor} 
+            />
+            <CustomTribeLogoUploader
+              logo={tribeLogo}
+              onChange={setTribeLogo}
+            />
+          </div>
+        )}
+      </div>
+    )}
+
     {/* Tribe for Mugic */}
     {selectedType === 'mugic' && (
       <SelectField
@@ -1529,31 +1721,27 @@ return (
           }}
           className="w-full mb-2"
         />
-{/* Only render CardArtPositioner when needed */}        
-{art && !isFromDatabase && (
-  <CardArtPositioner
-    art={art}
-    onPositionChange={setArtPosition}
-    containerWidth={
-      selectedType === 'attack' || selectedType === 'battlegear' 
-        ? 251 
-        : selectedType === 'location' 
-          ? 306 
-          : selectedType === 'mugic' 
-            ? 250 
-            : 236
-    }
-    containerHeight={
-      selectedType === 'attack' || selectedType === 'battlegear'
-        ? 171
-        : selectedType === 'location'
-          ? 137
-          : selectedType === 'mugic'
-            ? 350
-            : 198
-    }
-  />
-)}
+        {/* Show CardArtPositioner for all card types except location */}        
+        {art && showArtPositioner && selectedType !== 'location' && (
+          <CardArtPositioner
+            art={art}
+            onPositionChange={setArtPosition}
+            containerWidth={
+              selectedType === 'attack' || selectedType === 'battlegear' 
+                ? 251 
+                : selectedType === 'mugic' 
+                  ? 250 
+                  : 236
+            }
+            containerHeight={
+              selectedType === 'attack' || selectedType === 'battlegear'
+                ? 171
+                : selectedType === 'mugic'
+                  ? 350
+                  : 198
+            }
+          />
+        )}
       </div>
     </div>
 
@@ -1604,14 +1792,25 @@ return (
               ]}
             />
 
-{selectedType === 'creature' && tribe && (
+{selectedType === 'creature' && (tribe || mainTribe) && (
   <InputField 
     label="Subtype" 
     value={subtype}
     onChange={(e) => setSubtype(e.target.value)}
-    placeholder={getFormattedSubtype(selectedType, tribe, '', isPast) + ' [your input]'}
+    placeholder={getFormattedSubtype(selectedType, tribe, '', isPast, mainTribe) + ' [your input]'}
   />
 )}
+
+{/* Subtype for Location cards */}
+{selectedType === 'location' && (
+  <InputField 
+    label="Subtype" 
+    value={subtype}
+    onChange={(e) => setSubtype(e.target.value)}
+    placeholder="e.g., Mirage, Past"
+  />
+)}
+
 {selectedType === 'creature' && tribe && (
   <div className="flex justify-center items-center gap-8">
     <div className="flex items-center gap-2">
@@ -1642,6 +1841,13 @@ return (
       <label htmlFor="past" className="text-white">Past</label>
     </div>
   </div>
+)}
+
+{selectedType === 'location' && (
+  <InitiativeInput 
+    value={initiative}
+    onChange={setInitiative}
+  />
 )}
 
 <div className="space-y-4 rounded-lg bg-black">
@@ -1931,6 +2137,7 @@ return (
       cardData={{
         selectedType,
         tribe,
+        mainTribe,
         art,
         artPosition,
         isFromDatabase,
@@ -1960,7 +2167,8 @@ return (
         showArtist,
         useBleedTemplates: true,
         customColor: customColor,
-        tribeLogo: tribeLogo
+        tribeLogo: tribeLogo,
+        initiative: initiative
       }} 
     />
   </div>

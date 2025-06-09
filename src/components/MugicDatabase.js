@@ -1221,7 +1221,7 @@ export const mugicDatabase = [
     "unique": true,
     "mugicCost": 2,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/2oXN4sV.png",
+    "imageUrl": "https://i.imgur.com/lSLtFJ9.png",
     "uniqueId": "Desert's Wrathsong__btd"
   },
   {
@@ -1235,7 +1235,7 @@ export const mugicDatabase = [
     "unique": false,
     "mugicCost": 1,
     "artist": "Jerico Santander",
-    "imageUrl": "https://i.imgur.com/lSLtFJ9.png",
+    "imageUrl": "https://i.imgur.com/2oXN4sV.png",
     "uniqueId": "Deserter's Finale__btd"
   },
   {
@@ -2597,7 +2597,7 @@ export const mugicDatabase = [
     "uniqueId": "Unbalancing Battlesong__au"
   },
   {
-    "id": "FAS-4idviq0o",
+    "id": "FAS-xnju758p",
     "name": "Mondo Rondo",
     "set": "fas",
     "rarity": "rare",
@@ -2611,7 +2611,7 @@ export const mugicDatabase = [
     "uniqueId": "Mondo Rondo__fas"
   },
   {
-    "id": "OP-fwvr7am8",
+    "id": "OP-0org44a6",
     "name": "Najarin's Tower of Song",
     "set": "op",
     "rarity": "ultra rare",
@@ -2625,7 +2625,7 @@ export const mugicDatabase = [
     "uniqueId": "Najarin's Tower of Song__op"
   },
   {
-    "id": "OP-ejk1qnl0",
+    "id": "OP-zwh6v88w",
     "name": "Ulmar's Activating Arpeggio",
     "set": "op",
     "rarity": "uncommon",

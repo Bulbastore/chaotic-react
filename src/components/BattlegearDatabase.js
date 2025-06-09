@@ -2163,7 +2163,7 @@ export const battlegearDatabase = [
     "uniqueId": "Bodal's Element Converter__op"
   },
   {
-    "id": "OP-nr1xq1a5",
+    "id": "OP-6tr2jm7l",
     "name": "Kha'rall Shard of Chance",
     "set": "op",
     "rarity": "super rare",
@@ -2177,7 +2177,7 @@ export const battlegearDatabase = [
     "uniqueId": "Kha'rall Shard of Chance__op"
   },
   {
-    "id": "OP-qh1wao16",
+    "id": "OP-ckysaob1",
     "name": "Mommark's Energy Infuser",
     "set": "op",
     "rarity": "ultra rare",
@@ -2191,7 +2191,7 @@ export const battlegearDatabase = [
     "uniqueId": "Mommark's Energy Infuser__op"
   },
   {
-    "id": "OP-bxn82ozv",
+    "id": "OP-rkb3tkjk",
     "name": "Olkiex' Apron",
     "set": "op",
     "rarity": "uncommon",
@@ -2231,6 +2231,62 @@ export const battlegearDatabase = [
     "artist": "HotShotsVFX",
     "imageUrl": "https://i.imgur.com/2wwoh4t.png",
     "uniqueId": "The Indigo Arc__op"
+  },
+  {
+    "id": "AU-5rnj9vn1",
+    "name": "Giant Mechanical Python of Pyrithion",
+    "set": "au",
+    "rarity": "super rare",
+    "ability": "Recklessness 10\r\nIncrease :fire:Fire attacks by 20.",
+    "flavorText": "\"It's indestructible made by Ulmar.\" - Pyrithion",
+    "unique": false,
+    "legendary": false,
+    "loyal": false,
+    "artist": "",
+    "imageUrl": "https://imgur.com/MVu1yUi.png",
+    "uniqueId": "Giant Mechanical Python of Pyrithion__au"
+  },
+  {
+    "id": "AU-7jq05iz5",
+    "name": "Chaor's Battle Titan Statue",
+    "set": "au",
+    "rarity": "ultra rare",
+    "ability": "Increase Energy by 50\r\nIncrease :fire:Fire attacks by 10\r\nIncrease :speed:Speed by 50\r\n\r\nOnly Chaor or Ulmar can be equipped with this Battlegear.",
+    "flavorText": "",
+    "unique": false,
+    "legendary": false,
+    "loyal": false,
+    "artist": "",
+    "imageUrl": "https://imgur.com/jAQIbeg.png",
+    "uniqueId": "Chaor's Battle Titan Statue__au"
+  },
+  {
+    "id": "AU-mjkt1y6e",
+    "name": "Staff of Ar'Khan From Spiritlands",
+    "set": "au",
+    "rarity": "super rare",
+    "ability": "Returns one attack back to the opposing Creature and returns one attack by battlegear; back to the opposing Creature. Once every Battle.\r\nIf user takes 25 or more damage, destroy this.",
+    "flavorText": "The Staff Belonged to the Father of Vitog. Vertog",
+    "unique": false,
+    "legendary": false,
+    "loyal": false,
+    "artist": "",
+    "imageUrl": "https://imgur.com/YMi84KC.png",
+    "uniqueId": "Staff of Ar'Khan From Spiritlands__au"
+  },
+  {
+    "id": "AU-hg5ayotv",
+    "name": "Chaor's Mugic Battle Axe",
+    "set": "au",
+    "rarity": "super rare",
+    "ability": "Increase Energy by 20\r\nIncrease :fire:Fire attacks by 5\r\nIncrease Mugic attacks by 5",
+    "flavorText": "",
+    "unique": false,
+    "legendary": false,
+    "loyal": false,
+    "artist": "",
+    "imageUrl": "https://imgur.com/0w0Fs2q.png",
+    "uniqueId": "Chaor's Mugic Battle Axe__au"
   }
 ];
 

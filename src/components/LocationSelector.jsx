@@ -17,14 +17,22 @@ const LocationSelector = memo(({ onSelectLocation }) => {
   // Load locations in alphabetical order
   useEffect(() => {
     const loadLocations = async () => {
-      const locations = getAllLocationNames();
+      const locationItems = getAllLocationNames();
       
       // Filter out locations without a name property first
-      const validLocations = locations.filter(location => location && location.name);
+      const validLocations = locationItems.filter(location => location && location.name);
       
-      // Sort locations alphabetically
-      const sortedLocations = validLocations.sort((a, b) => 
-        a.name.localeCompare(b.name)
+      // Create displayName for each location (like CreatureSelector does)
+      const locationsWithDisplayName = validLocations.map(location => ({
+        ...location,
+        displayName: location.subname && location.subname.trim() !== '' 
+          ? `${location.name}, ${location.subname}` 
+          : location.name
+      }));
+      
+      // Sort locations alphabetically by displayName
+      const sortedLocations = locationsWithDisplayName.sort((a, b) => 
+        a.displayName.localeCompare(b.displayName)
       );
       
       allLocations.current = sortedLocations;
@@ -40,10 +48,10 @@ const LocationSelector = memo(({ onSelectLocation }) => {
       setFilteredLocations(allLocations.current);
     } else {
       const filtered = allLocations.current.filter(location => {
-        // Ensure location has name property
-        if (!location || !location.name) return false;
+        // Ensure location has displayName property
+        if (!location || !location.displayName) return false;
         
-        return location.name.toLowerCase().includes(searchTerm.toLowerCase());
+        return location.displayName.toLowerCase().includes(searchTerm.toLowerCase());
       });
       
       setFilteredLocations(filtered);
@@ -279,18 +287,7 @@ const LocationSelector = memo(({ onSelectLocation }) => {
                       >
                         <div className="flex justify-between items-start">
                           <div>
-                            <div className="text-white">{location.name}</div>
-                            <div className="flex gap-2 mt-1">
-                              {location.type && (
-                                <span className="text-xs bg-purple-900 text-white px-1 rounded">{location.type}</span>
-                              )}
-                              {location.initiative !== undefined && (
-                                <span className="text-xs bg-blue-900 text-white px-1 rounded">Initiative: {location.initiative}</span>
-                              )}
-                              {location.unique && (
-                                <span className="text-xs bg-pink-900 text-white px-1 rounded">Unique</span>
-                              )}
-                            </div>
+                            <div className="text-white">{location.displayName}</div>
                           </div>
                           <div className="text-xs text-gray-400 ml-2">{location.setDisplay || location.set?.toUpperCase()}</div>
                         </div>

@@ -44,7 +44,9 @@ function convertExcelToDatabase(excelFilePath, outputFilePath) {
     const unique = card.Unique === 'Y' || card.Unique === 1 || card.Unique === true;
     const legendary = card.Legendary === 'Y' || card.Legendary === 1 || card.Legendary === true;
     const loyal = card.Loyal === 'Y' || card.Loyal === 1 || card.Loyal === true;
-    const isPast = card.isPast === 'Y' || card.isPast === 1 || card.isPast === true;
+    
+    // FIXED: Check for "Past" column instead of "isPast"
+    const isPast = card.Past === 'Y' || card.Past === 1 || card.Past === true;
     
     // FIXED: Handle the case where there's a single "Brainwashed" column containing text
     const brainwashedText = card["Brainwashed"] || '';
