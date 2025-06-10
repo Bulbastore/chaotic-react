@@ -1550,8 +1550,14 @@ return (
         setMugicCost(mugicData.mugicCost || 0);
         setSerialNumber(mugicData.id || mugicData.serialNumber || '');
         
-        // RANDOMIZE MUGIC NOTES EACH TIME
-        setMugicNotes(generateRandomMugicNotes());
+        // Use notes from database if available, otherwise generate random notes
+        if (mugicData.mugicNotes && Array.isArray(mugicData.mugicNotes) && mugicData.mugicNotes.length === 7) {
+          console.log('Using database mugic notes:', mugicData.mugicNotes);
+          setMugicNotes(mugicData.mugicNotes);
+        } else {
+          console.log('No valid database notes found, generating random notes');
+          setMugicNotes(generateRandomMugicNotes());
+        }
         
         // Load image if available
         if (mugicData.imageUrl) {

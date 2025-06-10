@@ -2163,7 +2163,7 @@ export const battlegearDatabase = [
     "uniqueId": "Bodal's Element Converter__op"
   },
   {
-    "id": "OP-6tr2jm7l",
+    "id": "OP-qw3jcokw",
     "name": "Kha'rall Shard of Chance",
     "set": "op",
     "rarity": "super rare",
@@ -2177,7 +2177,7 @@ export const battlegearDatabase = [
     "uniqueId": "Kha'rall Shard of Chance__op"
   },
   {
-    "id": "OP-ckysaob1",
+    "id": "OP-0g0jkoty",
     "name": "Mommark's Energy Infuser",
     "set": "op",
     "rarity": "ultra rare",
@@ -2191,7 +2191,7 @@ export const battlegearDatabase = [
     "uniqueId": "Mommark's Energy Infuser__op"
   },
   {
-    "id": "OP-rkb3tkjk",
+    "id": "OP-9r4d1dy1",
     "name": "Olkiex' Apron",
     "set": "op",
     "rarity": "uncommon",
@@ -2233,7 +2233,7 @@ export const battlegearDatabase = [
     "uniqueId": "The Indigo Arc__op"
   },
   {
-    "id": "AU-5rnj9vn1",
+    "id": "AU-hxdk7k6j",
     "name": "Giant Mechanical Python of Pyrithion",
     "set": "au",
     "rarity": "super rare",
@@ -2247,7 +2247,7 @@ export const battlegearDatabase = [
     "uniqueId": "Giant Mechanical Python of Pyrithion__au"
   },
   {
-    "id": "AU-7jq05iz5",
+    "id": "AU-zivm4lns",
     "name": "Chaor's Battle Titan Statue",
     "set": "au",
     "rarity": "ultra rare",
@@ -2261,7 +2261,7 @@ export const battlegearDatabase = [
     "uniqueId": "Chaor's Battle Titan Statue__au"
   },
   {
-    "id": "AU-mjkt1y6e",
+    "id": "AU-8r7covq4",
     "name": "Staff of Ar'Khan From Spiritlands",
     "set": "au",
     "rarity": "super rare",
@@ -2275,7 +2275,7 @@ export const battlegearDatabase = [
     "uniqueId": "Staff of Ar'Khan From Spiritlands__au"
   },
   {
-    "id": "AU-hg5ayotv",
+    "id": "AU-pz1w36ou",
     "name": "Chaor's Mugic Battle Axe",
     "set": "au",
     "rarity": "super rare",

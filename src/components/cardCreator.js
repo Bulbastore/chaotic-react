@@ -2601,76 +2601,111 @@ if (cardData.showCopyright !== false) {
             }
         } else {
             // Original tribe coloring logic using tribeForStyling
-            switch(tribeForStyling) {
-                case 'overworld':
-                    ctx.fillStyle = '#c7e4ef';
-                    break;
-                case 'underworld':
-                    ctx.fillStyle = '#e1b0b3';
-                    break;
-                case 'mipedian':
-                    ctx.fillStyle = '#d2c39b';
-                    ctx.strokeStyle = '#8a7d55';
-                    ctx.lineWidth = 2;
-                    if (cardData.type === 'mugic' || cardData.type === 'location') {
-                        ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
-                    } else {
-                        ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-                    }
-                    break;
-                case 'danian':
-                    ctx.fillStyle = '#c5ad95';
-                    break;
-                case "m'arrillian":
-                case "marrillian":
-                    ctx.fillStyle = '#cac8ba';
-                    break;
-                case 'generic':
-                    ctx.fillStyle = '#a0a0a0';
-                    break;
-                case 'tribeless':
-                    ctx.fillStyle = '#000000';
-                    ctx.strokeStyle = '#cad1d9';
-                    ctx.lineWidth = 4;
-                    if (cardData.type === 'mugic') {
-                        ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
-                    } else {
-                        ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-                    }
-                    break;
-                case 'umbrian':
-                    ctx.fillStyle = '#bda0e6';
-                    ctx.strokeStyle = '#56436e';
-                    ctx.lineWidth = 2;
-                    if (cardData.type === 'mugic') {
-                        ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
-                    } else {
-                        ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-                    }
-                    break;
-                case 'panivian':
-                    ctx.fillStyle = '#6da566';
-                    ctx.strokeStyle = '#344f30';
-                    ctx.lineWidth = 2;
-                    if (cardData.type === 'mugic') {
-                        ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
-                    } else {
-                        ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-                    }
-                    break;          
-                case 'frozen':
-                    ctx.fillStyle = '#98d3db';
-                    ctx.strokeStyle = '#3a96a3';
-                    ctx.lineWidth = 2;
-                    if (cardData.type === 'mugic') {
-                        ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
-                    } else {
-                        ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
-                    }
-                    break;
-                default:
-                    ctx.fillStyle = '#000000';
-            }
+switch(tribeForStyling) {
+    case 'overworld':
+        ctx.fillStyle = '#c7e4ef';
+        ctx.strokeStyle = '#5272bc';
+        ctx.lineWidth = 2;
+        if (cardData.type === 'mugic' || cardData.type === 'location') {
+            ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+        } else {
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+        }
+        break;
+    case 'underworld':
+        ctx.fillStyle = '#e1b0b3';
+        ctx.strokeStyle = '#b23727';
+        ctx.lineWidth = 2;
+        if (cardData.type === 'mugic' || cardData.type === 'location') {
+            ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+        } else {
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+        }
+        break;
+    case 'mipedian':
+        ctx.fillStyle = '#d2c39b';
+        ctx.strokeStyle = '#8a7d55';
+        ctx.lineWidth = 2;
+        if (cardData.type === 'mugic' || cardData.type === 'location') {
+            ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+        } else {
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+        }
+        break;
+    case 'danian':
+        ctx.fillStyle = '#c5ad95';
+        ctx.strokeStyle = '#87664f';
+        ctx.lineWidth = 2;
+        if (cardData.type === 'mugic' || cardData.type === 'location') {
+            ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+        } else {
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+        }
+        break;
+    case "m'arrillian":
+    case "marrillian":
+        ctx.fillStyle = '#cac8ba';
+        ctx.strokeStyle = '#5a5a4a';
+        ctx.lineWidth = 2;
+        if (cardData.type === 'mugic' || cardData.type === 'location') {
+            ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+        } else {
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+        }
+        break;
+    case 'generic':
+        ctx.fillStyle = '#a0a0a0';
+        ctx.strokeStyle = '#606060';
+        ctx.lineWidth = 2;
+        if (cardData.type === 'mugic' || cardData.type === 'location') {
+            ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+        } else {
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+        }
+        break;
+    case 'tribeless':
+        ctx.fillStyle = '#000000';
+        ctx.strokeStyle = '#cad1d9';
+        ctx.lineWidth = 4;
+        if (cardData.type === 'mugic') {
+            ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+        } else {
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+        }
+        break;
+    case 'umbrian':
+        ctx.fillStyle = '#bda0e6';
+        ctx.strokeStyle = '#56436e';
+        ctx.lineWidth = 2;
+        if (cardData.type === 'mugic') {
+            ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+        } else {
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+        }
+        break;
+    case 'panivian':
+        ctx.fillStyle = '#6da566';
+        ctx.strokeStyle = '#344f30';
+        ctx.lineWidth = 2;
+        if (cardData.type === 'mugic') {
+            ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+        } else {
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+        }
+        break;          
+    case 'frozen':
+        ctx.fillStyle = '#98d3db';
+        ctx.strokeStyle = '#3a96a3';
+        ctx.lineWidth = 2;
+        if (cardData.type === 'mugic') {
+            ctx.strokeText(copyrightText, 122.5 * scale, 344 * scale);
+        } else {
+            ctx.strokeText(copyrightText, 49 * scale, 344 * scale);
+        }
+        break;
+    default:
+        ctx.fillStyle = '#000000';
+}
         }
         
         // Draw the text at the appropriate position

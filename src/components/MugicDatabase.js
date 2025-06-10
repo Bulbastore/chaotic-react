@@ -32,6 +32,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/hSGT5VV.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Canon of Casualty__dop"
   },
   {
@@ -46,6 +90,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/dp34ZzI.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Cascade Symphony__dop"
   },
   {
@@ -60,6 +148,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/2TlXa5m.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Chorus of the Hive__dop"
   },
   {
@@ -74,6 +206,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/0vmIAIz.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Decrescendo__dop"
   },
   {
@@ -88,6 +264,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/85wqGRI.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Discord of Disarming__dop"
   },
   {
@@ -102,6 +322,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jeff Huang",
     "imageUrl": "https://i.imgur.com/I2qFZup.png",
+    "mugicNotes": [
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Ember Flourish__dop"
   },
   {
@@ -116,6 +380,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/Y8JlfJc.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Fanfare of the Vanishing__dop"
   },
   {
@@ -130,6 +438,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/TH3hodk.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Fortissimo__dop"
   },
   {
@@ -144,6 +496,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jeff Huang",
     "imageUrl": "https://i.imgur.com/WoX1z9x.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Geo Flourish__dop"
   },
   {
@@ -158,6 +554,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/DtE5e0A.png",
+    "mugicNotes": [
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Hymn of the Elements__dop"
   },
   {
@@ -172,6 +612,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/r3KIQSH.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Interlude of Consequence__dop"
   },
   {
@@ -186,6 +670,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/za7pbn2.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Melody of Malady__dop"
   },
   {
@@ -200,6 +728,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/s6Pj05d.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Melody of Mirage__dop"
   },
   {
@@ -214,6 +786,7 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/yjQGZoV.png",
+    "mugicNotes": null,
     "uniqueId": "Minor Flourish__dop"
   },
   {
@@ -228,6 +801,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/Fezdp1i.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Mugic Reprise__dop"
   },
   {
@@ -242,6 +859,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/Sy9asbT.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Notes of Neverwhere__dop"
   },
   {
@@ -256,6 +917,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/qpfaU22.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "OverWorld Aria__dop"
   },
   {
@@ -270,6 +975,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/bvt9Wiz.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Refrain of Denial__dop"
   },
   {
@@ -284,6 +1033,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/DFn5BKV.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Refrain of Denial, (OverWorld)__dop"
   },
   {
@@ -298,6 +1091,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/jS2JNXk.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Refrain of Denial, (OverWorld/UnderWorld)__dop"
   },
   {
@@ -312,6 +1149,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Christian Jehie",
     "imageUrl": "https://i.imgur.com/tws6ogC.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Asperity__dop"
   },
   {
@@ -326,6 +1207,50 @@ export const mugicDatabase = [
     "mugicCost": 3,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/4h3K41X.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Deflection__dop"
   },
   {
@@ -340,6 +1265,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/7ImYyBy.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of EmberNova__dop"
   },
   {
@@ -354,6 +1323,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/PEfOVD0.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Focus__dop"
   },
   {
@@ -368,6 +1381,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/A6VPuSY.png",
+    "mugicNotes": [
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Fury__dop"
   },
   {
@@ -382,6 +1439,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/LHDjXAx.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Futuresight__dop"
   },
   {
@@ -396,6 +1497,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/iOYFEEv.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of GeoNova__dop"
   },
   {
@@ -410,6 +1555,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/SuihghC.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Mandiblor__dop"
   },
   {
@@ -424,6 +1613,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/8CpvFvT.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Recovery__dop"
   },
   {
@@ -438,6 +1671,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/vFqmtUx.png",
+    "mugicNotes": [
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Resistance__dop"
   },
   {
@@ -452,6 +1729,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/zF7Ph9u.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Resurgence__dop"
   },
   {
@@ -466,6 +1787,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/XSj0HXO.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Revival, (UnderWorld)__dop"
   },
   {
@@ -480,6 +1845,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/QwladhN.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Stasis__dop"
   },
   {
@@ -494,6 +1903,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/Oau2New.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Surprisal__dop"
   },
   {
@@ -508,6 +1961,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/kXS74AX.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Symmetry__dop"
   },
   {
@@ -522,6 +2019,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/hlQEG0a.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Treachery__dop"
   },
   {
@@ -536,6 +2077,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/KucdmYD.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Truesight__dop"
   },
   {
@@ -550,6 +2135,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/GU5C0PV.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Trills of Diminution__dop"
   },
   {
@@ -564,6 +2193,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/h9g4AzQ.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Cascading Rondo__zoth"
   },
   {
@@ -578,6 +2251,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/x3V2nDY.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Casters' Warsong__zoth"
   },
   {
@@ -592,6 +2309,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/CYWeKC8.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Chorus of Cothica__zoth"
   },
   {
@@ -606,6 +2367,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/mdm7aqu.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Composition of Concentration__zoth"
   },
   {
@@ -620,6 +2425,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/UI8bbr8.png",
+    "mugicNotes": [
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Danian Element Choral__zoth"
   },
   {
@@ -634,6 +2483,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/kRlSUSM.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Defender's Song__zoth"
   },
   {
@@ -648,6 +2541,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/hHtz8ST.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Dissonance of Distraction__zoth"
   },
   {
@@ -662,6 +2599,50 @@ export const mugicDatabase = [
     "mugicCost": "X",
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/wPPKU6Q.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Elemental Denial__zoth"
   },
   {
@@ -676,6 +2657,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/TG8SwnU.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Elemental Elegy__zoth"
   },
   {
@@ -690,6 +2715,50 @@ export const mugicDatabase = [
     "mugicCost": 3,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/5Oqktmk.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Forgotten Origins__zoth"
   },
   {
@@ -704,6 +2773,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/Vgl8gGB.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Gear Glissando__zoth"
   },
   {
@@ -718,6 +2831,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/NkxMnxe.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Hive Destruction__zoth"
   },
   {
@@ -732,6 +2889,50 @@ export const mugicDatabase = [
     "mugicCost": 0,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/JluC0Kt.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Hive Unsung__zoth"
   },
   {
@@ -746,6 +2947,7 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/MQ9Mf60.png",
+    "mugicNotes": null,
     "uniqueId": "Infectious Melody__zoth"
   },
   {
@@ -760,6 +2962,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/OUX63bQ.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Melodic Might__zoth"
   },
   {
@@ -774,6 +3020,7 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/iOepZJ6.png",
+    "mugicNotes": null,
     "uniqueId": "Melody of the Meek__zoth"
   },
   {
@@ -788,6 +3035,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/ymOFPYF.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Momental Virtuosity__zoth"
   },
   {
@@ -802,6 +3093,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/WCgGz8O.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Prelude of Protection__zoth"
   },
   {
@@ -816,6 +3151,50 @@ export const mugicDatabase = [
     "mugicCost": 3,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/PIi7PQG.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Purge Dirge__zoth"
   },
   {
@@ -830,6 +3209,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/FrsonjP.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Recurring Rescue__zoth"
   },
   {
@@ -844,6 +3267,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/qQsVyYF.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Serenade of Subordinance__zoth"
   },
   {
@@ -858,6 +3325,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/6pzkHGE.png",
+    "mugicNotes": [
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Encompassing__zoth"
   },
   {
@@ -872,6 +3383,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/YfWUgr5.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Resilience__zoth"
   },
   {
@@ -886,6 +3441,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/gs0eCDx.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Shelter__zoth"
   },
   {
@@ -900,6 +3499,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/o4ZzoVu.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Switch Riff__zoth"
   },
   {
@@ -914,6 +3557,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/0AMHl6d.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Armament Adagio__ss"
   },
   {
@@ -928,6 +3615,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/7m9PYv4.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Echoes of Empty Hands__ss"
   },
   {
@@ -942,6 +3673,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/0T5HBgU.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Fighters' Fanfare__ss"
   },
   {
@@ -956,6 +3731,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/A4xWzPm.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Hymn of Teleportation__ss"
   },
   {
@@ -970,6 +3789,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/g3G54N5.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Melody of Parasitic Mayhem__ss"
   },
   {
@@ -984,6 +3847,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/VwfBi8n.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Rhyme of the Reckless__ss"
   },
   {
@@ -998,6 +3905,7 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/XBAXbC5.png",
+    "mugicNotes": null,
     "uniqueId": "Song of Desperation__ss"
   },
   {
@@ -1012,6 +3920,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/PkhQGZA.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of the Dyad__ss"
   },
   {
@@ -1026,6 +3978,50 @@ export const mugicDatabase = [
     "mugicCost": 0,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/OVAs2he.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Strain of Ash__ss"
   },
   {
@@ -1040,6 +4036,50 @@ export const mugicDatabase = [
     "mugicCost": 0,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/m6PTsrS.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Strain of Clarity__ss"
   },
   {
@@ -1054,6 +4094,50 @@ export const mugicDatabase = [
     "mugicCost": 0,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/vhs1nTC.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Strain of Expensive Delusions__ss"
   },
   {
@@ -1068,6 +4152,50 @@ export const mugicDatabase = [
     "mugicCost": 0,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/CMkBZQd.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Strain of Infection__ss"
   },
   {
@@ -1082,6 +4210,50 @@ export const mugicDatabase = [
     "mugicCost": 0,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/dJng7hg.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Strain of the Tide__ss"
   },
   {
@@ -1096,6 +4268,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/eD4Lcy3.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Tune of Xerium__ss"
   },
   {
@@ -1110,6 +4326,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/WwT5WP6.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Void Dirge__ss"
   },
   {
@@ -1124,6 +4384,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/uuqyg6X.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Allegro__btd"
   },
   {
@@ -1138,6 +4442,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/DbxSHVj.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Aria of Enragement__btd"
   },
   {
@@ -1152,6 +4500,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/uScI3xg.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Ballad of the Belittled__btd"
   },
   {
@@ -1166,6 +4558,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/CT5dggN.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Cadence Clash__btd"
   },
   {
@@ -1180,6 +4616,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/01qilZu.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Carnivore's Keening__btd"
   },
   {
@@ -1194,6 +4674,50 @@ export const mugicDatabase = [
     "mugicCost": "X",
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/KKqkrOC.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Chromatic Postlude__btd"
   },
   {
@@ -1208,6 +4732,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/4KJgbXa.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Deep Dirge__btd"
   },
   {
@@ -1222,6 +4790,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/lSLtFJ9.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Desert's Wrathsong__btd"
   },
   {
@@ -1236,6 +4848,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/2oXN4sV.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Deserter's Finale__btd"
   },
   {
@@ -1250,6 +4906,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/sUT3Z8s.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Disarming Theme__btd"
   },
   {
@@ -1264,6 +4964,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/bvcn8N5.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Dissonance of Will__btd"
   },
   {
@@ -1278,6 +5022,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/C0NlUaD.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Domestic Hive Hymn__btd"
   },
   {
@@ -1292,6 +5080,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/719TGzD.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Draining Dirge__btd"
   },
   {
@@ -1306,6 +5138,50 @@ export const mugicDatabase = [
     "mugicCost": 3,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/nbQMVCS.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Duality Dirge__btd"
   },
   {
@@ -1320,6 +5196,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/c5wsALz.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Ecstatic Fanfare__btd"
   },
   {
@@ -1334,6 +5254,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/4iXWPYb.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Effervescent Etude__btd"
   },
   {
@@ -1348,6 +5312,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/S15wCy9.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Empowering Serenade__btd"
   },
   {
@@ -1362,6 +5370,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/3KoVOMp.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Etude of Exhaustion__btd"
   },
   {
@@ -1376,6 +5428,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/mMnpWtC.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Falsetto__btd"
   },
   {
@@ -1390,6 +5486,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/nrKRwsv.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Fanfare of the Brain__btd"
   },
   {
@@ -1404,6 +5544,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/zcaoaSn.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Fatiguing Falsetto__btd"
   },
   {
@@ -1418,6 +5602,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/PCDk9f2.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Final Fugue__btd"
   },
   {
@@ -1432,6 +5660,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/GozslQ5.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Fluidmorpher's Fanfare__btd"
   },
   {
@@ -1446,6 +5718,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/nEJRKNA.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Improvisational Melody__btd"
   },
   {
@@ -1460,6 +5776,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/T0W0Z3Y.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Intense Polyphony__btd"
   },
   {
@@ -1474,6 +5834,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/PK95hgy.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Melody of Miracles__btd"
   },
   {
@@ -1488,6 +5892,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/j85YiDq.png",
+    "mugicNotes": [
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Melody of Mirrored Actions__btd"
   },
   {
@@ -1502,6 +5950,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/ziM0yIr.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Nourishing Nocturne__btd"
   },
   {
@@ -1516,6 +6008,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/tJR70mQ.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Odd Opus__btd"
   },
   {
@@ -1530,6 +6066,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/uunV0oL.png",
+    "mugicNotes": [
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Predator's Song__btd"
   },
   {
@@ -1544,6 +6124,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/BTZaZ0H.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Prelude to Dominance__btd"
   },
   {
@@ -1558,6 +6182,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/cfH2JJx.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Psionic Serenade__btd"
   },
   {
@@ -1572,6 +6240,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/DhaUS7X.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Rhythms of Rage__btd"
   },
   {
@@ -1586,6 +6298,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/A74mhB4.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Selective Strain__btd"
   },
   {
@@ -1600,6 +6356,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/plqLkpE.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Stable Shields__btd"
   },
   {
@@ -1614,6 +6414,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/IHDlGYc.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Specific Diminishing__btd"
   },
   {
@@ -1628,6 +6472,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/lN3FGef.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Surprising Riffs__btd"
   },
   {
@@ -1642,6 +6530,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/aNPuO4n.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Symphony of Similarity__btd"
   },
   {
@@ -1656,6 +6588,50 @@ export const mugicDatabase = [
     "mugicCost": "X",
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/5WnG9wH.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Tonal Destruction__btd"
   },
   {
@@ -1670,6 +6646,50 @@ export const mugicDatabase = [
     "mugicCost": 4,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/Ya23Nky.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Calling of Aa'une__roto"
   },
   {
@@ -1684,6 +6704,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/RnfYoBF.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Curemorph Chords__roto"
   },
   {
@@ -1698,6 +6762,50 @@ export const mugicDatabase = [
     "mugicCost": 4,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/OGgVPnZ.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Decelerating Requiem__roto"
   },
   {
@@ -1712,6 +6820,50 @@ export const mugicDatabase = [
     "mugicCost": 3,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/OfZmb0d.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Denial Refrain of the Deep__roto"
   },
   {
@@ -1726,6 +6878,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/0mxdQMr.png",
+    "mugicNotes": [
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Harmonies of the Wind__roto"
   },
   {
@@ -1740,6 +6936,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/UWtEmRk.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Intress' Healing Ballad__roto"
   },
   {
@@ -1754,6 +6994,50 @@ export const mugicDatabase = [
     "mugicCost": 3,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/3Yopraw.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Kopond's Composition__roto"
   },
   {
@@ -1768,6 +7052,50 @@ export const mugicDatabase = [
     "mugicCost": 4,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/MJf9pfc.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Mightsinger's Requiem__roto"
   },
   {
@@ -1782,6 +7110,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/ruGo6l4.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Mindproof March__roto"
   },
   {
@@ -1796,6 +7168,50 @@ export const mugicDatabase = [
     "mugicCost": 4,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/KZu8nL5.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Requiem of Fear__roto"
   },
   {
@@ -1810,6 +7226,50 @@ export const mugicDatabase = [
     "mugicCost": 4,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/AY0QvO0.png",
+    "mugicNotes": [
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Requiem of Lost Minds__roto"
   },
   {
@@ -1824,6 +7284,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/SXUvwtD.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Sound of Noise__roto"
   },
   {
@@ -1838,6 +7342,50 @@ export const mugicDatabase = [
     "mugicCost": 6,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/ovPBCen.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Unheard Melody__roto"
   },
   {
@@ -1852,6 +7400,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/zcifevK.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Vexing Waveform__roto"
   },
   {
@@ -1866,6 +7458,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/RD0uIM6.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Armament Alteration Anthem__tott"
   },
   {
@@ -1880,6 +7516,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/uefXXFu.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Choral of the Apparition__tott"
   },
   {
@@ -1894,6 +7574,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/OKm1l0G.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Dirge of the Desert__tott"
   },
   {
@@ -1908,6 +7632,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/MdFFkGN.png",
+    "mugicNotes": [
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Fanfare of Elemental Champions__tott"
   },
   {
@@ -1922,6 +7690,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/EyC6eFk.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Harmonious Highsong__tott"
   },
   {
@@ -1936,6 +7748,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/B8tdhsl.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Intimidating Melody of M'arr__tott"
   },
   {
@@ -1950,6 +7806,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/8GuuuHn.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Katharaz's Cacophony__tott"
   },
   {
@@ -1964,6 +7864,50 @@ export const mugicDatabase = [
     "mugicCost": 3,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/XkkM0VW.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "March of the M'arrillian Minions__tott"
   },
   {
@@ -1978,6 +7922,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Karol Kolodzinski",
     "imageUrl": "https://i.imgur.com/FNgE5sp.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Minion's Freesong__tott"
   },
   {
@@ -1992,6 +7980,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/eIjvIiI.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Nocturne of the Elements__tott"
   },
   {
@@ -2006,6 +8038,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/SoEQZnV.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Roar of the Mob__tott"
   },
   {
@@ -2020,6 +8096,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/S5C8O7b.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Shock Song__tott"
   },
   {
@@ -2034,6 +8154,50 @@ export const mugicDatabase = [
     "mugicCost": 3,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/9RbkHGH.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Symphonic Pelagic Maresong__tott"
   },
   {
@@ -2048,6 +8212,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Peter Joworoski",
     "imageUrl": "https://i.imgur.com/BWl5oo0.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Symphony of the Guard__tott"
   },
   {
@@ -2062,6 +8270,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/70Cn8M7.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Unisong__tott"
   },
   {
@@ -2076,6 +8328,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/3y4sJed.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Adaptive Progression__fun"
   },
   {
@@ -2090,6 +8386,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/1P1gMcC.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Denying Dirge__fun"
   },
   {
@@ -2104,6 +8444,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/SU3eMcb.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Iflar's Improvisation__fun"
   },
   {
@@ -2118,6 +8502,50 @@ export const mugicDatabase = [
     "mugicCost": 0,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/yCOW457.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Illusion Glissando__fun"
   },
   {
@@ -2132,6 +8560,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/h17V6mj.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Intertwined Melody__fun"
   },
   {
@@ -2146,6 +8618,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/vdms49m.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Jig of Reinforcement__fun"
   },
   {
@@ -2160,6 +8676,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/YCi7xEP.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Monophone Mayhem__fun"
   },
   {
@@ -2174,6 +8734,50 @@ export const mugicDatabase = [
     "mugicCost": "X",
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/vgSGWHx.png",
+    "mugicNotes": [
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Ode to Obscurity__fun"
   },
   {
@@ -2188,6 +8792,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/4acF5my.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Opus Opposed__fun"
   },
   {
@@ -2202,6 +8850,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/hIxkZYM.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Ostinato of Oban'emre__fun"
   },
   {
@@ -2216,6 +8908,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/lorTQ4R.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Skysong Arpeggio__fun"
   },
   {
@@ -2230,6 +8966,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/CsvuniV.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Vidav's Voicing__fun"
   },
   {
@@ -2244,6 +9024,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/0yvB4Yi.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Aegis Airia__au"
   },
   {
@@ -2258,6 +9082,50 @@ export const mugicDatabase = [
     "mugicCost": 0,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/avky9jw.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Ancestral Anthem__au"
   },
   {
@@ -2272,6 +9140,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/oYVf5s5.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Anthem of Stone__au"
   },
   {
@@ -2286,6 +9198,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/08mSkjr.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Battlesong of Depletion__au"
   },
   {
@@ -2300,6 +9256,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/ey5jMlJ.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Battlesong of Renewal__au"
   },
   {
@@ -2314,6 +9314,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/EVRyTGl.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Bonding Battlesong__au"
   },
   {
@@ -2328,6 +9372,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/DTP1tK8.png",
+    "mugicNotes": [
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Consuming Cacophony__au"
   },
   {
@@ -2342,6 +9430,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/4ZMEsNX.png",
+    "mugicNotes": [
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Counterpoint of Chaos__au"
   },
   {
@@ -2356,6 +9488,7 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/ULlJxEQ.png",
+    "mugicNotes": null,
     "uniqueId": "Decomposition__au"
   },
   {
@@ -2370,6 +9503,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/rlMoGw1.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Diminuendo__au"
   },
   {
@@ -2384,6 +9561,7 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/bZEzmfj.png",
+    "mugicNotes": null,
     "uniqueId": "Dischord of Flame__au"
   },
   {
@@ -2398,6 +9576,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/ExWTvoi.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Elemental Counterpoint__au"
   },
   {
@@ -2412,6 +9634,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/bcQq1b9.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Empowering Encore__au"
   },
   {
@@ -2426,6 +9692,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/BXhDkDu.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Fluid Fugue__au"
   },
   {
@@ -2440,6 +9750,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/9k52WPv.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Harmonics of Water__au"
   },
   {
@@ -2454,6 +9808,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/RcwmaEU.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Howl of the Wind__au"
   },
   {
@@ -2468,6 +9866,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/vvfPGHC.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Interlude of Interruption__au"
   },
   {
@@ -2482,6 +9924,7 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/NaZKEtx.png",
+    "mugicNotes": null,
     "uniqueId": "Rocky Refrain__au"
   },
   {
@@ -2496,6 +9939,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/bGR8eby.png",
+    "mugicNotes": [
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Searing Symphony__au"
   },
   {
@@ -2510,6 +9997,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/C1uCFAN.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Silent Requiem__au"
   },
   {
@@ -2524,6 +10055,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/wXZwWR4.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Sonata of Storms__au"
   },
   {
@@ -2538,6 +10113,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/uqwyLoZ.png",
+    "mugicNotes": [
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "C",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Song of Elemental Attunement__au"
   },
   {
@@ -2552,6 +10171,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/fEQnPl0.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Song of Translocation__au"
   },
   {
@@ -2566,6 +10229,50 @@ export const mugicDatabase = [
     "mugicCost": 3,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/YaeXNAK.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Swartbron Battlesong__au"
   },
   {
@@ -2580,6 +10287,50 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/2hqyWjo.png",
+    "mugicNotes": [
+      {
+        "letter": "A",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 4,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Symphony of Shielding__au"
   },
   {
@@ -2594,10 +10345,54 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/nYaBX9P.png",
+    "mugicNotes": [
+      {
+        "letter": "F",
+        "length": 3,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "A",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      }
+    ],
     "uniqueId": "Unbalancing Battlesong__au"
   },
   {
-    "id": "FAS-xnju758p",
+    "id": "FAS-jj1h2bi5",
     "name": "Mondo Rondo",
     "set": "fas",
     "rarity": "rare",
@@ -2608,10 +10403,11 @@ export const mugicDatabase = [
     "mugicCost": 2,
     "artist": "",
     "imageUrl": "https://i.imgur.com/4XPRSiz.png",
+    "mugicNotes": null,
     "uniqueId": "Mondo Rondo__fas"
   },
   {
-    "id": "OP-0org44a6",
+    "id": "OP-ysymn6ld",
     "name": "Najarin's Tower of Song",
     "set": "op",
     "rarity": "ultra rare",
@@ -2622,10 +10418,54 @@ export const mugicDatabase = [
     "mugicCost": 3,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/WK0VMYP.png",
+    "mugicNotes": [
+      {
+        "letter": "C",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "B",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "A",
+        "length": 3,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 4,
+        "sharp": false,
+        "flat": false
+      }
+    ],
     "uniqueId": "Najarin's Tower of Song__op"
   },
   {
-    "id": "OP-zwh6v88w",
+    "id": "OP-3r13npib",
     "name": "Ulmar's Activating Arpeggio",
     "set": "op",
     "rarity": "uncommon",
@@ -2636,6 +10476,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Jerico Santander",
     "imageUrl": "https://i.imgur.com/fa92axS.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 3,
+        "sharp": false,
+        "flat": true
+      },
+      {
+        "letter": "D",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Ulmar's Activating Arpeggio__op"
   },
   {
@@ -2650,6 +10534,50 @@ export const mugicDatabase = [
     "mugicCost": 1,
     "artist": "Martin Molski",
     "imageUrl": "https://i.imgur.com/QiwNb6J.png",
+    "mugicNotes": [
+      {
+        "letter": "G",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 1,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "E",
+        "length": 2,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "C",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "D",
+        "length": 2,
+        "sharp": true,
+        "flat": false
+      },
+      {
+        "letter": "G",
+        "length": 1,
+        "sharp": false,
+        "flat": false
+      },
+      {
+        "letter": "F",
+        "length": 4,
+        "sharp": true,
+        "flat": false
+      }
+    ],
     "uniqueId": "Fortissimo, (OP)__op"
   }
 ];

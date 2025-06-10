@@ -4683,7 +4683,7 @@ export const attackDatabase = [
     "uniqueId": "Emberwhip__fas"
   },
   {
-    "id": "FAS-4n88ubmw",
+    "id": "FAS-b9hw3oms",
     "name": "Faster than the Wind",
     "set": "fas",
     "rarity": "rare",
@@ -4719,7 +4719,7 @@ export const attackDatabase = [
     "uniqueId": "Flurry of Fists__op"
   },
   {
-    "id": "OP-6qdzpzh5",
+    "id": "OP-l97or0d3",
     "name": "M.A.C.A., (Melee Artists Collaborative Attack)",
     "set": "op",
     "rarity": "common",
@@ -4809,7 +4809,7 @@ export const attackDatabase = [
     "uniqueId": "Carniwin__fun"
   },
   {
-    "id": "DOP-ijo4gngr",
+    "id": "DOP-fn6iy6c1",
     "name": "Nexdoors",
     "set": "dop",
     "rarity": "rare",

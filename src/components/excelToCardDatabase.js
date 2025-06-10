@@ -235,6 +235,41 @@ export const getAllBattlegearNames = () => {
   console.log(`Output written to: ${outputFilePath}`);
 }
 
+// Helper function to parse mugic notes string
+function parseMugicNotes(notesString) {
+  if (!notesString || typeof notesString !== 'string') {
+    return null; // Return null for missing notes, so we can detect and use random generation
+  }
+  
+  // Split by spaces to get individual notes
+  const noteTokens = notesString.trim().split(/\s+/);
+  const parsedNotes = [];
+  
+  for (const token of noteTokens) {
+    if (!token) continue;
+    
+    // Parse each note token (e.g., "2Eb", "1D", "3D#", "4C")
+    const match = token.match(/^(\d)([A-G])([b#]?)$/);
+    if (match) {
+      const [, lengthStr, letter, accidental] = match;
+      const length = parseInt(lengthStr);
+      
+      // Validate length is 1-4
+      if (length >= 1 && length <= 4) {
+        parsedNotes.push({
+          letter: letter,
+          length: length,
+          sharp: accidental === '#',
+          flat: accidental === 'b'
+        });
+      }
+    }
+  }
+  
+  // Return parsed notes if we have exactly 7, otherwise null for random generation
+  return parsedNotes.length === 7 ? parsedNotes : null;
+}
+
 // Function to convert Excel to Mugic JS database
 function convertExcelToMugicDatabase(excelFilePath, outputFilePath) {
   console.log(`Reading Mugic Excel file: ${excelFilePath}`);
@@ -266,6 +301,9 @@ function convertExcelToMugicDatabase(excelFilePath, outputFilePath) {
     // Handle mugic cost - preserve "X" values as strings, convert numbers to integers
     const parsedMugicCost = mugicCost === "X" ? "X" : (parseInt(mugicCost) || 0);
 
+    // Parse mugic notes from the Notes column
+    const mugicNotes = parseMugicNotes(card.Notes);
+
     const mugicData = {
       id: card.ID || `${card.Set}-${Math.random().toString(36).substring(2, 10)}`,
       name: card.Name || '',
@@ -277,7 +315,8 @@ function convertExcelToMugicDatabase(excelFilePath, outputFilePath) {
       unique: card.Unique === 'Y' || card.Unique === 1 || card.Unique === true,
       mugicCost: parsedMugicCost,  // Use the properly parsed mugicCost value
       artist: card.Artist || '',
-      imageUrl: card.Art || ''
+      imageUrl: card.Art || '',
+      mugicNotes: mugicNotes
     };
     
     // Add unique card key
