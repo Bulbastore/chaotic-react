@@ -77,7 +77,6 @@ const CardPreview = ({ cardData }) => {
           showArtist: cardData.showArtist !== undefined ? cardData.showArtist : true,     
           customColor: cardData.tribe === 'custom' ? cardData.customColor : null,
           tribeLogo: cardData.tribeLogo,
-          noStats: cardData.noStats || false, 
         });
 
         if (mounted) {
