@@ -2874,6 +2874,8 @@ function drawCreature(cardData) {
 
     // Changed to explicit check and conversion
     fillText(cardData.stats.energy === 0 ? '0' : cardData.stats.energy.toString(), 219, 335);
+    
+    // Combat stats (courage, power, wisdom, speed)
     setFont(9, 'Arial Bold');
     ctx.textAlign = 'right';
     ctx.fillStyle = '#000000';

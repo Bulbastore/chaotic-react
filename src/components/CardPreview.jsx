@@ -52,6 +52,7 @@ const CardPreview = ({ cardData }) => {
           loyal: cardData.loyal || false,
           loyalRestriction: cardData.loyalRestriction || '',
           past: cardData.past || false,
+          noStats: cardData.noStats || false,
           stats: cardData.stats || {
             energy: 0,
             courage: 0,
@@ -60,7 +61,6 @@ const CardPreview = ({ cardData }) => {
             speed: 0,
             mugic: 0
           },
-          noStats: cardData.noStats || false,
           elements: cardData.elements || {
             fire: 0,
             air: 0,

@@ -689,7 +689,7 @@ const resetForm = () => {
   setShowCopyright(true);
   setShowArtist(true);
   setBrainwashedText('');
-  setNoStats(false);
+  setNoStats(false); 
   setMugicNotes(Array(7).fill().map(() => ({ 
     letter: 'C', 
     length: 1, 
@@ -1847,7 +1847,6 @@ return (
       <label htmlFor="past" className="text-white">Past</label>
     </div>
     
-    {/* ADD THIS NEW CHECKBOX */}
     <div className="flex items-center gap-2">
       <input
         type="checkbox"
@@ -2413,7 +2412,6 @@ return (
     </button>
   </div>
 )}
-
 </div>
 
 {/* Download Buttons - Mobile Only */}
