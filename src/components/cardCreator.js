@@ -2855,14 +2855,18 @@ return canvas;
 }
 
 function drawCreature(cardData) {
-
-    // Mugic stat
+    // Mugic stat - always display regardless of noStats setting
     setFont(18, 'Eurostile Heavy');
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
 
     // Changed to explicit check and conversion
     fillText(cardData.stats.mugic === 0 ? '0' : cardData.stats.mugic.toString(), 17, 336);
+
+    // Check if noStats is enabled - if so, don't draw energy and combat stats
+    if (cardData.noStats) {
+        return; // Exit early, don't draw energy and combat stats
+    }
 
     // Energy stat
     setFont(18, 'Arial Black');
@@ -2880,7 +2884,6 @@ function drawCreature(cardData) {
         { key: 'speed', y: 305 }
     ];
     stats.forEach(({ key, y }) => {
-
         // Changed to explicit check and conversion
         fillText(cardData.stats[key] === 0 ? '0' : cardData.stats[key].toString(), 38, y);
     });

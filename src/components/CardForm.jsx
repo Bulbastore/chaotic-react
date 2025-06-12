@@ -5,7 +5,6 @@ import { getAssetPath } from './assetPaths';
 import FormattingToolbar from './FormattingToolbar';
 import CreatureSelector from './CreatureSelector';
 import { getCreatureById } from './CreatureDatabase';
-import BatchGeneratorUI from './BatchGeneratorUI';
 import { urlToFile, loadAndCacheImage } from './imageCache';
 import AttackSelector from './AttackSelector';
 import BattlegearSelector from './BattlegearSelector';
@@ -557,6 +556,7 @@ const CardForm = () => {
   const [artPosition, setArtPosition] = useState({ x: 0, y: 0, width: 0, height: 0 });
   const [showArtPositioner, setShowArtPositioner] = useState(true);
   const [mainTribe, setMainTribe] = useState('');
+  const [noStats, setNoStats] = useState(false);
   const handleArtPositionChange = useCallback((newPosition) => {
     setArtPosition(newPosition);
   }, []);  
@@ -689,6 +689,7 @@ const resetForm = () => {
   setShowCopyright(true);
   setShowArtist(true);
   setBrainwashedText('');
+  setNoStats(false);
   setMugicNotes(Array(7).fill().map(() => ({ 
     letter: 'C', 
     length: 1, 
@@ -1835,7 +1836,6 @@ return (
       <label htmlFor="brainwashed" className="text-white">Brainwashed</label>
     </div>
     
-    {/* Always show the Past checkbox, regardless of tribe */}
     <div className="flex items-center gap-2">
       <input
         type="checkbox"
@@ -1845,6 +1845,18 @@ return (
         className="w-4 h-4 accent-[#9FE240]"
       />
       <label htmlFor="past" className="text-white">Past</label>
+    </div>
+    
+    {/* ADD THIS NEW CHECKBOX */}
+    <div className="flex items-center gap-2">
+      <input
+        type="checkbox"
+        id="noStats"
+        checked={noStats}
+        onChange={(e) => setNoStats(e.target.checked)}
+        className="w-4 h-4 accent-[#9FE240]"
+      />
+      <label htmlFor="noStats" className="text-white">No Stats</label>
     </div>
   </div>
 )}
@@ -2174,7 +2186,8 @@ return (
         useBleedTemplates: true,
         customColor: customColor,
         tribeLogo: tribeLogo,
-        initiative: initiative
+        initiative: initiative,
+        noStats: noStats
       }} 
     />
   </div>
@@ -2219,164 +2232,169 @@ return (
 )}
 
 {/* Stats Section - Mobile Only */}
-<div className="lg:hidden flex flex-col mb-24 mt-4">
-  {selectedType === 'creature' && (
-    <div className="w-full bg-black border border-gray-700 rounded-lg mb-4">
-      {/* Add the preset selector for mobile */}
-      <div className="p-3 border-b border-gray-700">
-        <div className="flex items-center justify-between">
-          <label className="font-bold text-white text-sm">Stats Preset:</label>
+{!noStats && (
+  <div className="lg:hidden flex flex-col mb-24 mt-4">
+    {selectedType === 'creature' && (
+      <div className="w-full bg-black border border-gray-700 rounded-lg mb-4">
+        {/* Add the preset selector for mobile */}
+        <div className="p-3 border-b border-gray-700">
+          <div className="flex items-center justify-between">
+            <label className="font-bold text-white text-sm">Stats Preset:</label>
+            <div className="flex items-center gap-2">
+              <select
+                value={statsPreset}
+                onChange={(e) => {
+                  const newPreset = e.target.value;
+                  setStatsPreset(newPreset);
+                  setUseOrangeSliders(newPreset === 'max');
+                  
+                  if (newPreset === 'random') {
+                    const originalMugic = stats.mugic;
+                    const randomStats = generateRandomStats(originalMaxStats);
+                    randomStats.mugic = originalMugic;
+                    setStats(randomStats);
+                  } else {
+                    const adjustedStats = adjustStatsBasedOnPreset(originalMaxStats, newPreset);
+                    setStats(adjustedStats);
+                  }
+                }}
+                className="w-20 p-1 border border-gray-700 rounded bg-black text-white text-sm focus:border-[#9FE240] focus:outline-none"
+              >
+                <option value="max">Max</option>
+                <option value="mid">Mid</option>
+                <option value="min">Min</option>
+                <option value="random">Random</option>
+              </select>
+              
+              {statsPreset === 'random' && (
+                <button 
+                  onClick={() => {
+                    const originalMugic = stats.mugic;
+                    const randomStats = generateRandomStats(originalMaxStats);
+                    randomStats.mugic = originalMugic;
+                    setStats(randomStats);
+                  }}
+                  className="bg-transparent border-none p-0"
+                  title="Re-roll random stats"
+                >
+                  <img 
+                    src={getAssetPath('img/d20.png')}
+                    alt="Re-roll dice" 
+                    className="w-8 h-8 object-contain"
+                  />
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+        
+        {/* Existing stats sliders */}
+        <div className="grid grid-cols-1 gap-0 p-2">
+          {Object.entries(stats).map(([stat, value]) => (
+            <NumberSlider
+              key={stat}
+              label={stat.charAt(0).toUpperCase() + stat.slice(1)}
+              value={value}
+              onChange={(e) => setStats(prev => ({
+                ...prev,
+                [stat]: parseInt(e.target.value)
+              }))}
+              max={stat === 'mugic' ? 5 : 220}
+              step={stat === 'mugic' ? 1 : 5}
+              type={stat === 'mugic' ? 'small' : 'stats'}
+              useOrangeColor={useOrangeSliders || (originalMaxStats[stat] !== undefined && value === originalMaxStats[stat])}
+            />
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+)}
+
+{/* Stats Section - Desktop Only */}
+{!noStats && (
+  <div className="hidden lg:block">
+    {selectedType === 'creature' && (
+      <div className="max-w-[620px] w-full bg-black border border-gray-700 rounded-lg mt-5">
+       <div className="w-full max-w-xs mx-auto bg-black border border-gray-700 rounded-lg mt-3 mb-2 p-2">
+        <div className="flex items-center justify-center gap-3">
           <div className="flex items-center gap-2">
+            <label className="font-bold text-white">Stats Preset:</label>
             <select
               value={statsPreset}
               onChange={(e) => {
                 const newPreset = e.target.value;
                 setStatsPreset(newPreset);
+                
+                // Set the orange slider flag based on preset selection
                 setUseOrangeSliders(newPreset === 'max');
                 
                 if (newPreset === 'random') {
+                  // Modified to preserve mugic stat
                   const originalMugic = stats.mugic;
                   const randomStats = generateRandomStats(originalMaxStats);
+                  // Keep the original mugic value
                   randomStats.mugic = originalMugic;
                   setStats(randomStats);
                 } else {
+                  // Use the existing adjustment for other presets
                   const adjustedStats = adjustStatsBasedOnPreset(originalMaxStats, newPreset);
                   setStats(adjustedStats);
                 }
               }}
-              className="w-20 p-1 border border-gray-700 rounded bg-black text-white text-sm focus:border-[#9FE240] focus:outline-none"
+              className="w-24 p-1 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
             >
               <option value="max">Max</option>
               <option value="mid">Mid</option>
               <option value="min">Min</option>
               <option value="random">Random</option>
             </select>
-            
-            {statsPreset === 'random' && (
-              <button 
-                onClick={() => {
-                  const originalMugic = stats.mugic;
-                  const randomStats = generateRandomStats(originalMaxStats);
-                  randomStats.mugic = originalMugic;
-                  setStats(randomStats);
-                }}
-                className="bg-transparent border-none p-0"
-                title="Re-roll random stats"
-              >
-                <img 
-                  src={getAssetPath('img/d20.png')}
-                  alt="Re-roll dice" 
-                  className="w-8 h-8 object-contain"
-                />
-              </button>
-            )}
           </div>
-        </div>
-      </div>
-      
-      {/* Existing stats sliders */}
-      <div className="grid grid-cols-1 gap-0 p-2">
-        {Object.entries(stats).map(([stat, value]) => (
-          <NumberSlider
-            key={stat}
-            label={stat.charAt(0).toUpperCase() + stat.slice(1)}
-            value={value}
-            onChange={(e) => setStats(prev => ({
-              ...prev,
-              [stat]: parseInt(e.target.value)
-            }))}
-            max={stat === 'mugic' ? 5 : 220}
-            step={stat === 'mugic' ? 1 : 5}
-            type={stat === 'mugic' ? 'small' : 'stats'}
-            useOrangeColor={useOrangeSliders || (originalMaxStats[stat] !== undefined && value === originalMaxStats[stat])}
-          />
-        ))}
-      </div>
-    </div>
-  )}
-</div>
-
-{/* Stats Section - Desktop Only */}
-<div className="hidden lg:block">
-  {selectedType === 'creature' && (
-    <div className="max-w-[620px] w-full bg-black border border-gray-700 rounded-lg mt-5">
-     <div className="w-full max-w-xs mx-auto bg-black border border-gray-700 rounded-lg mt-3 mb-2 p-2">
-      <div className="flex items-center justify-center gap-3">
-        <div className="flex items-center gap-2">
-          <label className="font-bold text-white">Stats Preset:</label>
-          <select
-            value={statsPreset}
-            onChange={(e) => {
-              const newPreset = e.target.value;
-              setStatsPreset(newPreset);
-              
-              // Set the orange slider flag based on preset selection
-              setUseOrangeSliders(newPreset === 'max');
-              
-              if (newPreset === 'random') {
+          
+          {/* Dice Button - Only visible when random is selected */}
+          {statsPreset === 'random' && (
+            <button 
+              onClick={() => {
                 // Modified to preserve mugic stat
                 const originalMugic = stats.mugic;
                 const randomStats = generateRandomStats(originalMaxStats);
                 // Keep the original mugic value
                 randomStats.mugic = originalMugic;
                 setStats(randomStats);
-              } else {
-                // Use the existing adjustment for other presets
-                const adjustedStats = adjustStatsBasedOnPreset(originalMaxStats, newPreset);
-                setStats(adjustedStats);
-              }
-            }}
-            className="w-24 p-1 border border-gray-700 rounded bg-black text-white focus:border-[#9FE240] focus:outline-none"
-          >
-            <option value="max">Max</option>
-            <option value="mid">Mid</option>
-            <option value="min">Min</option>
-            <option value="random">Random</option>
-          </select>
+              }}
+              className="bg-transparent border-none p-0"
+              title="Re-roll random stats"
+            >
+              <img 
+                src={getAssetPath('img/d20.png')}
+                alt="Re-roll dice" 
+                className="w-10 h-10 object-contain hover:opacity-80 transition-opacity"
+              />
+            </button>
+          )}
         </div>
-        
-        {/* Dice Button - Only visible when random is selected */}
-        {statsPreset === 'random' && (
-          <button 
-            onClick={() => {
-              // Modified to preserve mugic stat
-              const originalMugic = stats.mugic;
-              const randomStats = generateRandomStats(originalMaxStats);
-              // Keep the original mugic value
-              randomStats.mugic = originalMugic;
-              setStats(randomStats);
-            }}
-            className="bg-transparent border-none p-0"
-            title="Re-roll random stats"
-          >
-            <img 
-              src={getAssetPath('img/d20.png')}
-              alt="Re-roll dice" 
-              className="w-10 h-10 object-contain hover:opacity-80 transition-opacity"
+      </div>
+        <div className="grid grid-cols-1 gap-0 p-2">
+          {Object.entries(stats).map(([stat, value]) => (
+            <NumberSlider
+              key={stat}
+              label={stat.charAt(0).toUpperCase() + stat.slice(1)}
+              value={value}
+              onChange={(e) => setStats(prev => ({
+                ...prev,
+                [stat]: parseInt(e.target.value)
+              }))}
+              max={stat === 'mugic' ? 5 : 220}
+              step={stat === 'mugic' ? 1 : 5}
+              type={stat === 'mugic' ? 'small' : 'stats'}
+              useOrangeColor={useOrangeSliders || (originalMaxStats[stat] !== undefined && value === originalMaxStats[stat])}
             />
-          </button>
-        )}
+          ))}
+        </div>
       </div>
-    </div>
-      <div className="grid grid-cols-1 gap-0 p-2">
-        {Object.entries(stats).map(([stat, value]) => (
-          <NumberSlider
-            key={stat}
-            label={stat.charAt(0).toUpperCase() + stat.slice(1)}
-            value={value}
-            onChange={(e) => setStats(prev => ({
-              ...prev,
-              [stat]: parseInt(e.target.value)
-            }))}
-            max={stat === 'mugic' ? 5 : 220}
-            step={stat === 'mugic' ? 1 : 5}
-            type={stat === 'mugic' ? 'small' : 'stats'}
-            useOrangeColor={useOrangeSliders || (originalMaxStats[stat] !== undefined && value === originalMaxStats[stat])}
-          />
-        ))}
-      </div>
-    </div>
-  )}
+    )}
+  </div>
+)}
   
 {/* Download Buttons for Non-Attack Cards */}
 {selectedType && selectedType !== 'attack' && (
@@ -2395,7 +2413,7 @@ return (
     </button>
   </div>
 )}
-</div>
+
 </div>
 
 {/* Download Buttons - Mobile Only */}

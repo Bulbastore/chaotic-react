@@ -60,6 +60,7 @@ const CardPreview = ({ cardData }) => {
             speed: 0,
             mugic: 0
           },
+          noStats: cardData.noStats || false,
           elements: cardData.elements || {
             fire: 0,
             air: 0,
@@ -76,6 +77,7 @@ const CardPreview = ({ cardData }) => {
           showArtist: cardData.showArtist !== undefined ? cardData.showArtist : true,     
           customColor: cardData.tribe === 'custom' ? cardData.customColor : null,
           tribeLogo: cardData.tribeLogo,
+          noStats: cardData.noStats || false, 
         });
 
         if (mounted) {
